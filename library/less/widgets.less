@@ -1,0 +1,115 @@
+.widgettitle {
+  padding-bottom: 1em;
+  .alpha-color(@lighter,0.4);
+  border-bottom: 2px solid @alpha-color;
+  margin-bottom: 1em;
+
+  color: @light;
+  text-align: center;
+}
+
+
+.widget {
+  padding: 0 10px;
+  margin: 0 0 2.2em 0; }
+  .widget ul li {
+    margin-bottom: 0.75em;
+    /* deep nesting */ }
+    .widget ul li ul {
+      margin-top: 0.75em;
+      padding-left: 1em; }
+
+
+.widgettitle {
+  color: @lighter-grey;
+  margin-top: 0;
+  padding-bottom: 0.5em;
+}
+
+.footer .widgettitle {
+  color: @light;
+}
+
+.widget_categories {
+
+  .widgettitle {
+    margin-bottom: 0;
+  }
+  ul {
+    padding: 0;
+    margin: 0;
+    .alpha-color(@lighter,0.4);
+    border-bottom: 2px solid @alpha-color;
+  }
+  .cat-item {
+    list-style-type: none;
+    padding: 0;
+
+    margin: 0;
+
+    &:nth-of-type(n+2) {
+      .alpha-color(@lighter,0.6);
+      border-top: 1px solid @alpha-color;
+    }
+
+    a {
+      display: block;
+      padding: 0.3em;
+      color: @white;
+      position: relative;
+      &:after {
+        content: "";
+        display: block;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        transition: transform 0.3s ease;
+        transform-origin: bottom;
+        transform:scale(1,0);
+        background: RGBA(255,255,255,0.4);
+        position: absolute;
+      }
+
+      &:hover {
+        &:after {
+          transform:scale(1,1);
+        }
+      }
+    }
+
+  }
+}
+
+.tagcloud {
+
+  a {
+    color: @lighter-grey;
+    padding: 3px;
+    margin: 0 4px;
+    .alpha-color(@lighter,0.5);
+    border-bottom: 1px solid @alpha-color;
+    position: relative;
+    display: inline-block;
+
+    &:after {
+        content: "";
+        display: block;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        transition: transform 0.3s ease;
+        transform-origin: bottom;
+        transform:scale(1,0);
+        background: RGBA(255,255,255,0.4);
+        position: absolute;
+      }
+
+      &:hover {
+        &:after {
+          transform:scale(1,1);
+        }
+      }
+  }
+}

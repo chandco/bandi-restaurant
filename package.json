@@ -1,0 +1,24 @@
+{
+  "name": "cowfields-wordpress-starter-theme",
+  "description": "Wordpress with 'everything' and no styling, to make rolling out new builds super quick",
+  "author": "Nathan Edwards <nathan@cowfields.co.uk>",
+  "devDependencies": {
+    "gulp": "latest",
+    "gulp-watch": "latest",
+    "gulp-less": "latest",
+    "gulp-uglifycss": "latest",
+    "gulp-autoprefixer": "latest",
+    "browser-sync": "latest",
+    "gulp-uglify": "latest",
+    "gulp-jshint": "latest",
+    "gulp-sourcemaps": "latest",
+    "gulp-image-resize": "latest",
+    "gulp-changed": "latest",
+    "gulp-rename": "latest",
+    "gulp-combine-media-queries": "latest",
+    "gulp-shell": "~0.2.11",
+    "requirejs": "latest",
+    "gulp-run": "~1.6.6",
+    "underscore": "~1.7.0"
+  }
+}
