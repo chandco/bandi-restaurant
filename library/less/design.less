@@ -1,84 +1,10 @@
 
-// mostly this is setting variables to change the look of the site.
-
-
-// ORNC STYLES
-
-
-// COLOURS
-
-@darkblue : #3b455e;
-@lightblue : #687f91;
-@off-lightblue : #8296A6;
-@this-website: ~'http://ornc.local'; // this will have to change 
-
-// We use generic colour names to imply something so set them here.  
-@body-font : "ff-meta-web-pro";
-@h-font :'Felix Titling W00';
-
-@dark : @darkblue;
-@light : @lightblue;
-@lighter : @off-lightblue;
-
-@med-dark : #506077;
-
-// used for navigation, amongst other things.
-@highlight : #fcd27c;
-@highlight-text : @black;
-
-@emphasis : @darkblue;
-@emphasis-text: @white; // if @emphasis was a background etc.
-
-@link-color : @highlight;
-
-// general colour as a default - this just sets the body tag
-@default-text : @lightgrey;
-
-@byline: @lighter;
-
-
-// CF7 Stuff
-@formbg : @lightblue;
-
-// Header Styles and sizes
-
-//@lighter-grey; @white
-
-@nav-highlight : @white;
-@nav-highlight-text : @lightblue;
-
-@nav-secondary-highlight : @light;
-@nav-secondary-highlight-text : @white;
-
-
-// carousel styles
-@cycle-carousel-width : 100%;
-@carousel-next-fa-icon : @fa-var-chevron-right;
-@carousel-prev-fa-icon : @fa-var-chevron-left;
-@skip-offset : 5%;
-@skip-button-color : RGBA(255,255,255,0.8);
-@carousel-aspect-ratio : (4 / 6);
-@slide-background: @darkgrey;
-
-@carousel-max-height: 600px;
-@carousel-height: 600px; 
-
-
-
-//mobile and headers stuff
-
-
-@mobile-line-height: 14px;
-@header-height-px : 60px;
-
-
-@content-margin : 20px; // better than em because of positioning absolutes
 
 // use mixins to make cleaner CSS, but keep the config here.
 
 .body-style() {
-	color: rgba(255, 255, 255, 1.0);
-	background: @darkblue; // may want image.
+	color: #333;
+	background: @body-background; // may want image.
 }
 
 
@@ -120,14 +46,14 @@
 
 
 .header-style() {
-	background: @lighter;
+	background: @header-background;
   height: @header-height-px;
   padding: (@header-height-px * 0.15) 0;
   position: fixed;
   top: 0;
 
-   @media screen and (max-width: 700px) { 
-      height: @header-height-px * 0.8;
+   @media screen and (max-width: 900px) { 
+      height: @header-height-px * 0.7;
    }
 }
 
@@ -167,8 +93,6 @@
 }
 
 
-@cta-sidebar-width : 15%;
-
 
 // Media queries for central columns because of the CTA floating thingy
 
@@ -178,14 +102,12 @@
 
   @media screen and (max-width: 1500px) {
       
-      margin-right: @cta-sidebar-width * 1.2;
+      
   }
 
   @media screen and (max-width: 1200px) {
       
-      margin-right: auto;
-      max-width: 100% - (@cta-sidebar-width) - 4%;
-      margin-left: 1%;
+      
   }
 
   @media screen and (max-width: 900px) {
@@ -213,7 +135,7 @@
 
 
 .page-template-template-home #content {
-  margin-top: @content-margin;
+  margin-top: @header-height-px;
 }
 
 .nav-li-style() {
@@ -233,7 +155,7 @@
      right: -2px !important; // account for the border
   }
   &:hover {
-    border-right:2px solid RGBA(0,0,0,0.4);
+    
 
     .sub-menu, .children {
       padding: 0;
@@ -246,7 +168,7 @@
 }
 
 
-@mobile-cta-height : 100px;
+
 .popup-styles() {
   // this is for the popup mobile menu: #popup-menu-container is this basically.  
 
@@ -280,8 +202,9 @@ body {
 
 
 .nav-font-style() {
-  text-transform: uppercase;
+
   letter-spacing: 0.2em;
+  color: inherit;
 }
 
 

@@ -1,35 +1,9 @@
+
+
 .editor-styles() {
 
-  
-@darkblue : #3b455e;
-@lightblue : #687f91;
-@off-lightblue : #8296A6;
-@this-website: ~'http://ornc.local'; // this will have to change 
 
-// We use generic colour names to imply something so set them here.  
-@body-font : "ff-meta-web-pro";
-@h-font :'Felix Titling W00';
-
-@dark : @darkblue;
-@light : @lightblue;
-@lighter : @off-lightblue;
-
-@med-dark : #506077;
-
-// used for navigation, amongst other things.
-@highlight : #fcd27c;
-@highlight-text : @black;
-
-@emphasis : @darkblue;
-@emphasis-text: @white; // if @emphasis was a background etc.
-
-@link-color : @highlight;
-
-// general colour as a default - this just sets the body tag
-@default-text : @lightgrey;
-
-	// these styles appear in the editor-style.css AND they appear as styles i.e. there may be some specificity 
-	// issues with these styles, careful about declaring things like body or nav[role=navigation] etc 
+ 
 
   .wpview-wrap[data-wpview-type="feature-box"] {
     max-width: 320px;
@@ -95,7 +69,7 @@ a.cta-inline {
  
 a.cta, a.cta-inline {
   
-  background: @light;
+  background: @red;
   color: @white !important;
   max-width: 97%;
   &:visited {

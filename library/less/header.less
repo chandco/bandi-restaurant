@@ -91,7 +91,7 @@ nav[role="navigation"] {
   .nav {  
 
       width: 100%;
-      font-size: 0.8em;
+      font-size: 1em;
 
       margin: 0;
       z-index: 10;
@@ -99,6 +99,11 @@ nav[role="navigation"] {
       text-align: right;
 
       padding: 0;
+
+      .h-font();
+      text-transform: uppercase;
+      font-weight: bold;
+
       a {
         display: block;
         width: 100%;
@@ -116,10 +121,12 @@ nav[role="navigation"] {
         position: relative;
         
         
-        background: @menu-background;
+        background: @nav-link-background;
+        color: @nav-link-color;
 
-
-
+        &.current-menu-item {
+          color: @red;
+        }
         &:hover {
           background: @nav-highlight;
           color: @nav-highlight-text;
@@ -129,10 +136,11 @@ nav[role="navigation"] {
 
         
 
+
         a {
           display: inline-block;
-          color: inherit;
-            
+          
+          width: auto;
           .nav-font-style(); // defined in design.less
           
         }
@@ -147,17 +155,18 @@ nav[role="navigation"] {
 
           visibility: hidden;
           position: absolute;
-          background: @nav-secondary-highlight;
-          color: @nav-secondary-highlight-text;
+          background: @nav-submenu-background;
+          color: @nav-submenu-text;
           overflow: hidden;
           margin: 0;
 
-          li {
+          > li {
 
             display: block;
             &:hover {
-              background: @nav-highlight;
-              color: @nav-highlight-text;
+
+             background: @nav-submenu-background-hover;
+             color: @nav-submenu-text-hover;
               a {
                 color: inherit;
               }

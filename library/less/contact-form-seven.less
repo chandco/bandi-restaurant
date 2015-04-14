@@ -1,3 +1,12 @@
+input[type='submit'] {
+	border: none;
+	background: lighten(@dark, 10%);
+	padding: .3em .6em;
+	color: @light;
+	border-radius: 2px;
+
+}
+
 
 span.wpcf7-list-item {
 	display: block;
@@ -858,9 +867,10 @@ input[type="checkbox"], input[type="radio"] {
   box-sizing:border-box;
   padding:0;
 }
-input[type="text"], input[type="datetime"], input[type="datetime-local"], input[type="date"], input[type="month"], input[type="time"], input[type="week"], input[type="number"], input[type="email"], input[type="url"], input[type="search"], input[type="tel"], input[type="color"], .field {
+
+input[type="text"], input[type="password"], input[type="datetime"], input[type="datetime-local"], input[type="date"], input[type="month"], input[type="time"], input[type="week"], input[type="number"], input[type="email"], input[type="url"], input[type="search"], input[type="tel"], input[type="color"], .field {
   -webkit-appearance:textfield;
-  box-sizing:content-box;
+  
   display:block;
   height:40px;
   line-height:40px;

@@ -229,15 +229,16 @@ footer.article-footer {
 	
 	  a[rel="category tag"] {
 	  	padding: 0.2em 0.4em;
-	  	background: @light;
-	  	color: @highlight;
+	  	background: @post-tag-background;
+	  	color: @post-tag-color;
+
 	  	margin: 0.2em;
 	  	border-bottom: 2px solid RGBA(0,0,0,0.25);
 		display: inline-block;
 		text-transform: capitalize;
 	  	&:hover {
-	    		background: RGBA(255,255,255,0.8);
-	    		color: @dark;
+	    		background: @post-tag-background-hover;
+	    		color: @post-tag-color-hover;
 	    	}
 	  }
 
@@ -249,14 +250,14 @@ footer.article-footer {
 	  		text-transform: capitalize;
 	  		display: inline-block;
 	    	padding: 0.2em  0.4em;
-	    	background: @grey;
-	    	color: @white;
+	    	background: @post-tag-color;
+	    	color: @post-tag-background;
 	    	margin: 0.2em;
 	    	border-bottom: 2px solid RGBA(0,0,0,0.4);
 
 	    	&:hover {
-	    		background: @lightgrey;
-	    		color: @light;
+	    		color: @post-tag-background-hover;
+	    		background: @post-tag-color-hover;
 	    	}
 	    }
 	}
