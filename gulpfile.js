@@ -22,13 +22,13 @@ gulp.task('default', function () {
 
 
 	browserSync({
-	        proxy: "ornc.local",
+	        proxy: "bandi.dev.chand.co",
 	        files: "library/css/*.css"
 	    });
 	
 	//gulp.watch('./library/less/**/*.less', ['compile-css']);
 
-    gulp.watch('./library/less/**/*.less', ['dist-css']);
+    gulp.watch('./library/less/**/*.less', ['compile-css']);
 
 	gulp.watch(['./library/js/*.js', '!./library/js/main-built.js'], ['javascript', browserSync.reload]);
 
@@ -60,13 +60,7 @@ gulp.task('compile-css', function () {
                 .pipe(sourcemaps.write('./maps'))
 			    .pipe(gulp.dest('./library/css/'));
 
-    gulp.src('./library/less/above-fold-css.less')
-                .pipe(sourcemaps.init())
-                .pipe(less())
-                .pipe(autoprefixer())
-                //.pipe(uglifycss())
-                .pipe(sourcemaps.write('./maps'))
-                .pipe(gulp.dest('./library/css/'));
+
 
     gulp.src('./library/less/admin.less')
                 .pipe(sourcemaps.init())
@@ -84,7 +78,7 @@ gulp.task('compile-css', function () {
                 .pipe(sourcemaps.write('./maps'))
                 .pipe(gulp.dest('./library/css/'));
 
-
+   return; 
 
 });
 

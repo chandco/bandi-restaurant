@@ -136,7 +136,7 @@ function wptuts_add_buttons( $plugin_array ) {
 function wptuts_register_buttons( $buttons ) {
 
 	// update this after the javascript is done
-    array_push( $buttons, 'feature', 'infobox', 'columns', 'widebg', 'cta-link', 'cta-link-wide', 'addIcons', 'capacities' ); //'thirds', 'twothirds-third', 'third-twothirds', 'quarters' ); // dropcap', 'recentposts
+    array_push( $buttons, 'feature', 'infobox', 'columns', 'widebg', 'cta-link', 'cta-link-wide', 'addIcons', 'capacities', 'tables' ); //'thirds', 'twothirds-third', 'third-twothirds', 'quarters' ); // dropcap', 'recentposts
     return $buttons;
 }
 
@@ -254,4 +254,19 @@ function custom_before_wp_tiny_mce() {
 
 // ajaxes for tinymce
 
+
+
+
+// add tables
+
+if (isset($wp_version)) {
+add_filter("mce_plugins", "extended_editor_mce_plugins", 0);
+
+}
+
+
+function extended_editor_mce_plugins($plugins) {
+array_push($plugins, "table");
+return $plugins;
+}
 

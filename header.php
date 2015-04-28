@@ -61,14 +61,11 @@
 
 				<div id="inner-header" >
 
-					<div id='printlogo'><img src='<?php echo get_stylesheet_directory_uri(); ?>/library/images/printlogo.png' alt='<?php bloginfo('name'); ?>' title='<?php bloginfo('name'); ?>' /></div>
-
+					
 
 					<?php // to use a image just replace the bloginfo('name') with your img src and remove the surrounding <p> ?>
 					<a href="<?php echo home_url(); ?>" rel="nofollow">
-						<div id='logo'>
-							<img src='<?php echo get_stylesheet_directory_uri(); ?>/library/images/logo.svg' alt='<?php bloginfo('name'); ?>' title='<?php bloginfo('name'); ?>' />
-						</div>
+						<h4><?php bloginfo('name'); ?>'</h4>
 					</a>
 
 					<?php // if you'd like to use the site description you can un-comment it below ?>
@@ -96,9 +93,7 @@
 
 			</header>
 
-		<div id="cta-sidebar" class="sidebar" role="complementary">
-			<?php get_sidebar('cta'); ?>
-		</div>
+		
 			
 		<div id="container">
 
