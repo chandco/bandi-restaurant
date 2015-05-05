@@ -29,10 +29,8 @@ require(['typekit'], function() {
 });
 
 
-// navigation stuff
-require(['vendor/underscore'], function() {
-  console.log(_);
-});
+
+require(["smoothscroll"]);
 
 
 

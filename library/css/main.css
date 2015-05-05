@@ -3731,6 +3731,9 @@ li.basic.capacities:before:before {
           transform: scale(0.8, 0.8);
   opacity: 0.5;
 }
+.gallery body {
+  color: red;
+}
 .gallery figure {
   width: 32%;
   vertical-align: top;
@@ -6131,5 +6134,55 @@ input[type="text"][disabled]:focus, input[type="text"][disabled]:active, input[t
   background-color:#d5edf8;
 }
 */
+#wiki-menu {
+  background: #f0f0f0;
+  height: 700px;
+  float: left;
+  width: 20%;
+}
+#wiki-content {
+  background: #ccc;
+  float: left;
+  width: 80%;
+}
+#container {
+  width: 1200px;
+  margin: 0 auto;
+  margin-top: 60px;
+}
+#container #home-left-sidebar {
+  background: green;
+  width: 30%;
+  float: left;
+  margin-right: 5%;
+}
+#container #weekly-menu-table {
+  width: 65%;
+  background: pink;
+  float: left;
+  height: 500px;
+}
+#container #footer-sidebar {
+  clear: both;
+}
+#container #footer-sidebar .widget {
+  width: 23%;
+  float: left;
+  margin-right: 2%;
+  margin-top: 100px;
+}
+#blog-content {
+  background: red;
+}
+#blog-content {
+  background: red;
+  float: left;
+  width: 65%;
+  margin-right: 5%;
+}
+#sidebar {
+  float: left;
+  width: 30%;
+}
 
 /*# sourceMappingURL=maps/main.css.map */

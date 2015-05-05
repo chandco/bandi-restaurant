@@ -65,7 +65,7 @@
 
 					<?php // to use a image just replace the bloginfo('name') with your img src and remove the surrounding <p> ?>
 					<a href="<?php echo home_url(); ?>" rel="nofollow">
-						<h4><?php bloginfo('name'); ?>'</h4>
+						<?php bloginfo('name'); ?> (needs to be logo upload)
 					</a>
 
 					<?php // if you'd like to use the site description you can un-comment it below ?>

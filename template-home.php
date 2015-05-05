@@ -1,6 +1,6 @@
 <?php
 /*
- Template Name: HomePage
+ Template Name: Home Page
  *
  * Home Page template
  *
@@ -10,99 +10,51 @@
 
 <?php get_header(); ?>
 
-			<?php echo do_shortcode('[images_carousel tag="homepage-carousel" fill="true"]'); ?>
+<div id="home-left-sidebar">
+	<?php if ( is_active_sidebar( 'home-sidebar' ) ) : ?>
 
-			<div id="content">
+		<?php dynamic_sidebar( 'home-sidebar' ); ?>
 
-				<div id="inner-content" class="wrap cf">
+			<?php else : ?>
 
-						<div id="main" class="m-all t-2of3 d-5of7 cf" role="main">
+				<?php
+					/*
+					 * This content shows up if there are no widgets defined in the backend.
+					*/
+				?>
 
-							<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
-
-							<article id="post-<?php the_ID(); ?>" <?php post_class( 'cf' ); ?> role="article" itemscope itemtype="http://schema.org/BlogPosting">
-
-								<header class="article-header">
-
-									<h1 class="page-title"><?php the_title(); ?></h1>
-
-								</header>
-
-								<section class="entry-content cf" itemprop="articleBody">
-									<?php
-										// the content (pretty self explanatory huh)
-										the_content();
-
-										/*
-										 * Link Pages is used in case you have posts that are set to break into
-										 * multiple pages. You can remove this if you don't plan on doing that.
-										 *
-										 * Also, breaking content up into multiple pages is a horrible experience,
-										 * so don't do it. While there are SOME edge cases where this is useful, it's
-										 * mostly used for people to get more ad views. It's up to you but if you want
-										 * to do it, you're wrong and I hate you. (Ok, I still love you but just not as much)
-										 *
-										 * http://gizmodo.com/5841121/google-wants-to-help-you-avoid-stupid-annoying-multiple-page-articles
-										 *
-										*/
-										wp_link_pages( array(
-											'before'      => '<div class="page-links"><span class="page-links-title">' . __( 'Pages:', 'cf-theme' ) . '</span>',
-											'after'       => '</div>',
-											'link_before' => '<span>',
-											'link_after'  => '</span>',
-										) );
-									?>
-								</section>							
-
-							</article>
-
-							<?php endwhile; else : ?>
-
-									<article id="post-not-found" class="hentry cf">
-											<header class="article-header">
-												<h1><?php _e( 'Oops, Post Not Found!', 'cf-theme' ); ?></h1>
-										</header>
-											<section class="entry-content">
-												<p><?php _e( 'Uh Oh. Something is missing. Try double checking things.', 'cf-theme' ); ?></p>
-										</section>
-										<footer class="article-footer">
-												<p><?php _e( 'This is the error message in the page-custom.php template.', 'cf-theme' ); ?></p>
-										</footer>
-									</article>
-
-							<?php endif; ?>
-
-
-
-						</div>
-
-						
-
-						
-
+				<div class="no-widgets">
+					<p><?php _e( 'This is a widget ready area. Add some and they will appear here.', 'cf-theme' );  ?></p>
 				</div>
 
-				<section class='latest-blogs cf'>
+			<?php endif; ?>
+</div>
 
-						<?php get_sidebar('secondary-links'); ?>
+<div id="weekly-menu-table">
+	<?php if ( have_posts() ) : while( have_posts() ) : the_post();
+     the_content();
+	endwhile; endif; ?>
+</div>
 
-				</section>
+<div id="footer-sidebar">
+<?php if ( is_active_sidebar( 'home-footer-sidebar' ) ) : ?>
 
-				<section class='latest-blogs cf'>
-								<ul id='latest-blogs-feed' class='max-central latest-blogs-feed'>
-									<?php
-									// currently not configured to be a specific category
-									$hotPosts = get_posts( array('numberposts' => 4) );
-									foreach( $hotPosts as $post ) { 
-										setup_postdata( $post );
+		<?php dynamic_sidebar( 'home-footer-sidebar' ); ?>
 
-										get_template_part( 'post-formats/format-blog-grid', get_post_format() );
-									} ?>
+			<?php else : ?>
 
-								</ul>
-				</section>
+				<?php
+					/*
+					 * This content shows up if there are no widgets defined in the backend.
+					*/
+				?>
 
-			</div>
+				<div class="no-widgets">
+					<p><?php _e( 'This is a widget ready area. Add some and they will appear here.', 'cf-theme' );  ?></p>
+				</div>
+
+			<?php endif; ?>
+</div>
 
 
 <?php get_footer(); ?>

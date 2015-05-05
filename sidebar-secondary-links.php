@@ -20,7 +20,7 @@ Each widget is a smart column.
 						?>
 
 						<div class="no-widgets">
-							<p><?php _e( 'Add your secondary links eg chapel / filming / catering here.', 'cf-theme' );  ?></p>
+							<p><?php _e( 'This is loaded from sidebar-secondary-links.php', 'cf-theme' );  ?></p>
 						</div>
 
 					<?php endif; ?>

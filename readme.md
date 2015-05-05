@@ -1,4 +1,4 @@
-# Wordpress Starter Theme
+# Wordpress Starter Theme 
 
 This is a generic theme that includes as many components that we *might* need, with as minimal stylings as possible but some layout to make it easy to skin builds based on the kind of sites we build.  It doesn't work for everyone and it's not supposed to be some easy fit-all starter theme for developers, it's basically a personal kind of build.
 

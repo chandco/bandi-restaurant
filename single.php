@@ -26,7 +26,7 @@
 							?>
 
 						<?php endwhile; ?>
-
+ 
 						<?php else : ?>
 
 							<article id="post-not-found" class="hentry cf">
@@ -45,7 +45,7 @@
 
 					</div>
 
-					<?php get_sidebar(); ?>
+					get_sidebar();?>
 
 				</div>
 

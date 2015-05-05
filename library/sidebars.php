@@ -15,6 +15,26 @@ function cf_register_sidebars() {
 		'after_title' => '</h4>',
 	));
 
+		register_sidebar(array(
+		'id' => 'home-sidebar',
+		'name' => __( 'home-sidebar', 'cf-theme' ),
+		'description' => __( 'This sidebar appears for the home page', 'cf-theme' ),
+		'before_widget' => '<div id="%1$s" class="widget %2$s">',
+		'after_widget' => '</div>',
+		'before_title' => '<h4 class="widgettitle">',
+		'after_title' => '</h4>',
+	));
+
+		register_sidebar(array(
+		'id' => 'home-footer-sidebar',
+		'name' => __( 'home-footer-sidebar', 'cf-theme' ),
+		'description' => __( 'This sidebar appears for the footer on the homepage', 'cf-theme' ),
+		'before_widget' => '<div id="%1$s" class="widget %2$s">',
+		'after_widget' => '</div>',
+		'before_title' => '<h4 class="widgettitle">',
+		'after_title' => '</h4>',
+	));
+
 	register_sidebar(array(
 		'id' => 'cta-sidebar',
 		'name' => __( 'CTA Sidebar', 'cf-theme' ),
