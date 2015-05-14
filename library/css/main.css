@@ -2294,11 +2294,6 @@ div.cf.newline:before {
 .admin-bar .header {
   top: 32px !important;
 }
-.admin-bar #container {
-  top: 92px !important;
-  position: relative;
-  margin-bottom: 92px !important;
-}
 .page-template-template-home #content {
   margin-top: 60px;
 }
@@ -2801,11 +2796,6 @@ a:visited:link {
     margin-left: 0;
   }
 }
-@media screen and (max-width: 900px) {
-  #container {
-    padding-top: 66px;
-  }
-}
 .header {
   position: relative;
   z-index: 1200;
@@ -3287,6 +3277,9 @@ img.alignfull-width {
     width: 96%;
   }
 }
+.left-content > *:first-of-type {
+  margin-top: 0;
+}
 .right-sidebar {
   width: 30%;
   margin-left: 4%;
@@ -3312,6 +3305,9 @@ img.alignfull-width {
   float: right;
   width: 66%;
 }
+.right-content > *:first-of-type {
+  margin-top: 0;
+}
 @media screen and (max-width: 700px) {
   .right-content {
     float: none;
@@ -3327,6 +3323,38 @@ img.alignfull-width {
   clear: both;
   display: table;
   width: 100%;
+}
+@media screen and (max-width: 968px) {
+  .responsive-flex-container {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-wrap: wrap;
+        -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .responsive-flex-container .left-content,
+  .responsive-flex-container .right-content {
+    -webkit-box-ordinal-group: 0;
+    -webkit-order: -1;
+        -ms-flex-order: -1;
+            order: -1;
+    width: 100%;
+  }
+  .responsive-flex-container .left-sidebar,
+  .responsive-flex-container .right-sidebar {
+    -webkit-box-ordinal-group: 3;
+    -webkit-order: 2;
+        -ms-flex-order: 2;
+            order: 2;
+    width: 100%;
+  }
 }
 .full-width {
   clear: both;
@@ -3646,7 +3674,7 @@ footer.article-footer .tags a[rel="tag"]:hover {
 .archive .post {
   border-bottom: 2px solid #262626;
   background: rgba(255, 255, 255, 0.05);
-  padding: 1.5em;
+  padding: 1.5em 0;
 }
 @media screen and (max-width: 700px) {
   .blog .post,
@@ -6150,12 +6178,114 @@ input[type="text"][disabled]:focus, input[type="text"][disabled]:active, input[t
 */
 #footer-sidebar {
   clear: both;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+          flex-wrap: wrap;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 #footer-sidebar .widget {
-  width: 23%;
-  float: left;
-  margin-right: 2%;
-  margin-top: 100px;
+  width: 24%;
+}
+@media screen and (max-width: 968px) {
+  #footer-sidebar .widget {
+    width: 48%;
+  }
+}
+@media screen and (max-width: 480px) {
+  #footer-sidebar .widget {
+    width: 100%;
+  }
+}
+.right-content table,
+.left-content table {
+  width: 100%;
+}
+.right-content table tr:first-of-type,
+.left-content table tr:first-of-type {
+  background: #333333;
+  color: #dddddd;
+}
+.right-content table tr:nth-of-type(even),
+.left-content table tr:nth-of-type(even) {
+  background: rgba(0, 0, 0, 0.1);
+}
+.right-content table td,
+.left-content table td {
+  padding: .5em;
+  width: 100%;
+  border-right: 1px solid rgba(255, 255, 255, 0.5);
+}
+.right-content table td:last-of-type,
+.left-content table td:last-of-type {
+  border-right: none;
+}
+.table-prev,
+.table-next {
+  display: none;
+}
+@media screen and (max-width: 800px) {
+  .table-wrapper {
+    width: 100%;
+    position: relative;
+    display: block;
+  }
+  .table-wrapper .table-prev,
+  .table-wrapper .table-next {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    border: none;
+    display: block;
+    width: 5%;
+    background: #444444;
+    color: #dddddd;
+  }
+  .table-wrapper .table-prev i.fa,
+  .table-wrapper .table-next i.fa {
+    position: absolute;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+            transform: translateY(-50%);
+  }
+  .table-wrapper .table-prev {
+    left: 0%;
+  }
+  .table-wrapper .table-next {
+    right: 0%;
+  }
+  .table-wrapper .table-viewport {
+    display: block;
+    width: 90%;
+    margin: auto;
+    position: relative;
+    overflow-x: scroll;
+  }
+  .table-wrapper .table-viewport table {
+    width: 500%;
+    table-layout: fixed;
+    overflow-x: scroll;
+    margin: 0;
+  }
+  .table-wrapper .table-viewport table tr {
+    width: 100%;
+  }
+  .table-wrapper .table-viewport table tr td {
+    width: 20%;
+    padding: .5em 1%;
+  }
 }
 
 /*# sourceMappingURL=maps/main.css.map */

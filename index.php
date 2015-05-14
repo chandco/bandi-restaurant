@@ -3,9 +3,9 @@
 <?php // main blog feed ?>
 			<div id="content">
 
-				<div id="inner-content" class="wrap cf">
+				<div id="inner-content" class="wrap cf" class='responsive-flex-container'>
 
-						<div id="main" class="m-all t-2of3 d-5of7 cf" role="main">
+						<div id="main" class="m-all t-2of3 d-5of7 cf left-content" role="main">
 
 							<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 
