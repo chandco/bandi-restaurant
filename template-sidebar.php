@@ -10,14 +10,14 @@
 
 <?php get_header(); ?>
 
-<div id="blog-content">
+<div id="blog-content" style="width:65%; margin-right:5%; float:left;">
 	<?php if ( have_posts() ) : while( have_posts() ) : the_post();
      the_content();
 	endwhile; endif; ?>
 </div>
 
 
-<div id="sidebar">
+<div id="sidebar" style="width:30%; float:left;">
 <?php if ( is_active_sidebar( 'blog-sidebar' ) ) : ?>
 
 		<?php dynamic_sidebar( 'blog-sidebar' ); ?>

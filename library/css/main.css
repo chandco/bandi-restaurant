@@ -6146,7 +6146,8 @@ input[type="text"][disabled]:focus, input[type="text"][disabled]:active, input[t
   width: 80%;
 }
 #container {
-  width: 1200px;
+  max-width: 1200px;
+  width: 65%;
   margin: 0 auto;
   margin-top: 60px;
 }
@@ -6162,6 +6163,14 @@ input[type="text"][disabled]:focus, input[type="text"][disabled]:active, input[t
   float: left;
   height: 500px;
 }
+#container #weekly-menu-table table {
+  width: 100%;
+}
+#container #weekly-menu-table table td {
+  background: red;
+  width: 20%;
+  text-align: center;
+}
 #container #footer-sidebar {
   clear: both;
 }
@@ -6170,19 +6179,6 @@ input[type="text"][disabled]:focus, input[type="text"][disabled]:active, input[t
   float: left;
   margin-right: 2%;
   margin-top: 100px;
-}
-#blog-content {
-  background: red;
-}
-#blog-content {
-  background: red;
-  float: left;
-  width: 65%;
-  margin-right: 5%;
-}
-#sidebar {
-  float: left;
-  width: 30%;
 }
 
 /*# sourceMappingURL=maps/main.css.map */

@@ -1,6 +1,6 @@
 <?php
 /*
- Template Name: No Sidebar
+ Template Name: Full Width
  *
  * Home Page template
  *
@@ -10,7 +10,7 @@
 
 <?php get_header(); ?>
 
-<div id="blog-content">
+<div id="blog-content" style="width:100%; margin-right:0;">
 
 <?php 
 if ( has_post_thumbnail() ) {
