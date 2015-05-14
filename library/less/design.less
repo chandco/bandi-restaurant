@@ -1,4 +1,6 @@
-
+* {
+  //background: fade(black, 5%);
+}
 
 // use mixins to make cleaner CSS, but keep the config here.
 
@@ -58,78 +60,34 @@
 }
 
 
+
+
+
+
+
+
+
+
+
+
+#container {
+  top: @header-height-px;
+  position: relative;
+ 
+  margin-bottom: @header-height-px;
+}
+
 .admin-bar {
   .header {
     top: 32px !important;
   }
 
 
-  #cta-sidebar {
-    top: 32px !important;
-  }
-
   #container {
     top: @header-height-px + 32px !important;
+    position: relative;
+    margin-bottom: @header-height-px + 32px !important;
   }
-}
-
-
-
-
-.content-style() { // #content style
-  margin-top: @content-margin + @header-height-px;
-
-  @media screen and (max-width: 900px) {
-      margin-top: @content-margin / 2;
-  }
-
-  @media screen and (max-width: 700px) {
-  
-    
-    #main {
-      //width: 92%;
-    }
-  }
-}
-
-
-
-// Media queries for central columns because of the CTA floating thingy
-
-// We'll use #main as it's used in most template things.  generally should add th class though to elements.
-#main, .max-central {
-  .max-central-mixin();
-
-  @media screen and (max-width: 1500px) {
-      
-      
-  }
-
-  @media screen and (max-width: 1200px) {
-      
-      
-  }
-
-  @media screen and (max-width: 900px) {
-      
-      margin-right: auto;
-      margin-left: auto;
-      max-width: 90%; // creates padding;
-  }
-
-  @media screen and (max-width: 700px) {
-  
-    
-    #main {
-      //width: 92%;
-    }
-  }
-
-}
-
-
-#container {
-  top: @header-height-px;
 }
 
 

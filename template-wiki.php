@@ -31,36 +31,41 @@ $children = $query->posts;
 
 <?php get_header(); ?>
 
-<div id="wiki-menu">
-<?php
-	foreach($children as $child) {
-		echo "<li>" . $child->post_title . "</li>";
-	}
-?>
-</div>
+<div class='responsive-flex-container'>
+	
+	<div id="wiki-menu" class='left-sidebar'>
+		<?php
+			foreach($children as $child) {
+				echo "<li>" . $child->post_title . "</li>";
+			}
+		?>
+	</div>
 
-<div id="wiki-content">
-	<?php if ( have_posts() ) : while( have_posts() ) : the_post();
-     the_content();
-	endwhile; endif; ?>
+	<div id="wiki-content" class='right-content'>
+		<?php if ( have_posts() ) : while( have_posts() ) : the_post();
+	     the_content();
+		endwhile; endif; ?>
 
-	<?php
+		<?php
 
 
-// The Loop
-if ( $query->have_posts() ) {
-	echo '<ul>';
-	while ( $query->have_posts() ) {
-		$query->the_post();
-		echo '<li>' . get_the_title() . '</li>';
-	}
-	echo '</ul>';
-} else {
-	// no posts found
-}
-/* Restore original Post Data */
-wp_reset_postdata();
-?>
+		// The Loop
+		if ( $query->have_posts() ) {
+			echo '<ul>';
+			while ( $query->have_posts() ) {
+				$query->the_post();
+				echo '<li>' . get_the_title() . '</li>';
+			}
+			echo '</ul>';
+		} else {
+			// no posts found
+		}
+		/* Restore original Post Data */
+		wp_reset_postdata();
+		?>
+
+	</div>
+
 </div>
 
 <?php get_footer(); ?>

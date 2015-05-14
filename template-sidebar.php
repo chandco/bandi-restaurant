@@ -1,6 +1,6 @@
 <?php
 /*
- Template Name: Sidebar
+ Template Name: Page with Sidebar
  *
  * Home Page template
  *
@@ -10,31 +10,33 @@
 
 <?php get_header(); ?>
 
-<div id="blog-content" style="width:65%; margin-right:5%; float:left;">
-	<?php if ( have_posts() ) : while( have_posts() ) : the_post();
-     the_content();
-	endwhile; endif; ?>
-</div>
+
+<div class='responsive-flex-container'>
+	<div class='left-content'>
+		<?php get_template_part( 'content/page' ); ?>
+	</div>
 
 
-<div id="sidebar" style="width:30%; float:left;">
-<?php if ( is_active_sidebar( 'blog-sidebar' ) ) : ?>
+	<div class='right-sidebar'>
+		<?php if ( is_active_sidebar( 'blog-sidebar' ) ) : ?>
 
-		<?php dynamic_sidebar( 'blog-sidebar' ); ?>
+				<?php dynamic_sidebar( 'blog-sidebar' ); ?>
 
-			<?php else : ?>
+					<?php else : ?>
 
-				<?php
-					/*
-					 * This content shows up if there are no widgets defined in the backend.
-					*/
-				?>
+					<?php
+						/*
+						 * This content shows up if there are no widgets defined in the backend.
+						*/
+					?>
 
-				<div class="no-widgets">
-					<p><?php _e( 'This is a widget ready area. Add some and they will appear here.', 'cf-theme' );  ?></p>
-				</div>
+					<div class="no-widgets">
+						<p><?php _e( 'This is a widget ready area. Add some and they will appear here.', 'cf-theme' );  ?></p>
+					</div>
 
-			<?php endif; ?>
+		<?php endif; ?>
+	</div>
+
 </div>
 
 

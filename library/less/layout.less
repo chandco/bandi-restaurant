@@ -11,12 +11,9 @@ body {
   -webkit-font-smoothing:antialiased;
 }
 
-#content {
-  .content-style(); 
 
-  // overflow-x: hidden;
 
-}
+
 
 @media screen and (max-width: 600px) {
   h1 {
@@ -142,6 +139,117 @@ img.alignfull-width {
   }
 
   
+}
+
+
+
+
+.left-sidebar {
+  width: @global-sidebar-width;
+  margin-right: @global-sidebar-margin;
+  position: relative;
+  
+  margin-top: 0;
+  float: left;
+
+  
+
+  @media screen and (max-width: 900px) {
+    float: none;
+  }
+
+  @media screen and (max-width: 700px) {
+    position: relative;
+    width: 100%;
+    right: 0;
+  }
+}
+
+.left-content {
+
+    width: 100%;
+
+    margin: auto;
+    position: relative;
+    float: left;
+    width: 100% - @global-sidebar-width - @global-sidebar-margin;
+
+
+
+    @media screen and (max-width: 700px) {
+      float: none;
+      margin-left: auto;
+      width: 96%;
+      
+    }
+
+}
+
+
+.right-sidebar {
+     width: @global-sidebar-width;
+      margin-left: @global-sidebar-margin;
+      position: relative;
+      
+      margin-top: 0;
+      float: right;
+
+      
+
+      @media screen and (max-width: 900px) {
+        float: none;
+      }
+
+      @media screen and (max-width: 700px) {
+        position: relative;
+        width: 100%;
+        
+      }
+}
+
+
+.right-content {
+    width: 100%;
+
+    margin: auto;
+    position: relative;
+    float: right;
+    width: 100% - @global-sidebar-width - @global-sidebar-margin;
+
+
+
+    @media screen and (max-width: 700px) {
+      float: none;
+      margin-left: auto;
+      width: 100%;
+      
+    }
+}
+
+.responsive-flex-container {
+  clear: both;
+
+  &:after {
+    content:"";
+    clear: both;
+    display: table;
+    width: 100%;
+
+  }
+}
+
+
+
+.full-width {
+  clear: both;
+
+  &:after {
+    content:"";
+    clear: both;
+    display: table;
+    width: 100%;
+
+  }
 }
 
 

@@ -64,11 +64,7 @@
 
 				</div>
 
-				<section class='latest-blogs cf'>
-
-					<?php get_sidebar('secondary-links'); ?>
-
-				</section>
+				
 
 			</div>
 
