@@ -2427,7 +2427,7 @@ body#tinymce.wp-editor a.cta-inline {
   background: #d22529;
   color: #ffffff !important;
   max-width: 97%;
-  font-family: 'Exo', sans-serif;
+  font-family: 'Source Sans Pro', sans-serif;
   font-weight: normal;
   position: relative;
   padding: 0.5em 1em;
@@ -2605,7 +2605,7 @@ body#tinymce.wp-editor h1,
 body#tinymce.wp-editor h2,
 body#tinymce.wp-editor h3,
 body#tinymce.wp-editor h4 {
-  font-family: 'Exo', sans-serif;
+  font-family: 'Source Sans Pro', sans-serif;
   margin-top: 0;
 }
 body#tinymce.wp-editor h5,
