@@ -22,6 +22,8 @@ $args = array(
 	"orderby" => "menu_order",
 	"post_type" => "page"
 );
+
+//gets the parent page 
 $query = new WP_Query($args);
 
 $children = $query->posts;
@@ -34,7 +36,7 @@ $children = $query->posts;
 <div id="wiki-menu">
 <?php
 	foreach($children as $child) {
-		echo "<li>" . $child->post_title . "</li>";
+		echo "<li><a href=#".$child->post_title.">" . $child->post_title . "</a></li>";
 	}
 ?>
 </div>
@@ -52,7 +54,8 @@ if ( $query->have_posts() ) {
 	echo '<ul>';
 	while ( $query->have_posts() ) {
 		$query->the_post();
-		echo '<li>' . get_the_title() . '</li>';
+		echo '<li name=#"'.get_the_title().'">' . get_the_title() . '</li>';
+		echo '<p>' . get_the_content() . '</p>';
 	}
 	echo '</ul>';
 } else {
