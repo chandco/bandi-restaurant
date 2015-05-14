@@ -36,22 +36,18 @@
 
     #inner-header {
       backface-visibility: hidden;
-      box-sizing: content-box;
+      
       
       
 
-      width: 100%;
+
       height: 100%;
-      padding: 0;
-  
-      .max-central-mixin();
 
-
-      
+   
 
 
       nav[role="navigation"] {
-        width: 87%;
+        width: 100% - @global-sidebar-width - @global-sidebar-margin;
         right: 0;
         .vertical-center();
       }
@@ -60,7 +56,8 @@
     #logo {
       
       height: 100%;
-      width: 20%;
+      width: @global-sidebar-width;
+      margin-right: @global-sidebar-margin;
       left: 0;
 
       display: block;

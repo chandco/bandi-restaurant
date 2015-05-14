@@ -1,5 +1,5 @@
 
-define(['jquery', 'components/mythingy'], function($, mythingy) {
+define(['jquery'], function($) {
 
 	//
 });

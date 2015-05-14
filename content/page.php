@@ -8,7 +8,7 @@
 
 									<h1 class="page-title"><?php the_title(); ?></h1>
 
-									<div class="print-button"><a href="javascript:window.print();"><i class="fa fa-print"></i> Print Page</a></div>
+									
 
 								</header>
 

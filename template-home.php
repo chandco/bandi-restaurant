@@ -9,8 +9,9 @@
 ?>
 
 <?php get_header(); ?>
+<div class='responsive-flex-container'>
 
-<div id="home-left-sidebar">
+<div id="home-left-sidebar" class='left-sidebar'>
 	<?php if ( is_active_sidebar( 'home-sidebar' ) ) : ?>
 
 		<?php dynamic_sidebar( 'home-sidebar' ); ?>
@@ -30,13 +31,13 @@
 			<?php endif; ?>
 </div>
 
-<div id="weekly-menu-table">
+<div id="weekly-menu-table" class='right-content'>
 	<?php if ( have_posts() ) : while( have_posts() ) : the_post();
      the_content();
 	endwhile; endif; ?>
 </div>
 
-<div id="footer-sidebar">
+<div id="footer-sidebar" class='full-width'>
 <?php if ( is_active_sidebar( 'home-footer-sidebar' ) ) : ?>
 
 		<?php dynamic_sidebar( 'home-footer-sidebar' ); ?>
@@ -54,6 +55,8 @@
 				</div>
 
 			<?php endif; ?>
+</div>
+
 </div>
 
 

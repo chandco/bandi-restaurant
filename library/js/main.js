@@ -47,7 +47,7 @@ require(['navigation']);
 
 
 // Stuff for layout when the window loads / resizes
-require(['components/resize-fix']);
+// require(['components/resize-fix']);
 
 // init magnific popup stuff.  Probably should load conditionally, but people could use it anywhere.  Perhaps we should avoid for homepage?
 require(['components/popups']);

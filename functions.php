@@ -33,8 +33,10 @@ We may want this for other features, so let's load it BEFORE ANYTHING ELSE so th
 
 **/
 
+if (!strstr($_SERVER["HTTP_HOST"], "dev.chand.co")) {
+  require_once("library/minify-html.php");  
+}
 
-require_once("library/minify-html.php");
 
 require_once("library/mobile-detect/Mobile_Detect.php");
 

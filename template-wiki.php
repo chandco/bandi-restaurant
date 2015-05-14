@@ -29,41 +29,67 @@ $query = new WP_Query($args);
 $children = $query->posts;
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ?>
 
 <?php get_header(); ?>
 
-<div id="wiki-menu">
-<?php
-	foreach($children as $child) {
-		echo "<li><a href=#".$child->post_title.">" . $child->post_title . "</a></li>";
-	}
-?>
-</div>
+<div class='responsive-flex-container'>
+	
+	<div id="wiki-menu" class='left-sidebar'>
+		<?php
+			echo '<ul>';
+			foreach($children as $child) {
+				echo 
+				'<li>
+					<a href="#'.$child->post_title.'">' . $child->post_title . '</a>
 
-<div id="wiki-content">
-	<?php if ( have_posts() ) : while( have_posts() ) : the_post();
-     the_content();
-	endwhile; endif; ?>
+				</li>';
+			}
+			echo '</ul>';
+		?>
+	</div>
 
-	<?php
+	<div id="wiki-content" class='right-content'>
+		<?php if ( have_posts() ) : while( have_posts() ) : the_post();
+	     the_content();
+		endwhile; endif; ?>
+
+		<?php
+
 
 
 // The Loop
 if ( $query->have_posts() ) {
-	echo '<ul>';
 	while ( $query->have_posts() ) {
 		$query->the_post();
-		echo '<li name=#"'.get_the_title().'">' . get_the_title() . '</li>';
+		echo '<article id="'.get_the_title().'">' . get_the_title();
 		echo '<p>' . get_the_content() . '</p>';
+		echo '</article>';
 	}
-	echo '</ul>';
 } else {
 	// no posts found
 }
 /* Restore original Post Data */
 wp_reset_postdata();
 ?>
+
+
+	</div>
 </div>
 
 <?php get_footer(); ?>

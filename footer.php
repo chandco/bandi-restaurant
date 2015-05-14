@@ -1,4 +1,8 @@
-			<footer class="footer" role="contentinfo">
+			
+
+		</div>
+
+		<footer class="footer" role="contentinfo">
 
 
 				<div id="inner-footer" class="wrap cf cf_columns max-central">
@@ -44,8 +48,6 @@
 
 				
 			</footer>
-
-		</div>
 
 		<?php // generally scripts are not loaded in the 'traditiona' sense with wp and ever ?>
 		

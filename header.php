@@ -59,14 +59,17 @@
 	
 		<header class="header" role="banner">
 
-				<div id="inner-header" >
+				<div id="inner-header" class='max-central' >
 
-					
+			
+					<div id='logo'>					
 
 					<?php // to use a image just replace the bloginfo('name') with your img src and remove the surrounding <p> ?>
 					<a href="<?php echo home_url(); ?>" rel="nofollow">
 						<?php bloginfo('name'); ?> (needs to be logo upload)
 					</a>
+
+					</div>
 
 					<?php // if you'd like to use the site description you can un-comment it below ?>
 					<?php // bloginfo('description'); ?>
@@ -95,6 +98,6 @@
 
 		
 			
-		<div id="container">
+		<div id="container" class='max-central'>
 
 			
