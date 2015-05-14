@@ -12,6 +12,8 @@
 
 
 <div class='responsive-flex-container'>
+
+	
 	<div class='left-content'>
 		<?php get_template_part( 'content/page' ); ?>
 	</div>
