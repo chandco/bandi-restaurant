@@ -23,13 +23,131 @@
 	#footer-sidebar {
 		clear:both;
 
+		display: flex;
+	  	flex-direction: row;
+	  	flex-wrap: wrap;
+	  	justify-content: space-between;
+
 		.widget {
-			width: (100% / 4) - @margin-right;
-			float:left;
-			margin-right: @margin-right;
-			margin-top:100px;
+			width: 24%;
+
+			@media screen and (max-width: @tablet-break) {
+				width: 48%;
+			}
+
+			@media screen and (max-width: @mobile-break) {
+				width: 100%;
+			}
 		}
 	}
 
 
+
+.right-content table, .left-content table {
+	width: 100%;
+
+	
+
+	tr:first-of-type {
+		background: @dark;
+		color: @light;
+	}
+
+	tr:nth-of-type(even) {
+		background: fade(black, 10%);
+	}
+
+	td {
+		padding: .5em;
+		width: 100%;
+		border-right: 1px solid fade(white, 50%);
+		&:last-of-type {
+			border-right: none;
+		}
+	}
+
+
+	
+
+
+}
+
+.table-prev,
+.table-next {
+	display: none;
+}
+
+
+@media screen and (max-width: 800px) {
+		
+		.table-wrapper {
+			width: 100%;
+			position: relative;
+			display: block;
+		  	
+
+			.table-prev,
+			.table-next {
+				position: absolute;
+				top: 0;
+				bottom: 0;
+				border: none;
+				display: block;
+
+				i.fa {
+					position: absolute;
+					top: 50%;
+					transform:translateY(-50%);
+				}
+
+				width: 5%;
+				background: @off-lightblue;
+				color: @light;
+			}
+
+
+			.table-prev {
+				left: 0%;
+			}
+
+			.table-next {
+				right: 0%;
+			}
+
+			
+
+			.table-viewport {
+				display: block;
+		  		width: 90%;
+		  		margin: auto;
+		  		position: relative;
+		  		overflow-x: scroll;
+
+
+		  		table {
+				width: 500%;
+				table-layout: fixed;
+				overflow-x: scroll;
+				margin: 0;
+					tr {
+						width: 100%;
+						
+
+						td {
+							width: 20%;
+							padding: .5em 1%;
+						}
+					}
+				}
+			}
+
+			
+
+
+		  	
+			
+		}
+	
+
+}	
 

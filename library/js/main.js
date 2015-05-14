@@ -72,6 +72,10 @@ require(['jquery'], function($) {
 
 
 
+
 });
   
 
+
+
+require(['responsive-table']);
