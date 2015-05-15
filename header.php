@@ -66,7 +66,7 @@
 
 					<?php // to use a image just replace the bloginfo('name') with your img src and remove the surrounding <p> ?>
 					<a href="<?php echo home_url(); ?>" rel="nofollow">
-						<img src='<?php echo get_stylesheet_directory_uri(); ?>/library/images/charlton-house.svg'>
+						<img src="<?php header_image(); ?>" height="<?php echo get_custom_header()->height; ?>" width="<?php echo get_custom_header()->width; ?>" alt="" />
 					</a>
 
 					</div>

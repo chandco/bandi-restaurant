@@ -286,3 +286,11 @@ function print_filters_for( $hook = '' ) {
 
 
 add_filter('widget_text', 'do_shortcode');
+
+//add custom header image to wordpress
+$args = array(
+  'width'         => 500,
+  'height'        => 200,
+  'uploads'       => true,
+);
+add_theme_support( 'custom-header', $args );
