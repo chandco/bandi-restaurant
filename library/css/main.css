@@ -6217,7 +6217,7 @@ input[type="text"][disabled]:focus, input[type="text"][disabled]:active, input[t
   background-color:#d5edf8;
 }
 */
-.left-sidebar {
+#wiki-menu {
   height: 800px;
   position: fixed;
   top: 127px;
