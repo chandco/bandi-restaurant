@@ -29,22 +29,43 @@ $query = new WP_Query($args);
 $children = $query->posts;
 
 
+$args2=array(
+  'child_of' => $parentID,
+  'post_type' => 'page',
+  'post_status' => 'publish',
+  'posts_per_page' => 100,
+  'caller_get_posts'=> 1
+);
+$my_query = null;
+$my_query = new WP_Query($args2);
+if( $my_query->have_posts() ) {
+  while ($my_query->have_posts()) : $my_query->the_post(); ?>
+    <div class="main_post_listing2"><a href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link to <?php the_title_attribute(); ?>">&rsaquo;&nbsp;<?php the_title(); ?></a>&nbsp;&nbsp; &nbsp;&nbsp;<?php the_time('M d, Y') ?>
+    </div><?php
+  endwhile;
+}
 
-
-
-
-
-
-
-
-
-
-
+wp_reset_query();  // Restore global post data stomped by the_post().
 
 
 
 
 ?>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 <?php get_header(); ?>
 
@@ -57,7 +78,6 @@ $children = $query->posts;
 				echo 
 				'<li>
 					<a href="#'.$child->post_title.'">' . $child->post_title . '</a>
-
 				</li>';
 			}
 			echo '</ul>';
