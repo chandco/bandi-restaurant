@@ -6308,7 +6308,7 @@ input[type="text"][disabled]:focus, input[type="text"][disabled]:active, input[t
 .table-wrapper .label-column td:first-of-type:nth-last-of-type(6n) {
   background: rgba(0, 134, 172, 0.5);
   display: table-cell;
-  width: 30%;
+  width: 0.99%;
 }
 .table-wrapper .label-column tr:first-of-type td {
   background: #ffffff;
