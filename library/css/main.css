@@ -6249,11 +6249,19 @@ input[type="text"][disabled]:focus, input[type="text"][disabled]:active, input[t
   width: 100%;
   table-layout: fixed;
 }
+.right-content table td:first-of-type:nth-last-of-type(6n),
+.left-content table td:first-of-type:nth-last-of-type(6n) {
+  background: rgba(0, 134, 172, 0.5);
+}
 .right-content table tr:first-of-type,
 .left-content table tr:first-of-type {
   background: #333333;
   color: #dddddd;
   min-height: 0;
+}
+.right-content table tr:first-of-type td:first-of-type:nth-last-of-type(6n),
+.left-content table tr:first-of-type td:first-of-type:nth-last-of-type(6n) {
+  background: #ffffff;
 }
 .right-content table tr:nth-of-type(even),
 .left-content table tr:nth-of-type(even) {
@@ -6275,6 +6283,27 @@ input[type="text"][disabled]:focus, input[type="text"][disabled]:active, input[t
 .table-prev,
 .table-next {
   display: none;
+}
+.table-wrapper {
+  position: relative;
+}
+.table-wrapper .label-column {
+  width: 20%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  margin: 0 auto;
+}
+.table-wrapper .label-column td {
+  background: rgba(0, 134, 172, 0.5);
+}
+.table-wrapper .label-column tr:first-of-type td {
+  background: #ffffff;
+}
+.table-wrapper .label-column + .table-viewport {
+  width: 70%;
+  left: 20%;
+  position: relative;
 }
 @media screen and (max-width: 800px) {
   .table-wrapper {
@@ -6322,10 +6351,14 @@ input[type="text"][disabled]:focus, input[type="text"][disabled]:active, input[t
   }
   .table-wrapper .table-viewport table tr {
     width: 100%;
+    position: relative;
   }
   .table-wrapper .table-viewport table tr td {
     width: 20%;
     padding: .5em 1%;
+  }
+  .table-wrapper .table-viewport table td:first-of-type:nth-last-of-type(6n) {
+    display: none;
   }
 }
 
