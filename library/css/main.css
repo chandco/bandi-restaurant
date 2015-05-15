@@ -6217,6 +6217,16 @@ input[type="text"][disabled]:focus, input[type="text"][disabled]:active, input[t
   background-color:#d5edf8;
 }
 */
+.left-sidebar {
+  height: 800px;
+  position: fixed;
+  top: 127px;
+  overflow-y: scroll;
+  width: 23%;
+}
+#wiki-menu ul li {
+  list-style: none;
+}
 #footer-sidebar {
   clear: both;
   display: -webkit-box;

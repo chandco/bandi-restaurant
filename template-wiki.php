@@ -25,7 +25,6 @@ $args = array(
 
 //gets the parent page 
 $query = new WP_Query($args);
-
 $children = $query->posts;
 
 
@@ -53,13 +52,13 @@ $children = $query->posts;
 
 <div class='responsive-flex-container'>
 	
-	<div id="wiki-menu" class='left-sidebar'>
+	<div id="wiki-menu" class='left-sidebar widget'>
 		<?php
 			echo '<ul>';
 			foreach($children as $child) {
 				echo 
 				'<li>
-					<a href="#'.$child->post_title.'">' . $child->post_title . '</a>
+					<a href="#'.$child->ID.'">' . $child->post_title . '</a>
 				</li>';
 			}
 			echo '</ul>';
@@ -79,7 +78,7 @@ $children = $query->posts;
 if ( $query->have_posts() ) {
 	while ( $query->have_posts() ) {
 		$query->the_post();
-		echo '<article id="'.get_the_title().'">' . get_the_title();
+		echo '<article id="'.get_the_ID().'">' . get_the_title();
 		echo '<p>' . get_the_content() . '</p>';
 		echo '</article>';
 	}
