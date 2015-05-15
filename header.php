@@ -66,7 +66,7 @@
 
 					<?php // to use a image just replace the bloginfo('name') with your img src and remove the surrounding <p> ?>
 					<a href="<?php echo home_url(); ?>" rel="nofollow">
-						<?php bloginfo('name'); ?> (needs to be logo upload)
+						<img src='<?php echo get_stylesheet_directory_uri(); ?>/library/images/charlton-house.svg'>
 					</a>
 
 					</div>
