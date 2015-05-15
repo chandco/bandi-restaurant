@@ -49,6 +49,7 @@
 	
 	td:first-of-type:nth-last-of-type(6n) {
 		background: fade(@blue, 50%);
+		
 	}
 	
 	tr:first-of-type {
@@ -92,6 +93,9 @@
 .table-wrapper {
 
 	position: relative;
+	td:first-of-type:nth-last-of-type(6n) {
+		display: none;
+	}
 
 	.label-column {
 		width: 20%;
@@ -99,8 +103,21 @@
 		left: 0;
 		top: 0;
 		margin: 0 auto;
-		td {
+		overflow: hidden;
+
+		table {
+			width: 20 * 350%;
+			margin: 0;
+		}
+
+		td:first-of-type:nth-last-of-type(6n) ~ td {
+			width: 14%;
+		}
+
+		td:first-of-type:nth-last-of-type(6n) {
 			background: fade(@blue, 50%);
+			display: table-cell;
+			width: 30%;
 		}
 		tr:first-of-type td {
 			background: @white;
@@ -112,6 +129,41 @@
 		position: relative;
 	}
 
+	@media screen and (max-width: 800px) {
+		.label-column {
+			left: 5%;
+		}
+		.label-column + .table-viewport {
+			left: 10%;
+		}
+
+
+	}
+
+	@media screen and (max-width: 800px) {
+		
+	}
+	
+}
+
+@media screen and (max-width: 800px) {
+	.no-touch {
+		// ghetto browser hack to hide the scrollbar for desktops but not appear on mobiles
+		.table-wrapper {
+			&:after {
+				content: ""; 
+				width: 100%;
+				position: absolute;
+				bottom: 0;
+				height: 17px;
+				background: white;
+				left: 0;
+				right: 0;
+
+			}
+
+		}
+	}
 }
 
 
@@ -165,6 +217,9 @@
 				width: 500%;
 				table-layout: fixed;
 				overflow-x: scroll;
+				&::-webkit-scrollbar { 
+				    display: none; 
+				}
 				margin: 0;
 					tr {
 						width: 100%;

@@ -4,34 +4,26 @@ define(['jquery', 'components/arrayForEach'], function($) {
 
 
 
-    $('.right-content table, .left-content table').each(function(index, element) {
-       	$(element).wrap('<div class="table-wrapper"><div class="table-viewport"></div></div>');
+    $('.right-content table, .left-content table').each(function(index, table) {
+       	$(table).wrap('<div class="table-wrapper"><div class="table-viewport"></div></div>');
 
-        var $wrapper = $( $(element).parents('.table-wrapper')[0] );
+        var $wrapper = $( $(table).parents('.table-wrapper')[0] );
 
         $wrapper.append("<button class='table-prev'><i class='fa fa-angle-left'></i></button><button class='table-next'><i class='fa fa-angle-right'></i></button>");
 
         
         // if there are 6 columns then we have a label column
 
-        var tds = $(element).find('tr:eq(0) td');
+        var tds = $(table).find('tr:eq(0) td');
 
         window.newTDs = [];
         if (tds.length === 6) {
-        	var trs = $(element).find('tr');
+        	
+        	var $clone = $(table).clone();
 
-        	trs.each(function(row_index, row) {
-        		newTDs.push( $(row).find('td:eq(0)')[0] );
-        	});
+        	var $labelColumn = $('<div class="label-column"></div>');
 
-
-        	var $labelColumn = $('<table class="label-column"></table>');
-
-        	newTDs.forEach( function(td) {
-        		var tr = $('<Tr></tr>');
-        		tr.append(td);
-        		$labelColumn.append( tr );
-        	});
+        	$labelColumn.append( $clone );
 
         	$wrapper.prepend($labelColumn);
 

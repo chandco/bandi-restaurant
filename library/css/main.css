@@ -6287,15 +6287,28 @@ input[type="text"][disabled]:focus, input[type="text"][disabled]:active, input[t
 .table-wrapper {
   position: relative;
 }
+.table-wrapper td:first-of-type:nth-last-of-type(6n) {
+  display: none;
+}
 .table-wrapper .label-column {
   width: 20%;
   position: absolute;
   left: 0;
   top: 0;
   margin: 0 auto;
+  overflow: hidden;
 }
-.table-wrapper .label-column td {
+.table-wrapper .label-column table {
+  width: 7000%;
+  margin: 0;
+}
+.table-wrapper .label-column td:first-of-type:nth-last-of-type(6n) ~ td {
+  width: 14%;
+}
+.table-wrapper .label-column td:first-of-type:nth-last-of-type(6n) {
   background: rgba(0, 134, 172, 0.5);
+  display: table-cell;
+  width: 30%;
 }
 .table-wrapper .label-column tr:first-of-type td {
   background: #ffffff;
@@ -6304,6 +6317,26 @@ input[type="text"][disabled]:focus, input[type="text"][disabled]:active, input[t
   width: 70%;
   left: 20%;
   position: relative;
+}
+@media screen and (max-width: 800px) {
+  .table-wrapper .label-column {
+    left: 5%;
+  }
+  .table-wrapper .label-column + .table-viewport {
+    left: 10%;
+  }
+}
+@media screen and (max-width: 800px) {
+  .no-touch .table-wrapper:after {
+    content: "";
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    height: 17px;
+    background: white;
+    left: 0;
+    right: 0;
+  }
 }
 @media screen and (max-width: 800px) {
   .table-wrapper {
@@ -6348,6 +6381,9 @@ input[type="text"][disabled]:focus, input[type="text"][disabled]:active, input[t
     table-layout: fixed;
     overflow-x: scroll;
     margin: 0;
+  }
+  .table-wrapper .table-viewport table::-webkit-scrollbar {
+    display: none;
   }
   .table-wrapper .table-viewport table tr {
     width: 100%;
