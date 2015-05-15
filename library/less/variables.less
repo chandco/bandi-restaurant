@@ -55,7 +55,7 @@
 @light : @lightgrey;
 @lighter : @white;
 
-@body-background : @lightgrey;
+@body-background : @white;
 
 @med-dark : #506077;
 
@@ -78,7 +78,11 @@
 @formbg : @lightblue;
 
 // Header Styles and sizes
-@header-background: @white;
+@header-background: lighten( @lightgrey, 10% );
+
+// sidebars
+@widget-background: fade( @lightgrey, 20% );
+
 //@lighter-grey; @white
 @nav-link-color: @grey;
 @nav-link-background: transparent;

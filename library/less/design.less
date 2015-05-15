@@ -47,21 +47,6 @@
 
 
 
-.header-style() {
-	background: @header-background;
-  height: @header-height-px;
-  padding: (@header-height-px * 0.15) 0;
-  position: fixed;
-  top: 0;
-
-   @media screen and (max-width: 900px) { 
-      height: @header-height-px * 0.7;
-   }
-}
-
-
-
-
 
 
 
@@ -75,6 +60,10 @@
   position: relative;
  
   margin-bottom: @header-height-px;
+  padding-top: 2em;
+  @media screen and (max-width: @tablet-break) {
+    padding-top: 0;
+  }
 }
 
 .admin-bar {
@@ -106,7 +95,8 @@
   background-clip: border-box; 
 
   a {
-    padding: 5px 10px;
+    padding: 5px 2em;
+    text-transform: lowercase;
   }
 
   .sub-menu, .children {
@@ -161,7 +151,7 @@ body {
 
 .nav-font-style() {
 
-  letter-spacing: 0.2em;
+  
   color: inherit;
 }
 

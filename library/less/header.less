@@ -24,12 +24,19 @@
     width:100%;
 
     
-    .header-style();
+    background: @header-background;
+    height: @header-height-px;
+    padding: (@header-height-px * 0.15) 0;
+    position: fixed;
+    top: 0;
+
+
 
      @media screen and (max-width: 900px) {
         max-width: 100%;
         position: fixed;
         border-bottom: 2px solid RGBA(0,0,0,0.2);
+        height: @header-height-px * 0.7;
       }
 
 
@@ -98,7 +105,7 @@ nav[role="navigation"] {
       padding: 0;
 
       .h-font();
-      text-transform: uppercase;
+      //text-transform: uppercase;
       font-weight: bold;
 
       a {

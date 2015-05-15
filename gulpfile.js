@@ -11,6 +11,7 @@ var gulp = require('gulp'),
 			imageResize = require('gulp-image-resize'),
 			rename = require("gulp-rename"),
 			changed = require("gulp-changed"),
+            plumber = require("gulp-plumber"),
             cmq = require('gulp-combine-media-queries');
 
 
@@ -46,6 +47,7 @@ gulp.task('default', function () {
 
 gulp.task('javascript', function() {
 	 gulp.src(['./library/js/*.js','./library/js/components/*.js'])  	// ignore vendor stuff
+     .pipe(plumber())    
      .pipe(jshint())
      .pipe(jshint.reporter('default'));
 
@@ -60,7 +62,8 @@ gulp.task('javascript', function() {
 
 gulp.task('compile-css', function () {
 	gulp.src('./library/less/main.less')
-				.pipe(sourcemaps.init())
+				.pipe(plumber())    
+                .pipe(sourcemaps.init())
 			    .pipe(less())
 			    .pipe(autoprefixer())
                 //.pipe(uglifycss())
@@ -70,6 +73,7 @@ gulp.task('compile-css', function () {
 
 
     gulp.src('./library/less/admin.less')
+                .pipe(plumber())    
                 .pipe(sourcemaps.init())
                 .pipe(less())
                 .pipe(autoprefixer())
@@ -78,6 +82,7 @@ gulp.task('compile-css', function () {
                 .pipe(gulp.dest('./library/css/'));
 
     gulp.src('./library/less/editor-style.less')
+                .pipe(plumber())    
                 .pipe(sourcemaps.init())
                 .pipe(less())
                 .pipe(autoprefixer())

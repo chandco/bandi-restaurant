@@ -1,15 +1,72 @@
-define(['jquery'], function($) {
+define(['jquery', 'components/arrayForEach'], function($) {
 	$(document).ready(function() {
 
 
 
 
-    $('.right-content table, .left-content table').each(function(index, element) {
-        $(element).wrap('<div class="table-wrapper"><div class="table-viewport"></div></div>');
+    $('.right-content table, .left-content table').each(function(index, table) {
+       	$(table).wrap('<div class="table-wrapper"><div class="table-viewport"></div></div>');
 
-        $('.table-wrapper').append("<button class='table-prev'><i class='fa fa-angle-left'></i></button><button class='table-next'><i class='fa fa-angle-right'></i></button>");
+        var $wrapper = $( $(table).parents('.table-wrapper')[0] );
+
+        $wrapper.append("<button class='table-prev'><i class='fa fa-angle-left'></i></button><button class='table-next'><i class='fa fa-angle-right'></i></button>");
+
 
         
+        // if there are 6 columns then we have a label column
+
+        var tds = $(table).find('tr:eq(0) td');
+
+        var days = [
+        'sunday', 'monday','wednesday','tuesday','thursday','friday', 'saturday'
+        ];
+
+        var d = new Date();
+		var today = d.getDay();
+		var today_cell_index;
+
+        $(tds).each( function( index, td ) {
+
+        	var cell = $(td).text().toLowerCase();
+
+        	days.forEach( function(day, dayIndex) {
+        		if ( day.indexOf( cell ) != -1 ) {
+        			
+
+        			$(td).addClass(day);
+
+
+
+        			if (today == dayIndex) {
+        				$(td).addClass('today');
+        				today_cell_index = index; // NOT DAY INDEX, BUT THE INDEX OF THE TABLE CELL
+        			}
+
+        		}
+        	});
+
+        	
+
+        	
+
+        });
+
+        $(table).find('tr').find('td:eq(' + today_cell_index + ')').addClass('today');
+
+
+
+        window.newTDs = [];
+        if (tds.length === 6) {
+        	
+        	var $clone = $(table).clone();
+
+        	var $labelColumn = $('<div class="label-column"></div>');
+
+        	$labelColumn.append( $clone );
+
+        	$wrapper.prepend($labelColumn);
+
+        }
 
 
         var moveColumns = function(btn, move, e) {
@@ -29,6 +86,11 @@ define(['jquery'], function($) {
         	
         	moveColumns( this, -20, e);
 		});
+
+		// finally, scroll to today
+
+		Animating = false;
+        checkTablePosition($($wrapper).find('.table-viewport'), 20 * today_cell_index);
 
     });
 
