@@ -174,14 +174,6 @@ img.alignfull-width {
     float: left;
     width: 100% - @global-sidebar-width - @global-sidebar-margin;
 
-
-
-    @media screen and (max-width: 700px) {
-      float: none;
-      margin-left: auto;
-      width: 96%;
-      
-    }
     
     > *:first-of-type {
       margin-top: 0;
@@ -200,17 +192,8 @@ img.alignfull-width {
 
       
 
-      @media screen and (max-width: 900px) {
-        float: none;
-      }
-
-      @media screen and (max-width: 700px) {
-        position: relative;
-        width: 100%;
-        
-      }
+      
 }
-
 
 .right-content {
     width: 100%;
@@ -222,16 +205,23 @@ img.alignfull-width {
     margin: auto;
     position: relative;
     float: right;
-    width: 100% - @global-sidebar-width - @global-sidebar-margin;
+    width: 100% - @global-sidebar-width - @global-sidebar-margin;  
+}
 
 
+@media screen and (max-width: 900px) {
 
-    @media screen and (max-width: 700px) {
-      float: none;
-      margin-left: auto;
-      width: 100%;
-      
+    .left-content, .right-content {
+        float: none;
+        width: 100%;
     }
+      
+    .left-sidebar, .right-sidebar {
+        width: 100%;
+        float: none;
+        margin: auto;
+    }
+      
 }
 
 .responsive-flex-container {

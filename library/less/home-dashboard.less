@@ -45,12 +45,14 @@
 
 .right-content table, .left-content table {
 	width: 100%;
-
+	table-layout: fixed;
 	
 
+	
 	tr:first-of-type {
 		background: @dark;
 		color: @light;
+		min-height: 0;
 	}
 
 	tr:nth-of-type(even) {
@@ -59,7 +61,10 @@
 
 	td {
 		padding: .5em;
-		width: 100%;
+		width: 20%;
+		height: 80px; // just for some padding
+		vertical-align: top;
+		text-align: left;
 		border-right: 1px solid fade(white, 50%);
 		&:last-of-type {
 			border-right: none;

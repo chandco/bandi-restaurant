@@ -63,7 +63,9 @@
 
                   <?php the_tags( '<p class="tags"><span class="tags-title">' . __( 'Tags:', 'cf-theme' ) . '</span> ', ' ', '</p>' ); ?>
 
-                  <?php if (is_single()) related_posts(); // yarpp ?>
+                  <?php if (function_exists('related_posts')) {
+                    if (is_single()) related_posts(); // yarpp 
+                  } ?>
 
 
                 </footer> <?php // end article footer ?>

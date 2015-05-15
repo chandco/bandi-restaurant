@@ -51,3 +51,49 @@
   font-style:italic;
   margin:0;
 }
+
+
+// small preview blog posts:
+
+.grid-feed {
+	display: flex;
+	list-style-type: none;
+	justify-content:space-between;
+	width: 100%;
+
+	.post-preview {
+		width: 24%; // assumes 4, might have to fix this for other parents
+	}
+
+}
+
+.post-preview {
+	display: block;
+	background: @widget-background;
+
+	.image-container {
+		width: 100%;
+		height: 0;
+		padding-bottom: 65%; // just shy of 6:4
+		background: darken(@widget-background, 10%);
+		display: block;
+		position: relative;
+		border-bottom: 2px solid fade(black, 10%);
+		overflow: hidden;
+
+		img {
+			position: absolute;
+			.vertical-center();
+			left: 0;
+			width: 100%;
+			height: auto;
+		}
+
+	}
+
+	h4 {
+		
+		padding: 1em;
+		margin: 0;
+	}
+}
