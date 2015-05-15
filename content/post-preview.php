@@ -9,6 +9,11 @@
 		</div>	
 
 		<h4><?php the_title(); ?></h4>
-
 	</a>
+	
+	<div class='excerpt'>
+		<?php the_excerpt(); ?>
+	</div>
+
+	
 </li>

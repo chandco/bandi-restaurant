@@ -3358,7 +3358,9 @@ img.alignfull-width {
   width: 95%;
 }
 footer .footerinfo {
-  padding-bottom: 20px;
+  margin-top: 2em;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 2em 0 20px;
 }
 footer .widget:first-of-type {
   margin-top: 0;
@@ -3742,6 +3744,9 @@ footer.article-footer .tags a[rel="tag"]:hover {
 .post-preview h4 {
   padding: 1em;
   margin: 0;
+}
+.post-preview .excerpt {
+  padding: 0 1em;
 }
 li.capacities {
   list-style: none;
@@ -6279,6 +6284,10 @@ input[type="text"][disabled]:focus, input[type="text"][disabled]:active, input[t
 .right-content table td:last-of-type,
 .left-content table td:last-of-type {
   border-right: none;
+}
+.right-content table td.today,
+.left-content table td.today {
+  background: rgba(65, 165, 53, 0.3);
 }
 .table-prev,
 .table-next {
