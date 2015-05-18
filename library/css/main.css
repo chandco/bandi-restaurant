@@ -6227,6 +6227,10 @@ input[type="text"][disabled]:focus, input[type="text"][disabled]:active, input[t
 #wiki-menu ul li {
   list-style: none;
 }
+#wiki-menu .grandChild a {
+  color: green;
+  padding-left: 20px;
+}
 #footer-sidebar {
   clear: both;
   display: -webkit-box;

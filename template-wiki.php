@@ -30,7 +30,16 @@ $children = $query->posts;
 
 
 
-
+$args2 = array(
+'sort_order' => 'ASC',
+'sort_column' => 'menu_order',
+'hierarchical' => 1,
+'child_of' => $parentID,
+'parent' => -1,
+'exclude_tree' => '0',
+'depth' => '2',
+'post_type' => 'page'
+);
 ?>
 
 
@@ -54,14 +63,25 @@ $children = $query->posts;
 	
 	<div id="wiki-menu" class='left-sidebar widget'>
 		<?php
-			echo '<ul>';
-			foreach($children as $child) {
-				echo 
-				'<li>
-					<a href="#'.$child->ID.'">' . $child->post_title . '</a>
-				</li>';
-			}
-			echo '</ul>';
+			// echo '<ul>';
+			// foreach($children as $child) {
+			// 	echo 
+			// 	'<li>
+			// 		<a href="#'.$child->ID.'">' . $child->post_title . '</a>
+			// 	</li>';
+			// }
+			// echo '</ul>';
+
+		echo '<ul>';
+		$pages = get_pages($args2); 
+		foreach($pages as $page){
+			if( is_page() && count(get_post_ancestors($page->ID)) == 2 ) {
+				echo '<li class="grandChild"><a href=#'.$page->ID.'>'.'- '.$page->post_title.'</a></li>';
+				} else {
+				echo '<li><a href=#'.$page->ID.'>'.$page->post_title.'</a></li>';
+				}
+		} 
+		echo '</ul>';
 		?>
 	</div>
 
@@ -78,7 +98,7 @@ $children = $query->posts;
 if ( $query->have_posts() ) {
 	while ( $query->have_posts() ) {
 		$query->the_post();
-		echo '<article id="'.get_the_ID().'">' . get_the_title();
+		echo '<article id="'.get_the_id().'">' . get_the_title();
 		echo '<p>' . get_the_content() . '</p>';
 		echo '</article>';
 	}
@@ -89,35 +109,6 @@ if ( $query->have_posts() ) {
 wp_reset_postdata();
 ?>
 
-
-
-<?php
-$page_id = get_the_id() ?>
-
-<?php $args=array(
-  'post_parent' => $page_id,
-  'post_type' => 'page',
-  'post_status' => 'publish',
-  'posts_per_page' => 100,
-  'caller_get_posts'=> 1
-);
-$my_query = new WP_Query($args);
-
-if( $my_query->have_posts() ) {
-  while ($my_query->have_posts()) : $my_query->the_post(); ?>
-
-	<?php the_title(); ?>
-	<?php
-
-  $children = wp_list_pages("depth=1&title_li=&child_of=".$post->ID);
-   ?>
-  <?php echo $children; ?>
-   <?php
-  endwhile;
-}
-
-wp_reset_query();  // Restore global post data stomped by the_post().
-?>  
 
 	</div>
 </div>
