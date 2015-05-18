@@ -31,6 +31,7 @@ require(['typekit'], function() {
 
 
 require(["smoothscroll"]);
+require(["scroll-nav"]);
 
 
 

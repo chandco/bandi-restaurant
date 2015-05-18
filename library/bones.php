@@ -53,7 +53,9 @@ function bones_head_cleanup() {
 	// remove Wp version from scripts
 	add_filter( 'script_loader_src', 'bones_remove_wp_ver_css_js', 9999 );
 
-	
+
+
+add_action( 'wp_enqueue_scripts', 'theme_name_scripts' );
 
 
 	// jquery in dat footer

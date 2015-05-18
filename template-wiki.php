@@ -16,16 +16,16 @@
 <?php
 $parentID = get_the_ID();
 
-$args = array(
-	"post_parent" => $parentID,
-	"order" => "ASC",
-	"orderby" => "menu_order",
-	"post_type" => "page"
-);
+// $args = array(
+// 	"post_parent" => $parentID,
+// 	"order" => "ASC",
+// 	"orderby" => "menu_order",
+// 	"post_type" => "page"
+// );
 
-//gets the parent page 
-$query = new WP_Query($args);
-$children = $query->posts;
+// //gets the parent page 
+// $query = new WP_Query($args);
+// $children = $query->posts;
 
 
 
@@ -37,17 +37,12 @@ $args2 = array(
 'child_of' => $parentID,
 'parent' => -1,
 'exclude_tree' => '0',
-'depth' => '2',
 'post_type' => 'page'
 );
+
+$query2 = new WP_Query($args2);
+//var_dump($query2);
 ?>
-
-
-
-
-
-
-
 
 
 
@@ -72,16 +67,19 @@ $args2 = array(
 			// }
 			// echo '</ul>';
 
-		echo '<ul>';
+		echo "<h3 style=\"padding-left:24px;\"><u>".get_the_title()."</u></h3>";
+
+		echo '<nav><ul>';
 		$pages = get_pages($args2); 
 		foreach($pages as $page){
+			//if it is a page and page is a grandchild append a class to the list item
 			if( is_page() && count(get_post_ancestors($page->ID)) == 2 ) {
-				echo '<li class="grandChild"><a href=#'.$page->ID.'>'.'- '.$page->post_title.'</a></li>';
+				echo '<li class="grandChild"><a href=#post-'.$page->ID.'>'.'- '.$page->post_title.'</a></li>';
 				} else {
-				echo '<li><a href=#'.$page->ID.'>'.$page->post_title.'</a></li>';
+				echo '<li><strong><a href=#post-'.$page->ID.'>'.$page->post_title.'</a></strong></li>';
 				}
 		} 
-		echo '</ul>';
+		echo '</ul></nav>';
 		?>
 	</div>
 
@@ -95,10 +93,10 @@ $args2 = array(
 
 
 // The Loop
-if ( $query->have_posts() ) {
-	while ( $query->have_posts() ) {
-		$query->the_post();
-		echo '<article id="'.get_the_id().'">' . get_the_title();
+if ( $query2->have_posts() ) {
+	while ( $query2->have_posts() ) {
+		$query2->the_post();
+		echo '<article id="post-'.get_the_id().'">' . get_the_title();
 		echo '<p>' . get_the_content() . '</p>';
 		echo '</article>';
 	}

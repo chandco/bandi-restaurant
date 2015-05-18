@@ -6228,7 +6228,7 @@ input[type="text"][disabled]:focus, input[type="text"][disabled]:active, input[t
   list-style: none;
 }
 #wiki-menu .grandChild a {
-  color: green;
+  color: #5477ae;
   padding-left: 20px;
 }
 #footer-sidebar {
