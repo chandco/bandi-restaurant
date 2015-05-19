@@ -1,18 +1,57 @@
-#wiki-menu {
-	height:800px;
-	position:fixed;
-	top:127px;
-	overflow-y: scroll;
-	width:23%;
+@media screen and (max-width: @tablet-break) {
+	.wiki-mobile {
+		width:100%;
+		display:block !important;
 
-	ul li {
-		list-style: none;
+		h3 {
+			padding:10px;
+			margin:0 0 7px 0;
+		}
+
+		article {
+			background:rgba(221, 221, 221, 0.2);
+			cursor: pointer;
+		}
+
+		.right-arrow {
+			font-size:20px;
+			margin-left:40px;
+			color:#918E8E;
+			float:right;
+		}
 	}
 
-	.grandChild a {
-		color: rgb(84, 119, 174);
-		padding-left:20px;
+	#wiki-menu, #wiki-content {
+		display:none;
 	}
+
 }
+
+
+/*Desktop Styles */
+
+	.wiki-mobile {
+		display:none;
+	}
+	
+
+	#wiki-menu {
+		height:800px;
+		position:fixed;
+		top:127px;
+		overflow-y: scroll;
+		width:23%;
+
+		ul li {
+			list-style: none;
+		}
+
+		.grandChild a {
+			color: rgb(84, 119, 174);
+			padding-left:20px;
+		}
+	}
+
+
 
 

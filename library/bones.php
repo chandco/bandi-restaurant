@@ -55,7 +55,9 @@ function bones_head_cleanup() {
 
 
 
-add_action( 'wp_enqueue_scripts', 'theme_name_scripts' );
+
+
+	
 
 
 	// jquery in dat footer
@@ -73,6 +75,14 @@ add_action( 'wp_enqueue_scripts', 'theme_name_scripts' );
 
 
 } /* end bones head cleanup */
+
+
+function theme_name_scripts() {
+	
+
+}
+
+add_action( 'wp_enqueue_scripts', 'theme_name_scripts' );
 
 // A better title
 // http://www.deluxeblogtips.com/2012/03/better-title-meta-tag.html

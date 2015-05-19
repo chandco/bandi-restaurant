@@ -106,9 +106,33 @@ if ( $query2->have_posts() ) {
 /* Restore original Post Data */
 wp_reset_postdata();
 ?>
-
-
 	</div>
+
+
+
+<div class="wiki-mobile">
+<?php $pages = get_pages($args2); 
+		foreach($pages as $page){
+			//if it is a page and page is a grandchild append a class to the list item
+			if( is_page() && count(get_post_ancestors($page->ID)) == 2 ) {
+				echo '<article>';
+				echo '<h3><a href=#post-'.$page->ID.'>' .$page->post_title.'</a><span class="right-arrow">&#9658</span></h3>';
+				echo '</article>';
+			} else {
+				echo '<article>';
+				echo '<h3><strong><a href=#post-'.$page->ID.'>'.$page->post_title.'</a></strong></h3>';
+				echo '<p>'.$page->post_content.'</p>';
+			}
+				echo '</article>';		
+		} ?>
+
+</div>
+
+
+
+
+
+
 </div>
 
 <?php get_footer(); ?>
