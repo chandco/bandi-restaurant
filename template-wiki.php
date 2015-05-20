@@ -111,20 +111,39 @@ wp_reset_postdata();
 
 
 <div class="wiki-mobile">
+
+
+
 <?php $pages = get_pages($args2); 
 		foreach($pages as $page){
 			//if it is a page and page is a grandchild append a class to the list item
 			if( is_page() && count(get_post_ancestors($page->ID)) == 2 ) {
-				echo '<article>';
-				echo '<h3><a href=#post-'.$page->ID.'>' .$page->post_title.'</a><span class="right-arrow">&#9658</span></h3>';
-				echo '</article>';
+
+			echo '<article>';
+           echo "<a href= \"javascript:showonlyone('$page->ID')\";><span class=\"right-arrow\">&#9658</span>";
+           	echo '<h3>'.$page->post_title.'</h3>';
+           	echo '<p class="wiki-text" id="'.$page->ID.'">'.$page->post_content.'</p>';
+			echo '</article>';
 			} else {
 				echo '<article>';
-				echo '<h3><strong><a href=#post-'.$page->ID.'>'.$page->post_title.'</a></strong></h3>';
-				echo '<p>'.$page->post_content.'</p>';
+				echo "<a href= \"javascript:showonlyone('$page->ID')\";><span class=\"right-arrow\">&#9658</span>";
+				echo '<h3>'.$page->post_title.'</h3>';
+				echo '<p class="wiki-text" id="'.$page->ID.'">'.$page->post_content.'</p>';
+				echo '</article>';
 			}
-				echo '</article>';		
-		} ?>
+					
+		}
+
+?>
+
+<div style="border: 1px solid blue; background-color: #99CCFF; padding: 5px; width: 150px;">
+            <a id="myHeader2" href="javascript:showonlyone('newboxes2');" >show this one only</a>
+         </div>
+         <div class="newboxes" id="newboxes2" style="border: 1px solid black; background-color: #CCCCCC; display: none;padding: 5px; width: 150px;">Div #2</div>
+
+
+
+
 
 </div>
 

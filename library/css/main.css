@@ -6228,7 +6228,9 @@ input[type="text"][disabled]:focus, input[type="text"][disabled]:active, input[t
   }
   .wiki-mobile article {
     background: rgba(221, 221, 221, 0.2);
-    cursor: pointer;
+  }
+  .wiki-mobile .wiki-text {
+    display: none;
   }
   .wiki-mobile .right-arrow {
     font-size: 20px;

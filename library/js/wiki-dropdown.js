@@ -1,13 +1,13 @@
 define(['jquery'], function($) {
 	
 
-	function showWikiContent(wikiID) {
-     $('.box').each(function(index) {
-          if ($(this).attr("id") == wikiID) {
-               $(this).show(200);
+	showonlyone = function (thechosenone) {
+     $('.wiki-text').each(function(index) {
+          if ($(this).attr("id") == thechosenone) {
+               $(this).slideDown(200);
           }
           else {
-               $(this).hide(600);
+               $(this).slideUp(600);
           }
      });
 }
