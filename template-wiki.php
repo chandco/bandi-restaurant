@@ -42,6 +42,16 @@ $args2 = array(
 
 $query2 = new WP_Query($args2);
 //var_dump($query2);
+
+
+$args = array(
+'sort_column' => 'menu_order',
+'parent'      => $post->ID,
+'post_type' => 'page',
+'hierarchial' => 0
+);
+
+$children = get_pages( $args );
 ?>
 
 
@@ -62,15 +72,6 @@ $query2 = new WP_Query($args2);
 	//show wiki menu children and grandchildren only
 	echo "<h3 style=\"padding-left:24px;\"><u>".get_the_title()."</u></h3>";
 
-	$args = array(
-    'sort_column' => 'menu_order',
-    'parent'      => $post->ID,
-    'post_type' => 'page',
-    'hierarchial' => 0
-	);
-
-	$children = get_pages( $args );
-
 
 	foreach( $children as $child ) {
     	$child_args = array(
@@ -80,121 +81,44 @@ $query2 = new WP_Query($args2);
         'post_type' => 'page'
     );
 
-    $grandchildren = get_pages( $child_args ); ?>
+   		 $grandchildren = get_pages( $child_args ); 
 
-
-    <h3><?php echo $child->post_title; ?></h3>
-    	<div class="sub-section">
-    <?php 
-  
+   		echo "<h3><a href=\"#post-$child->ID\">$child->post_title</a></h3>";
+    	
+    	
     	foreach( $grandchildren as $gchild ) {
-    		echo "<h4>$gchild->post_title</h4>";
+    		echo "<h4><a href=\"#post-$gchild->ID\">$gchild->post_title</a></h4>";
     	}
-    ?>
-    </div>
-   
-   <?php } ?>
+    	
+   } ?>
 	
 	</div>
 
 	<div id="wiki-content" class='right-content'>
 		<?php if ( have_posts() ) : while( have_posts() ) : the_post();
 	     the_content();
-		endwhile; endif; ?>
+		endwhile; endif; 
 
-
-
-<?php
-// The Loop
-if ( $query2->have_posts() ) {
-	while ( $query2->have_posts() ) {
-		$query2->the_post();
-		echo '<article id="post-'.get_the_id().'">' . get_the_title();
-		echo '<p>' . get_the_content() . '</p>';
-		echo '</article>';
-	}
-} else {
-	// no posts found
-}
-/* Restore original Post Data */
-wp_reset_postdata();
-?>
+		// The Loop
+		if ( $query2->have_posts() ) {
+			while ( $query2->have_posts() ) {
+				$query2->the_post();
+				echo '<article id="post-'.get_the_id().'">' . get_the_title();
+				echo '<p>' . get_the_content() . '</p>';
+				echo '</article>';
+			}
+		} else {
+			// no posts found
+		}
+		/* Restore original Post Data */
+		wp_reset_postdata();
+		?>
 	</div>
 
 
 
-<div class="wiki-mobile">
 
 
-
-<?php 
-// $pages = get_pages($args2); 
-// 		foreach($pages as $page){
-// 			//if it is a page and page is a grandchild append a class to the list item
-// 			if( is_page() && count(get_post_ancestors($page->ID)) == 1 ) {
-
-// 				//show children pages
-// 				echo '<article>';
-// 				echo "<a href= \"javascript:showonlyone('$page->ID')\";><span class=\"right-arrow\">&#9658</span>";
-// 				echo '<h3><strong>'.$page->post_title.'</strong></h3></a>';
-// 				echo '<p class="wiki-text" id="'.$page->ID.'">'.$page->post_content.'</p>';
-// 				echo '</article>';
-
-// 			}
-// 		}
-
-?>
-
-
-
- <?php 
-$args = array(
-    'sort_column' => 'menu_order',
-    'parent'      => $post->ID,
-    'post_type' => 'page',
-    'hierarchial' => 0
-);
-
-$children = get_pages( $args );
-
-
-foreach( $children as $child ) {
-    $child_args = array(
-        'sort_column' => 'menu_order',
-        'parent'      => $child->ID,
-        'hierarchial' => 0,
-        'post_type' => 'page'
-    );
-
-    $grandchildren = get_pages( $child_args ); ?>
-
-
-<article>
-	<a>
-    	<h3><?php echo $child->post_title; ?><span class="right-arrow">&#9658</span></h3>
-    </a>
-    <div class="sub-section">
-    <?php 
-    echo '<p class="wiki-text">'.$child->post_content.'</p>';?>
-
-   		<?php
-    	foreach( $grandchildren as $gchild ) {
-    		echo "<h3>$gchild->post_title</h3>";
-    		echo '<p class="wiki-text">'.$gchild->post_content.'</p>';
-    	}
-
-    	?>
-    </div>
-</article>
-   <?php
-	}
-	?>
-
-
-
-</div>
-
-
-</div>
+</div><!--End responsive flex container-->
 
 <?php get_footer(); ?>
