@@ -29,19 +29,27 @@
 		overflow-y: scroll;
 		width:23%;
 
-		ul li {
-			list-style: none;
-		}
+	}
 
-		.grandChild a {
-			color: rgb(84, 119, 174);
-			padding-left:20px;
+	#wiki-content {
+
+
+		.wiki-text {
+			min-height:0;
+			background:green;
+
 		}
 
 		.open {
-			background:red;
+   background: #ccc;
+   max-height:0;
+   overflow:hidden;
+   -webkit-transition:max-height 5s;
+   -moz-transition:max-height 5s;
+   transition:max-height 5s;
+}
 		}
-	}
+
 
 
 

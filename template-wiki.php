@@ -98,8 +98,8 @@ $children = get_pages( $args2 );
 		if ( $query->have_posts() ) {
 			while ( $query->have_posts() ) {
 				$query->the_post();
-				echo '<article class="close section" id="post-'.get_the_id().'">' . get_the_title();
-				echo '<p>' . get_the_content() . '</p>';
+				echo '<article class="section" id="post-'.get_the_id().'">' . get_the_title();
+				echo '<p class="wiki-text">' . get_the_content() . '</p>';
 				echo '</article>';
 			}
 		} else {

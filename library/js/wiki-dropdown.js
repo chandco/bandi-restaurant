@@ -4,17 +4,12 @@ define(['jquery'], function($) {
 
 	$(".section").click(function() {
  
-    if ( $(this).hasClass("close") ) {
- 
-        $(this)
-        	.removeClass("close")
-        	.addClass("open");
- 
+    if ( $(this).toggleClass("open") ) {
+    	$(this).removeClass("close");
     }
  
 });
- 
-}
+
 
 	});
 });
