@@ -6223,14 +6223,19 @@ input[type="text"][disabled]:focus, input[type="text"][disabled]:active, input[t
     display: block !important;
   }
   .wiki-mobile h3 {
-    padding: 10px;
+    padding: 30px 30px 0 30px;
     margin: 0 0 7px 0;
+  }
+  .wiki-mobile h4 {
+    font-size: 1.3em;
+    padding: 0px 30px 30px 30px;
   }
   .wiki-mobile article {
     background: rgba(221, 221, 221, 0.2);
   }
   .wiki-mobile .wiki-text {
     display: none;
+    padding: 10px 30px 30px 30px;
   }
   .wiki-mobile .right-arrow {
     font-size: 20px;
