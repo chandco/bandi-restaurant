@@ -5,7 +5,7 @@ define(['jquery'], function($) {
 
 	showSubSection = function() {
     	$(this).click(function(){
-    		$(this).closest('.wiki-text').toggle();
+    		$('.sub-section').slideDown();
 			});
 		}
 
