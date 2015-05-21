@@ -6248,6 +6248,9 @@ input[type="text"][disabled]:focus, input[type="text"][disabled]:active, input[t
   color: #5477ae;
   padding-left: 20px;
 }
+#wiki-menu .open {
+  background: red;
+}
 #footer-sidebar {
   clear: both;
   display: -webkit-box;

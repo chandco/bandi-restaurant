@@ -98,7 +98,7 @@ $children = get_pages( $args2 );
 		if ( $query->have_posts() ) {
 			while ( $query->have_posts() ) {
 				$query->the_post();
-				echo '<article id="post-'.get_the_id().'">' . get_the_title();
+				echo '<article class="close section" id="post-'.get_the_id().'">' . get_the_title();
 				echo '<p>' . get_the_content() . '</p>';
 				echo '</article>';
 			}
