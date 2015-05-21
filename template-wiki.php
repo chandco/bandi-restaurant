@@ -16,48 +16,43 @@
 <?php
 $parentID = get_the_ID();
 
-// $args = array(
-// 	"post_parent" => $parentID,
-// 	"order" => "ASC",
-// 	"orderby" => "menu_order",
-// 	"post_type" => "page"
+$args = array(
+	"post_parent" => $parentID,
+	"order" => "ASC",
+	"orderby" => "menu_order",
+	"post_type" => "page"
+);
+
+//gets the parent page 
+$query = new WP_Query($args);
+//$children2 = $query->posts;
+
+
+
+
+// $args2 = array(
+// 'sort_order' => 'ASC',
+// 'sort_column' => 'menu_order',
+// 'hierarchical' => 1,
+// 'child_of' => $parentID,
+// 'parent' => -1,
+// 'exclude_tree' => '0',
+// 'post_type' => 'page'
 // );
 
-// //gets the parent page 
-// $query = new WP_Query($args);
-// $children = $query->posts;
-
-
+// $query2 = new WP_Query($args2);
+// //var_dump($query2->post_content);
 
 
 $args2 = array(
-'sort_order' => 'ASC',
-'sort_column' => 'menu_order',
-'hierarchical' => 1,
-'child_of' => $parentID,
-'parent' => -1,
-'exclude_tree' => '0',
-'post_type' => 'page'
-);
-
-$query2 = new WP_Query($args2);
-//var_dump($query2);
-
-
-$args = array(
 'sort_column' => 'menu_order',
 'parent'      => $post->ID,
 'post_type' => 'page',
 'hierarchial' => 0
 );
 
-$children = get_pages( $args );
+$children = get_pages( $args2 );
 ?>
-
-
-
-
-
 
 
 
@@ -100,9 +95,9 @@ $children = get_pages( $args );
 		endwhile; endif; 
 
 		// The Loop
-		if ( $query2->have_posts() ) {
-			while ( $query2->have_posts() ) {
-				$query2->the_post();
+		if ( $query->have_posts() ) {
+			while ( $query->have_posts() ) {
+				$query->the_post();
 				echo '<article id="post-'.get_the_id().'">' . get_the_title();
 				echo '<p>' . get_the_content() . '</p>';
 				echo '</article>';

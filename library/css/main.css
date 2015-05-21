@@ -6218,30 +6218,22 @@ input[type="text"][disabled]:focus, input[type="text"][disabled]:active, input[t
 }
 */
 @media screen and (max-width: 968px) {
-  .wiki-mobile {
-    width: 100%;
-    display: block !important;
+  #wiki-menu {
+    display: none;
   }
-  .wiki-mobile article {
+  #wiki-menu article {
     background: rgba(221, 221, 221, 0.2);
     padding: 20px;
     margin-bottom: 10px;
   }
-  .wiki-mobile .right-arrow {
+  #wiki-menu .right-arrow {
     font-size: 20px;
     margin-left: 40px;
     color: #918E8E;
     float: right;
   }
-  #wiki-menu,
-  #wiki-content {
-    display: none;
-  }
 }
 /*Desktop Styles */
-.wiki-mobile {
-  display: none;
-}
 #wiki-menu {
   height: 800px;
   position: fixed;
