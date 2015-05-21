@@ -46,6 +46,9 @@
 		document.createElement( "picture" );
 		</script>
 		<script src="<?php echo get_stylesheet_directory_uri(); ?>/library/js/vendor/picturefill.js" async></script>
+		<style>
+		<?php echo get_option('cf_inlineCSS'); ?>
+		</style>
 	</head>
 	<?php
 	$bodyclass = "";

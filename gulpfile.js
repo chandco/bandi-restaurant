@@ -90,6 +90,16 @@ gulp.task('compile-css', function () {
                 .pipe(sourcemaps.write('./maps'))
                 .pipe(gulp.dest('./library/css/'));
 
+
+    gulp.src('./library/less/style-bootstrap.less')
+                .pipe(plumber())    
+                //.pipe(sourcemaps.init())
+                .pipe(less())
+                .pipe(autoprefixer())
+                //.pipe(uglifycss())
+                
+                .pipe(gulp.dest('./library/css/'));
+
    return; 
 
 });
