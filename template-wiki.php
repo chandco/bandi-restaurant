@@ -28,22 +28,6 @@ $query = new WP_Query($args);
 //$children2 = $query->posts;
 
 
-
-
-// $args2 = array(
-// 'sort_order' => 'ASC',
-// 'sort_column' => 'menu_order',
-// 'hierarchical' => 1,
-// 'child_of' => $parentID,
-// 'parent' => -1,
-// 'exclude_tree' => '0',
-// 'post_type' => 'page'
-// );
-
-// $query2 = new WP_Query($args2);
-// //var_dump($query2->post_content);
-
-
 $args2 = array(
 'sort_column' => 'menu_order',
 'parent'      => $post->ID,
@@ -52,6 +36,19 @@ $args2 = array(
 );
 
 $children = get_pages( $args2 );
+
+$args3 = array(
+
+'orderby' => 'menu_order',
+'order' => 'ASC',
+'posts_per_page' => 3,
+'post_type' => get_post_type( $post->ID ),
+'post_parent' => $post->ID
+);
+
+ $childpages = new WP_Query($args3);
+
+
 ?>
 
 
@@ -104,10 +101,20 @@ $children = get_pages( $args2 );
 				echo '<div class="close-sub-section">Close</div>';
 				echo '</article></span>';
 
+				if($childpages->post_count > 0) { 
+            echo "<ul>";
+            while ($childpages->have_posts()) {
+                 $childpages->the_post();
+                 echo "<li><h2>".get_the_title()."</h2></li>";
+            }
+            echo "</ul>";
+        }
+        wp_reset_query();
+
 
 			}
 		} else {
-			// no posts found
+			echo "Sorry, you have no posts.";
 		}
 		/* Restore original Post Data */
 		wp_reset_postdata();
