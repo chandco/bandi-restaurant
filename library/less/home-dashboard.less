@@ -46,6 +46,8 @@
 .right-content table, .left-content table {
 	width: 100%;
 	table-layout: fixed;
+	font-size: 0.8em;
+
 	
 	td:first-of-type:nth-last-of-type(6n) {
 		background: fade(@blue, 50%);
@@ -97,9 +99,14 @@
 .table-wrapper {
 
 	position: relative;
-	td:first-of-type:nth-last-of-type(6n) {
-		display: none;
+
+	@media screen and (max-width: 800px) {
+		td:first-of-type:nth-last-of-type(6n) {
+			display: none;
+		}
 	}
+
+	
 
 	.label-column {
 		width: 20%;
@@ -110,33 +117,48 @@
 		overflow: hidden;
 
 		table {
-			width: 20 * 350%;
+			width: 100%;
 			margin: 0;
 		}
 
 		td:first-of-type:nth-last-of-type(6n) ~ td {
-			width: 14%;
+			//width: 14%;
 		}
 
 		td:first-of-type:nth-last-of-type(6n) {
 			background: fade(@blue, 50%);
-			display: table-cell;
-			width: 0.99%;
+			display: block !important;
+			  width: 100% !important;
+			  overflow: hidden;
+			//width: 0.99%;
+			width: 20%;
+
 
 		}
 		tr:first-of-type td {
 			background: @white;
 		}
 	}
-	.label-column + .table-viewport {
-		width: 70%;
-		left: 20%;
-		position: relative;
-	}
 
 	@media screen and (max-width: 800px) {
+		.label-column + .table-viewport {
+			width: 70%;
+			left: 20%;
+			position: relative;
+		}
+
+	
 		.label-column {
 			left: 5%;
+
+			td {
+				display: none;
+
+			}
+
+			td:first-of-type {
+				display: block;
+			}
 		}
 		.label-column + .table-viewport {
 			left: 10%;
@@ -149,6 +171,12 @@
 		
 	}
 	
+}
+
+@media screen and (min-width: 800px) { 
+	.label-column {
+		display: none;
+	}
 }
 
 @media screen and (max-width: 800px) {

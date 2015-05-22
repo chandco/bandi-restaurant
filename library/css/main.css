@@ -6297,6 +6297,7 @@ input[type="text"][disabled]:focus, input[type="text"][disabled]:active, input[t
 .left-content table {
   width: 100%;
   table-layout: fixed;
+  font-size: 0.8em;
 }
 .right-content table td:first-of-type:nth-last-of-type(6n),
 .left-content table td:first-of-type:nth-last-of-type(6n) {
@@ -6340,8 +6341,10 @@ input[type="text"][disabled]:focus, input[type="text"][disabled]:active, input[t
 .table-wrapper {
   position: relative;
 }
-.table-wrapper td:first-of-type:nth-last-of-type(6n) {
-  display: none;
+@media screen and (max-width: 800px) {
+  .table-wrapper td:first-of-type:nth-last-of-type(6n) {
+    display: none;
+  }
 }
 .table-wrapper .label-column {
   width: 20%;
@@ -6352,31 +6355,41 @@ input[type="text"][disabled]:focus, input[type="text"][disabled]:active, input[t
   overflow: hidden;
 }
 .table-wrapper .label-column table {
-  width: 7000%;
+  width: 100%;
   margin: 0;
-}
-.table-wrapper .label-column td:first-of-type:nth-last-of-type(6n) ~ td {
-  width: 14%;
 }
 .table-wrapper .label-column td:first-of-type:nth-last-of-type(6n) {
   background: rgba(0, 134, 172, 0.5);
-  display: table-cell;
-  width: 0.99%;
+  display: block !important;
+  width: 100% !important;
+  overflow: hidden;
+  width: 20%;
 }
 .table-wrapper .label-column tr:first-of-type td {
   background: #ffffff;
 }
-.table-wrapper .label-column + .table-viewport {
-  width: 70%;
-  left: 20%;
-  position: relative;
-}
 @media screen and (max-width: 800px) {
+  .table-wrapper .label-column + .table-viewport {
+    width: 70%;
+    left: 20%;
+    position: relative;
+  }
   .table-wrapper .label-column {
     left: 5%;
   }
+  .table-wrapper .label-column td {
+    display: none;
+  }
+  .table-wrapper .label-column td:first-of-type {
+    display: block;
+  }
   .table-wrapper .label-column + .table-viewport {
     left: 10%;
+  }
+}
+@media screen and (min-width: 800px) {
+  .label-column {
+    display: none;
   }
 }
 @media screen and (max-width: 800px) {

@@ -57,14 +57,78 @@ define(['jquery', 'components/arrayForEach'], function($) {
 
         window.newTDs = [];
         if (tds.length === 6) {
+
+            
         	
-        	var $clone = $(table).clone();
+        	
+
+
 
         	var $labelColumn = $('<div class="label-column"></div>');
+
+            var idcounter = 1;
+            $(table).find('td').each(function(index, cell) {
+                $(cell).addClass('td-id-' + idcounter);
+                idcounter++;
+            });
+
+            $(table).find('tr').each(function(index, row) {
+                
+                $(row).addClass('tr-id-' + idcounter);
+                idcounter++;
+                    
+            });
+
+            var $clone = $(table).clone();
 
         	$labelColumn.append( $clone );
 
         	$wrapper.prepend($labelColumn);
+
+           
+
+            function recheckHeights() {
+
+                var width = document.documentElement.clientWidth;
+            
+                
+
+
+                // get the height of everything
+                $(table).find('td').not('td:first-child').each(function(index, row) {
+                   
+                    $(".label-column ." + this.className).width( $(this).width() );
+                });
+
+                $(table).find('tr').each(function(index, row) {
+                    
+                    $(".label-column ." + this.className).height( $(this).height() );
+                });
+
+
+                if (width < 768) {
+
+                    window.$trs = [];
+                    $(".label-column tr td:first-child").each(function(index,row) {
+
+                        $(row).css( 'width' ,'100%').css('display','block').css( 'height', $(row).parent('tr').css('height') );
+                    });
+
+                } else {
+                    $clone.find('td:first-child').width( $labelColumn.width() );
+
+                }
+
+                    
+                
+                
+            }
+
+            recheckHeights();
+
+            $(window).on('resize', recheckHeights);
+
+
 
         }
 
@@ -142,7 +206,7 @@ define(['jquery', 'components/arrayForEach'], function($) {
 		var offset_percent = (offset + move) / 100; 
 
 		
-		console.log(offset_percent);
+
 		Animating = true;
 
 		$(element).animate({ scrollLeft: (offset_percent * width) }, 200, function() {

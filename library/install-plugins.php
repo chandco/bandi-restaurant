@@ -78,11 +78,7 @@ function my_theme_register_required_plugins() {
             'slug'      => 'contact-form-7-to-database-extension',
             'required'  => true,
         ),
-        array(
-            'name'      => 'WordPress SEO by Yoast',
-            'slug'      => 'wordpress-seo',
-            'required'  => true,
-        ),
+        
         array(
             'name'      => 'Regenerate Thumbnails',
             'slug'      => 'regenerate-thumbnails',
