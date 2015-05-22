@@ -6253,6 +6253,14 @@ input[type="text"][disabled]:focus, input[type="text"][disabled]:active, input[t
     text-align: center;
     display: inline-block;
   }
+  #wiki-content .right-arrow:after {
+    content: '\25BA';
+    float: right;
+  }
+  #wiki-content .down-arrow:after {
+    content: '\25BC';
+    float: right;
+  }
 }
 /*Desktop Styles */
 #wiki-menu {

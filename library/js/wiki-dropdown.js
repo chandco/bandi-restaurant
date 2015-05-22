@@ -7,12 +7,10 @@ define(['jquery'], function($) {
 			$(".section").click(function() {
  			$(this).toggleClass("open");
 
- 			$( "close-sub-section" ).each(function() {
- 			 $( this ).click(function(){
- 			 	alert('clicked');
+			});
 
- 			 });
-});
+			$(".right-arrow").click(function() {
+ 			$(this).toggleClass("down-arrow");
 
 			});
 		});
