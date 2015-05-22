@@ -50,14 +50,31 @@
 			display:block;
 		}
 
+
 		.right-arrow:after {
     		content:'\25BA';
     		float:right;
+			-moz-transform:rotate(0deg);
+			-webkit-transform: rotate(0deg);
+			-o-transform:rotate(0deg);
+			transform:rotate(0deg);
+			-moz-transition: all 1s ease;	
+			-webkit-transition: all 1s ease;
+			-o-transition: all 1s ease;
+			transition: all 1s ease;
 		}
 
 		.down-arrow:after {
 			content: '\25BC';
-			float:right;
+			float:right;	
+			-moz-transform:rotate(30deg);
+			-webkit-transform: rotate(360deg);
+			-o-transform:rotate(30deg);
+			transform:rotate(360deg);
+			-moz-transition: all 1s ease;
+			-webkit-transition: all 1s ease;
+			-o-transition: all 1s ease;
+			transition: all 1s ease;
 		}
 	}	
 }
