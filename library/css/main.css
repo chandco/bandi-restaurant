@@ -6284,6 +6284,12 @@ input[type="text"][disabled]:focus, input[type="text"][disabled]:active, input[t
   overflow-y: scroll;
   width: 23%;
 }
+ul {
+  list-style: none;
+}
+#wiki-content .close-sub-section {
+  display: none;
+}
 #footer-sidebar {
   clear: both;
   display: -webkit-box;

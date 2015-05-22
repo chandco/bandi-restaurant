@@ -67,7 +67,7 @@ $children = get_pages( $args2 );
 	//show wiki menu children and grandchildren only
 	echo "<h3 style=\"padding-left:24px;\"><u>".get_the_title()."</u></h3>";
 
-
+	echo "<ul>";
 	foreach( $children as $child ) {
     	$child_args = array(
         'sort_column' => 'menu_order',
@@ -78,14 +78,15 @@ $children = get_pages( $args2 );
 
    		 $grandchildren = get_pages( $child_args ); 
 
-   		echo "<h3><a href=\"#post-$child->ID\">$child->post_title</a></h3>";
-    	
+   		echo "<h3><li><a href=\"#post-$child->ID\">$child->post_title</a></li></h3>";
     	
     	foreach( $grandchildren as $gchild ) {
-    		echo "<h4><a href=\"#post-$gchild->ID\">$gchild->post_title</a></h4>";
+    		echo "<h4><li><a href=\"#post-$gchild->ID\">$gchild->post_title</a></li></h4>";
     	}
     	
-   } ?>
+   } 
+   echo "</ul>";
+   ?>
 	
 	</div>
 
