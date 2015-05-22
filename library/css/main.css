@@ -6221,16 +6221,37 @@ input[type="text"][disabled]:focus, input[type="text"][disabled]:active, input[t
   #wiki-menu {
     display: none;
   }
-  #wiki-menu article {
-    background: rgba(221, 221, 221, 0.2);
-    padding: 20px;
-    margin-bottom: 10px;
-  }
   #wiki-menu .right-arrow {
     font-size: 20px;
     margin-left: 40px;
     color: #918E8E;
     float: right;
+  }
+  #wiki-content .section {
+    max-height: 50px;
+    overflow: hidden;
+    background: #ccc;
+    margin-bottom: 10px;
+    padding: 15px;
+    border-bottom: solid 2px #B6B5B5;
+  }
+  #wiki-content .section h3 {
+    margin-top: 0;
+  }
+  #wiki-content .open {
+    background: #ccc;
+    -webkit-transition: max-height linear 0.5s;
+    transition: max-height linear 0.5s;
+    max-height: 700px;
+  }
+  #wiki-content .close-sub-section {
+    background: #3D3D3D;
+    color: #fff;
+    padding: 5px;
+    margin-bottom: 10px;
+    margin-top: -10px;
+    text-align: center;
+    display: inline-block;
   }
 }
 /*Desktop Styles */
@@ -6240,19 +6261,6 @@ input[type="text"][disabled]:focus, input[type="text"][disabled]:active, input[t
   top: 127px;
   overflow-y: scroll;
   width: 23%;
-}
-#wiki-content .section {
-  max-height: 50px;
-  overflow: hidden;
-  background: #ccc;
-  margin-bottom: 10px;
-  padding: 15px;
-}
-#wiki-content .open {
-  background: #ccc;
-  -webkit-transition: max-height linear 0.5s;
-  transition: max-height linear 0.5s;
-  max-height: 600px;
 }
 #footer-sidebar {
   clear: both;

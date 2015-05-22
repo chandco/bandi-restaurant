@@ -98,9 +98,12 @@ $children = get_pages( $args2 );
 		if ( $query->have_posts() ) {
 			while ( $query->have_posts() ) {
 				$query->the_post();
-				echo '<article class="section" id="post-'.get_the_id().'">' . get_the_title();
+				echo '<article class="section" id="post-'.get_the_id().'">' . "<h3>".get_the_title()."</h3>";
 				echo '<p class="wiki-text">' . get_the_content() . '</p>';
+				echo '<div class="close-sub-section">Close</div>';
 				echo '</article>';
+
+
 			}
 		} else {
 			// no posts found
