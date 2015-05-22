@@ -37,16 +37,6 @@ $args2 = array(
 
 $children = get_pages( $args2 );
 
-$args3 = array(
-
-'orderby' => 'menu_order',
-'order' => 'ASC',
-'posts_per_page' => 3,
-'post_type' => get_post_type( $post->ID ),
-'post_parent' => $post->ID
-);
-
- $childpages = new WP_Query($args3);
 
 
 ?>
@@ -96,32 +86,40 @@ $args3 = array(
 		if ( $query->have_posts() ) {
 			while ( $query->have_posts() ) {
 				$query->the_post();
-				echo '<article class="section" id="post-'.get_the_id().'">' . "<h3><span class=\"right-arrow\">".get_the_title()."</h3>";
-				echo '<p class="wiki-text">' . get_the_content() . '</p>';
+				echo '<article class="section" id="post-'.get_the_id().'">' . "<h2><span class=\"right-arrow\">".get_the_title()."</h2>";
+				echo '<p class="wiki-text">' . the_content() . '</p>';
 				echo '<div class="close-sub-section">Close</div>';
 				echo '</article></span>';
+				
+				//loop through to get content of grandchildren 
+				 $args3=array(
+                'orderby' => 'menu_order',
+                'order' => 'ASC',
+                'post_type' => get_post_type( $post->ID ),
+                'post_parent' => $post->ID
+        );
 
-				if($childpages->post_count > 0) { 
-            echo "<ul>";
+        $childpages = new WP_Query($args3);
+
+        if($childpages->post_count > 0) { /* display the children content  */
             while ($childpages->have_posts()) {
                  $childpages->the_post();
-                 echo "<li><h2>".get_the_title()."</h2></li>";
+                 echo '<article id="post-'.get_the_id().'">';
+                 echo "<h3>".get_the_title()."</h3>";
+                 the_content();
+                 echo "</article>";
             }
-            echo "</ul>";
         }
         wp_reset_query();
 
-
-			}
-		} else {
-			echo "Sorry, you have no posts.";
+		}
+	} else {
+		echo "Sorry, you have no posts.";
 		}
 		/* Restore original Post Data */
 		wp_reset_postdata();
 		?>
 	</div>
-
-
 
 
 
