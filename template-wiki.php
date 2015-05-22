@@ -57,30 +57,44 @@ $query2 = new WP_Query($args2);
 <div class='responsive-flex-container'>
 	
 	<div id="wiki-menu" class='left-sidebar widget'>
-		<?php
-			// echo '<ul>';
-			// foreach($children as $child) {
-			// 	echo 
-			// 	'<li>
-			// 		<a href="#'.$child->ID.'">' . $child->post_title . '</a>
-			// 	</li>';
-			// }
-			// echo '</ul>';
+	
+	<?php
+	//show wiki menu children and grandchildren only
+	echo "<h3 style=\"padding-left:24px;\"><u>".get_the_title()."</u></h3>";
 
-		echo "<h3 style=\"padding-left:24px;\"><u>".get_the_title()."</u></h3>";
+	$args = array(
+    'sort_column' => 'menu_order',
+    'parent'      => $post->ID,
+    'post_type' => 'page',
+    'hierarchial' => 0
+	);
 
-		echo '<nav><ul>';
-		$pages = get_pages($args2); 
-		foreach($pages as $page){
-			//if it is a page and page is a grandchild append a class to the list item
-			if( is_page() && count(get_post_ancestors($page->ID)) == 2 ) {
-				echo '<li class="grandChild"><a href=#post-'.$page->ID.'>'.'- '.$page->post_title.'</a></li>';
-				} else {
-				echo '<li><strong><a href=#post-'.$page->ID.'>'.$page->post_title.'</a></strong></li>';
-				}
-		} 
-		echo '</ul></nav>';
-		?>
+	$children = get_pages( $args );
+
+
+	foreach( $children as $child ) {
+    	$child_args = array(
+        'sort_column' => 'menu_order',
+        'parent'      => $child->ID,
+        'hierarchial' => 0,
+        'post_type' => 'page'
+    );
+
+    $grandchildren = get_pages( $child_args ); ?>
+
+
+    <h3><?php echo $child->post_title; ?></h3>
+    	<div class="sub-section">
+    <?php 
+  
+    	foreach( $grandchildren as $gchild ) {
+    		echo "<h4>$gchild->post_title</h4>";
+    	}
+    ?>
+    </div>
+   
+   <?php } ?>
+	
 	</div>
 
 	<div id="wiki-content" class='right-content'>
@@ -88,10 +102,9 @@ $query2 = new WP_Query($args2);
 	     the_content();
 		endwhile; endif; ?>
 
-		<?php
 
 
-
+<?php
 // The Loop
 if ( $query2->have_posts() ) {
 	while ( $query2->have_posts() ) {
@@ -114,42 +127,72 @@ wp_reset_postdata();
 
 
 
-<?php $pages = get_pages($args2); 
-		foreach($pages as $page){
-			//if it is a page and page is a grandchild append a class to the list item
-			if( is_page() && count(get_post_ancestors($page->ID)) == 2 ) {
+<?php 
+// $pages = get_pages($args2); 
+// 		foreach($pages as $page){
+// 			//if it is a page and page is a grandchild append a class to the list item
+// 			if( is_page() && count(get_post_ancestors($page->ID)) == 1 ) {
 
-			echo '<article>';
-           echo "<a href= \"javascript:showonlyone('$page->ID')\";><span class=\"right-arrow\">&#9658</span>";
-           	echo '<h3>'.$page->post_title.'</h3>';
-           	echo '<p class="wiki-text" id="'.$page->ID.'">'.$page->post_content.'</p>';
-			echo '</article>';
-			} else {
-				echo '<article>';
-				echo "<a href= \"javascript:showonlyone('$page->ID')\";><span class=\"right-arrow\">&#9658</span>";
-				echo '<h3>'.$page->post_title.'</h3>';
-				echo '<p class="wiki-text" id="'.$page->ID.'">'.$page->post_content.'</p>';
-				echo '</article>';
-			}
-					
-		}
+// 				//show children pages
+// 				echo '<article>';
+// 				echo "<a href= \"javascript:showonlyone('$page->ID')\";><span class=\"right-arrow\">&#9658</span>";
+// 				echo '<h3><strong>'.$page->post_title.'</strong></h3></a>';
+// 				echo '<p class="wiki-text" id="'.$page->ID.'">'.$page->post_content.'</p>';
+// 				echo '</article>';
+
+// 			}
+// 		}
 
 ?>
 
-<div style="border: 1px solid blue; background-color: #99CCFF; padding: 5px; width: 150px;">
-            <a id="myHeader2" href="javascript:showonlyone('newboxes2');" >show this one only</a>
-         </div>
-         <div class="newboxes" id="newboxes2" style="border: 1px solid black; background-color: #CCCCCC; display: none;padding: 5px; width: 150px;">Div #2</div>
 
 
+ <?php 
+$args = array(
+    'sort_column' => 'menu_order',
+    'parent'      => $post->ID,
+    'post_type' => 'page',
+    'hierarchial' => 0
+);
+
+$children = get_pages( $args );
+
+
+foreach( $children as $child ) {
+    $child_args = array(
+        'sort_column' => 'menu_order',
+        'parent'      => $child->ID,
+        'hierarchial' => 0,
+        'post_type' => 'page'
+    );
+
+    $grandchildren = get_pages( $child_args ); ?>
+
+
+<article>
+	<a>
+    	<h3><?php echo $child->post_title; ?><span class="right-arrow">&#9658</span></h3>
+    </a>
+    <div class="sub-section">
+    <?php 
+    echo '<p class="wiki-text">'.$child->post_content.'</p>';?>
+
+   		<?php
+    	foreach( $grandchildren as $gchild ) {
+    		echo "<h3>$gchild->post_title</h3>";
+    		echo '<p class="wiki-text">'.$gchild->post_content.'</p>';
+    	}
+
+    	?>
+    </div>
+</article>
+   <?php
+	}
+	?>
 
 
 
 </div>
-
-
-
-
 
 
 </div>

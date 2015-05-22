@@ -114,13 +114,7 @@ gulp.task('dist-css', function () {
                 .pipe(uglifycss())
                 .pipe(gulp.dest('./library/css/'));
 
-    gulp.src('./library/less/above-fold-css.less')
-                //.pipe(sourcemaps.init())
-                .pipe(less())
-                .pipe(autoprefixer())
-                .pipe(uglifycss())
-                //.pipe(sourcemaps.write('./maps'))
-                .pipe(gulp.dest('./library/css/'));
+   
 
 
     gulp.src('./library/less/admin.less')

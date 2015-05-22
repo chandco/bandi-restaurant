@@ -294,3 +294,4 @@ $args = array(
   'uploads'       => true,
 );
 add_theme_support( 'custom-header', $args );
+
