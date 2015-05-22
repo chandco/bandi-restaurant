@@ -6253,6 +6253,10 @@ input[type="text"][disabled]:focus, input[type="text"][disabled]:active, input[t
     text-align: center;
     display: inline-block;
   }
+  #wiki-content .right-arrow,
+  #wiki-content .left-arrow {
+    display: block;
+  }
   #wiki-content .right-arrow:after {
     content: '\25BA';
     float: right;
