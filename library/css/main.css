@@ -6240,6 +6240,9 @@ input[type="text"][disabled]:focus, input[type="text"][disabled]:active, input[t
   #wiki-content .section h3 {
     margin-top: 0;
   }
+  #wiki-content .section h4 {
+    font-size: 1.3em;
+  }
   #wiki-content .open {
     background: #ccc;
     -webkit-transition: max-height linear 0.5s;
