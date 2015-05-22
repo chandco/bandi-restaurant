@@ -5,7 +5,7 @@ define(['jquery'], function($) {
 	$(".section").click(function() {
  
     if ( $(this).toggleClass("open") ) {
-    	$("open").css('height', "500px");
+    	$(this).css('height', "500px");
    
     }
  

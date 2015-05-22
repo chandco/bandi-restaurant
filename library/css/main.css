@@ -6245,11 +6245,14 @@ input[type="text"][disabled]:focus, input[type="text"][disabled]:active, input[t
   background: green;
 }
 #wiki-content .section {
-  max-height: 30px;
+  max-height: 10px;
   overflow: hidden;
 }
 #wiki-content .open {
-  min-height: 100px;
+  background: #ccc;
+  -webkit-transition: max-height linear 1s;
+  transition: max-height linear 1s;
+  max-height: 600px;
 }
 #footer-sidebar {
   clear: both;
