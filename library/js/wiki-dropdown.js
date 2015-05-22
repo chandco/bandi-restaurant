@@ -4,10 +4,9 @@ define(['jquery'], function($) {
 
 	$(".section").click(function() {
  
-    if ( $(this).toggleClass("open") ) {
-    	$(this).css('height', "500px");
-   
-    }
+    $(this).toggleClass("open");
+
+ 
  
 });
 
