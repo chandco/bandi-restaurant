@@ -6,9 +6,9 @@ define(['jquery'], function($) {
 
     	$(document).ready(function(){
 			$("article").click(function() {
-				$(this).addClass("open");
-				if ($(this).hasClass("open")) {
- 			$(".close-sub-section").fadeIn("slow");
+			$(this).addClass("open");
+			if ($(this).hasClass("open")) {
+ 				$(this).next().fadeIn("slow");
  			
  			}
 		});
@@ -18,6 +18,7 @@ define(['jquery'], function($) {
 				if ($("article").hasClass("open")) {
   					$("article").removeClass("open");
   					$(".down-arrow").removeClass("down-arrow");
+  					$(this).fadeOut("slow");
   					e.stopPropagation();
 				} 
 			});
