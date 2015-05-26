@@ -84,6 +84,7 @@ $children = get_pages( $args2 );
 			while ( $query->have_posts() ) {
 				$query->the_post();
 				echo '<article class="section" id="post-'.get_the_id().'">' . "<h3><span class=\"right-arrow\">".get_the_title()."</h3>";
+				echo '<div>';
 				echo '<p class="wiki-text">' . get_the_content() . '</p>';
 				
 	
@@ -103,6 +104,7 @@ $children = get_pages( $args2 );
                  echo "<h4>".get_the_title()."</h4>";
                  the_content();
             }
+            echo '</div>';
             echo '</article></span>';
              echo '<div class="close-sub-section">Close</div>';
         }
