@@ -84,7 +84,6 @@ $children = get_pages( $args2 );
 			while ( $query->have_posts() ) {
 				$query->the_post();
 				echo '<article class="section" id="post-'.get_the_id().'">' . "<h3><span class=\"right-arrow\">".get_the_title()."</h3>";
-				echo '<div>';
 				echo '<p class="wiki-text">' . get_the_content() . '</p>';
 				
 	
@@ -92,7 +91,6 @@ $children = get_pages( $args2 );
 				 $args3=array(
                 'orderby' => 'menu_order',
                 'order' => 'ASC',
-                'posts_per_page' => 3,
                 'post_type' => get_post_type( $post->ID ),
                 'post_parent' => $post->ID
         );
@@ -105,12 +103,11 @@ $children = get_pages( $args2 );
                  echo "<h4>".get_the_title()."</h4>";
                  the_content();
             }
-            echo '<div class="close-sub-section">Close</div>';
-            echo '</div>';
             echo '</article></span>';
+             echo '<div class="close-sub-section">Close</div>';
         }
         wp_reset_query();
-
+       
 		}
 	} else {
 		echo "Sorry, you have no posts.";
