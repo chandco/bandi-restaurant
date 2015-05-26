@@ -6244,8 +6244,8 @@ input[type="text"][disabled]:focus, input[type="text"][disabled]:active, input[t
     font-size: 1.3em;
   }
   #wiki-content .open {
-    -webkit-transition: max-height linear 1000s;
-    transition: max-height linear 1000s;
+    -webkit-transition: max-height linear 0.5s;
+    transition: max-height linear 0.5s;
     max-height: 5000px;
   }
   #wiki-content .close-sub-section {

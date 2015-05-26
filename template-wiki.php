@@ -105,7 +105,6 @@ $children = get_pages( $args2 );
                  echo "<h4>".get_the_title()."</h4>";
                  the_content();
             }
-
             echo '</article></span>';
         }
         wp_reset_query();
