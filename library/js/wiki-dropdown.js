@@ -4,12 +4,20 @@ define(['jquery'], function($) {
     // the width of browser is more then 700px
 
     	$(document).ready(function(){
-			$(".section h3").click(function() {
- 			$(this).toggleClass("open");
- 			$(this).children().css( "background-color", "red" );
+			$("article").click(function() {
+ 			$(this).addClass("open");
+			});
 
+
+			$(".close-sub-section").click(function(e){
+				if ($("article").hasClass("open")) {
+  				$("article").removeClass("open");
+  				e.stopPropagation();
+				} 
 
 			});
+			
+
 
 			$(".right-arrow").click(function() {
  			$(this).toggleClass("down-arrow");

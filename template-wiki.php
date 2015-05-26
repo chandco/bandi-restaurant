@@ -84,10 +84,10 @@ $children = get_pages( $args2 );
 			while ( $query->have_posts() ) {
 				$query->the_post();
 				echo '<article class="section" id="post-'.get_the_id().'">' . "<h3><span class=\"right-arrow\">".get_the_title()."</h3>";
+				echo '<div>';
 				echo '<p class="wiki-text">' . get_the_content() . '</p>';
-				echo '<div class="close-sub-section">Close</div>';
 				
-
+	
 				//The loop to get the grandchildren
 				 $args3=array(
                 'orderby' => 'menu_order',
@@ -105,6 +105,8 @@ $children = get_pages( $args2 );
                  echo "<h4>".get_the_title()."</h4>";
                  the_content();
             }
+            echo '<div class="close-sub-section">Close</div>';
+            echo '</div>';
             echo '</article></span>';
         }
         wp_reset_query();
