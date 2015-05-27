@@ -16,7 +16,6 @@ Based on Bones theme.  I'm modifying it to my own standards
 define('GAPROPERTYID','UA-XXXX-Y');
 
 
-
 // BEFORE LOAD CORE 
 
 
@@ -60,6 +59,9 @@ require_once( 'library/bones.php' );
 
 // ADD THEME SETTINGS STUFF
 require_once("library/theme-options.php");
+
+
+require_once("library/restrictions.php");
 
 /*********************
 LAUNCH BONES

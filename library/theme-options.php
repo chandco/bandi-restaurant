@@ -9,12 +9,15 @@
 
 function register_my_setting() {
 	//register_setting( 'services_config', 'services_blurb');
-	register_setting( 'services_config', 'cf_option_linked_in');
-	register_setting( 'services_config', 'cf_option_facebook');
-	register_setting( 'services_config', 'cf_option_twitter');
+	//register_setting( 'services_config', 'cf_option_linked_in');
+	//register_setting( 'services_config', 'cf_option_facebook');
+	//register_setting( 'services_config', 'cf_option_twitter');
 	register_setting( 'services_config', 'cf_option_email');
 	register_setting( 'services_config', 'cf_option_phone');	
 	register_setting( 'services_config', 'cf_footerinfo');	
+
+	register_setting( 'services_config', 'cf_inlineCSS');	
+
 }
 add_action('admin_init','register_my_setting');
 add_action('admin_menu', 'cf_option_admin_menu');
@@ -58,6 +61,8 @@ function add_update_services_blurb_output()
 		width:200px;
 	}
 	</style>
+	<?php
+	/*
   	<P><label for='cf_option_linked_in'>Linked In URL</label>
     <input type="text" name="cf_option_linked_in" id="cf_option_linked_in" value="<?php echo get_option('cf_option_linked_in'); ?>" /></P>
     
@@ -66,6 +71,8 @@ function add_update_services_blurb_output()
 
   	<P><label for='cf_option_twitter'>Twitter URL</label>
     <input type="text" name="cf_option_twitter" id="cf_option_twitter" value="<?php echo get_option('cf_option_twitter'); ?>" /></P>
+	*/
+    ?>
 
   	<P><label for='cf_option_email'>Contact Email Address</label>
     <input type="text" name="cf_option_email" id="cf_option_email" value="<?php echo get_option('cf_option_email'); ?>" /></P>
@@ -75,6 +82,15 @@ function add_update_services_blurb_output()
 
     <P><label for='cf_footerinfo'>Footer Info (eg copyright info)</label>
     <textarea name="cf_footerinfo" id="cf_footerinfo"><?php echo get_option('cf_footerinfo'); ?></textarea></P>
+
+
+
+    <P><label for='cf_inlineCSS'>Custom CSS.  Don't edit this if you don't know what you're doing.</label>
+    <textarea name="cf_inlineCSS" id="cf_inlineCSS"><?php echo get_option('cf_inlineCSS'); ?></textarea></P>
+
+
+    <P>Below is a bootstrap for the CSS custom options.  you can safely ignore this</P>
+     <textarea><?php echo file_get_contents( get_stylesheet_directory() . "/library/css/style-bootstrap.css"); ?></textarea></P>
 
     <?php
 	/*
