@@ -14,22 +14,13 @@ define(['jquery'], function($) {
  			}
 		});
 
-
+			//When close panel clicked, only close the active article
 			$(".close-sub-section").click(function(){
-
 				$(this).prev().removeClass("open");
 				$(this).fadeOut("slow");
-				// if ($("article").hasClass("open")) {
-  		// 			// $("article").removeClass("open");
-  					$(".down-arrow").removeClass("down-arrow");
-  		// 			// $(this).fadeOut("slow");
-  					// e.stopPropagation();
-				// } 
-
+  				$(this).prev().find("span").removeClass("down-arrow");
 			});
 			
-
-		
 
 			$(".right-arrow").click(function() {
  				$(this).addClass("down-arrow");
