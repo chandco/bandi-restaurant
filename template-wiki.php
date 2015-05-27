@@ -96,18 +96,22 @@ $children = get_pages( $args2 );
 		if ( $query->have_posts() ) {
 			while ( $query->have_posts() ) {
 				$query->the_post();
-				echo '<article class="section"><h2><span class=\"right-arrow\">' . get_the_title() . " ";
+
+				echo '<span class="anchor-point" id="post-'.get_the_id().'"></span>'; // anchor point to offset the hanging fixed header
+				echo '<article class="section">';
+
+				echo "<h2><span class=\"right-arrow\">" . get_the_title() . " ";
 				edit_post_link();
 				echo '</h2></span>';
 
-				
-				echo '<div class="article-div parent" data-link="link-'.get_the_id().'" id="post-'.get_the_id().'">';
-				
+				echo "<div class='content'>";
+
+
+				echo '<div class="article-div parent" data-link="'.get_the_id().'" >';
+
 				the_content();
 
 				echo '</div>';
-
-
 				
 	
 				//The loop to get the grandchildren
@@ -126,15 +130,16 @@ $children = get_pages( $args2 );
             while ($childpages->have_posts()) {
                  $childpages->the_post();
 
-                echo '<div class="article-div child" data-link="link-'.get_the_id().'" id="post-'.get_the_id().'">';
+                echo '<span class="anchor-point" id="post-'.get_the_id().'"></span>'; // anchor point to offset the hanging fixed header
+                echo '<div class="article-div child" data-link="'.get_the_id().'">';
 				
-				echo "<h3> ".get_the_title() . " ";
-				edit_post_link();
-				echo " </h3>";
+				echo 	"<h3> ".get_the_title() . " ";
+						edit_post_link();
+				echo 	" </h3>";
 
-				the_content();
+						the_content();
 				
-				echo '</div>';
+				echo 	"</div>";
                 
                 
             }
@@ -143,8 +148,11 @@ $children = get_pages( $args2 );
 
         }
 
-            echo '</article>';
-            echo '<div class="close-sub-section">Close</div>';
+        echo '<div class="close-sub-section">Close</div>';   
+
+        echo "</div>"; // class='content'>";
+		echo '</article>';
+            
         
         wp_reset_query();
        

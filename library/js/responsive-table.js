@@ -87,8 +87,7 @@ define(['jquery', 'components/arrayForEach'], function($) {
 
            
 
-            function recheckHeights() {
-
+            var recheckHeights = function() {
                 var width = document.documentElement.clientWidth;
             
                 
@@ -122,7 +121,7 @@ define(['jquery', 'components/arrayForEach'], function($) {
                     
                 
                 
-            }
+            };
 
             recheckHeights();
 

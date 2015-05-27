@@ -2,15 +2,17 @@ define(['jquery', 'vendor/steady', 'plugins/jquery-scrollto', 'plugins/isonscree
   
 
   // don't do anything if we're not on a wiki page, and don't do anything for mobiles
-  if ($('#wiki-content').length == 0) {
+  if ($('#wiki-content').length === 0) {
     return;
   }
 
   if (screen.width <= 968) {
-    console.log("mobile...exiting");
+   // console.log("mobile...exiting");
     return;
   }
   
+
+
 
 
   // Manual for Steady: https://lafikl.github.io/steady.js/
@@ -21,7 +23,7 @@ define(['jquery', 'vendor/steady', 'plugins/jquery-scrollto', 'plugins/isonscree
   * the user scrolls
   */
   var ste = new Steady({
-      throttle: 100,
+      throttle: 50,
       handler: fn
   });
 
@@ -77,7 +79,7 @@ define(['jquery', 'vendor/steady', 'plugins/jquery-scrollto', 'plugins/isonscree
 
       function getLinkItem(element) {
         // get the corresponding link item for element
-        return $( '#' + $(element).data('link') );
+        return $( '#link-' + $(element).data('link') );
       }
 
       
@@ -144,7 +146,7 @@ define(['jquery', 'vendor/steady', 'plugins/jquery-scrollto', 'plugins/isonscree
             var anchor = $(element).attr("id");
 
                 if(history.pushState) {
-                history.pushState(null, null, '#' + anchor);
+                history.pushState(null, null, '#post-' + $(element).data('link'));
             }
             else {
                 location.hash = anchor;

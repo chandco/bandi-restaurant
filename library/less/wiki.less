@@ -11,6 +11,8 @@
 		padding: 0;
 		li a {
 			padding-left: 2em;
+
+			
 		}
 	}
 
@@ -27,13 +29,19 @@
 			transition: background .4s ease;
 
 			color: @highlight;
+
+			&:hover {
+				opacity: 1 !important;
+				background: fade(red, 20%) !important;
+				border-left: 3px solid @red !important;
+			}
 		}
 
 		
 
 
 		&.past > a {
-			opacity: 0.2;
+			opacity: 0.4;
 		}
 
 		
@@ -56,6 +64,15 @@
 
 // format the articles
 
+.anchor-point:before {
+  content: "";
+  display: block;
+  @heightoffset: 127px;
+  height: @heightoffset;
+  margin-top: -@heightoffset;
+  visibility: hidden;
+}
+
 #wiki-content {
 	article {
 
@@ -75,8 +92,16 @@
 				border-radius: 3px;
 			}
 
-		&:nth-of-type(n+2){
-			border-top: 1px solid @highlight;	
+		@media screen and (min-width: @tablet-break) {
+			
+			
+			border-bottom: 1px solid fade(@highlight, 50%);
+			margin-bottom: 3em;	
+
+			&:last-of-type {
+				border-bottom: none;
+			}
+			
 		}
 		
 	}
@@ -84,6 +109,14 @@
 	.article-div {
 		&.child {
 			border-top: 1px solid fade(black, 10%);
+		}
+
+		&:before {
+			content: "";
+			display: block;
+			height: 150px;
+			margin-top: -150px;
+			visibility: hidden;
 		}
 	}
 }
@@ -106,18 +139,24 @@
 		  	margin: 0 0 0 auto; // offset it
 
 		  	> .max-central {
-		  		padding-left: 13%;
+		  		padding-left: 18%;
 		  	}
 
 		}
 	}
 
+	
+	@media screen and (max-width: @tablet-break) {
+		background: fade(black, 20%);
+	}
+	
+
 }
 #wiki-menu {
-	height:800px;
 	height: 100%;
 	position:fixed;
 	top: 0;
+	bottom: 0;
 	padding-top:127px;
 	overflow-y: scroll;
 	width: 25%;
@@ -130,7 +169,7 @@ ul {
 }
 
 #wiki-content {
-	padding-bottom: 2em;
+	padding: 2em;
 	.close-sub-section {
 		display:none;
 	}
@@ -139,94 +178,100 @@ ul {
 }
 
 
-
+html {
+       overflow-y: scroll;
+}
 	
 
 @media screen and (max-width: @tablet-break) {
 	#wiki-menu {
-
 		display:none;
-
-		.right-arrow {
-			font-size:20px;
-			margin-left:40px;
-			color:#918E8E;
-			float:right;
-		}
 	}
 
 
+	#wiki-content {
 
-	#wiki-content{
+		padding: 1em 0;
 
 		.section {
-			max-height: 50px;
-		 	overflow: hidden;
-		  	background: #ccc;
-		  	margin-bottom: 10px;
-		  	padding: 15px;
-		  	border-bottom:solid 2px #B6B5B5;
-		  	
-		   transition:max-height linear 0.5s;
 
-		  	h3 {
-				margin-top:0;
+		border-top: none;
+		background: darken(white, 10%);
+		margin-bottom: 10px;
+		padding: 0;
+		transition:max-height linear 0.5s;
+
+			h2 {
+				margin: 0;
+				padding: 10px 20px;
+				line-height: 1.2;
+				background: white;
+				border-bottom:solid 2px fade(black, 28%);
+				position: relative;
+				font-size: 1.8em;
+
+				cursor: pointer;
+
+				&:after {
+					content: @fa-var-caret-right;
+					.fa();
+					position: absolute;
+					right: 20px;
+					transition: transform .4s ease;
+					transform: rotate(0deg);
+					top: 18%;
+					
+					line-height: 1.2;
+				}
 			}
 
-			h4 {
-				font-size:1.3em;
+			h3 {
+				font-size: 1.4em;
+			}
+			
+
+			.content {
+
+				max-height: 0;
+				overflow: hidden;
+				transition:max-height linear .4s;
+			
+				.article-div {
+					padding: 0 20px ;
+				}
+			}
+
+			&.open {
+
+				.content {
+					max-height: 9999px;
+					border-bottom:solid 2px #B6B5B5;
+			   	}
+
+			   	h2:after {
+			   	 	transform: rotate(90deg);
+			   	}
+			}
+
+			  	
+
+
+			.close-sub-section {
+				background:#3D3D3D;
+				color:#fff;
+				padding:5px;
+				margin-bottom:0;
+				margin-top:10px;
+				text-align:center;
+				display:block;
+				text-transform: uppercase;
+				cursor: pointer;
 			}
 
 		}
-
-		.close {
-			height:50px;
-
-
-		}
-
-
-		.open {
-		   
-		   transition:max-height linear 0.5s;
-		   max-height:5000px;
-		}
-
-		.close-sub-section {
-			background:#3D3D3D;
-			color:#fff;
-			padding:5px;
-			margin-bottom:10px;
-			margin-top:-10px;
-			text-align:center;
-			display:none;
-		}
-
-		.right-arrow, .left-arrow {
-			display:block;
-		}
-
-
-		.right-arrow:after {
-    		content:'\25BA';
-    		float:right;
-			transform:rotate(0deg);			
-			transition: all .5s ease;
-		}
-
-		.down-arrow:after {
-			content: '\25BA';
-			float:right;	
-			transform:rotate(90deg);
-			transition: all 1s ease;
-		}
-	}	
-}
-
-
-/*Desktop Styles */
-
-
+		
+	} //#wiki-content
+} //@media screen and (max-width: @tablet-break)
 
 
 

@@ -46,7 +46,7 @@ gulp.task('default', function () {
 
 
 gulp.task('javascript', function() {
-	 gulp.src(['./library/js/*.js','./library/js/components/*.js', '!./library/js/main-built.js'])  	// ignore vendor stuff
+	 gulp.src(['./library/js/*.js','./library/js/components/*.js', '!./library/js/main-built.js',  '!./library/js/cf7.js'])  	// ignore vendor stuff
      .pipe(plumber())    
      .pipe(jshint())
      .pipe(jshint.reporter('default'));

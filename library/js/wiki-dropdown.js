@@ -1,31 +1,18 @@
-define(['jquery'], function($) {
+define(['jquery', 'vendor/velocity'], function($, Velocity) {
 
-	
     // the width of browser is more then 700px
-
-
     	$(document).ready(function(){
 
-
     		//Add open class on only article clicked on and fade in close panel
-			$("article h3").click(function() {
-			$(this).parent().toggleClass("open");
-			if ($(this).hasClass("open")) {
- 				$(this).next().fadeIn("fast");
- 			}
-		});
+			$("article h2").click(function() {
+				$(this).parent().toggleClass("open");
+			});
 
 			//When close panel clicked, only close the active article
 			$(".close-sub-section").click(function(){
-				$(this).prev().removeClass("open");
-				$(this).fadeOut("medium");
-  				$(this).prev().find("span").removeClass("down-arrow");
+				var $parent = $(this).parents('.section');
+				$parent.removeClass("open");				
 			});
 			
-
-			$(".right-arrow").click(function() {
- 				$(this).addClass("down-arrow");
-
-			});
 		});	
 });
