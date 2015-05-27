@@ -2461,11 +2461,11 @@ body#tinymce.wp-editor a.cta-inline * {
 }
 body#tinymce.wp-editor a.cta:hover,
 body#tinymce.wp-editor a.cta-inline:hover {
-  color: #5555ff;
+  color: #0086ac;
 }
 body#tinymce.wp-editor a.cta:hover *,
 body#tinymce.wp-editor a.cta-inline:hover * {
-  color: #5555ff;
+  color: #0086ac;
 }
 body#tinymce.wp-editor a.cta::after,
 body#tinymce.wp-editor a.cta-inline::after {
@@ -2490,7 +2490,7 @@ body#tinymce.wp-editor a.cta-inline:hover:after {
   -webkit-transform: translateY(-0.15em);
       -ms-transform: translateY(-0.15em);
           transform: translateY(-0.15em);
-  border-color: #5555ff;
+  border-color: #0086ac;
 }
 body#tinymce.wp-editor a.cta i.fa,
 body#tinymce.wp-editor a.cta-inline i.fa {

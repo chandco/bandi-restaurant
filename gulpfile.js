@@ -38,7 +38,7 @@ gulp.task('default', function () {
 
     gulp.watch('./library/less/**/*.less', ['compile-css']);
 
-	gulp.watch(['./library/js/*.js', '!./library/js/main-built.js'], ['javascript', browserSync.reload]);
+	gulp.watch(['./library/js/*.js', '!./library/js/main-built.js'], ['javascript']);
 
 
 });

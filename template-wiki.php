@@ -45,22 +45,24 @@ $children = get_pages( $args2 );
 
 <div class='responsive-flex-container'>
 	
-	<div id="wiki-menu" class='left-sidebar widget'>
+	<div id="wiki-menu" class='left-sidebar'>
 	
 	<?php
 	//show wiki menu children and grandchildren only
-	echo "<h3 style=\"padding-left:24px;\">".get_the_title()."</u></h3>";
+	echo "<h1>".get_the_title()."</h1>";
 
 	echo "<ul class='visual-menu'>";
 	foreach( $children as $child ) {
-    	$child_args = array(
-        'sort_column' => 'menu_order',
-        'parent'      => $child->ID,
-        'hierarchial' => 0,
-        'post_type' => 'page'
-    );
 
-    	echo "<li id='link-" . $child->ID . "'><a href=\"#post-$child->ID\">$child->post_title</a>";
+
+    	$child_args = array(
+	        'sort_column' => 'menu_order',
+	        'parent'      => $child->ID,
+	        'hierarchial' => 0,
+	        'post_type' => 'page'
+	    );
+
+    	echo "<li class='parent' id='link-" . $child->ID . "'><a href=\"#post-$child->ID\">$child->post_title</a>";
    		
    		$grandchildren = get_pages( $child_args ); 
 
@@ -70,7 +72,7 @@ $children = get_pages( $args2 );
 	   		
 	    	
 	    	foreach( $grandchildren as $gchild ) {
-	    		echo "<li id='link-" . $gchild->ID . "'><a href=\"#post-$gchild->ID\">$gchild->post_title</a></li>";
+	    		echo "<li class='child' id='link-" . $gchild->ID . "'><a href=\"#post-$gchild->ID\">$gchild->post_title</a></li>";
 	    	}
 
 	    	echo "</ul>";
@@ -87,20 +89,29 @@ $children = get_pages( $args2 );
 
 	<div id="wiki-content" class='right-content'>
 		<?php if ( have_posts() ) : while( have_posts() ) : the_post();
-	     the_content();
+	    
 		endwhile; endif; 
 
 		// The Loop to get children
 		if ( $query->have_posts() ) {
 			while ( $query->have_posts() ) {
 				$query->the_post();
-				echo '<article class="section" data-link="link-'.get_the_id().'" id="post-'.get_the_id().'">' . "<h3><span class=\"right-arrow\">".get_the_title()."</h3>";
-				echo '<div>';
-				echo '<p class="wiki-text">' . get_the_content() . '</p>';
+				echo '<article class="section"><h2><span class=\"right-arrow\">' . get_the_title() . " ";
+				edit_post_link();
+				echo '</h2></span>';
+
+				
+				echo '<div class="article-div parent" data-link="link-'.get_the_id().'" id="post-'.get_the_id().'">';
+				
+				the_content();
+
+				echo '</div>';
+
+
 				
 	
 				//The loop to get the grandchildren
-				 $args3=array(
+				$args3 = array(
                 'orderby' => 'menu_order',
                 'order' => 'ASC',
                 'post_type' => get_post_type( $post->ID ),
@@ -110,15 +121,31 @@ $children = get_pages( $args2 );
         $childpages = new WP_Query($args3);
 
         if($childpages->post_count > 0) { /* display the children content  */
+            
+
             while ($childpages->have_posts()) {
                  $childpages->the_post();
-                 echo "<h4>".get_the_title()."</h4>";
-                 the_content();
+
+                echo '<div class="article-div child" data-link="link-'.get_the_id().'" id="post-'.get_the_id().'">';
+				
+				echo "<h3> ".get_the_title() . " ";
+				edit_post_link();
+				echo " </h3>";
+
+				the_content();
+				
+				echo '</div>';
+                
+                
             }
-            echo '</div>';
-            echo '</article></span>';
-             echo '<div class="close-sub-section">Close</div>';
+            
+
+
         }
+
+            echo '</article>';
+            echo '<div class="close-sub-section">Close</div>';
+        
         wp_reset_query();
        
 		}

@@ -1,6 +1,15 @@
 define(['jquery', 'vendor/steady', 'plugins/jquery-scrollto', 'plugins/isonscreen', 'plugins/isinviewport'], function($, Steady) {
   
 
+  // don't do anything if we're not on a wiki page, and don't do anything for mobiles
+  if ($('#wiki-content').length == 0) {
+    return;
+  }
+
+  if (screen.width <= 968) {
+    console.log("mobile...exiting");
+    return;
+  }
   
 
 
@@ -54,7 +63,7 @@ define(['jquery', 'vendor/steady', 'plugins/jquery-scrollto', 'plugins/isonscree
       // returned from the tracker function above. (rect.bottom in this case)
 
       // Get our articles...
-      var $elems = $('#wiki-content article');
+      var $elems = $('.article-div');
       
       // ...loop through them - this is potentially a very heavy operation.  
       // I'd think of another way if it gets slow but then again since this is a throttled function
@@ -70,6 +79,9 @@ define(['jquery', 'vendor/steady', 'plugins/jquery-scrollto', 'plugins/isonscree
         // get the corresponding link item for element
         return $( '#' + $(element).data('link') );
       }
+
+      
+
 
       $elems.each(function(index, element) {
             
@@ -97,6 +109,7 @@ define(['jquery', 'vendor/steady', 'plugins/jquery-scrollto', 'plugins/isonscree
             // Because we want to consider this "gone" when it's nearly past, so that the next one in view can be highighted
             // element has passed the top 20% area of the viewport. This would naturally mean the next article is in the next 80% of the viewport, and thus above the fold
             getLinkItem(element).removeClass('current').removeClass('future').addClass('past');
+          
 
             // return true to skip the rest of this code and move to the next element in the loop
             return true;
@@ -106,6 +119,7 @@ define(['jquery', 'vendor/steady', 'plugins/jquery-scrollto', 'plugins/isonscree
           if (articleTop > clientHeight) {
             // the element is 'below the fold' i.e. we need to scroll down to see it
             getLinkItem(element).removeClass('current').removeClass('past').addClass('future');
+           
 
             // return true to skip the rest of this code and move to the next element in the loop
             return true;
@@ -122,41 +136,42 @@ define(['jquery', 'vendor/steady', 'plugins/jquery-scrollto', 'plugins/isonscree
           } else {
             // if we haven't told the loop that active exists, then make something active.
 
+
+
             getLinkItem(element).removeClass('past').removeClass('future').addClass('current');
+
+            // and set the browser URL to the current ID
+            var anchor = $(element).attr("id");
+
+                if(history.pushState) {
+                history.pushState(null, null, '#' + anchor);
+            }
+            else {
+                location.hash = anchor;
+            }
+
+            
+
 
             // set the hasActive variable to true indicating the next item in the list that it shouldn't be highlighted as active.
             // Let's say an element is small enough to be in the viewport
             hasActive = true;
              return true; //
           }
-          
 
 
 
           
-          
-
-      	
-   //    	if ( $(element).is( ':in-viewport(-25)' ) ) {
-
-      	
-   //    	// if (element.getBoundingClientRect().top < 200 && element.getBoundingClientRect().top > 0) {
-
-   //    		var anchor = $(element).attr("id");
-
-   //    		$("#skrollr-nav li.selected").removeClass('selected');
-   //    		$("#link-" + anchor).addClass('selected');
-   //    		if(history.pushState) {
-			//     history.pushState(null, null, '#' + anchor);
-			// }
-			// else {
-			//     location.hash = anchor;
-			// }
-   //    		return false;
-
-   //    	}
       	
        });
+
+      // now the loop has finished, set the parents of active lis
+
+      $('li.parent').removeClass('active-parent');
+      $('li.current').closest('.parent').addClass('active-parent');
+
+      
+
       
       done();
     }

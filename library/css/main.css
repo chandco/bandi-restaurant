@@ -2130,11 +2130,11 @@ a.cta-inline * {
 }
 a.cta:hover,
 a.cta-inline:hover {
-  color: #5555ff;
+  color: #0086ac;
 }
 a.cta:hover *,
 a.cta-inline:hover * {
-  color: #5555ff;
+  color: #0086ac;
 }
 a.cta::after,
 a.cta-inline::after {
@@ -2159,7 +2159,7 @@ a.cta-inline:hover:after {
   -webkit-transform: translateY(-0.15em);
       -ms-transform: translateY(-0.15em);
           transform: translateY(-0.15em);
-  border-color: #5555ff;
+  border-color: #0086ac;
 }
 a.cta i.fa,
 a.cta-inline i.fa {
@@ -2545,7 +2545,7 @@ a:visited:link {
   position: absolute;
   bottom: 2%;
   right: 2%;
-  color: #5555ff;
+  color: #0086ac;
 }
 .blog-grid-item a .excerpt {
   color: #ffffff;
@@ -5438,7 +5438,7 @@ label input[type='checkbox'] + span:before:before {
   -moz-osx-font-smoothing: grayscale;
 }
 label input[type='checkbox']:checked + span {
-  background: #5555ff;
+  background: #0086ac;
   border-bottom: 2px solid #555555;
   color: #333333;
 }
@@ -5637,7 +5637,7 @@ div.wpcf7 form.wpcf7-form div label {
   white-space: normal;
 }
 div.wpcf7 form.wpcf7-form div label.focus {
-  color: #5555ff;
+  color: #0086ac;
 }
 div.wpcf7 form.wpcf7-form div label.complete {
   color: #99dd99;
@@ -5833,7 +5833,7 @@ div.wpcf7 form.wpcf7-form input[type='radio'] + span label:before:before {
 }
 div.wpcf7 form.wpcf7-form input[type='checkbox']:checked + span label,
 div.wpcf7 form.wpcf7-form input[type='radio']:checked + span label {
-  background: #5555ff;
+  background: #0086ac;
   border-bottom: 2px solid #555555;
   color: #333333;
 }
@@ -6218,20 +6218,94 @@ input[type="text"][disabled]:focus, input[type="text"][disabled]:active, input[t
 }
 */
 #wiki-menu .visual-menu {
-  background: #fff;
   border-bottom: 2px solid rgba(0, 0, 0, 0.2);
 }
-.visual-menu li {
-  padding: .5em;
+.visual-menu {
+  padding: 0;
 }
-.visual-menu li.past {
+.visual-menu ul {
+  padding: 0;
+}
+.visual-menu ul li a {
+  padding-left: 2em;
+}
+.visual-menu li {
+  display: block;
+}
+.visual-menu li > a {
+  display: block;
+  padding: .5em .5em .5em 1em;
+  border-left: 3px solid transparent;
+  -webkit-transition: background .4s ease;
+          transition: background .4s ease;
+  color: #0086ac;
+}
+.visual-menu li.past > a {
   opacity: 0.2;
 }
-.visual-menu li.current {
-  background: rgba(210, 37, 41, 0.2);
-}
-.visual-menu li.future {
+.visual-menu li.future > a {
   opacity: 1;
+}
+.visual-menu li.active-parent {
+  background: rgba(0, 134, 172, 0.05);
+}
+.visual-menu li.current > a {
+  opacity: 1;
+  background: rgba(0, 134, 172, 0.2);
+  border-left: 3px solid #0086ac;
+}
+#wiki-content article h2 {
+  margin-top: 0;
+}
+#wiki-content article .post-edit-link {
+  font-size: .5em;
+  color: #fff;
+  background: #d22529;
+  padding: .1em .2em;
+  border-radius: 3px;
+}
+#wiki-content article:nth-of-type(n+2) {
+  border-top: 1px solid #0086ac;
+}
+#wiki-content .article-div.child {
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+.page-template-template-wiki {
+  height: 100%;
+}
+.page-template-template-wiki h1 {
+  font-size: 2.533333333em;
+  line-height: 1.368421052em;
+  margin-top: 0;
+}
+@media screen and (min-width: 968px) {
+  .page-template-template-wiki .footer {
+    width: 75%;
+    margin: 0 0 0 auto;
+  }
+  .page-template-template-wiki .footer > .max-central {
+    padding-left: 13%;
+  }
+}
+#wiki-menu {
+  height: 800px;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  padding-top: 127px;
+  overflow-y: scroll;
+  width: 25%;
+  z-index: 600;
+  background: #ffffff;
+}
+ul {
+  list-style: none;
+}
+#wiki-content {
+  padding-bottom: 2em;
+}
+#wiki-content .close-sub-section {
+  display: none;
 }
 @media screen and (max-width: 968px) {
   #wiki-menu {
@@ -6251,7 +6325,7 @@ input[type="text"][disabled]:focus, input[type="text"][disabled]:active, input[t
     padding: 15px;
     border-bottom: solid 2px #B6B5B5;
     -webkit-transition: max-height linear 0.5s;
-    transition: max-height linear 0.5s;
+            transition: max-height linear 0.5s;
   }
   #wiki-content .section h3 {
     margin-top: 0;
@@ -6264,7 +6338,7 @@ input[type="text"][disabled]:focus, input[type="text"][disabled]:active, input[t
   }
   #wiki-content .open {
     -webkit-transition: max-height linear 0.5s;
-    transition: max-height linear 0.5s;
+            transition: max-height linear 0.5s;
     max-height: 5000px;
   }
   #wiki-content .close-sub-section {
@@ -6284,32 +6358,22 @@ input[type="text"][disabled]:focus, input[type="text"][disabled]:active, input[t
     content: '\25BA';
     float: right;
     -webkit-transform: rotate(0deg);
-    -ms-transform: rotate(0deg);
-        transform: rotate(0deg);
-    -webkit-transition: all 1s ease;
-    transition: all 1s ease;
+        -ms-transform: rotate(0deg);
+            transform: rotate(0deg);
+    -webkit-transition: all .5s ease;
+            transition: all .5s ease;
   }
   #wiki-content .down-arrow:after {
     content: '\25BA';
     float: right;
     -webkit-transform: rotate(90deg);
-    -ms-transform: rotate(90deg);
-        transform: rotate(90deg);
+        -ms-transform: rotate(90deg);
+            transform: rotate(90deg);
     -webkit-transition: all 1s ease;
-    transition: all 1s ease;
+            transition: all 1s ease;
   }
 }
 /*Desktop Styles */
-#wiki-menu {
-  height: 800px;
-  position: fixed;
-  top: 127px;
-  overflow-y: scroll;
-  width: 23%;
-}
-ul {
-  list-style: none;
-}
 #footer-sidebar {
   clear: both;
   display: -webkit-box;
