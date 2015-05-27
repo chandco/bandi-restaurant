@@ -1,10 +1,11 @@
 define(['jquery'], function($) {
 
-	//if (screen.width < 968) {
+	
     // the width of browser is more then 700px
 
 
     	$(document).ready(function(){
+
 
     		//Add open class on only article clicked on and fade in close panel
 			$("article").click(function() {
