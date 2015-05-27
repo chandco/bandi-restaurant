@@ -8,17 +8,17 @@ define(['jquery'], function($) {
 
 
     		//Add open class on only article clicked on and fade in close panel
-			$("article").click(function() {
-			$(this).addClass("open");
+			$("article h3").click(function() {
+			$(this).parent().toggleClass("open");
 			if ($(this).hasClass("open")) {
- 				$(this).next().fadeIn("slow");
+ 				$(this).next().fadeIn("fast");
  			}
 		});
 
 			//When close panel clicked, only close the active article
 			$(".close-sub-section").click(function(){
 				$(this).prev().removeClass("open");
-				$(this).fadeOut("slow");
+				$(this).fadeOut("medium");
   				$(this).prev().find("span").removeClass("down-arrow");
 			});
 			

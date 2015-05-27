@@ -6234,11 +6234,12 @@ input[type="text"][disabled]:focus, input[type="text"][disabled]:active, input[t
     margin-bottom: 10px;
     padding: 15px;
     border-bottom: solid 2px #B6B5B5;
-    -webkit-transition: max-height linear 0.5s;
-    transition: max-height linear 0.5s;
+    -webkit-transition: max-height linear 0.1s;
+    transition: max-height linear 0.1s;
   }
   #wiki-content .section h3 {
     margin-top: 0;
+    cursor: pointer;
   }
   #wiki-content .section h4 {
     font-size: 1.3em;
