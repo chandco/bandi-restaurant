@@ -16,38 +16,27 @@
 <?php
 $parentID = get_the_ID();
 
-// $args = array(
-// 	"post_parent" => $parentID,
-// 	"order" => "ASC",
-// 	"orderby" => "menu_order",
-// 	"post_type" => "page"
-// );
+$args = array(
+	"post_parent" => $parentID,
+	"order" => "ASC",
+	"orderby" => "menu_order",
+	"post_type" => "page"
+);
 
-// //gets the parent page 
-// $query = new WP_Query($args);
-// $children = $query->posts;
-
-
+//gets the parent page 
+$query = new WP_Query($args);
+//$children2 = $query->posts;
 
 
 $args2 = array(
-'sort_order' => 'ASC',
 'sort_column' => 'menu_order',
-'hierarchical' => 1,
-'child_of' => $parentID,
-'parent' => -1,
-'exclude_tree' => '0',
-'post_type' => 'page'
+'parent'      => $post->ID,
+'post_type' => 'page',
+'hierarchial' => 0
 );
 
-$query2 = new WP_Query($args2);
-//var_dump($query2);
+$children = get_pages( $args2 );
 ?>
-
-
-
-
-
 
 
 
@@ -62,16 +51,7 @@ $query2 = new WP_Query($args2);
 	//show wiki menu children and grandchildren only
 	echo "<h3 style=\"padding-left:24px;\"><u>".get_the_title()."</u></h3>";
 
-	$args = array(
-    'sort_column' => 'menu_order',
-    'parent'      => $post->ID,
-    'post_type' => 'page',
-    'hierarchial' => 0
-	);
-
-	$children = get_pages( $args );
-
-
+	echo "<ul>";
 	foreach( $children as $child ) {
     	$child_args = array(
         'sort_column' => 'menu_order',
@@ -80,121 +60,67 @@ $query2 = new WP_Query($args2);
         'post_type' => 'page'
     );
 
-    $grandchildren = get_pages( $child_args ); ?>
+   		 $grandchildren = get_pages( $child_args ); 
 
-
-    <h3><?php echo $child->post_title; ?></h3>
-    	<div class="sub-section">
-    <?php 
-  
+   		echo "<h3><li><a href=\"#post-$child->ID\">$child->post_title</a></li></h3>";
+    	
     	foreach( $grandchildren as $gchild ) {
-    		echo "<h4>$gchild->post_title</h4>";
+    		echo "<h4><li><a href=\"#post-$gchild->ID\">$gchild->post_title</a></li></h4>";
     	}
-    ?>
-    </div>
-   
-   <?php } ?>
+    	
+   } 
+   echo "</ul>";
+   ?>
 	
 	</div>
 
 	<div id="wiki-content" class='right-content'>
 		<?php if ( have_posts() ) : while( have_posts() ) : the_post();
 	     the_content();
-		endwhile; endif; ?>
+		endwhile; endif; 
 
+		// The Loop to get children
+		if ( $query->have_posts() ) {
+			while ( $query->have_posts() ) {
+				$query->the_post();
+				echo '<article class="section" id="post-'.get_the_id().'">' . "<h3><span class=\"right-arrow\">".get_the_title()."</h3>";
+				echo '<div>';
+				echo '<p class="wiki-text">' . get_the_content() . '</p>';
+				
+	
+				//The loop to get the grandchildren
+				 $args3=array(
+                'orderby' => 'menu_order',
+                'order' => 'ASC',
+                'post_type' => get_post_type( $post->ID ),
+                'post_parent' => $post->ID
+        );
 
+        $childpages = new WP_Query($args3);
 
-<?php
-// The Loop
-if ( $query2->have_posts() ) {
-	while ( $query2->have_posts() ) {
-		$query2->the_post();
-		echo '<article id="post-'.get_the_id().'">' . get_the_title();
-		echo '<p>' . get_the_content() . '</p>';
-		echo '</article>';
-	}
-} else {
-	// no posts found
-}
-/* Restore original Post Data */
-wp_reset_postdata();
-?>
+        if($childpages->post_count > 0) { /* display the children content  */
+            while ($childpages->have_posts()) {
+                 $childpages->the_post();
+                 echo "<h4>".get_the_title()."</h4>";
+                 the_content();
+            }
+            echo '</div>';
+            echo '</article></span>';
+             echo '<div class="close-sub-section">Close</div>';
+        }
+        wp_reset_query();
+       
+		}
+	} else {
+		echo "Sorry, you have no posts.";
+		}
+		/* Restore original Post Data */
+		wp_reset_postdata();
+		?>
 	</div>
 
 
 
-<div class="wiki-mobile">
-
-
-
-<?php 
-// $pages = get_pages($args2); 
-// 		foreach($pages as $page){
-// 			//if it is a page and page is a grandchild append a class to the list item
-// 			if( is_page() && count(get_post_ancestors($page->ID)) == 1 ) {
-
-// 				//show children pages
-// 				echo '<article>';
-// 				echo "<a href= \"javascript:showonlyone('$page->ID')\";><span class=\"right-arrow\">&#9658</span>";
-// 				echo '<h3><strong>'.$page->post_title.'</strong></h3></a>';
-// 				echo '<p class="wiki-text" id="'.$page->ID.'">'.$page->post_content.'</p>';
-// 				echo '</article>';
-
-// 			}
-// 		}
-
-?>
-
-
-
- <?php 
-$args = array(
-    'sort_column' => 'menu_order',
-    'parent'      => $post->ID,
-    'post_type' => 'page',
-    'hierarchial' => 0
-);
-
-$children = get_pages( $args );
-
-
-foreach( $children as $child ) {
-    $child_args = array(
-        'sort_column' => 'menu_order',
-        'parent'      => $child->ID,
-        'hierarchial' => 0,
-        'post_type' => 'page'
-    );
-
-    $grandchildren = get_pages( $child_args ); ?>
-
-
-<article>
-	<a>
-    	<h3><?php echo $child->post_title; ?><span class="right-arrow">&#9658</span></h3>
-    </a>
-    <div class="sub-section">
-    <?php 
-    echo '<p class="wiki-text">'.$child->post_content.'</p>';?>
-
-   		<?php
-    	foreach( $grandchildren as $gchild ) {
-    		echo "<h3>$gchild->post_title</h3>";
-    		echo '<p class="wiki-text">'.$gchild->post_content.'</p>';
-    	}
-
-    	?>
-    </div>
-</article>
-   <?php
-	}
-	?>
-
-
-
-</div>
-
-
-</div>
+</div><!--End responsive flex container-->
 
 <?php get_footer(); ?>

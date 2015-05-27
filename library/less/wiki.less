@@ -1,16 +1,7 @@
 @media screen and (max-width: @tablet-break) {
-	.wiki-mobile {
-		width:100%;
-		display:block !important;
+	#wiki-menu {
 
-		article {
-			background:rgba(221, 221, 221, 0.2);
-			padding:20px;
-			margin-bottom:10px;
-
-			
-		}
-		
+		display:none;
 
 		.right-arrow {
 			font-size:20px;
@@ -20,19 +11,86 @@
 		}
 	}
 
-	#wiki-menu, #wiki-content {
-		display:none;
-	}
+	#wiki-content{
 
+		.section {
+			max-height: 50px;
+		 	overflow: hidden;
+		  	background: #ccc;
+		  	margin-bottom: 10px;
+		  	padding: 15px;
+		  	border-bottom:solid 2px #B6B5B5;
+		  	 -webkit-transition:max-height linear 0.5s;
+		   -moz-transition:max-height linear 0.5s;
+		   transition:max-height linear 0.5s;
+
+		  	h3 {
+				margin-top:0;
+			}
+
+			h4 {
+				font-size:1.3em;
+			}
+
+		}
+
+		.close {
+			height:50px;
+		}
+
+
+		.open {
+		   -webkit-transition:max-height linear 0.5s;
+		   -moz-transition:max-height linear 0.5s;
+		   transition:max-height linear 0.5s;
+		   max-height:5000px;
+		}
+
+		.close-sub-section {
+			background:#3D3D3D;
+			color:#fff;
+			padding:5px;
+			margin-bottom:10px;
+			margin-top:-10px;
+			text-align:center;
+			display:none;
+		}
+
+		.right-arrow, .left-arrow {
+			display:block;
+		}
+
+
+		.right-arrow:after {
+    		content:'\25BA';
+    		float:right;
+			-moz-transform:rotate(0deg);
+			-webkit-transform: rotate(0deg);
+			-o-transform:rotate(0deg);
+			transform:rotate(0deg);
+			-moz-transition: all 1s ease;	
+			-webkit-transition: all 1s ease;
+			-o-transition: all 1s ease;
+			transition: all 1s ease;
+		}
+
+		.down-arrow:after {
+			content: '\25BA';
+			float:right;	
+			-moz-transform:rotate(90deg);
+			-webkit-transform: rotate(90deg);
+			-o-transform:rotate(90deg);
+			transform:rotate(90deg);
+			-moz-transition: all 1s ease;
+			-webkit-transition: all 1s ease;
+			-o-transition: all 1s ease;
+			transition: all 1s ease;
+		}
+	}	
 }
 
 
 /*Desktop Styles */
-
-	.wiki-mobile {
-		display:none;
-	}
-	
 
 	#wiki-menu {
 		height:800px;
@@ -40,16 +98,21 @@
 		top:127px;
 		overflow-y: scroll;
 		width:23%;
+	}
 
-		ul li {
-			list-style: none;
-		}
+	ul {
+		list-style:none;
+	}
 
-		.grandChild a {
-			color: rgb(84, 119, 174);
-			padding-left:20px;
+	#wiki-content {
+		.close-sub-section {
+			//display:none;
 		}
 	}
+
+	
+
+
 
 
 
