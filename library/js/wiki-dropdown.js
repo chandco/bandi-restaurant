@@ -6,27 +6,27 @@ define(['jquery'], function($) {
 
     	$(document).ready(function(){
 
+    		//Add open class on only article clicked on and fade in close panel
 			$("article").click(function() {
 			$(this).addClass("open");
 			if ($(this).hasClass("open")) {
  				$(this).next().fadeIn("slow");
-
- 				$( ".close-sub-section" ).bind( "click", function() {
- 					 $("article").addClass("close");
-				});
  			}
 		});
 
 
-			// $(".close-sub-section").click(function(e){
-			// 	if ($("article").hasClass("open")) {
-  	// 				$("article").removeClass("open");
-  	// 				$(".down-arrow").removeClass("down-arrow");
-  	// 				$(this).fadeOut("slow");
-  	// 				e.stopPropagation();
-			// 	} 
+			$(".close-sub-section").click(function(){
 
-			// });
+				$(this).prev().removeClass("open");
+				$(this).fadeOut("slow");
+				// if ($("article").hasClass("open")) {
+  		// 			// $("article").removeClass("open");
+  					$(".down-arrow").removeClass("down-arrow");
+  		// 			// $(this).fadeOut("slow");
+  					// e.stopPropagation();
+				// } 
+
+			});
 			
 
 		

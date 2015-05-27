@@ -6244,7 +6244,7 @@ input[type="text"][disabled]:focus, input[type="text"][disabled]:active, input[t
     font-size: 1.3em;
   }
   #wiki-content .close {
-    height: 100px;
+    height: 50px;
   }
   #wiki-content .open {
     -webkit-transition: max-height linear 0.5s;
