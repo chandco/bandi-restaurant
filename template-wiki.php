@@ -49,9 +49,9 @@ $children = get_pages( $args2 );
 	
 	<?php
 	//show wiki menu children and grandchildren only
-	echo "<h3 style=\"padding-left:24px;\"><u>".get_the_title()."</u></h3>";
+	echo "<h3 style=\"padding-left:24px;\">".get_the_title()."</u></h3>";
 
-	echo "<ul>";
+	echo "<ul class='visual-menu'>";
 	foreach( $children as $child ) {
     	$child_args = array(
         'sort_column' => 'menu_order',
@@ -60,13 +60,24 @@ $children = get_pages( $args2 );
         'post_type' => 'page'
     );
 
-   		 $grandchildren = get_pages( $child_args ); 
+    	echo "<li id='link-" . $child->ID . "'><a href=\"#post-$child->ID\">$child->post_title</a>";
+   		
+   		$grandchildren = get_pages( $child_args ); 
 
-   		echo "<h3><li><a href=\"#post-$child->ID\">$child->post_title</a></li></h3>";
-    	
-    	foreach( $grandchildren as $gchild ) {
-    		echo "<h4><li><a href=\"#post-$gchild->ID\">$gchild->post_title</a></li></h4>";
+   		if (count($grandchildren) > 0) {
+
+   			echo "<ul>";
+	   		
+	    	
+	    	foreach( $grandchildren as $gchild ) {
+	    		echo "<li id='link-" . $gchild->ID . "'><a href=\"#post-$gchild->ID\">$gchild->post_title</a></li>";
+	    	}
+
+	    	echo "</ul>";
+
     	}
+
+    	echo "</li>";
     	
    } 
    echo "</ul>";
@@ -83,7 +94,7 @@ $children = get_pages( $args2 );
 		if ( $query->have_posts() ) {
 			while ( $query->have_posts() ) {
 				$query->the_post();
-				echo '<article class="section" id="post-'.get_the_id().'">' . "<h3><span class=\"right-arrow\">".get_the_title()."</h3>";
+				echo '<article class="section" data-link="link-'.get_the_id().'" id="post-'.get_the_id().'">' . "<h3><span class=\"right-arrow\">".get_the_title()."</h3>";
 				echo '<div>';
 				echo '<p class="wiki-text">' . get_the_content() . '</p>';
 				

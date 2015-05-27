@@ -19,7 +19,7 @@
     "gulp-uglify": "latest",
     "gulp-uglifycss": "latest",
     "gulp-watch": "latest",
-    "requirejs": "latest",
+    "requirejs": "^2.1.17",
     "underscore": "~1.7.0"
   }
 }

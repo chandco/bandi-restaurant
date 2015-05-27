@@ -1,8 +1,7 @@
 
 requirejs.config({ 
   paths: {
-    typekit : 'http://use.typekit.net/jfl7esy',
-    jquery : 'http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min'
+    jquery : 'vendor/jquery-2.1.4.min'
   },
   "shim": {
         'vendor/slick': {
@@ -11,22 +10,21 @@ requirejs.config({
         // 'cf7' : ['jquery', 'jqueryForm'],
         'vendor/mailchimp' : ['jquery', 'vendor/mc-validate'],
         'vendor/magnific-popup' : ['jquery'],
-        'cf7' : ['jquery', 'vendor/jquery.form.min']
+        'cf7' : ['jquery', 'vendor/jquery.form.min'],
+        'plugins/jquery-isonscreen' : ['jquery'],
+        'plugins/jquery-visualnav' : ['jquery'],
+        'plugins/jquery-scrollto' : ['jquery'],
+        'vendor/modernizr': {
+          exports: 'Modernizr'
+        },
       
   }
 
 
 });
 
-require(['typekit'], function() {
-  try{Typekit.load();}catch(e){}
-}, function (err) {
-    
-  // Typekit obviously didn't load from the CDN.  Update the body tags
-  require(['jquery'], function($) {
-     $('html').addClass('wf-inactive');
-  });
-});
+
+
 
 
 

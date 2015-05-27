@@ -1,3 +1,32 @@
+#wiki-menu .visual-menu {
+
+	background: #fff;
+	border-bottom: 2px solid fade(black, 20%);
+	}
+
+	.visual-menu {
+
+
+		li {
+
+
+			padding: .5em;
+
+
+			&.past {
+				opacity: 0.2;
+			}
+
+			&.current {
+				background: fade(@red, 20%);
+			}
+
+			&.future {
+				opacity: 1;
+			}
+		}
+	}
+
 @media screen and (max-width: @tablet-break) {
 	#wiki-menu {
 
@@ -10,6 +39,8 @@
 			float:right;
 		}
 	}
+
+
 
 	#wiki-content{
 

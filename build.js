@@ -1,20 +1,27 @@
 ({
     baseUrl: "./library/js/",
-    paths: {
-        // the left side is the module ID,
-        // the right side is the path to
-        // the jQuery file, relative to baseUrl.
-        // Also, the path should NOT include
-        // the '.js' file extension. This example
-        // is using jQuery 1.9.0 located at
-        // js/lib/jquery-1.9.0.js, relative to
-        // the HTML page.
-        typekit : "empty:", // loading remotely
-        jquery : "empty:" // loading with CDN
-        
-    },
     name: "main",
     out: "./library/js/main-built.js",
+    paths: {
+        jquery : 'vendor/jquery-2.1.4.min'
+    },
+    
+    shim: {
+            'vendor/slick': {
+                deps: ['jquery']
+            },
+            // 'cf7' : ['jquery', 'jqueryForm'],
+            'vendor/mailchimp' : ['jquery', 'vendor/mc-validate'],
+            'vendor/magnific-popup' : ['jquery'],
+            'cf7' : ['jquery', 'vendor/jquery.form.min'],
+            'plugins/jquery-isonscreen' : ['jquery'],
+            'plugins/jquery-visualnav' : ['jquery'],
+            'plugins/jquery-scrollto' : ['jquery'],
+            'vendor/modernizr': {
+              exports: 'Modernizr'
+            },
+          
+    }
 
 })
 

@@ -108,7 +108,7 @@ define(['jquery', 'vendor/jquery.form.min'], function(jQuery) {
 			$form.addClass('sent');
 
 			if (data.onSentOk)
-				$.each(data.onSentOk, function(i, n) { eval(n) });
+				$.each(data.onSentOk, function(i, n) { eval(n); });
 
 			$(data.into).trigger('mailsent.wpcf7');
 
@@ -120,7 +120,7 @@ define(['jquery', 'vendor/jquery.form.min'], function(jQuery) {
 		}
 
 		if (data.onSubmit)
-			$.each(data.onSubmit, function(i, n) { eval(n) });
+			$.each(data.onSubmit, function(i, n) { eval(n); });
 
 		$(data.into).trigger('submit.wpcf7');
 
@@ -135,7 +135,7 @@ define(['jquery', 'vendor/jquery.form.min'], function(jQuery) {
 		$responseOutput.attr('role', 'alert');
 
 		$.wpcf7UpdateScreenReaderResponse($form, data);
-	}
+	};
 
 	$.fn.wpcf7ExclusiveCheckbox = function() {
 		return this.find('input:checkbox').click(function() {
@@ -193,8 +193,7 @@ define(['jquery', 'vendor/jquery.form.min'], function(jQuery) {
 			submit.removeAttr('disabled');
 			acceptances.each(function(i, n) {
 				n = $(n);
-				if (n.hasClass('wpcf7-invert') && n.is(':checked')
-				|| ! n.hasClass('wpcf7-invert') && ! n.is(':checked'))
+				if (n.hasClass('wpcf7-invert') && n.is(':checked') || ! n.hasClass('wpcf7-invert') && ! n.is(':checked'))
 					submit.attr('disabled', 'disabled');
 			});
 		});

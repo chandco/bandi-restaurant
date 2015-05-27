@@ -6217,6 +6217,22 @@ input[type="text"][disabled]:focus, input[type="text"][disabled]:active, input[t
   background-color:#d5edf8;
 }
 */
+#wiki-menu .visual-menu {
+  background: #fff;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.2);
+}
+.visual-menu li {
+  padding: .5em;
+}
+.visual-menu li.past {
+  opacity: 0.2;
+}
+.visual-menu li.current {
+  background: rgba(210, 37, 41, 0.2);
+}
+.visual-menu li.future {
+  opacity: 1;
+}
 @media screen and (max-width: 968px) {
   #wiki-menu {
     display: none;
