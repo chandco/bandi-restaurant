@@ -1,113 +1,277 @@
-@media screen and (max-width: @tablet-break) {
-	#wiki-menu {
+#wiki-menu .visual-menu {
 
-		display:none;
-
-		.right-arrow {
-			font-size:20px;
-			margin-left:40px;
-			color:#918E8E;
-			float:right;
-		}
-	}
-
-	#wiki-content{
-
-		.section {
-			max-height: 50px;
-		 	overflow: hidden;
-		  	background: #ccc;
-		  	margin-bottom: 10px;
-		  	padding: 15px;
-		  	border-bottom:solid 2px #B6B5B5;
-		  	 -webkit-transition:max-height linear 0.1s;
-		   -moz-transition:max-height linear 0.1s;
-		   transition:max-height linear 0.1s;
-
-		  	h3 {
-				margin-top:0;
-				cursor: pointer;
-			}
-
-			h4 {
-				font-size:1.3em;
-			}
-
-		}
-
-		.open {
-		   -webkit-transition:max-height linear 0.5s;
-		   -moz-transition:max-height linear 0.5s;
-		   transition:max-height linear 0.5s;
-		   max-height:5000px;
-		}
-
-		.close-sub-section {
-			background:#3D3D3D;
-			color:#fff;
-			padding:5px;
-			margin-bottom:10px;
-			margin-top:-10px;
-			text-align:center;
-			display:none;
-		}
-
-		.right-arrow, .left-arrow {
-			display:block;
-		}
-
-
-		.right-arrow:after {
-    		content:'\25BA';
-    		float:right;
-			-moz-transform:rotate(0deg);
-			-webkit-transform: rotate(0deg);
-			-o-transform:rotate(0deg);
-			transform:rotate(0deg);
-			-moz-transition: all 0.1s ease;	
-			-webkit-transition: all 0.1s ease;
-			-o-transition: all 0.1s ease;
-			transition: all 0.1s ease;
-		}
-
-		.down-arrow:after {
-			content: '\25BA';
-			float:right;	
-			-moz-transform:rotate(90deg);
-			-webkit-transform: rotate(90deg);
-			-o-transform:rotate(90deg);
-			transform:rotate(90deg);
-			-moz-transition: all 0.1s ease;
-			-webkit-transition: all 0.1s ease;
-			-o-transition: all 0.1s ease;
-			transition: all 0.1s ease;
-		}
-	}	
+	border-bottom: 2px solid fade(black, 20%);
 }
 
+.visual-menu {
 
-/*Desktop Styles */
-
-	#wiki-menu {
-		height:800px;
-		position:fixed;
-		top:127px;
-		overflow-y: scroll;
-		width:23%;
-	}
+	padding: 0;
 
 	ul {
-		list-style:none;
+		padding: 0;
+		li a {
+			padding-left: 2em;
+
+			
+		}
 	}
 
-	#wiki-content {
-		.close-sub-section {
-			display:none;
+
+	li {
+
+		display: block;
+
+		> a {
+			display: block;
+			padding: .5em .5em .5em 1em;	
+			border-left: 3px solid transparent;
+
+			transition: background .4s ease;
+
+			color: @highlight;
+
+			&:hover {
+				opacity: 1 !important;
+				background: fade(red, 20%) !important;
+				border-left: 3px solid @red !important;
+			}
+		}
+
+		
+
+
+		&.past > a {
+			opacity: 0.4;
+		}
+
+		
+
+		&.future > a {
+			opacity: 1;
+		}
+
+		&.active-parent {
+			background: fade(@highlight, 5%);
+		}
+
+		&.current > a  {
+			opacity: 1;
+			background: fade(@highlight, 20%);
+			border-left: 3px solid @highlight;
+		}
+	}
+}
+
+// format the articles
+
+.anchor-point:before {
+  content: "";
+  display: block;
+  @heightoffset: 127px;
+  height: @heightoffset;
+  margin-top: -@heightoffset;
+  visibility: hidden;
+}
+
+#wiki-content {
+	article {
+
+
+
+		h2 {
+			margin-top: 0;
+
+
+		}
+
+		.post-edit-link {
+				font-size: .5em;
+				color: #fff;
+				background: @link-color;
+				padding:.1em .2em;
+				border-radius: 3px;
+			}
+
+		@media screen and (min-width: @tablet-break) {
+			
+			
+			border-bottom: 1px solid fade(@highlight, 50%);
+			margin-bottom: 3em;	
+
+			&:last-of-type {
+				border-bottom: none;
+			}
+			
+		}
+		
+	}
+
+	.article-div {
+		&.child {
+			border-top: 1px solid fade(black, 10%);
+		}
+
+		&:before {
+			content: "";
+			display: block;
+			height: 150px;
+			margin-top: -150px;
+			visibility: hidden;
+		}
+	}
+}
+// set some template specific resets on the global styles
+
+.page-template-template-wiki {
+	height: 100%; // set body height;
+
+	h1 {
+		font-size: 2.533333333em;
+  		line-height: 1.368421052em;
+  		margin-top: 0;
+	}
+
+	@media screen and (min-width: @tablet-break) { // not on mobiles
+		
+		.footer {
+		  	
+		  	width: 75%;
+		  	margin: 0 0 0 auto; // offset it
+
+		  	> .max-central {
+		  		padding-left: 18%;
+		  	}
+
 		}
 	}
 
 	
+	@media screen and (max-width: @tablet-break) {
+		background: fade(black, 20%);
+	}
+	
 
+}
+#wiki-menu {
+	height: 100%;
+	position:fixed;
+	top: 0;
+	bottom: 0;
+	padding-top:127px;
+	overflow-y: scroll;
+	width: 25%;
+	z-index: 600; // above footer
+	background: @body-background;
+}
+
+ul {
+	list-style:none;
+}
+
+#wiki-content {
+	padding: 2em;
+	.close-sub-section {
+		display:none;
+	}
+
+
+}
+
+
+html {
+       overflow-y: scroll;
+}
+	
+
+@media screen and (max-width: @tablet-break) {
+	#wiki-menu {
+		display:none;
+	}
+
+
+	#wiki-content {
+
+		padding: 1em 0;
+
+		.section {
+
+		border-top: none;
+		background: darken(white, 10%);
+		margin-bottom: 10px;
+		padding: 0;
+		transition:max-height linear 0.5s;
+
+			h2 {
+				margin: 0;
+				padding: 10px 20px;
+				line-height: 1.2;
+				background: white;
+				border-bottom:solid 2px fade(black, 28%);
+				position: relative;
+				font-size: 1.8em;
+
+				cursor: pointer;
+
+				&:after {
+					content: @fa-var-caret-right;
+					.fa();
+					position: absolute;
+					right: 20px;
+					transition: transform .4s ease;
+					transform: rotate(0deg);
+					top: 18%;
+					
+					line-height: 1.2;
+				}
+			}
+
+			h3 {
+				font-size: 1.4em;
+			}
+			
+
+			.content {
+
+				max-height: 0;
+				overflow: hidden;
+				transition:max-height linear .4s;
+			
+				.article-div {
+					padding: 0 20px ;
+				}
+			}
+
+			&.open {
+
+				.content {
+					max-height: 9999px;
+					border-bottom:solid 2px #B6B5B5;
+			   	}
+
+			   	h2:after {
+			   	 	transform: rotate(90deg);
+			   	}
+			}
+
+			  	
+
+
+			.close-sub-section {
+				background:#3D3D3D;
+				color:#fff;
+				padding:5px;
+				margin-bottom:0;
+				margin-top:10px;
+				text-align:center;
+				display:block;
+				text-transform: uppercase;
+				cursor: pointer;
+			}
+
+		}
+		
+	} //#wiki-content
+} //@media screen and (max-width: @tablet-break)
 
 
 

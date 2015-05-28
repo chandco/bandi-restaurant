@@ -2130,11 +2130,11 @@ a.cta-inline * {
 }
 a.cta:hover,
 a.cta-inline:hover {
-  color: #5555ff;
+  color: #0086ac;
 }
 a.cta:hover *,
 a.cta-inline:hover * {
-  color: #5555ff;
+  color: #0086ac;
 }
 a.cta::after,
 a.cta-inline::after {
@@ -2159,7 +2159,7 @@ a.cta-inline:hover:after {
   -webkit-transform: translateY(-0.15em);
       -ms-transform: translateY(-0.15em);
           transform: translateY(-0.15em);
-  border-color: #5555ff;
+  border-color: #0086ac;
 }
 a.cta i.fa,
 a.cta-inline i.fa {
@@ -2344,7 +2344,7 @@ h2,
 h3,
 h4 {
   font-family: 'Source Sans Pro', sans-serif;
-  font-weight: normal !important;
+  font-weight: bold;
 }
 h5,
 h6 {
@@ -2545,7 +2545,7 @@ a:visited:link {
   position: absolute;
   bottom: 2%;
   right: 2%;
-  color: #5555ff;
+  color: #0086ac;
 }
 .blog-grid-item a .excerpt {
   color: #ffffff;
@@ -5438,7 +5438,7 @@ label input[type='checkbox'] + span:before:before {
   -moz-osx-font-smoothing: grayscale;
 }
 label input[type='checkbox']:checked + span {
-  background: #5555ff;
+  background: #0086ac;
   border-bottom: 2px solid #555555;
   color: #333333;
 }
@@ -5637,7 +5637,7 @@ div.wpcf7 form.wpcf7-form div label {
   white-space: normal;
 }
 div.wpcf7 form.wpcf7-form div label.focus {
-  color: #5555ff;
+  color: #0086ac;
 }
 div.wpcf7 form.wpcf7-form div label.complete {
   color: #99dd99;
@@ -5833,7 +5833,7 @@ div.wpcf7 form.wpcf7-form input[type='radio'] + span label:before:before {
 }
 div.wpcf7 form.wpcf7-form input[type='checkbox']:checked + span label,
 div.wpcf7 form.wpcf7-form input[type='radio']:checked + span label {
-  background: #5555ff;
+  background: #0086ac;
   border-bottom: 2px solid #555555;
   color: #333333;
 }
@@ -6217,21 +6217,141 @@ input[type="text"][disabled]:focus, input[type="text"][disabled]:active, input[t
   background-color:#d5edf8;
 }
 */
+#wiki-menu .visual-menu {
+  border-bottom: 2px solid rgba(0, 0, 0, 0.2);
+}
+.visual-menu {
+  padding: 0;
+}
+.visual-menu ul {
+  padding: 0;
+}
+.visual-menu ul li a {
+  padding-left: 2em;
+}
+.visual-menu li {
+  display: block;
+}
+.visual-menu li > a {
+  display: block;
+  padding: .5em .5em .5em 1em;
+  border-left: 3px solid transparent;
+  -webkit-transition: background .4s ease;
+          transition: background .4s ease;
+  color: #0086ac;
+}
+.visual-menu li > a:hover {
+  opacity: 1 !important;
+  background: rgba(255, 0, 0, 0.2) !important;
+  border-left: 3px solid #d22529 !important;
+}
+.visual-menu li.past > a {
+  opacity: 0.4;
+}
+.visual-menu li.future > a {
+  opacity: 1;
+}
+.visual-menu li.active-parent {
+  background: rgba(0, 134, 172, 0.05);
+}
+.visual-menu li.current > a {
+  opacity: 1;
+  background: rgba(0, 134, 172, 0.2);
+  border-left: 3px solid #0086ac;
+}
+.anchor-point:before {
+  content: "";
+  display: block;
+  height: 127px;
+  margin-top: -127px;
+  visibility: hidden;
+}
+#wiki-content article h2 {
+  margin-top: 0;
+}
+#wiki-content article .post-edit-link {
+  font-size: .5em;
+  color: #fff;
+  background: #d22529;
+  padding: .1em .2em;
+  border-radius: 3px;
+}
+@media screen and (min-width: 968px) {
+  #wiki-content article {
+    border-bottom: 1px solid rgba(0, 134, 172, 0.5);
+    margin-bottom: 3em;
+  }
+  #wiki-content article:last-of-type {
+    border-bottom: none;
+  }
+}
+#wiki-content .article-div.child {
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+#wiki-content .article-div:before {
+  content: "";
+  display: block;
+  height: 150px;
+  margin-top: -150px;
+  visibility: hidden;
+}
+.page-template-template-wiki {
+  height: 100%;
+}
+.page-template-template-wiki h1 {
+  font-size: 2.533333333em;
+  line-height: 1.368421052em;
+  margin-top: 0;
+}
+@media screen and (min-width: 968px) {
+  .page-template-template-wiki .footer {
+    width: 75%;
+    margin: 0 0 0 auto;
+  }
+  .page-template-template-wiki .footer > .max-central {
+    padding-left: 18%;
+  }
+}
+@media screen and (max-width: 968px) {
+  .page-template-template-wiki {
+    background: rgba(0, 0, 0, 0.2);
+  }
+}
+#wiki-menu {
+  height: 100%;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  padding-top: 127px;
+  overflow-y: scroll;
+  width: 25%;
+  z-index: 600;
+  background: #ffffff;
+}
+ul {
+  list-style: none;
+}
+#wiki-content {
+  padding: 2em;
+}
+#wiki-content .close-sub-section {
+  display: none;
+}
+html {
+  overflow-y: scroll;
+}
 @media screen and (max-width: 968px) {
   #wiki-menu {
     display: none;
   }
-  #wiki-menu .right-arrow {
-    font-size: 20px;
-    margin-left: 40px;
-    color: #918E8E;
-    float: right;
+  #wiki-content {
+    padding: 1em 0;
   }
   #wiki-content .section {
-    max-height: 50px;
-    overflow: hidden;
-    background: #ccc;
+    border-top: none;
+    background: #e6e6e6;
     margin-bottom: 10px;
+<<<<<<< HEAD
     padding: 15px;
     border-bottom: solid 2px #B6B5B5;
     -webkit-transition: max-height linear 0.1s;
@@ -6240,28 +6360,95 @@ input[type="text"][disabled]:focus, input[type="text"][disabled]:active, input[t
   #wiki-content .section h3 {
     margin-top: 0;
     cursor: pointer;
+=======
+    padding: 0;
+    -webkit-transition: max-height linear 0.5s;
+            transition: max-height linear 0.5s;
   }
-  #wiki-content .section h4 {
-    font-size: 1.3em;
+  #wiki-content .section h2 {
+    margin: 0;
+    padding: 10px 20px;
+    line-height: 1.2;
+    background: white;
+    border-bottom: solid 2px rgba(0, 0, 0, 0.28);
+    position: relative;
+    font-size: 1.8em;
+    cursor: pointer;
   }
+  #wiki-content .section h2:after {
+    content: "\f0da";
+    display: inline-block;
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    position: absolute;
+    right: 20px;
+    -webkit-transition: -webkit-transform .4s ease;
+            transition: transform .4s ease;
+    -webkit-transform: rotate(0deg);
+        -ms-transform: rotate(0deg);
+            transform: rotate(0deg);
+    top: 18%;
+    line-height: 1.2;
+  }
+  #wiki-content .section h2:after.pull-left {
+    margin-right: .3em;
+  }
+  #wiki-content .section h2:after.pull-right {
+    margin-left: .3em;
+  }
+  #wiki-content .section h2:after:before {
+    display: inline-block;
+    font-family: FontAwesome;
+    font-style: normal;
+    font-weight: normal;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  #wiki-content .section h3 {
+    font-size: 1.4em;
+>>>>>>> develop
+  }
+  #wiki-content .section .content {
+    max-height: 0;
+    overflow: hidden;
+    -webkit-transition: max-height linear 0.4s;
+            transition: max-height linear 0.4s;
+  }
+<<<<<<< HEAD
   #wiki-content .open {
     -webkit-transition: max-height linear 0.5s;
     transition: max-height linear 0.5s;
     max-height: 5000px;
+=======
+  #wiki-content .section .content .article-div {
+    padding: 0 20px ;
   }
-  #wiki-content .close-sub-section {
+  #wiki-content .section.open .content {
+    max-height: 9999px;
+    border-bottom: solid 2px #B6B5B5;
+  }
+  #wiki-content .section.open h2:after {
+    -webkit-transform: rotate(90deg);
+        -ms-transform: rotate(90deg);
+            transform: rotate(90deg);
+>>>>>>> develop
+  }
+  #wiki-content .section .close-sub-section {
     background: #3D3D3D;
     color: #fff;
     padding: 5px;
-    margin-bottom: 10px;
-    margin-top: -10px;
+    margin-bottom: 0;
+    margin-top: 10px;
     text-align: center;
-    display: none;
-  }
-  #wiki-content .right-arrow,
-  #wiki-content .left-arrow {
     display: block;
+    text-transform: uppercase;
+    cursor: pointer;
   }
+<<<<<<< HEAD
   #wiki-content .right-arrow:after {
     content: '\25BA';
     float: right;
@@ -6291,6 +6478,8 @@ input[type="text"][disabled]:focus, input[type="text"][disabled]:active, input[t
 }
 ul {
   list-style: none;
+=======
+>>>>>>> develop
 }
 #wiki-content .close-sub-section {
   display: none;

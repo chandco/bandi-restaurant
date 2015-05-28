@@ -38,7 +38,7 @@ gulp.task('default', function () {
 
     gulp.watch('./library/less/**/*.less', ['compile-css']);
 
-	gulp.watch(['./library/js/*.js', '!./library/js/main-built.js'], ['javascript', browserSync.reload]);
+	gulp.watch(['./library/js/*.js', '!./library/js/main-built.js'], ['javascript']);
 
 
 });
@@ -46,7 +46,7 @@ gulp.task('default', function () {
 
 
 gulp.task('javascript', function() {
-	 gulp.src(['./library/js/*.js','./library/js/components/*.js'])  	// ignore vendor stuff
+	 gulp.src(['./library/js/*.js','./library/js/components/*.js', '!./library/js/main-built.js',  '!./library/js/cf7.js'])  	// ignore vendor stuff
      .pipe(plumber())    
      .pipe(jshint())
      .pipe(jshint.reporter('default'));
@@ -56,7 +56,7 @@ gulp.task('javascript', function() {
   //     .pipe(gulp.dest('library/dist/js'));
 
     
-    run('r.js.cmd -o build.js').exec();
+    run('r.js -o build.js').exec();
 });
 
 
