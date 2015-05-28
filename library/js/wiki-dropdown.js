@@ -10,8 +10,13 @@ define(['jquery'], function($) {
     		//Add open class on only article clicked on and fade in close panel
 			$("article h3").click(function() {
 			$(this).parent().toggleClass("open");
-			if ($(this).hasClass("open")) {
- 				$(this).next().fadeIn("fast");
+			if ($(this).parent().hasClass("open")) {
+ 				$(this).parent().next().fadeIn("fast");
+ 				$(this).removeClass("right-arrow");
+ 				$(this).addClass("down-arrow");
+ 			} else {
+ 				$(this).removeClass("down-arrow");
+ 				$(this).addClass("right-arrow");
  			}
 		});
 
@@ -19,13 +24,10 @@ define(['jquery'], function($) {
 			$(".close-sub-section").click(function(){
 				$(this).prev().removeClass("open");
 				$(this).fadeOut("medium");
-  				$(this).prev().find("span").removeClass("down-arrow");
+  				//$(this).prev().find("span").removeClass("down-arrow");
 			});
 			
 
-			$(".right-arrow").click(function() {
- 				$(this).addClass("down-arrow");
-
-			});
+			
 		});	
 });

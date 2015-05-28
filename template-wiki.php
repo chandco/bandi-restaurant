@@ -83,7 +83,7 @@ $children = get_pages( $args2 );
 		if ( $query->have_posts() ) {
 			while ( $query->have_posts() ) {
 				$query->the_post();
-				echo '<article class="section" id="post-'.get_the_id().'">' . "<h3><span class=\"right-arrow\">".get_the_title()."</h3>";
+				echo '<article class="section" id="post-'.get_the_id().'">' . "<h3><span class=\"right-arrow\">".get_the_title()."</span></h3>";
 				echo '<div>';
 				echo '<p class="wiki-text">' . get_the_content() . '</p>';
 				
@@ -105,7 +105,7 @@ $children = get_pages( $args2 );
                  the_content();
             }
             echo '</div>';
-            echo '</article></span>';
+            echo '</article>';
              echo '<div class="close-sub-section">Close</div>';
         }
         wp_reset_query();
