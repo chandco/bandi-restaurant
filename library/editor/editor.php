@@ -32,7 +32,12 @@
 
 */
 
-
+add_filter( 'no_texturize_shortcodes', 'shortcodes_to_exempt_from_wptexturize' );
+function shortcodes_to_exempt_from_wptexturize($shortcodes){
+    $shortcodes[] = 'feature-box';
+    $shortcodes[] = 'infobox';
+    return $shortcodes;
+}
 
 // not really a shortcode but it is for the editor
 // // Callback function to insert 'styleselect' into the $buttons array

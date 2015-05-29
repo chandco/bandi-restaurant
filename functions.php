@@ -195,63 +195,7 @@ require_once("library/sidebars.php");
 
 
 
-/************* COMMENT LAYOUT *********************/
-
-// Comment Layout
-function bones_comments( $comment, $args, $depth ) {
-   $GLOBALS['comment'] = $comment; ?>
-  <div id="comment-<?php comment_ID(); ?>" <?php comment_class('cf'); ?>>
-    <article  class="cf">
-      <header class="comment-author vcard">
-        <?php
-        /*
-          this is the new responsive optimized comment image. It used the new HTML5 data-attribute to display comment gravatars on larger screens only. What this means is that on larger posts, mobile sites don't have a ton of requests for comment images. This makes load time incredibly fast! If you'd like to change it back, just replace it with the regular wordpress gravatar call:
-          echo get_avatar($comment,$size='32',$default='<path_to_url>' );
-        */
-        ?>
-        <?php // custom gravatar call ?>
-        <?php
-          // create variable
-          $bgauthemail = get_comment_author_email();
-        ?>
-        <img data-gravatar="http://www.gravatar.com/avatar/<?php echo md5( $bgauthemail ); ?>?s=40" class="load-gravatar avatar avatar-48 photo" height="40" width="40" src="<?php echo get_template_directory_uri(); ?>/library/images/nothing.gif" />
-        <?php // end custom gravatar call ?>
-        <?php printf(__( '<cite class="fn">%1$s</cite> %2$s', 'cf-theme' ), get_comment_author_link(), edit_comment_link(__( '(Edit)', 'cf-theme' ),'  ','') ) ?>
-        <time datetime="<?php echo comment_time('Y-m-j'); ?>"><a href="<?php echo htmlspecialchars( get_comment_link( $comment->comment_ID ) ) ?>"><?php comment_time(__( 'F jS, Y', 'cf-theme' )); ?> </a></time>
-
-      </header>
-      <?php if ($comment->comment_approved == '0') : ?>
-        <div class="alert alert-info">
-          <p><?php _e( 'Your comment is awaiting moderation.', 'cf-theme' ) ?></p>
-        </div>
-      <?php endif; ?>
-      <section class="comment_content cf">
-        <?php comment_text() ?>
-      </section>
-      <?php comment_reply_link(array_merge( $args, array('depth' => $depth, 'max_depth' => $args['max_depth']))) ?>
-    </article>
-  <?php // </li> is added by WordPress automatically ?>
-<?php
-} // don't remove this bracket!
-
-
-/*
-This is a modification of a function found in the
-twentythirteen theme where we can declare some
-external fonts. If you're using Google Fonts, you
-can replace these fonts, change it in your scss files
-and be up and running in seconds.
-*/
-
-function bones_fonts() {
-  /*
-  Add font declarations here
-    eg from Gfonts:
-      wp_enqueue_style('googleFonts', 'http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic');
-
-  */
-}
-add_action('wp_enqueue_scripts ', 'bones_fonts');
+// require_once("library/bones-comments.php");
 
 
 /* cleanup */
@@ -263,40 +207,10 @@ require_once("library/content/shortcodes.php");
 
 require_once("library/editor/editor.php");
 
-add_filter( 'no_texturize_shortcodes', 'shortcodes_to_exempt_from_wptexturize' );
-function shortcodes_to_exempt_from_wptexturize($shortcodes){
-    $shortcodes[] = 'feature-box';
-    $shortcodes[] = 'infobox';
-    return $shortcodes;
-}
+
+require_once("library/custom-logo.php");
 
 
-
-
-function print_filters_for( $hook = '' ) {
-    global $wp_filter;
-    if( empty( $hook ) || !isset( $wp_filter[$hook] ) )
-        return;
-
-      $hooks = $wp_filter[$hook];
-      asort($hooks);
-    print '<pre>';
-
-    print_r( $hooks );
-    print '</pre>';
-}
-
-
+// Parse Shortcodes in widget content
 add_filter('widget_text', 'do_shortcode');
-
-//add custom header image to wordpress
-$args = array(
-  'flex-width'         => true,
-  'flex-height'        => true,
-  'uploads'       => true,
-);
-add_theme_support( 'custom-header', $args );
-
-
-
 
