@@ -128,14 +128,15 @@ nav[role="navigation"] {
         background: @nav-link-background;
         color: @nav-link-color;
 
-        &.current-menu-item {
-          color: @red;
+        &.current-menu-item a {
+          color: @nav-link-current-text;
+          background: @nav-link-current-background;
         }
         &:hover {
           background: @nav-highlight;
-          color: @nav-highlight-text;
-
-
+          a {
+            color: @nav-highlight-text;
+          }
         }
 
         
@@ -269,7 +270,7 @@ nav[role="navigation"] {
   body.navigation-menu-open  {
     // body
     height: 100%;
-    box-sizing: content-box;
+    
     padding: 0;
     margin: 0;
     

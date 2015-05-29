@@ -1,6 +1,6 @@
 
 @grey : #999999;
-@green : #41a535;
+@green : #d3d802;
 @red: #d22529;
 @blue : #0086ac;
 
@@ -9,6 +9,7 @@
 @mid-grey: RGB(128,128,128);
 @darkgrey : RGB(51,51,51);
 
+@darkgreen: #ADB025;
 
 @lightgrey : #DDDDDD;
 @lighter-grey : #E6E6E6;
@@ -75,22 +76,25 @@
 @formbg : @lightblue;
 
 // Header Styles and sizes
-@header-background: lighten( @lightgrey, 10% );
+@header-background: @green;
 
 // sidebars
 @widget-background: fade( @lightgrey, 20% );
 
 //@lighter-grey; @white
-@nav-link-color: @grey;
+@nav-link-color: @white;
 @nav-link-background: transparent;
 
-@nav-highlight : @grey;
+@nav-link-current-text: @black;
+@nav-link-current-background: transparent;
+
+@nav-highlight : lighten(@black, 10%);
 @nav-highlight-text : @white;
 
-@nav-secondary-highlight : @grey;
+@nav-secondary-highlight : lighten(@black, 15%);
 @nav-secondary-highlight-text : @white;
 
-@nav-submenu-background : lighten(@grey, 30%);
+@nav-submenu-background : lighten(@black, 35%);
 @nav-submenu-text: @white;
 @nav-submenu-text-hover : @white;
 @nav-submenu-background-hover : lighten(@grey, 10%);
@@ -137,3 +141,20 @@
 // footer stuff
 
 @footer-background : @mid-grey;
+
+// menus
+@day-row: @dark; // M T W T F etc
+@day-row-text: @white;
+@label-row-text: @darkgreen;
+
+@today-day-row: @darkgreen;
+@today-day-text: @white;
+
+@table-buttons-text: @white;
+@table-buttons: @blue;
+
+
+// wiki stuff 
+
+@wiki-menu-highlight: @darkgreen;
+@wiki-menu-hover: @blue;
