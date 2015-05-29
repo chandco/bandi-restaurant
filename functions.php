@@ -263,6 +263,8 @@ require_once("library/content/shortcodes.php");
 
 require_once("library/editor/editor.php");
 
+require_once("library/recent-post-widget.php");
+
 add_filter( 'no_texturize_shortcodes', 'shortcodes_to_exempt_from_wptexturize' );
 function shortcodes_to_exempt_from_wptexturize($shortcodes){
     $shortcodes[] = 'feature-box';

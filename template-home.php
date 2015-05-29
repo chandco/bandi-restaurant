@@ -9,7 +9,6 @@
 ?>
 
 
-
 <?php get_header(); ?>
 <div class='responsive-flex-container'>
 
@@ -44,10 +43,6 @@
 		<!-- <h2>Latest Posts</h2> -->
 		<?php
 
-
-
-	//$recentPosts = new ita_recent_posts;
-	//$recentPosts->widget();
 
 
 // create the widget form
