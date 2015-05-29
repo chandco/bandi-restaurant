@@ -1674,22 +1674,22 @@
 /* LESS Document */
 .central-column {
   width: 100%;
-  max-width: 1400px;
+  max-width: 1500px;
   margin: auto;
   position: relative;
 }
-@media screen and (max-width: 1400px) {
+@media screen and (max-width: 1500px) {
   .central-column {
     width: 96%;
   }
 }
 .max-central {
   width: 100%;
-  max-width: 1400px;
+  max-width: 1500px;
   margin: auto;
   position: relative;
 }
-@media screen and (max-width: 1400px) {
+@media screen and (max-width: 1500px) {
   .max-central {
     width: 96%;
   }

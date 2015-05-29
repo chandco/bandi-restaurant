@@ -101,6 +101,6 @@
 
 		
 			
-		<div id="container" class='max-central'>
+		<div id="container">
 
 			

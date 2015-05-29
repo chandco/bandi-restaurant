@@ -43,7 +43,7 @@ $children = get_pages( $args2 );
 
 <?php get_header(); ?>
 
-<div class='responsive-flex-container'>
+<div class='responsive-flex-container max-central'>
 	
 	<div id="wiki-menu" class='left-sidebar'>
 	
