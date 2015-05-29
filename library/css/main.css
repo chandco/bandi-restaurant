@@ -6351,16 +6351,6 @@ html {
     border-top: none;
     background: #e6e6e6;
     margin-bottom: 10px;
-<<<<<<< HEAD
-    padding: 15px;
-    border-bottom: solid 2px #B6B5B5;
-    -webkit-transition: max-height linear 0.1s;
-    transition: max-height linear 0.1s;
-  }
-  #wiki-content .section h3 {
-    margin-top: 0;
-    cursor: pointer;
-=======
     padding: 0;
     -webkit-transition: max-height linear 0.5s;
             transition: max-height linear 0.5s;
@@ -6410,7 +6400,6 @@ html {
   }
   #wiki-content .section h3 {
     font-size: 1.4em;
->>>>>>> develop
   }
   #wiki-content .section .content {
     max-height: 0;
@@ -6418,12 +6407,6 @@ html {
     -webkit-transition: max-height linear 0.4s;
             transition: max-height linear 0.4s;
   }
-<<<<<<< HEAD
-  #wiki-content .open {
-    -webkit-transition: max-height linear 0.5s;
-    transition: max-height linear 0.5s;
-    max-height: 5000px;
-=======
   #wiki-content .section .content .article-div {
     padding: 0 20px ;
   }
@@ -6435,7 +6418,6 @@ html {
     -webkit-transform: rotate(90deg);
         -ms-transform: rotate(90deg);
             transform: rotate(90deg);
->>>>>>> develop
   }
   #wiki-content .section .close-sub-section {
     background: #3D3D3D;
@@ -6448,41 +6430,6 @@ html {
     text-transform: uppercase;
     cursor: pointer;
   }
-<<<<<<< HEAD
-  #wiki-content .right-arrow:after {
-    content: '\25BA';
-    float: right;
-    -webkit-transform: rotate(0deg);
-    -ms-transform: rotate(0deg);
-        transform: rotate(0deg);
-    -webkit-transition: all 0.1s ease;
-    transition: all 0.1s ease;
-  }
-  #wiki-content .down-arrow:after {
-    content: '\25BA';
-    float: right;
-    -webkit-transform: rotate(90deg);
-    -ms-transform: rotate(90deg);
-        transform: rotate(90deg);
-    -webkit-transition: all 0.1s ease;
-    transition: all 0.1s ease;
-  }
-}
-/*Desktop Styles */
-#wiki-menu {
-  height: 800px;
-  position: fixed;
-  top: 127px;
-  overflow-y: scroll;
-  width: 23%;
-}
-ul {
-  list-style: none;
-=======
->>>>>>> develop
-}
-#wiki-content .close-sub-section {
-  display: none;
 }
 #footer-sidebar {
   clear: both;
