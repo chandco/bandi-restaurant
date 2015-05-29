@@ -163,11 +163,11 @@ function mce_wp_enqueue_media($hook) {
 
 	
 	wp_enqueue_style( 'admin-helper-css', get_stylesheet_directory_uri() . '/library/css/admin.css' );
-	wp_enqueue_style( 'admin-fa-css', '//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css' );
+	wp_enqueue_style( 'admin-fa-css', '//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css' );
 	
-	wp_enqueue_script( 'admin-fonts-1', '//fast.fonts.net/jsapi/e4baf517-7128-4749-bbe6-cfc5fe4b4187.js' );
-	//wp_enqueue_script( 'admin-fonts-2', '//use.typekit.net/jfl7esy.js' );
-	//wp_enqueue_script( 'typekit', get_stylesheet_directory_uri() . '/library/js/typekit.js' );
+	
+	
+	
 	
 
 	if ($hook != 'admin_page_' . 'feature-box-edit') return;
@@ -185,12 +185,7 @@ function mce_wp_enqueue_media($hook) {
     wp_enqueue_media();
 }
 
-// get typekit loading
-add_filter("mce_external_plugins", "tomjn_mce_external_plugins");
-function tomjn_mce_external_plugins($plugin_array){
-	$plugin_array['typekit']  =  get_template_directory_uri().'/library/js/typekit.js';
-    return $plugin_array;
-}
+
 
 
 

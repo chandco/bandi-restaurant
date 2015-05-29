@@ -12,7 +12,6 @@
       
 
 
-
          */
         init : function(ed, url) {
 
@@ -38,6 +37,38 @@
             
 
             var t = this;
+
+
+             ed.on('keydown', function(e) {
+                
+
+
+                if (e.keyCode != 13 || e.shiftKey) return;
+
+                var node = ed.selection.getNode();
+
+                window.tempEd = ed;
+                console.log(node);
+                console.log(e);
+
+                
+
+                var $el = ed.$(node);
+
+                console.log($el);
+
+                if ($el.closest('.col-smart').length) {
+
+                    console.log("In a column...", $el);
+                    e.shiftKey = true;
+                    return e;
+                }    
+
+                return false;                
+                
+                
+            });
+
 
             
             ed.addButton('feature', {
@@ -200,6 +231,11 @@
                 return_text +=  '</div> &nbsp;';
 
                 ed.selection.setContent(return_text);
+
+                $('#content-html').trigger('click');
+                setTimeout( function() {
+                    $('#content-tmce').trigger('click');
+                }, 50);
                 
             });
 
@@ -270,7 +306,7 @@
             }); 
 
 
-            ed.onClick.add(function(ed, e) {
+            ed.on('Click', function(e) {
                 
                 console.debug('Editor was clicked: ', ed.$(e.target));
 
