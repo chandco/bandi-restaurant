@@ -8,6 +8,8 @@
 */
 ?>
 
+
+
 <?php get_header(); ?>
 <div class='responsive-flex-container'>
 
@@ -38,35 +40,61 @@
 	</div>
 
 	<div id="footer-sidebar" class='full-width'>
-		<h2>Latest Posts</h2>
+		
+		<!-- <h2>Latest Posts</h2> -->
 		<?php
+
+
+
+	//$recentPosts = new ita_recent_posts;
+	//$recentPosts->widget();
+
+
+// create the widget form
+ // list categories, selecta
+ // list blogs, selecta
+ 
+ // number of posts
+ 
+ 
+ // create the widget output
+ 
+ 
+ 
+ 
+// nice recent posts widget
+ 
+
+
+
+
 			
-				$args = array(
+			// 	$args = array(
 					
 					
-					'posts_per_page'         => 4,
-					// maybe add tax queries here
+			// 		'posts_per_page'         => 4,
+			// 		// maybe add tax queries here
 					
-				);
+			// 	);
 
 				
 			
-			$latest = new WP_Query( $args );
+			// $latest = new WP_Query( $args );
 
 
-			if ( $latest->have_posts() ) {
-				echo "<ul class='grid-feed'>";
-				while ($latest->have_posts() ) {
-					$latest->the_post();
+			// if ( $latest->have_posts() ) {
+			// 	echo "<ul class='grid-feed'>";
+			// 	while ($latest->have_posts() ) {
+			// 		$latest->the_post();
 
-					get_template_part( 'content/post-preview' );
+			// 		get_template_part( 'content/post-preview' );
 
-				}
+			// 	}
 
-				echo "</ul>";
-			}
+			// 	echo "</ul>";
+			// }
 
-			wp_reset_postdata();
+			// wp_reset_postdata();
 
 
 		?>
