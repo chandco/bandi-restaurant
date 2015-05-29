@@ -8,7 +8,7 @@
 */
 ?>
 
-<?php require('library/recent-post-widget'); ?>
+
 
 <?php get_header(); ?>
 <div class='responsive-flex-container'>
@@ -46,8 +46,8 @@
 
 
 
-	$recentPosts = new ita_recent_posts;
-	$recentPosts->widget();
+	//$recentPosts = new ita_recent_posts;
+	//$recentPosts->widget();
 
 
 // create the widget form

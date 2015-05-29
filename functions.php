@@ -291,8 +291,8 @@ add_filter('widget_text', 'do_shortcode');
 
 //add custom header image to wordpress
 $args = array(
-  'width'         => 500,
-  'height'        => 200,
+  'flex-width'         => true,
+  'flex-height'        => true,
   'uploads'       => true,
 );
 add_theme_support( 'custom-header', $args );
