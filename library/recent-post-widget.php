@@ -125,7 +125,7 @@ class ita_recent_posts extends WP_Widget {
 		}
 		
 		
-		echo "<div class='widget-recent-posts' id='blog-panels'><h2>" . $instance["title"] . "</h2>\n";
+		echo "<div class='widget'><h2>" . $instance["title"] . "</h2>\n";
  
  
 		//$hotPosts = get_posts($args);

@@ -8,6 +8,71 @@
 */
 ?>
 
+<style type="text/css">
+
+.container {
+  display:flex;
+  background:#f00;
+  box-sizing:border-box;
+}
+
+
+.item {
+  background:#999;
+  flex-grow: 1;
+  margin:10px;
+  display:flex;
+ justify-content:space-around;
+}
+
+.wider {
+  flex-grow: 2;
+}
+
+.widget-area {
+  background:green;
+  margin-bottom:10px;
+  display:flex;
+  justify-content:space-around;
+}
+
+.widget {
+   background:orange;
+  width:35%;
+}
+
+@media screen and (max-width: 872px) {
+  .widget-area {
+    background:pink;
+    flex-direction:row;
+  }
+  
+  .item {
+    display:flex;
+    flex-direction:column;
+  }
+  
+  
+}
+
+@media screen and (max-width: 480px) {
+  .widget-area {
+    background:blue;
+    flex-direction:column;
+   
+    width:90%;
+  } 
+  
+  .item {
+    flex-direction:column;
+    align-items:center;
+    
+  }
+  
+}
+
+</style>
+
 
 <?php get_header(); ?>
 <div class='responsive-flex-container max-central'>
@@ -41,10 +106,30 @@
 	<div id="footer-sidebar" class='full-width'>
 		
 		<!-- <h2>Latest Posts</h2> -->
-		<?php
-			dynamic_sidebar( 'home-footer-sidebar' );
+		
+		
+		<div class="widget-area">
+			<div class="item wider">
+				<div class="widget-area">
+					<div class="widget">
+						<?php dynamic_sidebar( 'home-footer-sidebar' ); ?>
+					</div>
 
+					<div class="widget-area">
+					<div class="widget">
+						<?php dynamic_sidebar( 'home-footer-sidebar-2' ); ?>
+					</div>
+				</div>
 
+				</div>
+			</div>
+		</div>
+
+			
+
+	
+
+<?php
 
 // create the widget form
  // list categories, selecta
