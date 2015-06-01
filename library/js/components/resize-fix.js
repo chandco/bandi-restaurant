@@ -34,12 +34,20 @@ define(['jquery', 'vendor/modernizr'], function( $ ) {
 
 	function featureboxMatchingHeights() {
 
+
+
 		if ($(window).width() < 700) {
+			
+
 			return;
 		}
 
 		
-		$.each( $('.cf_columns'), function(index, element) {
+
+		
+		$.each( $('.row'), function(index, element) {
+
+			
 
 			
 
@@ -48,7 +56,9 @@ define(['jquery', 'vendor/modernizr'], function( $ ) {
 
 			
 			
-			$.each( $(element).find('.feature.has-content'), function(index, child) {
+			$.each( $(element).find('.feature.has-content .content'), function(index, child) {
+
+				console.log( $(child).find('h2').text(), $(child).outerHeight() );
 
 				if ($(child).outerHeight() > t) {
 
@@ -61,13 +71,16 @@ define(['jquery', 'vendor/modernizr'], function( $ ) {
 				
 			});
 
-			$(element).find('.feature.has-content').css('height', t);
+			$(element).find('.feature.has-content .content').css('min-height', t);
 
 			
 			
 
 		});
 	}
+
+
+	
 
 	// used below for resize throttling
 	function resizeend( callback, args ) {
@@ -86,22 +99,22 @@ define(['jquery', 'vendor/modernizr'], function( $ ) {
 	// general resize callback thing.  Add new callback with other things if you want lots of resize events.
 	$(document).ready( function() {
 
-		sidebarHeightFix(); // fire on load
+		//sidebarHeightFix(); // fire on load
 		
 		featureboxMatchingHeights();
 		
 
-		$(window).resize( function() {
+		// $(window).resize( function() {
 
-			rtime = new Date();
-			if (timeout === false) {
-	        timeout = true;
-		        setTimeout(function() {
-		        	resizeend(sidebarHeightFix); // , args if needed
-		        }, delta);
-		    }
+		// 	rtime = new Date();
+		// 	if (timeout === false) {
+	 //        timeout = true;
+		//         setTimeout(function() {
+		//         	resizeend(sidebarHeightFix); // , args if needed
+		//         }, delta);
+		//     }
 
-		} );
+		// } );
 	});
 
 

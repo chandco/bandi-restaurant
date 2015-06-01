@@ -256,9 +256,13 @@ div.wpcf7 {
 	@padding : 4%;
 	@margin : 1%;
 
-	background: @formbg;
+	background: @lightgrey;
 	overflow: hidden;
 	margin: 1em auto;
+
+	&:first-of-type {
+		margin-top: 0;
+	}
 	position: relative;
 
 	padding: @padding/2;
@@ -448,7 +452,7 @@ div.wpcf7 {
 					
 					font-weight:bold;
 					height:40px;
-					.alpha-color(@dark, 0.7);
+					.alpha-color(@light, 0.7);
 					border-bottom:solid 2px @alpha-color;
 
 
@@ -612,27 +616,26 @@ div.wpcf7 {
 			}		
 
 			input[type="submit"] {
-					background:@emphasis;
+					background:@highlight;
 					border:none;
-					width: 60%;
+					width: auto;
 
-					font-size:2em;
+					font-size:1em;
 					
 					height: auto;
 					position:relative;
 					margin:auto;
-					display: block;
+					display: inline-block;
 					padding: @padding/2;
 				
-					.darken(@emphasis);
-					border-bottom: 2px solid @darker;
+					border-bottom: 2px solid darken(@highlight, 20%);
 
 					color: @emphasis-text;
 
 					transition:background .3s ease;
 					&:hover {
-						.lighten(@emphasis);
-						background: @lighter;
+						
+						background: lighten(@highlight, 10%);
 					}
 				}
 			

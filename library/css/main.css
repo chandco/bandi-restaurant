@@ -2154,10 +2154,10 @@ a:active div.feature {
 }
 div.feature {
   text-decoration: none;
-  cursor: pointer;
   position: relative;
   width: 100%;
-  background: #dddddd;
+  background: #c0d62c;
+  border-radius: 2px;
   -webkit-transition: background 0.4s ease;
           transition: background 0.4s ease;
 }
@@ -2171,9 +2171,6 @@ div.feature p {
   margin: 0;
   display: inline-block;
   padding: 0;
-}
-div.feature * {
-  color: #ffffff !important;
 }
 @media screen and (max-width: 900px) {
   div.feature {
@@ -2193,21 +2190,6 @@ div.feature header p {
   padding: 0;
   margin: 0;
 }
-div.feature header h2 {
-  position: absolute;
-  bottom: 0;
-  background: rgba(255, 255, 255, 0.6);
-  width: 100%;
-  left: 0;
-  color: #ffffff;
-  z-index: 2;
-  margin: 0;
-  padding: 0.5em 1em;
-  font-size: 1em;
-  text-align: center;
-  -webkit-transition: background 0.2s ease;
-          transition: background 0.2s ease;
-}
 div.feature header img {
   position: absolute;
   z-index: 1;
@@ -2226,15 +2208,17 @@ div.feature header img {
   -webkit-backface-visibility: hidden;
           backface-visibility: hidden;
 }
-div.feature:hover {
-  background: #ffffff;
-}
-div.feature:hover header img {
-  -webkit-transform: translateX(-50%) scale(1.1, 1.1) translateZ(0);
-          transform: translateX(-50%) scale(1.1, 1.1) translateZ(0);
-}
-div.feature:hover header h2 {
-  background: rgba(51, 51, 51, 0.9);
+div.feature h2 {
+  bottom: 0;
+  width: 100%;
+  left: 0;
+  color: #333333;
+  z-index: 2;
+  margin: 0 0 1em 0;
+  font-size: 1.2em;
+  text-align: left;
+  -webkit-transition: background 0.2s ease;
+          transition: background 0.2s ease;
 }
 div.feature div.content {
   box-sizing: border-box;
@@ -2242,6 +2226,13 @@ div.feature div.content {
   padding: 1em;
   line-height: 1.2;
   font-size: 0.9em;
+  color: #ffffff;
+}
+a div.feature:hover {
+  background: #ffffff;
+}
+a div.feature:hover header h2 {
+  background: rgba(51, 51, 51, 0.9);
 }
 a.cta-button {
   background: rgba(0, 0, 0, 0.4);
@@ -2307,7 +2298,7 @@ body {
   content: "";
   width: 4000px;
   left: -1000px;
-  background: rgba(221, 221, 221, 0.35);
+  background: rgba(192, 214, 44, 0.35);
   top: 0;
   bottom: 0;
   display: block;
@@ -2481,7 +2472,7 @@ a:visited:link {
   position: absolute;
   box-sizing: border-box;
   bottom: 0;
-  background: rgba(221, 221, 221, 0.7);
+  background: rgba(192, 214, 44, 0.7);
   color: #ffffff;
   padding: 2%;
   width: 100%;
@@ -2513,7 +2504,7 @@ a:visited:link {
           transform: scale(1.1, 1.1);
 }
 .blog-grid-item:hover h2 {
-  background: rgba(221, 221, 221, 0.9);
+  background: rgba(192, 214, 44, 0.9);
 }
 .blog-grid-item .excerpt {
   width: 100%;
@@ -2534,6 +2525,7 @@ a:visited:link {
 .blog-grid-item a {
   color: #ffffff;
 }
+.row,
 .cf_columns,
 .cf-columns {
   height: auto;
@@ -2547,15 +2539,17 @@ a:visited:link {
       -ms-flex-direction: row;
           flex-direction: row;
 }
+.row .col-smart,
 .cf_columns .col-smart,
 .cf-columns .col-smart {
-  -webkit-box-flex: 1 0 0;
-  -webkit-flex-grow: 1 0 0;
-      -ms-flex-positive: 1 0 0;
-          flex-grow: 1 0 0;
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
   height: auto;
   max-width: 100%;
 }
+.row .col-smart.wider,
 .cf_columns .col-smart.wider,
 .cf-columns .col-smart.wider {
   -webkit-box-flex: 2.12;
@@ -2564,6 +2558,7 @@ a:visited:link {
           flex-grow: 2.12;
 }
 @media screen and (max-width: 600px) {
+  .row,
   .cf_columns,
   .cf-columns {
     display: block;
@@ -2574,133 +2569,182 @@ a:visited:link {
 }
 .no-flexbox .cf_columns .col-smart:only-child,
 #tinymce .cf_columns .col-smart:only-child,
+.no-flexbox .row .col-smart:only-child,
+#tinymce .row .col-smart:only-child,
 .no-flexbox .cf-columns .col-smart:only-child,
 #tinymce .cf-columns .col-smart:only-child {
   max-width: 100%;
 }
 .no-flexbox .cf_columns .col-smart:first-child:nth-last-child(2) ~ .col-smart,
 #tinymce .cf_columns .col-smart:first-child:nth-last-child(2) ~ .col-smart,
+.no-flexbox .row .col-smart:first-child:nth-last-child(2) ~ .col-smart,
+#tinymce .row .col-smart:first-child:nth-last-child(2) ~ .col-smart,
 .no-flexbox .cf-columns .col-smart:first-child:nth-last-child(2) ~ .col-smart,
 #tinymce .cf-columns .col-smart:first-child:nth-last-child(2) ~ .col-smart,
 .no-flexbox .cf_columns .col-smart:first-child:nth-last-child(2),
 #tinymce .cf_columns .col-smart:first-child:nth-last-child(2),
+.no-flexbox .row .col-smart:first-child:nth-last-child(2),
+#tinymce .row .col-smart:first-child:nth-last-child(2),
 .no-flexbox .cf-columns .col-smart:first-child:nth-last-child(2),
 #tinymce .cf-columns .col-smart:first-child:nth-last-child(2) {
   max-width: 48% !important;
 }
 .no-flexbox .cf_columns .col-smart:first-child:nth-last-child(3) ~ .col-smart,
 #tinymce .cf_columns .col-smart:first-child:nth-last-child(3) ~ .col-smart,
+.no-flexbox .row .col-smart:first-child:nth-last-child(3) ~ .col-smart,
+#tinymce .row .col-smart:first-child:nth-last-child(3) ~ .col-smart,
 .no-flexbox .cf-columns .col-smart:first-child:nth-last-child(3) ~ .col-smart,
 #tinymce .cf-columns .col-smart:first-child:nth-last-child(3) ~ .col-smart,
 .no-flexbox .cf_columns .col-smart:first-child:nth-last-child(3),
 #tinymce .cf_columns .col-smart:first-child:nth-last-child(3),
+.no-flexbox .row .col-smart:first-child:nth-last-child(3),
+#tinymce .row .col-smart:first-child:nth-last-child(3),
 .no-flexbox .cf-columns .col-smart:first-child:nth-last-child(3),
 #tinymce .cf-columns .col-smart:first-child:nth-last-child(3) {
   max-width: 30.66666667% !important;
 }
 .no-flexbox .cf_columns.has-wide .col-smart:first-child:nth-last-child(3) ~ .col-smart,
 #tinymce .cf_columns.has-wide .col-smart:first-child:nth-last-child(3) ~ .col-smart,
+.no-flexbox .row.has-wide .col-smart:first-child:nth-last-child(3) ~ .col-smart,
+#tinymce .row.has-wide .col-smart:first-child:nth-last-child(3) ~ .col-smart,
 .no-flexbox .cf-columns.has-wide .col-smart:first-child:nth-last-child(3) ~ .col-smart,
 #tinymce .cf-columns.has-wide .col-smart:first-child:nth-last-child(3) ~ .col-smart,
 .no-flexbox .cf_columns.has-wide .col-smart:first-child:nth-last-child(3),
 #tinymce .cf_columns.has-wide .col-smart:first-child:nth-last-child(3),
+.no-flexbox .row.has-wide .col-smart:first-child:nth-last-child(3),
+#tinymce .row.has-wide .col-smart:first-child:nth-last-child(3),
 .no-flexbox .cf-columns.has-wide .col-smart:first-child:nth-last-child(3),
 #tinymce .cf-columns.has-wide .col-smart:first-child:nth-last-child(3) {
   max-width: 22% !important;
 }
 .no-flexbox .cf_columns.has-wide .col-smart:first-child:nth-last-child(3) ~ .col-smart.wider,
 #tinymce .cf_columns.has-wide .col-smart:first-child:nth-last-child(3) ~ .col-smart.wider,
+.no-flexbox .row.has-wide .col-smart:first-child:nth-last-child(3) ~ .col-smart.wider,
+#tinymce .row.has-wide .col-smart:first-child:nth-last-child(3) ~ .col-smart.wider,
 .no-flexbox .cf-columns.has-wide .col-smart:first-child:nth-last-child(3) ~ .col-smart.wider,
 #tinymce .cf-columns.has-wide .col-smart:first-child:nth-last-child(3) ~ .col-smart.wider,
 .no-flexbox .cf_columns.has-wide .col-smart.wider:first-child:nth-last-child(3),
 #tinymce .cf_columns.has-wide .col-smart.wider:first-child:nth-last-child(3),
+.no-flexbox .row.has-wide .col-smart.wider:first-child:nth-last-child(3),
+#tinymce .row.has-wide .col-smart.wider:first-child:nth-last-child(3),
 .no-flexbox .cf-columns.has-wide .col-smart.wider:first-child:nth-last-child(3),
 #tinymce .cf-columns.has-wide .col-smart.wider:first-child:nth-last-child(3) {
   max-width: 48% !important;
 }
 .no-flexbox .cf_columns.has-wide .col-smart:first-child:nth-last-child(2) ~ .col-smart,
 #tinymce .cf_columns.has-wide .col-smart:first-child:nth-last-child(2) ~ .col-smart,
+.no-flexbox .row.has-wide .col-smart:first-child:nth-last-child(2) ~ .col-smart,
+#tinymce .row.has-wide .col-smart:first-child:nth-last-child(2) ~ .col-smart,
 .no-flexbox .cf-columns.has-wide .col-smart:first-child:nth-last-child(2) ~ .col-smart,
 #tinymce .cf-columns.has-wide .col-smart:first-child:nth-last-child(2) ~ .col-smart,
 .no-flexbox .cf_columns.has-wide .col-smart:first-child:nth-last-child(2),
 #tinymce .cf_columns.has-wide .col-smart:first-child:nth-last-child(2),
+.no-flexbox .row.has-wide .col-smart:first-child:nth-last-child(2),
+#tinymce .row.has-wide .col-smart:first-child:nth-last-child(2),
 .no-flexbox .cf-columns.has-wide .col-smart:first-child:nth-last-child(2),
 #tinymce .cf-columns.has-wide .col-smart:first-child:nth-last-child(2) {
   max-width: 30.66666667% !important;
 }
 .no-flexbox .cf_columns.has-wide .col-smart:first-child:nth-last-child(2) ~ .col-smart.wider,
 #tinymce .cf_columns.has-wide .col-smart:first-child:nth-last-child(2) ~ .col-smart.wider,
+.no-flexbox .row.has-wide .col-smart:first-child:nth-last-child(2) ~ .col-smart.wider,
+#tinymce .row.has-wide .col-smart:first-child:nth-last-child(2) ~ .col-smart.wider,
 .no-flexbox .cf-columns.has-wide .col-smart:first-child:nth-last-child(2) ~ .col-smart.wider,
 #tinymce .cf-columns.has-wide .col-smart:first-child:nth-last-child(2) ~ .col-smart.wider,
 .no-flexbox .cf_columns.has-wide .col-smart.wider:first-child:nth-last-child(2),
 #tinymce .cf_columns.has-wide .col-smart.wider:first-child:nth-last-child(2),
+.no-flexbox .row.has-wide .col-smart.wider:first-child:nth-last-child(2),
+#tinymce .row.has-wide .col-smart.wider:first-child:nth-last-child(2),
 .no-flexbox .cf-columns.has-wide .col-smart.wider:first-child:nth-last-child(2),
 #tinymce .cf-columns.has-wide .col-smart.wider:first-child:nth-last-child(2) {
   max-width: 61.33333333% !important;
 }
 .no-flexbox .cf_columns .col-smart:first-child:nth-last-child(4) ~ .col-smart,
 #tinymce .cf_columns .col-smart:first-child:nth-last-child(4) ~ .col-smart,
+.no-flexbox .row .col-smart:first-child:nth-last-child(4) ~ .col-smart,
+#tinymce .row .col-smart:first-child:nth-last-child(4) ~ .col-smart,
 .no-flexbox .cf-columns .col-smart:first-child:nth-last-child(4) ~ .col-smart,
 #tinymce .cf-columns .col-smart:first-child:nth-last-child(4) ~ .col-smart,
 .no-flexbox .cf_columns .col-smart:first-child:nth-last-child(4),
 #tinymce .cf_columns .col-smart:first-child:nth-last-child(4),
+.no-flexbox .row .col-smart:first-child:nth-last-child(4),
+#tinymce .row .col-smart:first-child:nth-last-child(4),
 .no-flexbox .cf-columns .col-smart:first-child:nth-last-child(4),
 #tinymce .cf-columns .col-smart:first-child:nth-last-child(4) {
   max-width: 22% !important;
 }
 .no-flexbox .cf_columns .col-smart:first-child:nth-last-child(3n+5) ~ .col-smart,
 #tinymce .cf_columns .col-smart:first-child:nth-last-child(3n+5) ~ .col-smart,
+.no-flexbox .row .col-smart:first-child:nth-last-child(3n+5) ~ .col-smart,
+#tinymce .row .col-smart:first-child:nth-last-child(3n+5) ~ .col-smart,
 .no-flexbox .cf-columns .col-smart:first-child:nth-last-child(3n+5) ~ .col-smart,
 #tinymce .cf-columns .col-smart:first-child:nth-last-child(3n+5) ~ .col-smart,
 .no-flexbox .cf_columns .col-smart:first-child:nth-last-child(3n+5),
 #tinymce .cf_columns .col-smart:first-child:nth-last-child(3n+5),
+.no-flexbox .row .col-smart:first-child:nth-last-child(3n+5),
+#tinymce .row .col-smart:first-child:nth-last-child(3n+5),
 .no-flexbox .cf-columns .col-smart:first-child:nth-last-child(3n+5),
 #tinymce .cf-columns .col-smart:first-child:nth-last-child(3n+5) {
   max-width: 48%;
 }
 .no-flexbox .cf_columns .col-smart:first-child:nth-last-child(3n+5) + .col-smart ~ .col-smart,
 #tinymce .cf_columns .col-smart:first-child:nth-last-child(3n+5) + .col-smart ~ .col-smart,
+.no-flexbox .row .col-smart:first-child:nth-last-child(3n+5) + .col-smart ~ .col-smart,
+#tinymce .row .col-smart:first-child:nth-last-child(3n+5) + .col-smart ~ .col-smart,
 .no-flexbox .cf-columns .col-smart:first-child:nth-last-child(3n+5) + .col-smart ~ .col-smart,
 #tinymce .cf-columns .col-smart:first-child:nth-last-child(3n+5) + .col-smart ~ .col-smart {
   max-width: 30.66666667%;
 }
 .no-flexbox .cf_columns .col-smart:first-child:nth-last-child(3n+6) ~ .col-smart,
 #tinymce .cf_columns .col-smart:first-child:nth-last-child(3n+6) ~ .col-smart,
+.no-flexbox .row .col-smart:first-child:nth-last-child(3n+6) ~ .col-smart,
+#tinymce .row .col-smart:first-child:nth-last-child(3n+6) ~ .col-smart,
 .no-flexbox .cf-columns .col-smart:first-child:nth-last-child(3n+6) ~ .col-smart,
 #tinymce .cf-columns .col-smart:first-child:nth-last-child(3n+6) ~ .col-smart,
 .no-flexbox .cf_columns .col-smart:first-child:nth-last-child(3n+6),
 #tinymce .cf_columns .col-smart:first-child:nth-last-child(3n+6),
+.no-flexbox .row .col-smart:first-child:nth-last-child(3n+6),
+#tinymce .row .col-smart:first-child:nth-last-child(3n+6),
 .no-flexbox .cf-columns .col-smart:first-child:nth-last-child(3n+6),
 #tinymce .cf-columns .col-smart:first-child:nth-last-child(3n+6) {
   max-width: 30.66666667%;
 }
 .no-flexbox .cf_columns .col-smart:first-child:nth-last-child(3n+7) ~ .col-smart,
 #tinymce .cf_columns .col-smart:first-child:nth-last-child(3n+7) ~ .col-smart,
+.no-flexbox .row .col-smart:first-child:nth-last-child(3n+7) ~ .col-smart,
+#tinymce .row .col-smart:first-child:nth-last-child(3n+7) ~ .col-smart,
 .no-flexbox .cf-columns .col-smart:first-child:nth-last-child(3n+7) ~ .col-smart,
 #tinymce .cf-columns .col-smart:first-child:nth-last-child(3n+7) ~ .col-smart,
 .no-flexbox .cf_columns .col-smart:first-child:nth-last-child(3n+7),
 #tinymce .cf_columns .col-smart:first-child:nth-last-child(3n+7),
+.no-flexbox .row .col-smart:first-child:nth-last-child(3n+7),
+#tinymce .row .col-smart:first-child:nth-last-child(3n+7),
 .no-flexbox .cf-columns .col-smart:first-child:nth-last-child(3n+7),
 #tinymce .cf-columns .col-smart:first-child:nth-last-child(3n+7) {
   max-width: 96%;
 }
 .no-flexbox .cf_columns .col-smart:first-child:nth-last-child(3n+7) + .col-smart + .col-smart + .col-smart ~ .col-smart,
 #tinymce .cf_columns .col-smart:first-child:nth-last-child(3n+7) + .col-smart + .col-smart + .col-smart ~ .col-smart,
+.no-flexbox .row .col-smart:first-child:nth-last-child(3n+7) + .col-smart + .col-smart + .col-smart ~ .col-smart,
+#tinymce .row .col-smart:first-child:nth-last-child(3n+7) + .col-smart + .col-smart + .col-smart ~ .col-smart,
 .no-flexbox .cf-columns .col-smart:first-child:nth-last-child(3n+7) + .col-smart + .col-smart + .col-smart ~ .col-smart,
 #tinymce .cf-columns .col-smart:first-child:nth-last-child(3n+7) + .col-smart + .col-smart + .col-smart ~ .col-smart {
   max-width: 30.66666667%;
 }
+.row,
 .cf_columns,
 .cf-columns {
   overflow: hidden;
   position: relative;
   width: 100%;
 }
+.row .debug,
 .cf_columns .debug,
 .cf-columns .debug {
   height: 300px;
   background-color: rgba(255, 0, 0, 0.5);
 }
+.row > *[class^="col-"],
 .cf_columns > *[class^="col-"],
 .cf-columns > *[class^="col-"] {
   position: relative;
@@ -2710,43 +2754,39 @@ a:visited:link {
   padding-left: 4%;
   width: 100%;
 }
+.row > *[class^="col-"]:first-of-type,
 .cf_columns > *[class^="col-"]:first-of-type,
 .cf-columns > *[class^="col-"]:first-of-type {
   padding-left: 0;
+  width: 96%;
 }
-.cf_columns > *[class^="col-"]:first-of-type:nth-last-child(4),
-.cf-columns > *[class^="col-"]:first-of-type:nth-last-child(4) {
-  max-width: 84%;
-}
-.cf_columns > *[class^="col-"]:first-of-type:nth-last-child(3),
-.cf-columns > *[class^="col-"]:first-of-type:nth-last-child(3) {
-  max-width: 88%;
-}
-.cf_columns > *[class^="col-"]:first-of-type:nth-last-child(2),
-.cf-columns > *[class^="col-"]:first-of-type:nth-last-child(2) {
-  max-width: 92%;
-}
+.row .col-quarter,
 .cf_columns .col-quarter,
 .cf-columns .col-quarter {
   width: 22%;
 }
+.row .col-half,
 .cf_columns .col-half,
 .cf-columns .col-half {
   width: 48%;
 }
+.row .col-threequarters,
 .cf_columns .col-threequarters,
 .cf-columns .col-threequarters {
   width: 92%;
 }
+.row .col-third,
 .cf_columns .col-third,
 .cf-columns .col-third {
   width: 30.66666667%;
 }
+.row .col-twothirds,
 .cf_columns .col-twothirds,
 .cf-columns .col-twothirds {
   width: 61.33333333%;
 }
 @media screen and (max-width: 600px) {
+  .row > div[class^="col-"],
   .cf_columns > div[class^="col-"],
   .cf-columns > div[class^="col-"] {
     max-width: 100% !important;
@@ -2754,30 +2794,37 @@ a:visited:link {
     padding-right: 0 !important;
     margin-bottom: 4% !important;
   }
+  .row.no-respond .col-quarter,
   .cf_columns.no-respond .col-quarter,
   .cf-columns.no-respond .col-quarter {
     width: 22%;
   }
+  .row.no-respond .col-half,
   .cf_columns.no-respond .col-half,
   .cf-columns.no-respond .col-half {
     width: 48%;
   }
+  .row.no-respond .col-threequarters,
   .cf_columns.no-respond .col-threequarters,
   .cf-columns.no-respond .col-threequarters {
     width: 92%;
   }
+  .row.no-respond .col-third,
   .cf_columns.no-respond .col-third,
   .cf-columns.no-respond .col-third {
     width: 30.66666667%;
   }
+  .row.no-respond .col-twothirds,
   .cf_columns.no-respond .col-twothirds,
   .cf-columns.no-respond .col-twothirds {
     width: 61.33333333%;
   }
+  .row.no-respond > div[class^="col-"]:last-of-type,
   .cf_columns.no-respond > div[class^="col-"]:last-of-type,
   .cf-columns.no-respond > div[class^="col-"]:last-of-type {
     margin-right: 0;
   }
+  .row.no-respond > div[class^="col-"]:first-of-type,
   .cf_columns.no-respond > div[class^="col-"]:first-of-type,
   .cf-columns.no-respond > div[class^="col-"]:first-of-type {
     margin-left: 0;
@@ -2789,9 +2836,9 @@ a:visited:link {
   -webkit-backface-visibility: hidden;
           backface-visibility: hidden;
   width: 100%;
-  background: #d3d802;
+  background: #c0d62c;
   height: 60px;
-  padding: 9px 0;
+  padding: 0;
   position: fixed;
   top: 0;
 }
@@ -3042,7 +3089,7 @@ nav[role="navigation"] .nav li .sub-menu:hover li a {
     width: 96%;
   }
   body.navigation-menu-open #popup-menu-container #popup-menu > li {
-    border-bottom: 1px solid rgba(221, 221, 221, 0.8);
+    border-bottom: 1px solid rgba(192, 214, 44, 0.8);
     padding: 5px;
     color: #333333;
   }
@@ -3837,7 +3884,7 @@ li.basic.capacities:before:before {
   padding-bottom: 1em;
   border-bottom: 2px solid rgba(255, 255, 255, 0.4);
   margin-bottom: 1em;
-  color: #dddddd;
+  color: 255;
   text-align: center;
 }
 .widget {
@@ -3878,7 +3925,7 @@ li.basic.capacities:before:before {
   padding-bottom: 0.5em;
 }
 .footer .widgettitle {
-  color: #dddddd;
+  color: #c0d62c;
 }
 .widget_categories .widgettitle {
   margin-bottom: 0;
@@ -4100,7 +4147,7 @@ li.basic.capacities:before:before {
   width: 100%;
 }
 .latest-blogs {
-  background: #dddddd;
+  background: #c0d62c;
   width: 100%;
 }
 @media screen and (max-width: 1000px) {
@@ -4112,14 +4159,14 @@ li.basic.capacities:before:before {
   text-align: right;
   width: 100%;
 }
-.featured-image.cycle-slideshow {
+.page-featured-image {
   overflow: hidden;
   position: relative;
   opacity: 1;
   height: 480px;
   margin-bottom: -40px;
 }
-.featured-image.cycle-slideshow img {
+.page-featured-image img {
   position: absolute;
   width: 100%;
   height: auto;
@@ -4130,7 +4177,7 @@ li.basic.capacities:before:before {
   min-height: 100%;
 }
 @media screen and (max-width: 800px) {
-  .featured-image.cycle-slideshow img {
+  .page-featured-image img {
     width: auto;
     height: 100%;
     top: 0;
@@ -5159,7 +5206,7 @@ img.mfp-img {
 }
 .footer #mc_embed_signup input:selection,
 .footer #mc_embed_signup textarea:selection {
-  background: #dddddd;
+  background: 51;
 }
 .footer #mc_embed_signup input[type="submit"] {
   background: #ffffff;
@@ -5236,7 +5283,7 @@ img.mfp-img {
   display: block;
   top: 0;
   padding: 0 0 0 1em;
-  color: #dddddd;
+  color: #c0d62c;
 }
 .footer nav[role="navigation"] .nav li .sub-menu:hover,
 .footer nav[role="navigation"] .nav li .children:hover {
@@ -5328,7 +5375,7 @@ input[type='submit'] {
   border: none;
   background: #4d4d4d;
   padding: .3em .6em;
-  color: #dddddd;
+  color: #c0d62c;
   border-radius: 2px;
 }
 span.wpcf7-list-item {
@@ -5524,7 +5571,7 @@ label input[type='checkbox']:checked + span:hover {
   left: 2%;
   top: 1px;
   z-index: 1;
-  color: #dddddd;
+  color: #c0d62c;
   -webkit-transform: scale(1.5, 1.5);
       -ms-transform: scale(1.5, 1.5);
           transform: scale(1.5, 1.5);
@@ -5560,11 +5607,14 @@ label input[type='checkbox']:checked + span:hover {
   cursor: pointer;
 }
 div.wpcf7 {
-  background: #555555;
+  background: #dddddd;
   overflow: hidden;
   margin: 1em auto;
   position: relative;
   padding: 2%;
+}
+div.wpcf7:first-of-type {
+  margin-top: 0;
 }
 div.wpcf7 .wpcf7-display-none {
   display: none;
@@ -5602,7 +5652,7 @@ div.wpcf7 form.wpcf7-form div label {
   position: absolute;
   z-index: 3;
   font-weight: 700;
-  color: #dddddd;
+  color: #c0d62c;
   margin: 0;
   top: 4%;
   left: 4%;
@@ -5708,7 +5758,7 @@ div.wpcf7 form.wpcf7-form textarea {
   color: #000000;
   font-weight: bold;
   height: 40px;
-  border-bottom: solid 2px rgba(51, 51, 51, 0.7);
+  border-bottom: solid 2px rgba(192, 214, 44, 0.7);
 }
 div.wpcf7 form.wpcf7-form input:focus,
 div.wpcf7 form.wpcf7-form textarea:focus {
@@ -5716,7 +5766,7 @@ div.wpcf7 form.wpcf7-form textarea:focus {
 }
 div.wpcf7 form.wpcf7-form input:selection,
 div.wpcf7 form.wpcf7-form textarea:selection {
-  background: #dddddd;
+  background: 214;
 }
 div.wpcf7 form.wpcf7-form .wpcf7-list-item {
   line-height: 1;
@@ -5815,7 +5865,7 @@ div.wpcf7 form.wpcf7-form input[type='radio']:checked + span label {
 div.wpcf7 form.wpcf7-form input[type='checkbox']:checked + span label:before,
 div.wpcf7 form.wpcf7-form input[type='radio']:checked + span label:before {
   content: "\f14a";
-  color: #dddddd;
+  color: 305;
 }
 div.wpcf7 form.wpcf7-form input[type='checkbox']:checked + span label:after,
 div.wpcf7 form.wpcf7-form input[type='radio']:checked + span label:after {
@@ -5881,22 +5931,22 @@ div.wpcf7 form.wpcf7-form .submit {
   border: none;
 }
 div.wpcf7 form.wpcf7-form input[type="submit"] {
-  background: #ffffff;
+  background: #0086ac;
   border: none;
-  width: 60%;
-  font-size: 2em;
+  width: auto;
+  font-size: 1em;
   height: auto;
   position: relative;
   margin: auto;
-  display: block;
+  display: inline-block;
   padding: 2%;
-  border-bottom: 2px solid #cdcdcd;
+  border-bottom: 2px solid #003746;
   color: #ffffff;
   -webkit-transition: background .3s ease;
           transition: background .3s ease;
 }
 div.wpcf7 form.wpcf7-form input[type="submit"]:hover {
-  background: #ffffff;
+  background: #00aedf;
 }
 div.wpcf7 form.wpcf7-form.textarea,
 div.wpcf7 form.wpcf7-form.submit {
@@ -5914,7 +5964,7 @@ div.wpcf7 form.wpcf7-form .wpcf7-response-output {
   white-space: normal;
 }
 div.wpcf7 form.wpcf7-form .wpcf7-mail-sent-ok {
-  background: #dddddd;
+  background: #c0d62c;
   position: absolute;
   top: 2%;
   left: 2%;
@@ -6213,7 +6263,7 @@ input[type="text"][disabled]:focus, input[type="text"][disabled]:active, input[t
   border-left: 3px solid transparent;
   -webkit-transition: background .4s ease;
           transition: background .4s ease;
-  color: #adb025;
+  color: #88981e;
 }
 .visual-menu li > a:hover {
   opacity: 1 !important;
@@ -6227,12 +6277,12 @@ input[type="text"][disabled]:focus, input[type="text"][disabled]:active, input[t
   opacity: 1;
 }
 .visual-menu li.active-parent {
-  background: rgba(173, 176, 37, 0.2);
+  background: rgba(136, 152, 30, 0.2);
 }
 .visual-menu li.current > a {
   opacity: 1;
-  background: rgba(173, 176, 37, 0.35);
-  border-left: 3px solid #adb025;
+  background: rgba(136, 152, 30, 0.35);
+  border-left: 3px solid #88981e;
   color: #000000;
 }
 .anchor-point {
@@ -6245,6 +6295,16 @@ input[type="text"][disabled]:focus, input[type="text"][disabled]:active, input[t
   height: 127px;
   margin-top: -127px;
   visibility: hidden;
+}
+#wiki-content .page-featured-image {
+  position: absolute;
+  left: -4%;
+  right: -21%;
+  top: 1em;
+  height: 300px;
+}
+#wiki-content .page-featured-image + h1 {
+  padding-top: 300px;
 }
 #wiki-content article {
   position: relative;
@@ -6262,7 +6322,7 @@ input[type="text"][disabled]:focus, input[type="text"][disabled]:active, input[t
 }
 @media screen and (min-width: 968px) {
   #wiki-content article {
-    border-bottom: 1px solid rgba(173, 176, 37, 0.5);
+    border-bottom: 1px solid rgba(136, 152, 30, 0.5);
     margin-bottom: 3em;
   }
   #wiki-content article:last-of-type {
@@ -6454,7 +6514,7 @@ html {
 .page-template-template-home .right-content table td:first-of-type:nth-last-of-type(6n),
 .page-template-template-home .left-content table td:first-of-type:nth-last-of-type(6n) {
   background: rgba(255, 255, 255, 0.8);
-  color: #adb025;
+  color: #88981e;
   text-align: left;
 }
 .page-template-template-home .right-content table tr:first-of-type,
@@ -6468,7 +6528,7 @@ html {
 }
 .page-template-template-home .right-content table tr:first-of-type td.today,
 .page-template-template-home .left-content table tr:first-of-type td.today {
-  background: #adb025;
+  background: #88981e;
   color: #ffffff;
 }
 .page-template-template-home .right-content table tr:first-of-type td:first-of-type:nth-last-of-type(6n),
@@ -6501,8 +6561,8 @@ html {
 .page-template-template-home .left-content table td.today {
   color: black;
   background: rgba(255, 255, 255, 0.5);
-  border-left: 1px solid #adb025;
-  border-right: 1px solid #adb025;
+  border-left: 1px solid #88981e;
+  border-right: 1px solid #88981e;
 }
 @media screen and (min-width: 800px) {
   .page-template-template-home .right-content table tr:first-of-type td.today:first-child,

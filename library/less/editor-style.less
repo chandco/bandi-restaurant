@@ -41,8 +41,8 @@ body#tinymce.wp-editor {
     margin-top: 0;
   }
 
-  .cf_columns {
-    .cf_columns();
+  .row {
+    .row();
     .col-smart {
       padding:2% !important;
     }
@@ -82,7 +82,7 @@ body#tinymce.wp-editor {
   }
   
 
-  div.cf_columns {
+  div.row {
     margin: 10px auto;
     width: 100%;
     padding: 10px;
@@ -177,6 +177,18 @@ body#tinymce.wp-editor {
           min-width: 60px;
         }
 
+      }
+
+      .col-control-padding {
+        display: none !important;
+        top: 10px;
+        left: 20px;
+
+
+        &:before {
+          content: "\f211";
+          color: #00f;
+        }
       }
       
       .col-control-shrink {

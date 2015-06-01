@@ -34,7 +34,7 @@ $children = new WP_Query( $args2 );
 	
 	<?php
 	//show wiki menu children and grandchildren only
-	echo "<h2>".get_the_title()."</h2>";
+	echo "<a href='#top'><h2>".get_the_title()."</h2></a>";
 
 	echo "<ul class='visual-menu'>";
 	if ( $children->have_posts() ) {
@@ -50,13 +50,8 @@ $children = new WP_Query( $args2 );
 		        'hierarchial' 	=> 0,
 		        'post_type' 	=> 'page'
 		    );
-
-		    
-
 	    	   		
 	   		$grandchildren = new WP_Query( $child_args );
-
-
 
 	   		if ( $grandchildren->have_posts() ) {
 
@@ -81,11 +76,25 @@ $children = new WP_Query( $args2 );
 	</div>
 
 	<div id="wiki-content" class='right-content'>
+
+
 		<?php if ( have_posts() ) : while( have_posts() ) : the_post();
 
-		echo "<h1>".get_the_title()."</h1>";
+		if ( has_post_thumbnail() ) { // featured image ?>
+														
+													
+			<div id="carousel" class='page-featured-image'>
+							
+				<?php echo responsive_image_thumbnail(null, 'featured-image'); ?>
 
-		the_content();
+			</div>
+
+		<?php } ?>
+
+		
+		<h1><?php echo get_the_title(); ?></h1>
+
+		<?php the_content(); 
 	    
 		endwhile; endif; 
 
