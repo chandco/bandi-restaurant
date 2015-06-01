@@ -42,6 +42,7 @@
 		
 		<!-- <h2>Latest Posts</h2> -->
 		<?php
+			dynamic_sidebar( 'home-footer-sidebar' );
 
 
 
