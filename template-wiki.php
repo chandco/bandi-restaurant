@@ -43,7 +43,7 @@ $children = get_pages( $args2 );
 
 <?php get_header(); ?>
 
-<div class='responsive-flex-container'>
+<div class='responsive-flex-container max-central'>
 	
 	<div id="wiki-menu" class='left-sidebar'>
 	
@@ -89,6 +89,9 @@ $children = get_pages( $args2 );
 
 	<div id="wiki-content" class='right-content'>
 		<?php if ( have_posts() ) : while( have_posts() ) : the_post();
+
+
+		the_content();
 	    
 		endwhile; endif; 
 
@@ -100,9 +103,9 @@ $children = get_pages( $args2 );
 				echo '<span class="anchor-point" id="post-'.get_the_id().'"></span>'; // anchor point to offset the hanging fixed header
 				echo '<article class="section">';
 
-				echo "<h2><span class=\"right-arrow\">" . get_the_title() . " ";
+				echo "<h2>" . get_the_title() . " ";
 				edit_post_link();
-				echo '</h2></span>';
+				echo '</h2>';
 
 				echo "<div class='content'>";
 

@@ -10,7 +10,7 @@
 
 
 <?php get_header(); ?>
-<div class='responsive-flex-container'>
+<div class='responsive-flex-container max-central'>
 
 	<div id="home-left-sidebar" class='left-sidebar'>
 		<?php if ( is_active_sidebar( 'home-sidebar' ) ) : ?>

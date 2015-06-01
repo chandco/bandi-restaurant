@@ -6,8 +6,8 @@
  * -------------------------- */
 @font-face {
   font-family: 'FontAwesome';
-  src: url('../less/font-awesome/fonts/fontawesome-webfont.eot?v=4.2.0');
-  src: url('../less/font-awesome/fonts/fontawesome-webfont.eot?#iefix&v=4.2.0') format('embedded-opentype'), url('../less/font-awesome/fonts/fontawesome-webfont.woff?v=4.2.0') format('woff'), url('../less/font-awesome/fonts/fontawesome-webfont.ttf?v=4.2.0') format('truetype'), url('../less/font-awesome/fonts/fontawesome-webfont.svg?v=4.2.0#fontawesomeregular') format('svg');
+  src: url('//netdna.bootstrapcdn.com/font-awesome/4.3.0/fonts/fontawesome-webfont.eot?v=4.3.0');
+  src: url('//netdna.bootstrapcdn.com/font-awesome/4.3.0/fonts/fontawesome-webfont.eot?#iefix&v=4.3.0') format('embedded-opentype'), url('//netdna.bootstrapcdn.com/font-awesome/4.3.0/fonts/fontawesome-webfont.woff?v=4.3.0') format('woff'), url('//netdna.bootstrapcdn.com/font-awesome/4.3.0/fonts/fontawesome-webfont.ttf?v=4.3.0') format('truetype'), url('//netdna.bootstrapcdn.com/font-awesome/4.3.0/fonts/fontawesome-webfont.svg?v=4.3.0#fontawesomeregular') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -1674,22 +1674,22 @@
 /* LESS Document */
 .central-column {
   width: 100%;
-  max-width: 1400px;
+  max-width: 1500px;
   margin: auto;
   position: relative;
 }
-@media screen and (max-width: 1400px) {
+@media screen and (max-width: 1500px) {
   .central-column {
     width: 96%;
   }
 }
 .max-central {
   width: 100%;
-  max-width: 1400px;
+  max-width: 1500px;
   margin: auto;
   position: relative;
 }
-@media screen and (max-width: 1400px) {
+@media screen and (max-width: 1500px) {
   .max-central {
     width: 96%;
   }
@@ -1709,19 +1709,19 @@
 }
 .cf_columns .col-smart,
 .cf-columns .col-smart {
-  -webkit-box-flex: 1;
-  -webkit-flex: 1 0 0;
-      -ms-flex: 1 0 0;
-          flex: 1 0 0;
+  -webkit-box-flex: 1 0 0;
+  -webkit-flex-grow: 1 0 0;
+      -ms-flex-positive: 1 0 0;
+          flex-grow: 1 0 0;
   height: auto;
   max-width: 100%;
 }
 .cf_columns .col-smart.wider,
 .cf-columns .col-smart.wider {
   -webkit-box-flex: 2.12;
-  -webkit-flex: 2.12 0 0;
-      -ms-flex: 2.12 0 0;
-          flex: 2.12 0 0;
+  -webkit-flex-grow: 2.12;
+      -ms-flex-positive: 2.12;
+          flex-grow: 2.12;
 }
 @media screen and (max-width: 600px) {
   .cf_columns,
@@ -2646,18 +2646,18 @@ body#tinymce.wp-editor .cf_columns {
   width: 100%;
 }
 body#tinymce.wp-editor .cf_columns .col-smart {
-  -webkit-box-flex: 1;
-  -webkit-flex: 1 0 0;
-      -ms-flex: 1 0 0;
-          flex: 1 0 0;
+  -webkit-box-flex: 1 0 0;
+  -webkit-flex-grow: 1 0 0;
+      -ms-flex-positive: 1 0 0;
+          flex-grow: 1 0 0;
   height: auto;
   max-width: 100%;
 }
 body#tinymce.wp-editor .cf_columns .col-smart.wider {
   -webkit-box-flex: 2.12;
-  -webkit-flex: 2.12 0 0;
-      -ms-flex: 2.12 0 0;
-          flex: 2.12 0 0;
+  -webkit-flex-grow: 2.12;
+      -ms-flex-positive: 2.12;
+          flex-grow: 2.12;
 }
 @media screen and (max-width: 600px) {
   body#tinymce.wp-editor .cf_columns {

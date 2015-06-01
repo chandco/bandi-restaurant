@@ -28,12 +28,12 @@
 
 			transition: background .4s ease;
 
-			color: @highlight;
+			color: @wiki-menu-highlight;
 
 			&:hover {
 				opacity: 1 !important;
-				background: fade(red, 20%) !important;
-				border-left: 3px solid @red !important;
+				background: fade(@wiki-menu-hover, 20%) !important;
+				border-left: 3px solid @wiki-menu-hover !important;
 			}
 		}
 
@@ -51,13 +51,13 @@
 		}
 
 		&.active-parent {
-			background: fade(@highlight, 5%);
+			background: fade(@wiki-menu-highlight, 5%);
 		}
 
 		&.current > a  {
 			opacity: 1;
-			background: fade(@highlight, 20%);
-			border-left: 3px solid @highlight;
+			background: fade(@wiki-menu-highlight, 20%);
+			border-left: 3px solid @wiki-menu-highlight;
 		}
 	}
 }
@@ -95,7 +95,7 @@
 		@media screen and (min-width: @tablet-break) {
 			
 			
-			border-bottom: 1px solid fade(@highlight, 50%);
+			border-bottom: 1px solid fade(@wiki-menu-highlight, 50%);
 			margin-bottom: 3em;	
 
 			&:last-of-type {
@@ -213,7 +213,7 @@ html {
 				cursor: pointer;
 
 				&:after {
-					content: @fa-var-caret-right;
+					content: @fa-var-chevron-right;
 					.fa();
 					position: absolute;
 					right: 20px;

@@ -1,7 +1,7 @@
 <?php get_header(); ?>
 
 <?php // main blog feed ?>
-			<div id="content">
+			<div id="content" class='max-central'>
 
 				<div id="inner-content" class="wrap cf" class='responsive-flex-container'>
 
