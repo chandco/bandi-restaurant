@@ -9,7 +9,6 @@
 ?>
 
 
-
 <?php get_header(); ?>
 <div class='responsive-flex-container max-central'>
 
@@ -43,11 +42,8 @@
 		
 		<!-- <h2>Latest Posts</h2> -->
 		<?php
+			dynamic_sidebar( 'home-footer-sidebar' );
 
-
-
-	//$recentPosts = new ita_recent_posts;
-	//$recentPosts->widget();
 
 
 // create the widget form

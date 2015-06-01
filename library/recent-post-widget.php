@@ -188,7 +188,7 @@ class ita_recent_posts extends WP_Widget {
 		global $more;    // Declare global $more (before the loop).
 		$more = 0;       // Set (inside the loop) to display content above the more tag.
 		
-		add_filter('the_content','my_strip_tags');
+		//add_filter('the_content','my_strip_tags');
 		echo "<li class='venue-related-post'>";
 		echo "<a href='" . get_permalink() . "'>";
 	

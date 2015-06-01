@@ -209,6 +209,7 @@ require_once("library/editor/editor.php");
 
 
 require_once("library/custom-logo.php");
+require_once("library/recent-post-widget.php");
 
 
 // Parse Shortcodes in widget content
