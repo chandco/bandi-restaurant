@@ -1994,7 +1994,7 @@ li.basic.capacities:before:before {
 }
 body#tinymce.wp-editor {
   width: 95%;
-  font-size: 0.8em;
+  font-size: 1em;
   line-height: 1.2em;
   -webkit-font-smoothing: antialiased;
   background: #ffffff;
@@ -2440,7 +2440,7 @@ body#tinymce.wp-editor a.cta-inline {
 }
 body#tinymce.wp-editor a.cta,
 body#tinymce.wp-editor a.cta-inline {
-  background: #d22529;
+  background: #0086ac;
   color: #ffffff !important;
   max-width: 97%;
   font-family: 'Source Sans Pro', sans-serif;
@@ -2450,6 +2450,7 @@ body#tinymce.wp-editor a.cta-inline {
   text-align: center;
   margin: 1em auto;
   z-index: 1;
+  border-bottom: 2px solid #acedff;
 }
 body#tinymce.wp-editor a.cta:visited,
 body#tinymce.wp-editor a.cta-inline:visited {
@@ -2466,31 +2467,6 @@ body#tinymce.wp-editor a.cta-inline:hover {
 body#tinymce.wp-editor a.cta:hover *,
 body#tinymce.wp-editor a.cta-inline:hover * {
   color: #0086ac;
-}
-body#tinymce.wp-editor a.cta::after,
-body#tinymce.wp-editor a.cta-inline::after {
-  content: "";
-  display: block;
-  position: absolute;
-  margin: auto;
-  background: transparent;
-  border-width: 0 0.3em 0.3em 0.3em;
-  border-style: solid;
-  border-color: #e6e6e6;
-  z-index: -1;
-  top: 30%;
-  bottom: -0.29em;
-  left: -0.29em;
-  right: -0.29em;
-  -webkit-transition: border-color 0.7s ease, -webkit-transform 0.2s ease;
-          transition: border-color 0.7s ease, transform 0.2s ease;
-}
-body#tinymce.wp-editor a.cta:hover:after,
-body#tinymce.wp-editor a.cta-inline:hover:after {
-  -webkit-transform: translateY(-0.15em);
-      -ms-transform: translateY(-0.15em);
-          transform: translateY(-0.15em);
-  border-color: #0086ac;
 }
 body#tinymce.wp-editor a.cta i.fa,
 body#tinymce.wp-editor a.cta-inline i.fa {
@@ -3113,11 +3089,6 @@ body#tinymce.wp-editor p {
   -webkit-hyphenate-before: 2;
   -webkit-hyphenate-after: 3;
   hyphenate-lines: 3;
-  -webkit-font-feature-settings: "liga", "dlig";
-  -moz-font-feature-settings: "liga=1, dlig=1";
-  -ms-font-feature-settings: "liga", "dlig";
-  -o-font-feature-settings: "liga", "dlig";
-  font-feature-settings: "liga", "dlig";
 }
 body#tinymce.wp-editor a,
 body#tinymce.wp-editor a:visited {
@@ -3159,36 +3130,6 @@ body#tinymce.wp-editor .h4 a,
 body#tinymce.wp-editor h5 a,
 body#tinymce.wp-editor .h5 a {
   text-decoration: none;
-}
-body#tinymce.wp-editor h1,
-body#tinymce.wp-editor .h1 {
-  font-size: 2.5em;
-  text-transform: uppercase;
-  line-height: 1.333em;
-}
-body#tinymce.wp-editor h2,
-body#tinymce.wp-editor .h2 {
-  font-size: 1.75em;
-  text-transform: uppercase;
-  line-height: 1.4em;
-  margin-bottom: 0.375em;
-}
-body#tinymce.wp-editor h3,
-body#tinymce.wp-editor .h3 {
-  text-transform: uppercase;
-  font-size: 1.125em;
-}
-body#tinymce.wp-editor h4,
-body#tinymce.wp-editor .h4 {
-  font-size: 1.1em;
-  text-transform: uppercase;
-  font-weight: 700;
-}
-body#tinymce.wp-editor h5,
-body#tinymce.wp-editor .h5 {
-  font-size: 1.05em;
-  font-weight: bold;
-  line-height: 2.09em;
 }
 body#tinymce.wp-editor p {
   margin: 0 0 1.5em;

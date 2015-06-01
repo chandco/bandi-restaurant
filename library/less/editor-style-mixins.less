@@ -69,7 +69,7 @@ a.cta-inline {
  
 a.cta, a.cta-inline {
   
-  background: @red;
+  background: @link-color;
   color: @white !important;
   max-width: 97%;
   &:visited {
@@ -95,34 +95,10 @@ a.cta, a.cta-inline {
   text-align: center;
   margin: 1em auto;
   z-index: 1;
-  &::after {
-    content: "";
-    display: block;
-    position: absolute;
-
-    margin: auto;
-    background: transparent;
-    border-width: 0 0.3em 0.3em 0.3em;
-    border-style: solid;
-    border-color: @lighter-grey;
-    z-index: -1;
-
-    top: 30%;
-    bottom: -0.29em;
-    left: -0.29em;
-    right: -0.29em;
-    transition: border-color 0.7s ease, transform 0.2s ease;
-
-  }
-
   
-
-  &:hover {
-    &:after {
-      transform:translateY(-0.15em);
-      border-color: @highlight;
-    }
-  }
+  border-bottom: 2px solid lighten(@link-color, 50%);
+    
+  
 
  
 

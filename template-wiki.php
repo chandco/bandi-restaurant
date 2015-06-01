@@ -11,9 +11,7 @@
  *
  * For more info: http://codex.wordpress.org/Page_Templates
 */
-?>
 
-<?php
 
 
 
@@ -24,19 +22,11 @@ $args2 = array(
 'post_type' 	=> 'page',
 );
 
-var_dump($args2);
+
 
 $children = new WP_Query( $args2 );
 
-var_dump($args2);
-
-
-?>
-
-
-
-
-<?php get_header(); ?>
+ get_header(); ?>
 
 <div class='responsive-flex-container max-central'>
 	
@@ -51,7 +41,7 @@ var_dump($args2);
 		while ( $children->have_posts() ) {
 			$children->the_post();
 
-			echo "<li class='parent' id='link-" . get_the_id() . "'><a href=\"#" . get_the_id() . "\"> " . get_the_title() . "</a>";
+			echo "<li class='parent' id='link-" . get_the_id() . "'><a href=\"#post-" . get_the_id() . "\"> " . get_the_title() . "</a>";
 
 	    	$child_args = array(
 		     	'order' => 'asc',
@@ -74,7 +64,7 @@ var_dump($args2);
 				while ( $grandchildren->have_posts() ) {
 
 					$grandchildren->the_post();
-		    		echo "<li class='child' id='link-" . get_the_id() . "'><a href=\"#" . get_the_id() . "\"> " . get_the_title() . "</a>";
+		    		echo "<li class='child' id='link-" . get_the_id() . "'><a href=\"#post-" . get_the_id() . "\"> " . get_the_title() . "</a>";
 	    		} 
 
 	    		echo "</ul>";

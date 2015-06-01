@@ -2,6 +2,7 @@ define(['jquery', 'components/arrayForEach'], function($) {
 	$(document).ready(function() {
 
 
+    if ($('.page-template-template-home').length === 0) return;
 
 
     $('.right-content table, .left-content table').each(function(index, table) {

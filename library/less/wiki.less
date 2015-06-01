@@ -51,19 +51,24 @@
 		}
 
 		&.active-parent {
-			background: fade(@wiki-menu-highlight, 5%);
+			background: fade(@wiki-menu-highlight, 20%);
 		}
 
 		&.current > a  {
 			opacity: 1;
-			background: fade(@wiki-menu-highlight, 20%);
+			background: fade(@wiki-menu-highlight, 35%);
 			border-left: 3px solid @wiki-menu-highlight;
+			color: @black;
 		}
 	}
 }
 
 // format the articles
 
+.anchor-point {
+	position: relative;
+	z-index: -1;
+}
 .anchor-point:before {
   content: "";
   display: block;
@@ -76,6 +81,8 @@
 #wiki-content {
 	article {
 
+		position: relative;
+		z-index: 1;
 
 
 		h2 {
@@ -111,13 +118,7 @@
 			border-top: 1px solid fade(black, 10%);
 		}
 
-		&:before {
-			content: "";
-			display: block;
-			height: 150px;
-			margin-top: -150px;
-			visibility: hidden;
-		}
+		
 	}
 }
 // set some template specific resets on the global styles
@@ -147,7 +148,7 @@
 
 	
 	@media screen and (max-width: @tablet-break) {
-		background: fade(black, 20%);
+		background: fade(black, 5%);
 	}
 	
 
@@ -201,7 +202,7 @@ html {
 		.section {
 
 		border-top: none;
-		background: darken(white, 10%);
+		background: @body-background;
 		margin-bottom: 10px;
 		padding: 0;
 		transition:max-height linear 0.5s;
