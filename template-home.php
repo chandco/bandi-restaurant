@@ -43,56 +43,6 @@
 		<!-- <h2>Latest Posts</h2> -->
 		<?php
 			 dynamic_sidebar( 'home-footer-sidebar' );
-
-
-
-// create the widget form
- // list categories, selecta
- // list blogs, selecta
- 
- // number of posts
- 
- 
- // create the widget output
- 
- 
- 
- 
-// nice recent posts widget
- 
-
-
-
-
-			
-			// 	$args = array(
-					
-					
-			// 		'posts_per_page'         => 4,
-			// 		// maybe add tax queries here
-					
-			// 	);
-
-				
-			
-			// $latest = new WP_Query( $args );
-
-
-			// if ( $latest->have_posts() ) {
-			// 	echo "<ul class='grid-feed'>";
-			// 	while ($latest->have_posts() ) {
-			// 		$latest->the_post();
-
-			// 		get_template_part( 'content/post-preview' );
-
-			// 	}
-
-			// 	echo "</ul>";
-			// }
-
-			// wp_reset_postdata();
-
-
 		?>
 	</div>
 
