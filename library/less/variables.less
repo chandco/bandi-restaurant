@@ -32,6 +32,7 @@
 @global-sidebar-margin: 4%;
 
 
+@header-logo-width: 10%; // smaller for this site - longer logos may need more.
 
 // COLOURS
 
@@ -103,6 +104,7 @@
 @nav-submenu-background-hover : lighten(@grey, 10%);
 
 @footer-menu-hover: fade(@lightgrey, 10%);
+@footer-link-color: @green;
 
 // carousel styles
 @cycle-carousel-width : 100%;
@@ -137,10 +139,10 @@
 @mobile-break: 480px;
 
 // blog stuff
-@post-tag-background: fade(@red, 50%);
-@post-tag-color: @white;
-@post-tag-color-hover: @red;
-@post-tag-background-hover: @white;
+@post-tag-background: darken(@white, 10%);
+@post-tag-color: @blue;
+@post-tag-color-hover: lighten(@blue, 10%);
+@post-tag-background-hover: darken(@white, 5%);
 
 
 // footer stuff

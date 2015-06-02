@@ -25,9 +25,17 @@
 
                   <h1 class="entry-title single-title" itemprop="headline"><?php the_title(); ?></h1>
 
+                  <div class='metadata'>
+                    <?php printf( __( 'Filed under: %1$s', 'cf-theme' ), get_the_category_list(' ') ); ?>
+
+                    <?php the_tags( '<p class="tags"><span class="tags-title">' . __( 'Tags:', 'cf-theme' ) . '</span> ', ' ', '</p>' ); ?>
+                 
+
                   <p class="byline vcard">
                     <?php printf( __( 'Posted <time class="updated" datetime="%1$s" pubdate>%2$s</time> by <span class="author">%3$s</span>', 'cf-theme' ), get_the_time('Y-m-j'), get_the_time(get_option('date_format')), get_the_author_link( get_the_author_meta( 'ID' ) )); ?>
                   </p>
+
+                   </div>
 
                 </header> <?php // end article header ?>
 
@@ -59,9 +67,7 @@
 
                 <footer class="article-footer">
 
-                  <?php printf( __( 'Filed under: %1$s', 'cf-theme' ), get_the_category_list(' ') ); ?>
-
-                  <?php the_tags( '<p class="tags"><span class="tags-title">' . __( 'Tags:', 'cf-theme' ) . '</span> ', ' ', '</p>' ); ?>
+                  
 
                   <?php if (function_exists('related_posts')) {
                     if (is_single()) related_posts(); // yarpp 

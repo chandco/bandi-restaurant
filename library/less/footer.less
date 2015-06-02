@@ -216,15 +216,22 @@
   position: relative;
   z-index: 500;
 
-  .footer-style();
+
+  background: @footer-background;
+  a {
+    color: @footer-link-color;
+    &:hover {
+      color: lighten(@footer-link-color, 20%);
+    }
+  }
 
   .copyright {
   	color: @dark;
   }
 
-  @media screen and (max-width: 1000px) {
+  @media screen and (max-width: 1400px) {
     #inner-footer {
-      padding: 2%;
+      padding: 0 2%;
     }
   }
 }

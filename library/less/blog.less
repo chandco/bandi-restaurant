@@ -4,12 +4,36 @@
 
 
 
+
 .blog, .single-post, .archive {
+
+	h1.entry-title {
+		font-size: 3em;
+		margin-bottom: 1em;
+	}
+
+	.category-description {
+		margin-top: -1em;
+
+		p:first-of-type { 
+			margin-top: 0;
+		}
+	}
+
+
 
 	.post {
 		border-bottom: 2px solid darken(@dark, 5%);
+		margin-bottom: 2em;
+
+		&:last-of-type {
+			border-bottom: none;
+		}
 		background: rgba(255,255,255,0.05);
-		padding: 1.5em 0;
+		padding: 0 0 1.5em;
+
+		max-width: 700px; // not so big on desktops
+		margin: auto;
 
 
 		@media screen and (max-width: 700px) {
@@ -25,14 +49,30 @@
 		position: relative;
 		
 		min-height: 100vh;
+		@media screen and (max-width: 1400px) {
+		    width: 96%;
+		    padding-top: 2em;
+		  }
 
 	}
 
 
 	.article-header {
+		display: block;
 		img {
 			width: 100%;
+			
 			height: auto;
+		}
+
+		
+
+		
+
+		&:after {
+			content:"";
+			display:table;
+			clear: both;
 		}
 	}
 
@@ -47,11 +87,18 @@
   margin:0;
 }
 .byline {
-  color:@byline;
+  font-size: 0.8em;
   font-style:italic;
-  margin:0;
+
 }
 
+.metadata {
+	font-size: 0.8em;
+	padding-top: 1em;
+	border-top: 1px solid fade(black, 10%);
+	border-bottom: 1px solid fade(black, 10%);
+	margin-top: -2em;
+}
 
 // small preview blog posts:
 
@@ -60,10 +107,108 @@
 	list-style-type: none;
 	justify-content:space-between;
 	width: 100%;
+	padding: 0;
 
 	.post-preview {
 		width: 24%; // assumes 4, might have to fix this for other parents
 	}
+
+}
+
+
+.flex-container(@children-width: 4, @margin: 1%) {
+	// must be a number not a percent, eg 4 not 25%
+	display: flex;
+	list-style-type: none;
+	justify-content:space-between;
+	flex-wrap: wrap;
+	width: 100%;
+	padding: 0;
+
+	@children-width-calc : (100*1 * ( 1 / @children-width )) - @margin;
+
+		&:after {
+			display: block;
+			content: "";
+			margin-right: auto;
+			width: @children-width-calc;
+			//background: #ff6600;
+		}
+
+		> * {
+			flex-grow: 1;
+			flex-shrink: 0;
+			flex-basis: @children-width-calc;
+			max-width: @children-width-calc;
+			margin-bottom: @margin;
+			margin-left: auto !important;
+			//background: #00f;
+			@less-1 : @children-width - 1;
+			&:nth-of-type(@{children-width}n-@{less-1}) {
+				margin-left: 0 !important;
+				//background: #0f0;
+			}
+		}
+}
+
+
+
+.archive, .blog {
+
+	.grid-feed {
+
+
+
+		// Each has to be in an EXCLUSIVE query to avoid having to do resets
+		@media screen and (min-width: 1400px) {
+			.flex-container(4); 	
+		}
+
+		@media screen and (max-width: 1400px) and (min-width: @tablet-break) {
+			.flex-container(3); 	
+		}
+		
+		@media screen and (max-width: @tablet-break) and (min-width: @mobile-break) {
+			.flex-container(2);
+		}
+
+		@media screen and (max-width: @mobile-break) {
+			.flex-container(1);
+		}
+	}
+	// .grid-feed {
+	// 	flex-wrap: wrap;
+
+	// 	background: #f00;
+
+		
+	// }
+
+	// .post-preview {
+	// 	//margin-right: 1%;
+	// 	flex-grow: 1;
+ //  		flex-shrink: 0;
+ //  		flex-basis: 24%;
+ //  		max-width: 24%;
+ //  		margin-left: auto;
+
+	// 	margin-bottom: 1%;
+	// 	//margin-right: (100% - (24% * 4)) / 3;
+	// 	&:nth-of-type(4n-3) {
+	// 	//	margin-right: 0;
+	// 	margin-left: 0;
+	// 	}
+		
+	// 	background: #00f;
+	// }
+	// .post-preview:last-of-type {
+		
+	// 	//margin-left: auto;
+	// }
+
+
+
+
 
 }
 

@@ -8,8 +8,9 @@
 
 							<?php if (is_category()) { ?>
 								<h1 class="archive-title h2">
-									<span><?php _e( 'Posts Categorized:', 'cf-theme' ); ?></span> <?php single_cat_title(); ?>
+									<?php single_cat_title(); ?>
 								</h1>
+								<div class='category-description'><?php echo category_description(); ?></div>
 
 							<?php } elseif (is_tag()) { ?>
 								<h1 class="archive-title h2">
@@ -41,13 +42,17 @@
 									</h1>
 							<?php } ?>
 
+							<ul class='grid-feed'>
 							<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 
+							
 							<?php 
-								get_template_part( 'post-formats/format-archive', get_post_format() );
+								get_template_part( 'content/post-preview', get_post_format() );
 							?>
+							
 
 							<?php endwhile; ?>
+							</ul>
 
 									<?php bones_page_navi(); ?>
 
