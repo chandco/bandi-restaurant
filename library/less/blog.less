@@ -116,40 +116,6 @@
 }
 
 
-.flex-container(@children-width: 4, @margin: 1%) {
-	// must be a number not a percent, eg 4 not 25%
-	display: flex;
-	list-style-type: none;
-	justify-content:space-between;
-	flex-wrap: wrap;
-	width: 100%;
-	padding: 0;
-
-	@children-width-calc : (100*1 * ( 1 / @children-width )) - @margin;
-
-		&:after {
-			display: block;
-			content: "";
-			margin-right: auto;
-			width: @children-width-calc;
-			//background: #ff6600;
-		}
-
-		> * {
-			flex-grow: 1;
-			flex-shrink: 0;
-			flex-basis: @children-width-calc;
-			max-width: @children-width-calc;
-			margin-bottom: @margin;
-			margin-left: auto !important;
-			//background: #00f;
-			@less-1 : @children-width - 1;
-			&:nth-of-type(@{children-width}n-@{less-1}) {
-				margin-left: 0 !important;
-				//background: #0f0;
-			}
-		}
-}
 
 
 

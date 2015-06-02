@@ -45,7 +45,9 @@ class ita_recent_posts extends WP_Widget {
         /*<input class="widefat" id="<?php echo $this->get_field_id('categories'); ?>" name="<?php echo $this->get_field_name('categories'); ?>" type="text" value="<?php echo $categories; ?>" /></label></p>*/?>
 		
         
-        <p><label for="<?php echo $this->get_field_id('post_tags'); ?>"><?php _e('Which Tags to Show:'); ?></label>
+     <?php /*   <p><label for="<?php echo $this->get_field_id('post_tags'); ?>"><?php _e('Which Tags to Show:'); ?></label> 
+
+
 		
         <?php
         
@@ -64,6 +66,8 @@ class ita_recent_posts extends WP_Widget {
     </div>
     </p>
     <?php endforeach; ?>
+
+     */ ?>
 		
 		<?php
 		
@@ -81,7 +85,7 @@ class ita_recent_posts extends WP_Widget {
 		$instance['title'] = ( ! empty( $new_instance['title'] ) ) ? strip_tags( $new_instance['title'] ) : '';
 		$instance['numPosts'] = ( ! empty( $new_instance['numPosts'] ) ) ? strip_tags( $new_instance['numPosts'] ) : '';
 		
-		$instance['post_tags'] = ( ! empty( $new_instance['post_tags'] ) ) ? $new_instance['post_tags'] : '';
+		// $instance['post_tags'] = ( ! empty( $new_instance['post_tags'] ) ) ? $new_instance['post_tags'] : '';
 		
 		$instance['categories'] = $new_instance["categories"];//( ! empty( $new_instance['categories'] ) ) ? strip_tags( implode(",",$new_instance['categories']) )  : '';
 		return $instance;
@@ -101,8 +105,10 @@ class ita_recent_posts extends WP_Widget {
 		}
 		
 		if (!isset($instance['numPosts'])) {
-			$instance['numPosts'] = 3;
+			$instance['numPosts'] = 4;
 		}
+
+		
 		
 		
 		$args = array(
@@ -115,93 +121,43 @@ class ita_recent_posts extends WP_Widget {
 		if (count($instance['categories']) > 0) {
 			
 			$args["category__in"] = $instance["categories"];
-		} else {
-			$args["category__in"] = "9"; // hardcoded to blogs for now! bad idea!
 		}
 		
-		if (count($instance['post_tags']) > 0) {
+		// if (count($instance['post_tags']) > 0) {
 			
-			$args["tag__and"] = $instance["post_tags"];
-		}
+		// 	$args["tag__and"] = $instance["post_tags"];
+		// }
 		
 		
-		echo "<div class='widget-recent-posts' id='blog-panels'><h2>" . $instance["title"] . "</h2>\n";
+		echo "<div class='custom-recent-posts widget'><h2>" . $instance["title"] . "</h2>\n";
  
  
-		//$hotPosts = get_posts($args);
-		
-		/*
-		
-		We're not using this yet, but if we do, we can use this bit to default the 
-		widget to related posts based on the post's tag / categories but we'll implement this when we need this
-		
-		global $post;
-		// are we on a single page?
-		if (is_single())
-		{
-			$tag_output = "<P class='widget-tags'>Tagged: ";
-			$search_tags = array();
-			$tags = get_the_tags();
-			if (is_array($tags)):
-			foreach($tags as $tag) {
-				$search_tags[] = $tag->term_id;	
-				$tag_output .= 	" <a href='" . get_tag_link($tag->term_id) . "' rel='tag'>" . $tag->name . "</a> ";
-			}
-			$pre_tag_args = $args;
-			$args["tag__in"] = $search_tags;
-			$hotPosts = get_posts($args);
-			$tag_output .= "</p>";
-			if (count($hotPosts) == 0)
-			{
-				$hotPosts = get_posts($pre_tag_args);
-			} else {
-				$output .= $tag_output;
-			}
-			else:
-			$hotPosts = get_posts($args);
-			endif;
-			
-		 } else {
-			 $hotPosts = get_posts($args);
-		 }
-		 */
+
 		 $y = 0;
+
+		 
 		 $the_query = new WP_Query( $args );
 		// The Loop
  
 		if ($the_query->have_posts()) {
 		
-		echo "<div class='sidebar-blogs'>";
- 
 		
  
-		echo "<ul class='grid-feed'>";
-		while ($the_query->have_posts()) {
-				$the_query->the_post();
+			echo "<ul class='post-list'>";
+				while ($the_query->have_posts()) {
+						$the_query->the_post();
 				
-		
-		
-		
-		
- 
-		
-		global $more;    // Declare global $more (before the loop).
-		$more = 0;       // Set (inside the loop) to display content above the more tag.
-		
-		//add_filter('the_content','my_strip_tags');
-		get_template_part( 'content/post-preview' );
-		
-	
- 
- 
-		
-		
-		} // end of related tags
-		wp_reset_postdata();
- 
-		echo "</ul>";
-		echo "</div>
-	</div>";
+						global $more;    // Declare global $more (before the loop).
+						$more = 0;       // Set (inside the loop) to display content above the more tag.
+						
+						//add_filter('the_content','my_strip_tags');
+					 get_template_part( 'content/post-preview' );
+					//	echo "<li>WHUT?</li>"
+				
+				} // end of related tags
+				wp_reset_postdata();
+			echo "</ul>";
+		echo "</div>";
         
 		 
 		  

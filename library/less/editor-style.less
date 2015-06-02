@@ -32,13 +32,36 @@ body#tinymce.wp-editor {
 
   h1,h2,h3,h4 {
     font-family: @h-font;
-    margin-top:0;
+    
   }
 
   h5,h6 {
     font-family: @body-font;
     font-weight: bold;
-    margin-top: 0;
+    
+  }
+
+   h3 {
+    font-size: 1.5em;
+  }
+
+  h4 { 
+    font-size: 1.4em;
+    text-transform: uppercase;
+    color: @darkgreen;
+  }
+
+  h5 {
+    font-size: 1em;
+    margin-bottom: 0;
+    text-transform: uppercase;
+    
+  }
+
+  h6 {
+    font-size: 0.8em;
+    margin: 0 auto;
+    font-weight: normal;
   }
 
   .row {
@@ -60,6 +83,7 @@ body#tinymce.wp-editor {
     margin-bottom:10px;
 
     position: relative;
+
 
     &:before {
       content: "";
