@@ -38,7 +38,7 @@
 		endwhile; endif; ?>
 	</div>
 
-	<div id="footer-sidebar" class='full-width'>
+	<div id="footer-sidebar">
 		
 		<!-- <h2>Latest Posts</h2> -->
 		<?php

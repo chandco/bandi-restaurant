@@ -39,15 +39,17 @@
 @this-website: ~'http://ornc.local'; // this will have to change 
 
 // We use generic colour names to imply something so set them here.  
-@body-font : 'Source Sans Pro', sans-serif;
-@h-font : 'Source Sans Pro', sans-serif;
+@body-font : Calibri, Candara, Segoe, 'Segoe UI', Optima, Arial, sans-serif;
+
+
+@h-font : @body-font;//'Source Sans Pro', sans-serif;
 
 .h-font() {
-	font-family: 'Source Sans Pro', sans-serif;
+	font-family: @h-font;
 }
 
 .body-font() {
-	font-family: 'Source Sans Pro', sans-serif;
+	font-family: @body-font;
 }
 
 @dark : @darkgrey;
@@ -82,7 +84,8 @@
 @header-background: @green;
 
 // sidebars
-@widget-background: fade( @lightgrey, 30% );
+@widget-background: fade( @lightgrey, 20% );
+@widget-color: @black;
 
 //@lighter-grey; @white
 @nav-link-color: @white;
@@ -135,9 +138,9 @@
 @mobile-cta-height : 100px;
 
 @max-central-width: 1400px;
-@tablet-break : 968px;
+@tablet-break : 60em;
 
-@mobile-break: 480px;
+@mobile-break: 30em;
 
 // blog stuff
 @post-tag-background: darken(@white, 10%);
