@@ -180,8 +180,8 @@ function mcea_infobox_init() {
 
 			<header>
 				<div class="img">
-					<input id="_unique_name" name="settings[_unique_name]" type="text" />
-					<button id='mce-upload' class='button'>Upload New Image</button>
+					<input id="_unique_name" type='hidden' name="settings[_unique_name]" type="text" />
+					
 				</div>
 
 				<div class='h2'>
@@ -203,9 +203,8 @@ function mcea_infobox_init() {
 			<button class='button' id='mce-addlink'>Find Link on Site</button><Br />
 			URL:
 			<input id="_infobox_link" name="settings[_infobox_link]" type="text" value='http://' /><BR />
-			Title:
-			<input id="_infobox_title" name="settings[_infobox_title]" type="text" />
-			<hr />
+			
+			
 			
 
 			<button id='mce-update' class='button button-primary'>Update</button> <button id='mce-close' class='button'>Close without Updating</button>
@@ -214,7 +213,7 @@ function mcea_infobox_init() {
 	<script>
 		var imgSuffix = "<?php echo $suffix; ?>";
 	</script>
-	<script src="<?php echo get_stylesheet_directory_uri(); ?>/admin/js/views_infobox.js"></script>
+	<script src="<?php echo get_stylesheet_directory_uri(); ?>/library/editor/admin/js/views_infobox.js"></script>
 <?php
 		 
 		   

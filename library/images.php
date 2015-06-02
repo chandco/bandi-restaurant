@@ -17,55 +17,96 @@
  // you'll want to sync this with your LESS variables.
 
 
-$max = 1920;
-
-$tablet_ratio = 1024 / $max;
-$mobile_ratio = 768 / $max; // iphone 6 landscape width.
+$max = 735;
 
 
 
-$ratio = (4000 / 6000); // could be 16:9 but this can be restrictive. Photographers often things as 6:4 landscape
+$max_tablet = 600;
+$max_mobile = 320;
+
+
+$tablet_ratio = $max_tablet / $max;
+$mobile_ratio = $max_mobile / $max;
+
+
+
+
+$ratio = (9 / 16); // could be 16:9 but this can be restrictive. Photographers often things as 6:4 landscape
 
 // we're hard coding the 900 value here.  however, this is based on our 'max width' blog which has a max width of 900px
 
-$featured = array( 900, (900 * $ratio), true); // this can be our gallery image
+$featured = array( 735, floor(735 * $ratio), true); // this can be our gallery image
 $panorama = array($max, 600, true); // hard crop. 600px in the CSS.  Generally this is just overf half the screen (1080) so it's okay.
 
 // a thumbnail is generally going to be in a trio, a 3 column layout.  so if maxwidth is 1000px it's ~ 333px wide, and less with margins thus .33 of 900px
-$thumbnail = array( ceil($featured[0] * 0.33), ceil($featured[1] * 0.33), true);
-$medium = array( ceil($featured[0] * 0.50), ceil($featured[1] * 0.50), true);
+$thumbnail = array( floor($featured[0] * 0.33), floor($featured[1] * 0.33), true);
+$medium = array( floor($featured[0] * 0.50), floor($featured[1] * 0.50), true);
 $large = array( $featured[0], $featured[1], false); // soft crop featured image
 
 
 
+
 function scale_down_sizes($original_sizes, $ratio) {
-	$newArray[0] = $original_sizes[0] * $ratio;
-	$newArray[1] = $original_sizes[1] * $ratio;
-	$newArray[2] = $original_sizes[2];
+	$newArray[0] = floor( $original_sizes[0] * $ratio );
+	$newArray[1] = floor($original_sizes[1] * $ratio);
+	$newArray[2] = floor($original_sizes[2]);
 
 	return $newArray;
 }
 
 
+function db_get_image_sizes( $size = '' ) {
+
+        global $_wp_additional_image_sizes;
+
+        $sizes = array();
+        $get_intermediate_image_sizes = get_intermediate_image_sizes();
+
+        // Create the full array with sizes and crop info
+        foreach( $get_intermediate_image_sizes as $_size ) {
+
+                if ( in_array( $_size, array( 'thumbnail', 'medium', 'large' ) ) ) {
+
+                        $sizes[ $_size ]['width'] = get_option( $_size . '_size_w' );
+                        $sizes[ $_size ]['height'] = get_option( $_size . '_size_h' );
+                        $sizes[ $_size ]['crop'] = (bool) get_option( $_size . '_crop' );
+
+                } elseif ( isset( $_wp_additional_image_sizes[ $_size ] ) ) {
+
+                        $sizes[ $_size ] = array( 
+                                'width' => $_wp_additional_image_sizes[ $_size ]['width'],
+                                'height' => $_wp_additional_image_sizes[ $_size ]['height'],
+                                'crop' =>  $_wp_additional_image_sizes[ $_size ]['crop']
+                        );
+
+                }
+
+        }
+
+        // Get only 1 size if found
+        if ( $size ) {
+
+                if( isset( $sizes[ $size ] ) ) {
+                        return $sizes[ $size ];
+                } else {
+                        return false;
+                }
+
+        }
+
+
+
+        return $sizes;
+
+        //.return $sizes;
+}
+
 function debug_show_image_sizes() {
-	global $imagesizes, $thumbnail, $medium, $large;
-	$output = "<ul>";
-	foreach ($imagesizes as $key => $imagesize) {
-		$output .= "<li>";
 
-		$output .= $key . ": " . $imagesize[0] . " x " . $imagesize[1] . " " . $imagesize[2];
-		$output .= "</li>";
-	}
+	$sizes = db_get_image_sizes();
 
-	$output .= "</ul>";
-
-	$output .= "Standard: <ul>";
-		$output .= "<li>Thumbnail: " . $thumbnail[0] . " x " . $thumbnail[1] . " " . $thumbnail[2] . "</li>";
-	$output .= "<li>medium: " . $medium[0] . " x " . $medium[1] . " " . $medium[2] . "</li>";
-	$output .= "<li>large: " . $large[0] . " x " . $large[1] . " " . $large[2] . "</li>";
-
-	$output .= "</ul>";
-
+	ksort($sizes);
+	$output = "<PRE>" . print_r($sizes, 1) . "</PRE>";
 	return $output;
 }
 
@@ -73,6 +114,8 @@ add_shortcode('displayimagesizes', 'debug_show_image_sizes' );
 /*
 	$tomerge['gallery-large'] = __("Uncropped Responsive Image");
 	$tomerge['featured-image'] = __("Cropped*/
+
+
 
 
 $imagesizes = array( 
@@ -88,14 +131,17 @@ $imagesizes = array(
 
 	// add upper limit for default sizes
 
+	'large' => $large,
 	'large-tablet' => scale_down_sizes($large, $tablet_ratio),
 	'large-mobile' => scale_down_sizes($large, $mobile_ratio),
 
-	'medium-tablet' => scale_down_sizes($medium, 1),
-	'medium-mobile' => scale_down_sizes($medium, 1),
+	'medium' => $medium,
+	'medium-tablet' => scale_down_sizes($medium, $tablet_ratio),
+	'medium-mobile' => scale_down_sizes($medium, $mobile_ratio),
 	
-	'thumbnail-tablet' => scale_down_sizes($thumbnail, 1),
-	'thumbnail-mobile' => scale_down_sizes($thumbnail, 1),
+	'thumbnail' => $thumbnail,
+	'thumbnail-tablet' => scale_down_sizes($thumbnail, $tablet_ratio),
+	'thumbnail-mobile' => scale_down_sizes($thumbnail, $mobile_ratio),
 	
 
 
@@ -108,7 +154,7 @@ $imagesizes = array(
 
 	'featured-image' => 		$featured,
 	'featured-image-tablet' => 	scale_down_sizes($featured, $tablet_ratio),
-	'featured-image-mobile' => scale_down_sizes($featured, $tablet_ratio),
+	'featured-image-mobile' => scale_down_sizes($featured, $mobile_ratio),
 
 	'panorama' => $panorama,
 	'panorama-tablet' => 	scale_down_sizes($panorama, $tablet_ratio),
@@ -122,8 +168,10 @@ $imagesizes = array(
 // Thumbnail sizes
 
 foreach ($imagesizes as $key => $imagesize) {
+
+	if ($key == 'large' || $key == 'medium' || $key == 'thumbnail') continue;
 	add_image_size( $key, $imagesize[0], $imagesize[1], $imagesize[2] );
-	set_post_thumbnail_size( $thumbnail[0] , 	$thumbnail[1], 		$thumbnail[3] ); // feed image
+	@set_post_thumbnail_size( $thumbnail[0] , 	$thumbnail[1], 		$thumbnail[3] ); // feed image
 
 	
 }
@@ -133,6 +181,7 @@ foreach ($imagesizes as $key => $imagesize) {
 update_option( 'thumbnail_size_w', $thumbnail[0] );
 update_option( 'thumbnail_size_h', $thumbnail[1] );
 update_option( 'thumbnail_crop', $thumbnail[2] );
+
 
 update_option( 'medium_size_w', $medium[0] );
 update_option( 'medium_size_h', $medium[1] );
@@ -157,34 +206,31 @@ This is flawed in that it may encourage content editors to not use it, which is 
 
 // prepare and return the actual final responsive image.  This should meet the HTML spec but could be changed if we don't use picture srcset in the future.
 // There is a polyfill in the JS to work this, otherwise this is going to break on a lot of browsers as of Jan 2015
-function create_picture_element($id, $images, $caption, $title, $align, $html) {
+function create_picture_element($id, $images, $caption, $title, $align = 'center', $html) {
 
 
-	    $html = '<picture class="align-' . $align . '">';
+	    $html = '<picture class="align-' . $align . ' responsive-picture">';
 		$html .= '<!--[if IE 9]><video style="display: none;"><![endif]-->';
 
-		global $max, $max_tablet, $max_phone;
+		global $max, $max_tablet, $max_mobile;
 
+		
 		$img_full = wp_get_attachment_image_src($id, $images["large"]["name"]);
 		$img_tablet = wp_get_attachment_image_src($id, $images["medium"]["name"]);
 		$img_mobile = wp_get_attachment_image_src($id, $images["small"]["name"]);
 
 		$srcset = "";
-		// Why 1.5 times?  Well because often an image that's responsive here will not be using the full viewport width that often.  
-		// So we want the breakpoint to kick in 'earlier' so the image flips to its smaller width.
-		// eg mobile image is 1000 px and 500px.  On a 1000px wide screen, the iamge would be shrunk down probably to about 500px (half the page).
-		// So we don't want to show the 1000px image when the screen is 1000px.  But we migth when it's wider than 1000px.
-		// ie not always loading wider than it's rendering at in its box.
-		$srcset .= '<source srcset ="' . $img_mobile[0] . '" media="(max-width: ' . ($max_phone * 2) . 'px)">';
-		$srcset .= '<source srcset ="' . $img_tablet[0] . '" media="(max-width: ' . ($max_tablet * 2) . 'px)">';
-		$srcset .= '<source srcset ="' . $img_full[0] . '" media="(min-width: ' . ($max_tablet * 2) . 'px)">'; // anything over basically.
+		
+		$srcset .= '<source srcset ="' . $img_mobile[0] . '" media="(max-width: ' . ($max_mobile) . 'px)">';
+		$srcset .= '<source srcset ="' . $img_tablet[0] . '" media="(max-width: ' . ($max_tablet) . 'px)">';
+		$srcset .= '<source srcset ="' . $img_full[0] . '" media="(min-width: ' . ($max_tablet) . 'px)">'; // anything over basically.
 		
 		
 
 
 		$html .= '<!--[if IE 9]></video><![endif]-->';
 		$html .= $srcset;
-		$html .= '<img srcset="' . $img_tablet[0] . '" alt="' . $caption . '" title="' . $title . '">';
+		$html .= '<img src="' . $img_mobile[0] . '" alt="' . $caption . '" title="' . $title . '">';
 		$html .= '</picture>';
 
 		return $html;
@@ -192,45 +238,99 @@ function create_picture_element($id, $images, $caption, $title, $align, $html) {
 	
 }
 
+function create_img_srcset($id, $images = "", $caption = "", $title = "", $align = "center", $html = "", $minwidth = false, $classes = '') {
+
+
+
+		// Let's see if Google prefers this...
+
+
+	
+		global $max, $max_tablet, $max_mobile;
+
+
+
+
+		$images["medium"] = ($images["medium"]["size"] <= $minwidth) ? $images["large"]  : $images["medium"];
+		$images["small"] = ($images["small"]["size"] <= $minwidth) ? $images["large"]  : $images["small"];
+		
+
+		$img_full = wp_get_attachment_image_src($id, $images["large"]["name"]);
+
+		
+		
+		
+
+		
+		
+
+		$img_tablet = wp_get_attachment_image_src($id, $images["medium"]["name"]);
+		$img_mobile = wp_get_attachment_image_src($id, $images["small"]["name"]);
+
+
+		$html .= 	'<picture >
+						<!--[if IE 9]><video style="display: none;"><![endif]-->'
+		    	. '<source  srcset="'	. $img_full[0] . ' " media="(min-width: 960px)">'
+				. '<source  srcset="'	. $img_tablet[0] . '" media="(min-width: 768px)">'
+		    	. '<!--[if IE 9]></video><![endif]-->
+		    <img srcset="'	. $img_mobile[0] . '" class="responsive-picture align-' . $align . ' ' . $classes . '" alt="' . $caption . '" title="' . $title . '">
+		    <noscript><img src="' . $img_tablet[0] . '" class="nolazy"></noscript>
+		</picture>';
+
+
+		return $html;
+
+		/*
+
+		// old srcset version that appaz Google doesn't like.
+
+		$html .= '<img class="responsive-picture align-' . $align . '" src="' . $img_mobile[0] . '"';
+
+		$html .= ' srcset="'
+					. $img_full[0] . ' ' . $img_full[1] . 'w, '
+					. $img_tablet[0] . ' ' . $img_tablet[1] . 'w, '
+					. $img_mobile[0] . ' ' . $img_mobile[1] . 'w" '
+				;
+
+		$html .= ' sizes="(min-width: 768px) 66.6vw, 100vw"';
+
+
+		$html .= ' alt="' . $caption . '" title="' . $title . '">';
+
+
+		return $html;
+
+		*/
+}
+
+
+function responsive_image($id, $size, $classes = '', $minwidth = false) {
+	$images = get_image_src_list($size);
+	//	   create_img_srcset($id, $images,	$caption, 	$title, 	$align, 	$html, 	$minwidth, 	$classes = '')
+	return create_img_srcset($id, $images, 	"", 		"", 		"center", 	"", 	$minwidth, 	$classes);
+}
+
 
 // work out what images we can output.  For ease, we're only going with 3 images.
 function get_image_src_list($size) {
 
-	if ($size == "large" || $size == "medium" || $size == "thumbnail") {
-
-    	global $max, $max_phone, $max_tablet;
-    	// these will always exist in wordpress
-		$images = array(
-					"large" => array(
-						"name" => "large",
-						"size" => $max
-						),
-					"medium" => array(
-						"name" => "medium",
-						"size" => $max_tablet
-						),
-					"small" => array(
-						"name" => "thumbnail",
-						"size" => $max_phone
-						),
-					);
-	} else {
+	
 		global $imagesizes;
 		$images = array(
 					"large" => array(
 						"name" => $size,
-						"size" => $imagesizes[$size][1]
+						"size" => $imagesizes[$size][0]
 						),
 					"medium" => array(
 						"name" => $size . "-tablet",
-						"size" => $imagesizes[$size . "-tablet"][1]
+						"size" => $imagesizes[$size . "-tablet"][0]
 						),
 					"small" => array(
 						"name" => $size . "-mobile",
-						"size" => $imagesizes[$size . "-mobile"][1]
+						"size" => $imagesizes[$size . "-mobile"][0]
 						),
 					);
-	}
+	
 	
 	return $images;
 }
@@ -239,15 +339,20 @@ function get_image_src_list($size) {
 
 
 // to be used instead of get_the_thumbnail.  However we haven't been able to make the filter work with this so it's a manual call in teh templates.
-function responsive_image_thumbnail( $post_id = null, $size = 'featured-image', $attr = '' ) {
+function responsive_image_thumbnail( $post_id = null, $size = 'featured-image', $attr = '', $imageID = false, $minwidth = false) {
 	$post_id = ( null === $post_id ) ? get_the_ID() : $post_id;
-	$post_thumbnail_id = get_post_thumbnail_id( $post_id );
+	
+	
+	// $imageID, if true, indicates that the ID passed in the feirst parameter is actualy an Image ID, rather than the post ID for which we want a featured image.
+
+	$post_thumbnail_id = $imageID ? $post_id : get_post_thumbnail_id( $post_id );
+
+
 
 	if ( $post_thumbnail_id ) {
 
 		$images = get_image_src_list($size);
-
-		return create_picture_element($post_thumbnail_id, $images, "","", "", "");
+		return create_img_srcset($post_thumbnail_id, $images, "", "", "center", "", $minwidth);
 
 	} else {
 		return '';

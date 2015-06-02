@@ -104,7 +104,7 @@ define(['jquery', 'vendor/steady', 'plugins/jquery-scrollto', 'plugins/isonscree
 
           console.log(title, articleTop, articleBottom);
 
-          var offset = clientHeight * 0.2; // why this? because we want to turn an article "off" as it nears the top of the viewport, in this case 20% (0.2)
+          var offset = clientHeight * 0.3; // why this? because we want to turn an article "off" as it nears the top of the viewport, in this case 20% (0.2)
 
           if (articleBottom < offset) {
             

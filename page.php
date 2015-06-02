@@ -35,7 +35,7 @@
 								);
 
 								?>
-								<div id="carousel" class='carousel'>
+								<div id="carousel" class='carousel'>  
 
 								<?php echo display_attached_images_carousel($atts); ?>
 
@@ -43,10 +43,10 @@
 
 							<?php } elseif ( has_post_thumbnail() ) { // featured image ?>
 														
+													
+								<div id="carousel" class='page-featured-image'>
 							
-								<div id="carousel" class='featured-image cycle-slideshow'>
-
-									<?php echo responsive_image_thumbnail(null, 'panorama'); ?>
+									<?php echo responsive_image_thumbnail(null, 'featured-image'); ?>
 
 								</div>
 							<?php } ?>

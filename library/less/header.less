@@ -26,7 +26,7 @@
     
     background: @header-background;
     height: @header-height-px;
-    padding: (@header-height-px * 0.15) 0;
+    padding: 0; // (@header-height-px * 0.10) 0;
     position: fixed;
     top: 0;
 
@@ -54,17 +54,18 @@
 
 
       nav[role="navigation"] {
-        width: 100% - @global-sidebar-width - @global-sidebar-margin;
+        width: 100% - @header-logo-width;
         right: 0;
         .vertical-center();
+        z-index: 1;
       }
 
 
     #logo {
       
       height: 100%;
-      width: @global-sidebar-width;
-      margin-right: @global-sidebar-margin;
+      width: @header-logo-width;
+      
       left: 0;
 
       display: block;
@@ -143,7 +144,7 @@ nav[role="navigation"] {
 
 
         a {
-          display: inline-block;
+          
           
           width: auto;
           .nav-font-style(); // defined in design.less

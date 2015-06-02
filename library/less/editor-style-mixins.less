@@ -69,7 +69,7 @@ a.cta-inline {
  
 a.cta, a.cta-inline {
   
-  background: @red;
+  background: @link-color;
   color: @white !important;
   max-width: 97%;
   &:visited {
@@ -95,34 +95,10 @@ a.cta, a.cta-inline {
   text-align: center;
   margin: 1em auto;
   z-index: 1;
-  &::after {
-    content: "";
-    display: block;
-    position: absolute;
-
-    margin: auto;
-    background: transparent;
-    border-width: 0 0.3em 0.3em 0.3em;
-    border-style: solid;
-    border-color: @lighter-grey;
-    z-index: -1;
-
-    top: 30%;
-    bottom: -0.29em;
-    left: -0.29em;
-    right: -0.29em;
-    transition: border-color 0.7s ease, transform 0.2s ease;
-
-  }
-
   
-
-  &:hover {
-    &:after {
-      transform:translateY(-0.15em);
-      border-color: @highlight;
-    }
-  }
+  border-bottom: 2px solid lighten(@link-color, 50%);
+    
+  
 
  
 
@@ -153,7 +129,7 @@ a.cta, a.cta-inline {
 
     text-decoration: none;
     
-    cursor: pointer;
+    
 
     br {
       display: none;
@@ -167,7 +143,7 @@ a.cta, a.cta-inline {
 
     * {
       
-      color: @white !important;
+      
 
     }
     position: relative;
@@ -179,6 +155,8 @@ a.cta, a.cta-inline {
     }
 
     background: @light;
+    // border-bottom: 2px solid darken(@light, 10%);
+    border-radius: 2px;
     transition:background 0.4s ease;
 
     
@@ -198,22 +176,7 @@ a.cta, a.cta-inline {
         padding: 0;
         margin: 0;
       }
-      h2 {
-        position: absolute;
-        bottom: 0;
-        .alpha-color(@lighter,0.6);
-        background: @alpha-color;
-
-        width: 100%;
-        left: 0;
-        color: @white;
-        z-index: 2;
-        margin: 0;
-        padding: 0.5em 1em;
-        font-size: 1em;
-        text-align: center;
-        transition:background 0.2s ease;
-      }
+     
 
       img {
         position: absolute;
@@ -233,17 +196,23 @@ a.cta, a.cta-inline {
       }
     }
 
-    &:hover {
-      background: @lighter;
-      header img {
-        transform: translateX(-50%) scale(1.1,1.1) translateZ(0)
+     h2 {
+        
+        bottom: 0;
+        
+        
+
+        width: 100%;
+        left: 0;
+        color: @dark;
+        z-index: 2;
+        margin: 0 0 1em 0;
+        font-size: 1.2em;
+        text-align: left;
+        transition:background 0.2s ease;
       }
 
-      header h2 {
-        .alpha-color(@dark, 0.9);
-        background: @alpha-color;
-      }
-    }
+    
 
     div.content {
       box-sizing: border-box;
@@ -251,7 +220,20 @@ a.cta, a.cta-inline {
       padding: 1em;
       line-height: 1.2;
       font-size: 0.9em;
+      color: @white;
 
+    }
+  }
+
+  a div.feature {
+    &:hover {
+      background: @lighter;
+      
+
+      header h2 {
+        .alpha-color(@dark, 0.9);
+        background: @alpha-color;
+      }
     }
   }
 

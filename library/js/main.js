@@ -76,7 +76,7 @@ require(['jquery'], function($) {
 
 });
   
-
+require(['components/resize-fix']);
 
 
 require(['responsive-table']);

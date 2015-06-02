@@ -43,46 +43,7 @@
 		<!-- <h2>Latest Posts</h2> -->
 		<?php
 
-
-
-// create the widget form
- // list categories, selecta
- // list blogs, selecta
- 
- // number of posts
- 
- 
- // create the widget output
- 
- 
- 
- 
-// nice recent posts widget
- 
-
-
-
-
-			
-				
-
-
-			
-				echo "<ul class='grid-feed'>";
-				 if ( is_active_sidebar( 'home-footer-sidebar' ) )
-
-						 dynamic_sidebar( 'home-footer-sidebar' );
-
-					get_template_part( 'content/post-preview' );
-
-				
-
-				echo "</ul>";
-	
-
-			//wp_reset_postdata();
-
-
+			 dynamic_sidebar( 'home-footer-sidebar' );
 		?>
 	</div>
 

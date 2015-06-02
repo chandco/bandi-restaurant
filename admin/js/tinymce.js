@@ -47,10 +47,7 @@
 
                 var node = ed.selection.getNode();
 
-                window.tempEd = ed;
-                console.log(node);
-                console.log(e);
-
+               
                 
 
                 var $el = ed.$(node);
@@ -62,9 +59,11 @@
                     console.log("In a column...", $el);
                     e.shiftKey = true;
                     return e;
-                }    
+                } else {
+                    return e; 
+                }
 
-                return false;                
+                               
                 
                 
             });

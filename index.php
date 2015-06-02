@@ -7,13 +7,19 @@
 
 						<div id="main" class="m-all t-2of3 d-5of7 cf left-content" role="main">
 
+							<h1 class='entry-title'><?php echo get_page( get_option('page_for_posts') )->post_title; ?></h1>
+
+							<ul class='grid-feed'>
 							<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 
+							
 							<?php 
-								get_template_part( 'post-formats/format-archive', get_post_format() );
+								get_template_part( 'content/post-preview', get_post_format() );
 							?>
+							
 
 							<?php endwhile; ?>
+							</ul>
 
 									<?php bones_page_navi(); ?>
 

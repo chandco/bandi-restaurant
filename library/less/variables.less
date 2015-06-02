@@ -1,6 +1,6 @@
 
 @grey : #999999;
-@green : #d3d802;
+@green : #C0D62C;
 @red: #d22529;
 @blue : #0086ac;
 
@@ -9,7 +9,7 @@
 @mid-grey: RGB(128,128,128);
 @darkgrey : RGB(51,51,51);
 
-@darkgreen: #ADB025;
+@darkgreen: darken(@green, 15%);
 
 @lightgrey : #DDDDDD;
 @lighter-grey : #E6E6E6;
@@ -32,6 +32,7 @@
 @global-sidebar-margin: 4%;
 
 
+@header-logo-width: 10%; // smaller for this site - longer logos may need more.
 
 // COLOURS
 
@@ -50,7 +51,7 @@
 }
 
 @dark : @darkgrey;
-@light : @lightgrey;
+@light : @green;
 @lighter : @white;
 
 @body-background : @white;
@@ -60,6 +61,8 @@
 // used for navigation, amongst other things.
 @highlight : #0086ac;
 @highlight-text : @black;
+
+@main-colour: @green;
 
 @emphasis : @darkblue;
 @emphasis-text: @white; // if @emphasis was a background etc.
@@ -79,7 +82,7 @@
 @header-background: @green;
 
 // sidebars
-@widget-background: fade( @lightgrey, 20% );
+@widget-background: fade( @lightgrey, 30% );
 
 //@lighter-grey; @white
 @nav-link-color: @white;
@@ -97,7 +100,11 @@
 @nav-submenu-background : lighten(@black, 35%);
 @nav-submenu-text: @white;
 @nav-submenu-text-hover : @white;
+
 @nav-submenu-background-hover : lighten(@grey, 10%);
+
+@footer-menu-hover: fade(@lightgrey, 10%);
+@footer-link-color: @green;
 
 // carousel styles
 @cycle-carousel-width : 100%;
@@ -127,15 +134,16 @@
 @cta-sidebar-width : 15%;
 @mobile-cta-height : 100px;
 
+@max-central-width: 1400px;
 @tablet-break : 968px;
 
 @mobile-break: 480px;
 
 // blog stuff
-@post-tag-background: fade(@red, 50%);
-@post-tag-color: @white;
-@post-tag-color-hover: @red;
-@post-tag-background-hover: @white;
+@post-tag-background: darken(@white, 10%);
+@post-tag-color: @blue;
+@post-tag-color-hover: lighten(@blue, 10%);
+@post-tag-background-hover: darken(@white, 5%);
 
 
 // footer stuff

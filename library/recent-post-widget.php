@@ -175,7 +175,7 @@ class ita_recent_posts extends WP_Widget {
  
 		
  
-		echo "<ul class='venue-related-post-container'>";
+		echo "<ul class='grid-feed'>";
 		while ($the_query->have_posts()) {
 				$the_query->the_post();
 				
@@ -189,13 +189,7 @@ class ita_recent_posts extends WP_Widget {
 		$more = 0;       // Set (inside the loop) to display content above the more tag.
 		
 		//add_filter('the_content','my_strip_tags');
-		echo "<li class='venue-related-post'>";
-		echo "<a href='" . get_permalink() . "'>";
-	
-		
-		echo get_the_post_thumbnail( $page->ID, "old-blog-thumb");		
-		echo "<h4>" . get_the_title() . "</h4>";
-		echo "</a></li>";
+		get_template_part( 'content/post-preview' );
 		
 	
  

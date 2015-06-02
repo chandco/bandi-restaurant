@@ -11,6 +11,11 @@ input[type='submit'] {
 span.wpcf7-list-item {
 	display: block;
 	margin-top: -5px;
+	position: relative;
+	label {
+		position: relative;
+	}
+
 }
 
 .wpcf7-form-control-wrap {
@@ -35,14 +40,15 @@ label {
 
 		width: 100%;
 		box-sizing: border-box;
-		padding: 1.5% 1% 1.5% 6%;
+		padding: .5em 1% .5em 6%;
 
 		border-bottom: 2px solid transparent;
 		transition:border 0.4s ease, background 0.6s ease;
 
 		&:hover {
-			.alpha-color(@white);
-			background: @alpha-color;
+			
+			background: lighten(@highlight, 10%);
+			color: darken(@highlight, 10%);
 			&:before {
 				content: @fa-var-check-square;
 			}
@@ -85,12 +91,12 @@ label {
 		}
 	}
 	input[type='checkbox']:checked + span {
-		.lighten(@highlight, 50, 0.7);
+		
 		background: @highlight;
 		border-bottom: 2px solid @formbg;
 	
 	
-		color: @dark;
+		color: @white;
 
 		&:before {
 			
@@ -256,9 +262,13 @@ div.wpcf7 {
 	@padding : 4%;
 	@margin : 1%;
 
-	background: @formbg;
+	background: @lightgrey;
 	overflow: hidden;
 	margin: 1em auto;
+
+	&:first-of-type {
+		margin-top: 0;
+	}
 	position: relative;
 
 	padding: @padding/2;
@@ -295,14 +305,24 @@ div.wpcf7 {
 		}
 
 		// creates a column, this is for layout only, don't style the inputs within unless it's positioning
+
+		div + div + * {
+			&:before {
+				clear: both;
+				content: "";
+				display: block;
+			}
+		}
 		div {
+
+
 
 			label  {
 				position: absolute;
 				z-index: 3;
 				
 				font-weight: 700;
-				color: @light;
+				color: @highlight;
 				margin: 0;
 				top: @padding;// / 2; // this appears near the top as a result
 				left: @padding;
@@ -320,6 +340,35 @@ div.wpcf7 {
 						.fa();
 						margin-left: 1em;
 					}
+				}
+			}
+
+			span.wpcf7-list-item {
+				display: block;
+				margin-top: -5px;
+				position: relative;
+				label {
+					position: relative;
+					.wpcf7-list-item-label {
+						padding-left: @padding * 3.5;
+					}
+				}
+
+			}
+
+			&.multi-checkbox {
+				width: 100%;
+
+				clear: both;
+				float: none;
+				&:after {
+					content: "";
+					display: block;
+					clear: both;
+				}
+				.wpcf7-list-item {
+					width: 45%;
+					float: left;
 				}
 			}
 
@@ -448,7 +497,7 @@ div.wpcf7 {
 					
 					font-weight:bold;
 					height:40px;
-					.alpha-color(@dark, 0.7);
+					.alpha-color(@light, 0.7);
 					border-bottom:solid 2px @alpha-color;
 
 
@@ -468,6 +517,10 @@ div.wpcf7 {
 
 			.wpcf7-list-item {
 				line-height: 1;
+
+				label {
+					padding: .5em 0;
+				}
 			}
 			input[type='checkbox'], input[type='radio'] {
 
@@ -487,7 +540,7 @@ div.wpcf7 {
 
 					width: 100%;
 					box-sizing: border-box;
-					padding: 4% 2% 4% 15%;
+					padding: .5em 2% .5em 15%;
 
 					border-bottom: 2px solid transparent;
 					transition:border 0.4s ease, background 0.6s ease;
@@ -544,7 +597,7 @@ div.wpcf7 {
 						border-bottom: 2px solid @formbg;
 					
 					
-					color: @dark;
+					color: @white;
 
 					&:before {
 						
@@ -612,27 +665,26 @@ div.wpcf7 {
 			}		
 
 			input[type="submit"] {
-					background:@emphasis;
+					background:@highlight;
 					border:none;
-					width: 60%;
+					width: auto;
 
-					font-size:2em;
+					font-size:1em;
 					
 					height: auto;
 					position:relative;
 					margin:auto;
-					display: block;
+					display: inline-block;
 					padding: @padding/2;
 				
-					.darken(@emphasis);
-					border-bottom: 2px solid @darker;
+					border-bottom: 2px solid darken(@highlight, 20%);
 
 					color: @emphasis-text;
 
 					transition:background .3s ease;
 					&:hover {
-						.lighten(@emphasis);
-						background: @lighter;
+						
+						background: lighten(@highlight, 10%);
 					}
 				}
 			

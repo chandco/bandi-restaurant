@@ -2,6 +2,7 @@ define(['jquery', 'components/arrayForEach'], function($) {
 	$(document).ready(function() {
 
 
+    if ($('.page-template-template-home').length === 0) return;
 
 
     $('.right-content table, .left-content table').each(function(index, table) {
@@ -18,7 +19,7 @@ define(['jquery', 'components/arrayForEach'], function($) {
         var tds = $(table).find('tr:eq(0) td');
 
         var days = [
-        'sunday', 'monday','wednesday','tuesday','thursday','friday', 'saturday'
+        'sunday', 'monday','tuesday','wednesday', 'thursday','friday', 'saturday'
         ];
 
         var d = new Date();
@@ -26,6 +27,8 @@ define(['jquery', 'components/arrayForEach'], function($) {
 		var today_cell_index;
 
         $(tds).each( function( index, td ) {
+
+           
 
         	var cell = $(td).text().toLowerCase();
 
