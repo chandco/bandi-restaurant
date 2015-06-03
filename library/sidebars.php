@@ -35,6 +35,37 @@ function cf_register_sidebars() {
 		'after_title' => '</h4>',
 	));
 
+		register_sidebar(array(
+		'id' => 'home-footer-sidebar-2',
+		'name' => __( 'home-footer-sidebar-2', 'cf-theme' ),
+		'description' => __( 'This sidebar 2 appears for the footer on the homepage', 'cf-theme' ),
+		'before_widget' => '<div id="%1$s" class="widget %2$s">',
+		'after_widget' => '</div>',
+		'before_title' => '<h4 class="widgettitle">',
+		'after_title' => '</h4>',
+	));
+
+		register_sidebar(array(
+		'id' => 'home-footer-sidebar-3',
+		'name' => __( 'home-footer-sidebar-3', 'cf-theme' ),
+		'description' => __( 'This sidebar 3 appears for the footer on the homepage', 'cf-theme' ),
+		'before_widget' => '<div id="%1$s" class="widget %2$s">',
+		'after_widget' => '</div>',
+		'before_title' => '<h4 class="widgettitle">',
+		'after_title' => '</h4>',
+	));
+
+
+		register_sidebar(array(
+		'id' => 'home-footer-sidebar-4',
+		'name' => __( 'home-footer-sidebar-4', 'cf-theme' ),
+		'description' => __( 'This sidebar 4 appears for the footer on the homepage', 'cf-theme' ),
+		'before_widget' => '<div id="%1$s" class="widget %2$s">',
+		'after_widget' => '</div>',
+		'before_title' => '<h4 class="widgettitle">',
+		'after_title' => '</h4>',
+	));
+
 	register_sidebar(array(
 		'id' => 'cta-sidebar',
 		'name' => __( 'CTA Sidebar', 'cf-theme' ),
