@@ -2624,6 +2624,17 @@ body#tinymce.wp-editor a div.feature:hover {
 body#tinymce.wp-editor a div.feature:hover header h2 {
   background: rgba(51, 51, 51, 0.9);
 }
+body#tinymce.wp-editor .no-flexbox div.feature header img,
+body#tinymce.wp-editor .no-js div.feature header img {
+  left: 0;
+  width: 100%;
+  height: auto;
+  min-height: 0;
+}
+body#tinymce.wp-editor .no-flexbox div.feature .content,
+body#tinymce.wp-editor .no-js div.feature .content {
+  min-height: 200px;
+}
 body#tinymce.wp-editor a.cta-button {
   background: rgba(0, 0, 0, 0.4);
   display: inline-block;

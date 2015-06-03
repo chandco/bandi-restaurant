@@ -2237,6 +2237,17 @@ a div.feature:hover {
 a div.feature:hover header h2 {
   background: rgba(51, 51, 51, 0.9);
 }
+.no-flexbox div.feature header img,
+.no-js div.feature header img {
+  left: 0;
+  width: 100%;
+  height: auto;
+  min-height: 0;
+}
+.no-flexbox div.feature .content,
+.no-js div.feature .content {
+  min-height: 200px;
+}
 a.cta-button {
   background: rgba(0, 0, 0, 0.4);
   display: inline-block;
@@ -7144,6 +7155,20 @@ html {
 .no-flexbox .page-template-template-home .left-content table td,
 .no-js .page-template-template-home .left-content table td {
   width: auto;
+}
+.no-flexbox.no-cssanimations .row,
+.no-js.no-cssanimations .row {
+  width: 100%;
+  overflow: hidden;
+}
+.no-flexbox.no-cssanimations .row .col-smart,
+.no-js.no-cssanimations .row .col-smart {
+  width: 24%;
+  float: left;
+}
+.no-flexbox.no-cssanimations .row .col-smart:nth-child(4n+1),
+.no-js.no-cssanimations .row .col-smart:nth-child(4n+1) {
+  clear: left;
 }
 
 /*# sourceMappingURL=maps/main.css.map */

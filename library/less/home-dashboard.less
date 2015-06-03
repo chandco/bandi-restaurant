@@ -322,4 +322,22 @@
 			}
 		}		
 	}
+
+	&.no-cssanimations { // really old
+		.row {
+			width: 100%;
+			overflow: hidden;
+
+			.col-smart {
+				width: 24%;
+				float: left;
+
+				&:nth-child(4n+1) {
+					clear: left;
+				}
+			}
+		}
+
+
+	}
 }
