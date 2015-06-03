@@ -38,6 +38,10 @@
 		endwhile; endif; ?>
 	</div>
 
+
+
+</div>
+<div class='responsive-flex-container max-central'>
 	<div id="footer-sidebar">
 		
 		<!-- <h2>Latest Posts</h2> -->
@@ -46,8 +50,6 @@
 			 dynamic_sidebar( 'home-footer-sidebar' );
 		?>
 	</div>
-
 </div>
-
 
 <?php get_footer(); ?>
