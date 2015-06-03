@@ -7113,5 +7113,13 @@ html {
     display: none;
   }
 }
+.no-flexbox .page-template-template-home .right-content table,
+.no-flexbox .page-template-template-home .left-content table {
+  table-layout: inherit;
+}
+.no-flexbox .page-template-template-home .right-content table td,
+.no-flexbox .page-template-template-home .left-content table td {
+  width: auto;
+}
 
 /*# sourceMappingURL=maps/main.css.map */

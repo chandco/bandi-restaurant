@@ -1,4 +1,11 @@
 define(['jquery', 'components/arrayForEach'], function($) {
+
+    // stop executing for <IE10
+   
+
+    if (!('visibilityState' in document)) return;
+
+
 	$(document).ready(function() {
 
 

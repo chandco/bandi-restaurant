@@ -23,6 +23,9 @@
 
 
 .page-template-template-home {
+
+
+
 .right-content table, .left-content table {
 	width: 100%;
 	table-layout: fixed;
@@ -306,3 +309,15 @@
 }	
 
 } // page template home
+
+
+.no-flexbox .page-template-template-home {
+		.right-content table, .left-content table {
+			// fixes for <IE10
+			table-layout: inherit;
+
+			td {
+				width: auto;
+			}
+		}		
+	}
