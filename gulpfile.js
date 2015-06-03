@@ -23,7 +23,7 @@ gulp.task('default', function () {
 
     console.log( process.cwd() );
     if (process.cwd() == '/home/nathan/bandi-restaurant') {
-        var devProxy = "nathan-bandi.dev.chand.co";
+        var devProxy = "113.dev.chand.co";
     } else {
         var devProxy = "bandi.dev.chand.co";
     }
