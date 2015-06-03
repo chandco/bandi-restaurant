@@ -62,14 +62,25 @@ a:link, a:visited:link {
     font-size: 1.4em;
     text-transform: uppercase;
     color: @darkgreen;
+
+    + h6 {
+      &:last-child {
+        margin-bottom:10px;
+      }
+    }
   }
 
   h5 {
     font-size: 1em;
-    margin-bottom: 0;
+    margin-bottom: 10px;
     text-transform: uppercase;
-    
+
+    + h6 {
+      margin-bottom: 10px;
+    } 
   }
+
+
 
   h6 {
     font-size: 0.8em;

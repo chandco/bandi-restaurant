@@ -2450,11 +2450,19 @@ a:visited:link {
   text-transform: uppercase;
   color: #88981e;
 }
+.right-content h4 + h6:last-child,
+.left-content h4 + h6:last-child {
+  margin-bottom: 10px;
+}
 .right-content h5,
 .left-content h5 {
   font-size: 1em;
-  margin-bottom: 0;
+  margin-bottom: 10px;
   text-transform: uppercase;
+}
+.right-content h5 + h6,
+.left-content h5 + h6 {
+  margin-bottom: 10px;
 }
 .right-content h6,
 .left-content h6 {
