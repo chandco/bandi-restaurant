@@ -4421,6 +4421,26 @@ li.basic.capacities:before:before {
   padding-bottom: .5em;
   border-bottom: 2px solid #c0d62c;
 }
+.no-flexbox #footer-sidebar,
+.no-js #footer-sidebar {
+  overflow: hidden;
+}
+.no-flexbox #footer-sidebar .widget,
+.no-js #footer-sidebar .widget {
+  width: 44.5%;
+  float: left;
+}
+.no-flexbox #footer-sidebar .custom-recent-posts .post-list,
+.no-js #footer-sidebar .custom-recent-posts .post-list {
+  clear: both;
+  overflow: hidden;
+}
+.no-flexbox #footer-sidebar .custom-recent-posts .post-list .post-preview,
+.no-js #footer-sidebar .custom-recent-posts .post-list .post-preview {
+  width: 48%;
+  float: left;
+  margin-right: 1%;
+}
 #cta-sidebar {
   font-size: 0.8em;
   right: 0;
@@ -7114,11 +7134,15 @@ html {
   }
 }
 .no-flexbox .page-template-template-home .right-content table,
-.no-flexbox .page-template-template-home .left-content table {
+.no-js .page-template-template-home .right-content table,
+.no-flexbox .page-template-template-home .left-content table,
+.no-js .page-template-template-home .left-content table {
   table-layout: inherit;
 }
 .no-flexbox .page-template-template-home .right-content table td,
-.no-flexbox .page-template-template-home .left-content table td {
+.no-js .page-template-template-home .right-content table td,
+.no-flexbox .page-template-template-home .left-content table td,
+.no-js .page-template-template-home .left-content table td {
   width: auto;
 }
 

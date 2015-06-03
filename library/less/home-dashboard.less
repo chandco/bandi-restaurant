@@ -311,7 +311,8 @@
 } // page template home
 
 
-.no-flexbox .page-template-template-home {
+.no-flexbox, .no-js {
+	.page-template-template-home {
 		.right-content table, .left-content table {
 			// fixes for <IE10
 			table-layout: inherit;
@@ -321,3 +322,4 @@
 			}
 		}		
 	}
+}
