@@ -25,10 +25,6 @@ requirejs.config({
 
 
 
-
-
-
-require(["smoothscroll"]);
 require(["scroll-nav"]);
 
 require(["wiki-dropdown"]);
@@ -57,24 +53,12 @@ require(['components/popups']);
 require(['components/carousel']);
 
 
-require(['jquery'], function($) {
 
-  // only load the form if the form is there.
-
-  if ($('.wpcf7-form').length) {
-    // Load CF7 JS only if there's actually a form.
-    require(['cf7']);
-  }
-
-  if ($('#mc_embed_signup').length) {
-    // basically takes the MC stuff and loads it "our way";]
-    require(['vendor/mailchimp']);
-  }
+require(['cf7']);
 
 
 
 
-});
   
 require(['components/resize-fix']);
 

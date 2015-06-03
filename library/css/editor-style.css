@@ -2521,6 +2521,7 @@ body#tinymce.wp-editor a.cta-inline * {
 body#tinymce.wp-editor a.cta:hover,
 body#tinymce.wp-editor a.cta-inline:hover {
   color: #0086ac;
+  background: #00aedf;
 }
 body#tinymce.wp-editor a.cta:hover *,
 body#tinymce.wp-editor a.cta-inline:hover * {

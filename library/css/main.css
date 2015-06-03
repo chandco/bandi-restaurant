@@ -2134,6 +2134,7 @@ a.cta-inline * {
 a.cta:hover,
 a.cta-inline:hover {
   color: #0086ac;
+  background: #00aedf;
 }
 a.cta:hover *,
 a.cta-inline:hover * {
@@ -2434,11 +2435,14 @@ a:visited {
 a:hover,
 a:visited:hover,
 a:visited:focus {
-  color: #0086ac;
+  color: #00aedf;
 }
 a:link,
 a:visited:link {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0.3);
+}
+a[href^="mailto:"] {
+  white-space: nowrap;
 }
 .right-content h3,
 .left-content h3 {
@@ -2945,6 +2949,11 @@ nav[role="navigation"] .nav {
   font-family: Calibri, Candara, Segoe, 'Segoe UI', Optima, Arial, sans-serif;
   font-weight: bold;
 }
+@media screen and (max-width: 60em) {
+  nav[role="navigation"] .nav {
+    margin: auto;
+  }
+}
 nav[role="navigation"] .nav a {
   display: block;
   width: 100%;
@@ -3085,15 +3094,16 @@ nav[role="navigation"] .nav li .sub-menu:hover li a {
     border: none;
     background: none;
     font-size: 2em;
-    right: 2%;
-    width: auto;
-    text-align: center;
+    right: 0;
+    width: 50px;
+    text-align: right;
     line-height: 0;
     top: 50%;
     -webkit-transform: translateY(-50%);
         -ms-transform: translateY(-50%);
             transform: translateY(-50%);
     position: absolute;
+    margin-right: 0;
   }
   #inner-header nav[role="navigation"] {
     display: none;
@@ -3112,21 +3122,14 @@ nav[role="navigation"] .nav li .sub-menu:hover li a {
     overflow: scroll;
     width: 100%;
     height: 100%;
+    top: 0;
+    padding-top: 60px;
     background: #ffffff;
     z-index: 1000;
     -webkit-animation-duration: .3s;
             animation-duration: .3s;
     -webkit-animation-name: bgfadein;
             animation-name: bgfadein;
-    top: 60px;
-    padding-top: 5px;
-  }
-  body.navigation-menu-open #popup-menu-container nav[role="navigation"] .nav > li {
-    border-right: none !important;
-  }
-  body.navigation-menu-open #popup-menu-container ul {
-    border-right: none !important;
-    border-bottom: none !important;
   }
   body.navigation-menu-open #popup-menu-container #popup-menu {
     -webkit-animation-duration: 1s;
@@ -3780,7 +3783,7 @@ a[rel="category tag"]:hover {
   width: 100%;
   margin: 0 auto;
   position: relative;
-  min-height: 100vh;
+  min-height: 480px;
 }
 @media screen and (max-width: 1400px) {
   .blog #inner-content,
@@ -6703,9 +6706,14 @@ input[type="text"][disabled]:focus, input[type="text"][disabled]:active, input[t
   border-left: 3px solid #88981e;
   color: #000000;
 }
+.article-div {
+  position: relative;
+  z-index: 1;
+}
 .anchor-point {
   position: relative;
   z-index: -1;
+  pointer-events: none;
 }
 .anchor-point:before {
   content: "";
@@ -6713,6 +6721,7 @@ input[type="text"][disabled]:focus, input[type="text"][disabled]:active, input[t
   height: 127px;
   margin-top: -127px;
   visibility: hidden;
+  pointer-events: none;
 }
 #wiki-content .page-featured-image {
   position: absolute;
@@ -6737,6 +6746,9 @@ input[type="text"][disabled]:focus, input[type="text"][disabled]:active, input[t
   background: #0086ac;
   padding: .1em .2em;
   border-radius: 3px;
+}
+#wiki-content article .post-edit-link:hover {
+  background: #00aedf;
 }
 @media screen and (min-width: 60em) {
   #wiki-content article {
@@ -6786,6 +6798,25 @@ input[type="text"][disabled]:focus, input[type="text"][disabled]:active, input[t
 #wiki-menu h2:first-of-type {
   font-size: 1.2em;
   margin-top: 0;
+}
+#wiki-carousel {
+  position: relative;
+  top: -2em;
+  margin-bottom: -1em;
+  padding-left: 25%;
+  height: 400px;
+}
+@media screen and (max-width: 60em) {
+  #wiki-carousel {
+    padding-left: 0;
+    top: -60px;
+  }
+}
+@media screen and (max-width: 30em) {
+  #wiki-carousel {
+    height: 320px;
+    margin-bottom: -2em;
+  }
 }
 #wiki-content {
   padding: 0 2em 2em;

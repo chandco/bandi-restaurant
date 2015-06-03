@@ -67,7 +67,7 @@
 </script>		
 <?php // <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js" defer></script> ?>
 
-<script data-main="<?php echo get_stylesheet_directory_uri(); ?>/library/js/main.js" src="<?php echo get_stylesheet_directory_uri(); ?>/library/js/vendor/require.js" defer></script>		
+<script data-main="<?php echo get_stylesheet_directory_uri(); ?>/library/js/main-built.js" src="<?php echo get_stylesheet_directory_uri(); ?>/library/js/vendor/require.js" defer></script>		
 <script type="text/javascript" src="http://fast.fonts.net/jsapi/e4baf517-7128-4749-bbe6-cfc5fe4b4187.js" defer></script>
 <!-- Google Analytics -->
 <script>

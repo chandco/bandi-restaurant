@@ -9,9 +9,18 @@ define(['jquery', 'vendor/velocity'], function($, Velocity) {
 			});
 
 			//When close panel clicked, only close the active article
+			// Scroll to the top of the button
 			$(".close-sub-section").click(function(){
 				var $parent = $(this).parents('.section');
-				$parent.removeClass("open");				
+				$parent.removeClass("open");
+
+				var scrollto = $parent.offset().top - 50;
+
+				$('html, body').animate({
+			        scrollTop: scrollto
+			    }, 50);
+
+
 			});
 			
 		});	

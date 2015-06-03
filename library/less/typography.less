@@ -40,14 +40,16 @@ a:visited {
   color:@link-color;
 }
 a:hover, a:visited:hover, a:visited:focus {
-  color:@link-color;
+  color:lighten(@link-color, 10%);
 }
 a:link, a:visited:link {
   -webkit-tap-highlight-color:rgba(0,0,0,0.3);
 }
 
 
-// STOP FOUC for fonts
+a[href^="mailto:"] {
+  white-space: nowrap;
+}
 
 
 

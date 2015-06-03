@@ -65,9 +65,14 @@
 
 // format the articles
 
+.article-div {
+	position: relative;
+	z-index: 1;
+}
 .anchor-point {
 	position: relative;
 	z-index: -1;
+	pointer-events: none;
 }
 .anchor-point:before {
   content: "";
@@ -76,6 +81,7 @@
   height: @heightoffset;
   margin-top: -@heightoffset;
   visibility: hidden;
+  pointer-events: none;
 }
 
 #wiki-content {
@@ -98,17 +104,17 @@
 		position: relative;
 		z-index: 1;
 
-
 		h2 {
 			margin-top: 0;
-
-
 		}
 
 		.post-edit-link {
 				font-size: .5em;
 				color: #fff;
 				background: @link-color;
+				&:hover {
+					background: lighten(@link-color, 10%);
+				}
 				padding:.1em .2em;
 				border-radius: 3px;
 			}
@@ -186,6 +192,26 @@
 
 ul {
 	//list-style:none;
+	
+}
+
+#wiki-carousel {
+	position: relative;
+	top: -2em;	
+	margin-bottom: -1em;
+	padding-left: 25%;
+	height: 400px;
+
+	@media screen and (max-width: @tablet-break) {
+		padding-left: 0;
+		top: -60px;
+
+	}
+
+	@media screen and (max-width: @mobile-break) {
+		height: 320px;
+		margin-bottom: -2em;
+	}
 	
 }
 

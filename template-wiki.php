@@ -28,6 +28,17 @@ $children = new WP_Query( $args2 );
 
  get_header(); ?>
 
+ <?php if ( has_post_thumbnail() ) { // featured image ?>
+														
+											
+	<div id="wiki-carousel" class='page-featured-image'>
+					
+		<?php echo responsive_image_thumbnail(null, 'featured-image'); ?>
+
+	</div>
+
+<?php } ?>
+
 <div class='responsive-flex-container max-central'>
 	
 	<div id="wiki-menu" class='left-sidebar'>
@@ -75,21 +86,16 @@ $children = new WP_Query( $args2 );
 	
 	</div>
 
+	<?php if ( have_posts() ) : while( have_posts() ) : the_post(); ?>
+	
+		
+
 	<div id="wiki-content" class='right-content'>
 
 
-		<?php if ( have_posts() ) : while( have_posts() ) : the_post();
+		
 
-		if ( has_post_thumbnail() ) { // featured image ?>
-														
-													
-			<div id="carousel" class='page-featured-image'>
-							
-				<?php echo responsive_image_thumbnail(null, 'featured-image'); ?>
-
-			</div>
-
-		<?php } ?>
+		
 
 		
 		<h1><?php echo get_the_title(); ?></h1>
