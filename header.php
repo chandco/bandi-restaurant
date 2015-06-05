@@ -57,11 +57,24 @@
 	if (ISTABLET) $bodyclass .= " is-tablet ";
 	?>
 	<body <?php body_class($bodyclass); ?>>
-	<!-- <?php echo ISMOBILE; ?> -->
-	<!-- <?php echo ISTABLET; ?> -->
-
 	
-		<header class="header" role="banner">
+
+		<?php
+
+		 $value = get_post_meta( $post->ID, 'page_color', true ); 
+		 
+
+		 if ($value) {
+		 	$colours = CH_pageColorPicker::colours();
+		 	$style = "style='background:" . $colours[$value] . ";'";
+
+		 } else {
+		 	$style = "";
+		 }
+
+
+		?>
+		<header class="header" role="banner" <?php echo $style; ?>>
 
 				<div id="inner-header" class='max-central' >
 

@@ -1699,6 +1699,37 @@
 .fa {
   font: normal normal normal 14px/1 FontAwesome !important;
 }
+#ch_page_color_picker .theme-colour-picker li {
+  display: inline-block;
+  width: 60px;
+  height: 60px;
+}
+#ch_page_color_picker .theme-colour-picker li label {
+  display: block;
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+#ch_page_color_picker .theme-colour-picker li label span {
+  position: absolute;
+  bottom: 0;
+  font-size: 0.8em;
+  text-align: center;
+  background: inherit;
+  display: block;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  padding-top: 30px;
+  line-height: 1;
+  background: rgba(255, 255, 255, 0.8);
+  border: 2px solid transparent;
+}
+#ch_page_color_picker .theme-colour-picker li label input:checked + span {
+  border: 2px solid #fff;
+  box-shadow: 0 0 2px 0 #000;
+  background: inherit;
+}
 #venue-gallery-select-page {
   width: 100%;
 }
@@ -1857,124 +1888,39 @@
   border: 1px solid #ccc;
   border-radius: 4px;
   background: #278b27;
+  color: #212121;
+}
+.admin_page_feature-box-edit #mce-feature-box-form #colours li.grey {
+  background: #999999;
+  color: #212121;
+}
+.admin_page_feature-box-edit #mce-feature-box-form #colours li.green {
+  background: #278b27;
   color: #ffffff;
 }
-.admin_page_feature-box-edit #mce-feature-box-form #colours li header > svg {
-  position: absolute;
-  width: 100%;
-  height: 20px;
-  bottom: 0;
-  z-index: 5;
+.admin_page_feature-box-edit #mce-feature-box-form #colours li.blue {
+  background: #a5b2c7;
+  color: #212121;
 }
-.admin_page_feature-box-edit #mce-feature-box-form #colours li header > svg .triangle {
-  fill: #278b27;
-}
-.admin_page_feature-box-edit #mce-feature-box-form #colours li.white {
-  background: #ffffff;
-  color: #000000;
-}
-.admin_page_feature-box-edit #mce-feature-box-form #colours li.white header > svg {
-  position: absolute;
-  width: 100%;
-  height: 20px;
-  bottom: 0;
-  z-index: 5;
-}
-.admin_page_feature-box-edit #mce-feature-box-form #colours li.white header > svg .triangle {
-  fill: #ffffff;
+.admin_page_feature-box-edit #mce-feature-box-form #colours li.lightgreen {
+  background: #99cc00;
+  color: #212121;
 }
 .admin_page_feature-box-edit #mce-feature-box-form #colours li.purple {
   background: #9a97b8;
-  color: #000000;
-}
-.admin_page_feature-box-edit #mce-feature-box-form #colours li.purple header > svg {
-  position: absolute;
-  width: 100%;
-  height: 20px;
-  bottom: 0;
-  z-index: 5;
-}
-.admin_page_feature-box-edit #mce-feature-box-form #colours li.purple header > svg .triangle {
-  fill: #9a97b8;
-}
-.admin_page_feature-box-edit #mce-feature-box-form #colours li.grey {
-  background: #999999;
-  color: #000000;
-}
-.admin_page_feature-box-edit #mce-feature-box-form #colours li.grey header > svg {
-  position: absolute;
-  width: 100%;
-  height: 20px;
-  bottom: 0;
-  z-index: 5;
-}
-.admin_page_feature-box-edit #mce-feature-box-form #colours li.grey header > svg .triangle {
-  fill: #999999;
-}
-.admin_page_feature-box-edit #mce-feature-box-form #colours li.blue {
-  background: #99cc00;
-  color: #000000;
-}
-.admin_page_feature-box-edit #mce-feature-box-form #colours li.blue header > svg {
-  position: absolute;
-  width: 100%;
-  height: 20px;
-  bottom: 0;
-  z-index: 5;
-}
-.admin_page_feature-box-edit #mce-feature-box-form #colours li.blue header > svg .triangle {
-  fill: #99cc00;
-}
-.admin_page_feature-box-edit #mce-feature-box-form #colours li.green {
-  background: #278b27;
   color: #ffffff;
-}
-.admin_page_feature-box-edit #mce-feature-box-form #colours li.green header > svg {
-  position: absolute;
-  width: 100%;
-  height: 20px;
-  bottom: 0;
-  z-index: 5;
-}
-.admin_page_feature-box-edit #mce-feature-box-form #colours li.green header > svg .triangle {
-  fill: #278b27;
 }
 .admin_page_feature-box-edit #mce-feature-box-form #colours li.black {
-  background: #000000;
+  background: #212121;
   color: #ffffff;
-}
-.admin_page_feature-box-edit #mce-feature-box-form #colours li.black header > svg {
-  position: absolute;
-  width: 100%;
-  height: 20px;
-  bottom: 0;
-  z-index: 5;
-}
-.admin_page_feature-box-edit #mce-feature-box-form #colours li.black header > svg .triangle {
-  fill: #000000;
-}
-.admin_page_feature-box-edit #mce-feature-box-form #colours li.yellow {
-  background: #d22529;
 }
 .admin_page_feature-box-edit #mce-feature-box-form #colours li.white {
   background: #ffffff;
+  color: #212121;
 }
-.admin_page_feature-box-edit #mce-feature-box-form #colours li.purple {
-  background: #278b27;
-  color: #ffffff;
-}
-.admin_page_feature-box-edit #mce-feature-box-form #colours li.grey {
-  background: #999999;
-}
-.admin_page_feature-box-edit #mce-feature-box-form #colours li.blue {
-  background: #99cc00;
-}
-.admin_page_feature-box-edit #mce-feature-box-form #colours li.green {
-  background: #278b27;
-}
-.admin_page_feature-box-edit #mce-feature-box-form #colours li.black {
-  background: #000000;
-  color: #ffffff;
+.admin_page_feature-box-edit #mce-feature-box-form #colours li.orange {
+  background: #be904d;
+  color: #212121;
 }
 .admin_page_feature-box-edit #mce-feature-box-form #colours li span {
   display: none;
@@ -2021,7 +1967,7 @@
   margin-right: 10px;
   background: #fff;
   background: #278b27;
-  color: #ffffff;
+  color: #212121;
   margin-bottom: 20px;
 }
 .admin_page_feature-box-edit #mce-feature-box-form .feature-box input,
@@ -2036,122 +1982,37 @@
   position: relative;
   z-index: 5;
 }
-.admin_page_feature-box-edit #mce-feature-box-form .feature-box header > svg {
-  position: absolute;
-  width: 100%;
-  height: 20px;
-  bottom: 0;
-  z-index: 5;
+.admin_page_feature-box-edit #mce-feature-box-form .feature-box.grey {
+  background: #999999;
+  color: #212121;
 }
-.admin_page_feature-box-edit #mce-feature-box-form .feature-box header > svg .triangle {
-  fill: #278b27;
+.admin_page_feature-box-edit #mce-feature-box-form .feature-box.green {
+  background: #278b27;
+  color: #ffffff;
 }
-.admin_page_feature-box-edit #mce-feature-box-form .feature-box.white {
-  background: #ffffff;
-  color: #000000;
+.admin_page_feature-box-edit #mce-feature-box-form .feature-box.blue {
+  background: #a5b2c7;
+  color: #212121;
 }
-.admin_page_feature-box-edit #mce-feature-box-form .feature-box.white header > svg {
-  position: absolute;
-  width: 100%;
-  height: 20px;
-  bottom: 0;
-  z-index: 5;
-}
-.admin_page_feature-box-edit #mce-feature-box-form .feature-box.white header > svg .triangle {
-  fill: #ffffff;
+.admin_page_feature-box-edit #mce-feature-box-form .feature-box.lightgreen {
+  background: #99cc00;
+  color: #212121;
 }
 .admin_page_feature-box-edit #mce-feature-box-form .feature-box.purple {
   background: #9a97b8;
-  color: #000000;
-}
-.admin_page_feature-box-edit #mce-feature-box-form .feature-box.purple header > svg {
-  position: absolute;
-  width: 100%;
-  height: 20px;
-  bottom: 0;
-  z-index: 5;
-}
-.admin_page_feature-box-edit #mce-feature-box-form .feature-box.purple header > svg .triangle {
-  fill: #9a97b8;
-}
-.admin_page_feature-box-edit #mce-feature-box-form .feature-box.grey {
-  background: #999999;
-  color: #000000;
-}
-.admin_page_feature-box-edit #mce-feature-box-form .feature-box.grey header > svg {
-  position: absolute;
-  width: 100%;
-  height: 20px;
-  bottom: 0;
-  z-index: 5;
-}
-.admin_page_feature-box-edit #mce-feature-box-form .feature-box.grey header > svg .triangle {
-  fill: #999999;
-}
-.admin_page_feature-box-edit #mce-feature-box-form .feature-box.blue {
-  background: #99cc00;
-  color: #000000;
-}
-.admin_page_feature-box-edit #mce-feature-box-form .feature-box.blue header > svg {
-  position: absolute;
-  width: 100%;
-  height: 20px;
-  bottom: 0;
-  z-index: 5;
-}
-.admin_page_feature-box-edit #mce-feature-box-form .feature-box.blue header > svg .triangle {
-  fill: #99cc00;
-}
-.admin_page_feature-box-edit #mce-feature-box-form .feature-box.green {
-  background: #278b27;
   color: #ffffff;
-}
-.admin_page_feature-box-edit #mce-feature-box-form .feature-box.green header > svg {
-  position: absolute;
-  width: 100%;
-  height: 20px;
-  bottom: 0;
-  z-index: 5;
-}
-.admin_page_feature-box-edit #mce-feature-box-form .feature-box.green header > svg .triangle {
-  fill: #278b27;
 }
 .admin_page_feature-box-edit #mce-feature-box-form .feature-box.black {
-  background: #000000;
+  background: #212121;
   color: #ffffff;
-}
-.admin_page_feature-box-edit #mce-feature-box-form .feature-box.black header > svg {
-  position: absolute;
-  width: 100%;
-  height: 20px;
-  bottom: 0;
-  z-index: 5;
-}
-.admin_page_feature-box-edit #mce-feature-box-form .feature-box.black header > svg .triangle {
-  fill: #000000;
-}
-.admin_page_feature-box-edit #mce-feature-box-form .feature-box.yellow {
-  background: #d22529;
 }
 .admin_page_feature-box-edit #mce-feature-box-form .feature-box.white {
   background: #ffffff;
+  color: #212121;
 }
-.admin_page_feature-box-edit #mce-feature-box-form .feature-box.purple {
-  background: #278b27;
-  color: #ffffff;
-}
-.admin_page_feature-box-edit #mce-feature-box-form .feature-box.grey {
-  background: #999999;
-}
-.admin_page_feature-box-edit #mce-feature-box-form .feature-box.blue {
-  background: #99cc00;
-}
-.admin_page_feature-box-edit #mce-feature-box-form .feature-box.green {
-  background: #278b27;
-}
-.admin_page_feature-box-edit #mce-feature-box-form .feature-box.black {
-  background: #000000;
-  color: #ffffff;
+.admin_page_feature-box-edit #mce-feature-box-form .feature-box.orange {
+  background: #be904d;
+  color: #212121;
 }
 .admin_page_feature-box-edit #mce-feature-box-form .feature-box header {
   width: 100%;

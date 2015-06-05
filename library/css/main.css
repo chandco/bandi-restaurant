@@ -2111,7 +2111,7 @@ a.cta-inline {
 }
 a.cta,
 a.cta-inline {
-  background: #99cc00;
+  background: #a5b2c7;
   color: #ffffff !important;
   max-width: 97%;
   font-family: 'Gill Sans W01';
@@ -2121,7 +2121,7 @@ a.cta-inline {
   text-align: center;
   margin: 1em auto;
   z-index: 1;
-  border-bottom: 2px solid #f2ffcc;
+  border-bottom: 2px solid #ffffff;
 }
 a.cta:visited,
 a.cta-inline:visited {
@@ -2134,7 +2134,7 @@ a.cta-inline * {
 a.cta:hover,
 a.cta-inline:hover {
   color: #0086ac;
-  background: #bfff00;
+  background: #c4cddb;
 }
 a.cta:hover *,
 a.cta-inline:hover * {
@@ -2160,7 +2160,8 @@ div.feature {
   position: relative;
   width: 100%;
   background: #278b27;
-  color: #ffffff;
+  color: #212121;
+  box-shadow: 1px 1px 1px 0px rgba(0, 0, 0, 0.7);
   border-radius: 2px;
   -webkit-transition: background 0.4s ease;
           transition: background 0.4s ease;
@@ -2184,105 +2185,133 @@ div.feature * {
     max-width: 100%;
   }
 }
-div.feature header > svg {
-  position: absolute;
-  width: 100%;
-  height: 20px;
-  bottom: 0;
-  z-index: 5;
-}
-div.feature header > svg .triangle {
-  fill: #278b27;
-}
-div.feature.white {
-  background: #ffffff;
-  color: #000000;
-}
-div.feature.white header > svg {
-  position: absolute;
-  width: 100%;
-  height: 20px;
-  bottom: 0;
-  z-index: 5;
-}
-div.feature.white header > svg .triangle {
-  fill: #ffffff;
-}
-div.feature.purple {
-  background: #9a97b8;
-  color: #000000;
-}
-div.feature.purple header > svg {
-  position: absolute;
-  width: 100%;
-  height: 20px;
-  bottom: 0;
-  z-index: 5;
-}
-div.feature.purple header > svg .triangle {
-  fill: #9a97b8;
-}
 div.feature.grey {
   background: #999999;
-  color: #000000;
-}
-div.feature.grey header > svg {
-  position: absolute;
-  width: 100%;
-  height: 20px;
-  bottom: 0;
-  z-index: 5;
-}
-div.feature.grey header > svg .triangle {
-  fill: #999999;
-}
-div.feature.blue {
-  background: #99cc00;
-  color: #000000;
-}
-div.feature.blue header > svg {
-  position: absolute;
-  width: 100%;
-  height: 20px;
-  bottom: 0;
-  z-index: 5;
-}
-div.feature.blue header > svg .triangle {
-  fill: #99cc00;
+  color: #212121;
 }
 div.feature.green {
   background: #278b27;
   color: #ffffff;
 }
-div.feature.green header > svg {
-  position: absolute;
-  width: 100%;
-  height: 20px;
-  bottom: 0;
-  z-index: 5;
+div.feature.blue {
+  background: #a5b2c7;
+  color: #212121;
 }
-div.feature.green header > svg .triangle {
-  fill: #278b27;
+div.feature.lightgreen {
+  background: #99cc00;
+  color: #212121;
 }
-div.feature.black {
-  background: #000000;
+div.feature.purple {
+  background: #9a97b8;
   color: #ffffff;
 }
-div.feature.black header > svg {
+div.feature.black {
+  background: #212121;
+  color: #ffffff;
+}
+div.feature.white {
+  background: #ffffff;
+  color: #212121;
+}
+div.feature.orange {
+  background: #be904d;
+  color: #212121;
+}
+div.feature svg {
   position: absolute;
   width: 100%;
   height: 20px;
   bottom: 0;
   z-index: 5;
 }
-div.feature.black header > svg .triangle {
-  fill: #000000;
+div.feature svg .triangle {
+  fill: #278b27;
+}
+div.feature.grey svg {
+  position: absolute;
+  width: 100%;
+  height: 20px;
+  bottom: 0;
+  z-index: 5;
+}
+div.feature.grey svg .triangle {
+  fill: #999999;
+}
+div.feature.green svg {
+  position: absolute;
+  width: 100%;
+  height: 20px;
+  bottom: 0;
+  z-index: 5;
+}
+div.feature.green svg .triangle {
+  fill: #278b27;
+}
+div.feature.blue svg {
+  position: absolute;
+  width: 100%;
+  height: 20px;
+  bottom: 0;
+  z-index: 5;
+}
+div.feature.blue svg .triangle {
+  fill: #a5b2c7;
+}
+div.feature.lightgreen svg {
+  position: absolute;
+  width: 100%;
+  height: 20px;
+  bottom: 0;
+  z-index: 5;
+}
+div.feature.lightgreen svg .triangle {
+  fill: #99cc00;
+}
+div.feature.purple svg {
+  position: absolute;
+  width: 100%;
+  height: 20px;
+  bottom: 0;
+  z-index: 5;
+}
+div.feature.purple svg .triangle {
+  fill: #9a97b8;
+}
+div.feature.black svg {
+  position: absolute;
+  width: 100%;
+  height: 20px;
+  bottom: 0;
+  z-index: 5;
+}
+div.feature.black svg .triangle {
+  fill: #212121;
+}
+div.feature.white svg {
+  position: absolute;
+  width: 100%;
+  height: 20px;
+  bottom: 0;
+  z-index: 5;
+}
+div.feature.white svg .triangle {
+  fill: #ffffff;
+}
+div.feature.orange svg {
+  position: absolute;
+  width: 100%;
+  height: 20px;
+  bottom: 0;
+  z-index: 5;
+}
+div.feature.orange svg .triangle {
+  fill: #be904d;
 }
 div.feature header {
   width: 100%;
   display: block;
   height: 0;
-  padding-bottom: 75%;
+  padding-bottom: 55%;
   position: relative;
   overflow: hidden;
   border-bottom: none;
@@ -2297,7 +2326,7 @@ div.feature header img {
   height: 100%;
   width: auto;
   max-width: 9999px;
-  min-width: 100%;
+  min-width: 101%;
   min-height: 100%;
   top: 0;
   left: 50%;
@@ -2364,6 +2393,11 @@ div.cf.newline:before {
   font-style: italic;
   content: "new line (this text will not appear in post)";
 }
+hr {
+  border: none;
+  border-top: 1px solid rgba(39, 139, 39, 0.2);
+  margin-bottom: -0.8em;
+}
 #container {
   top: 60px;
   position: relative;
@@ -2389,6 +2423,7 @@ div.cf.newline:before {
 body {
   color: #333333;
   background: #ffffff;
+  background-image: url('/wp-content/themes/bandi-restaurant/library/images/textured-background.gif');
 }
 .page #content {
   width: 100%;
@@ -2413,7 +2448,8 @@ body {
   padding: 2em 0;
   max-width: 100%;
   background: #278b27;
-  color: #ffffff;
+  color: #212121;
+  background-image: url('/wp-content/themes/bandi-restaurant/library/images/textured-background.png') !important;
 }
 .page #inner-content .full-width-background > * {
   width: 100%;
@@ -2438,99 +2474,37 @@ body {
 .page #inner-content .full-width-background > h4 {
   margin-top: 0;
 }
-.page #inner-content .full-width-background header > svg {
-  position: absolute;
-  width: 100%;
-  height: 20px;
-  bottom: 0;
-  z-index: 5;
-}
-.page #inner-content .full-width-background header > svg .triangle {
-  fill: #278b27;
-}
-.page #inner-content .full-width-background.white {
-  background: #ffffff;
-  color: #000000;
-}
-.page #inner-content .full-width-background.white header > svg {
-  position: absolute;
-  width: 100%;
-  height: 20px;
-  bottom: 0;
-  z-index: 5;
-}
-.page #inner-content .full-width-background.white header > svg .triangle {
-  fill: #ffffff;
-}
-.page #inner-content .full-width-background.purple {
-  background: #9a97b8;
-  color: #000000;
-}
-.page #inner-content .full-width-background.purple header > svg {
-  position: absolute;
-  width: 100%;
-  height: 20px;
-  bottom: 0;
-  z-index: 5;
-}
-.page #inner-content .full-width-background.purple header > svg .triangle {
-  fill: #9a97b8;
-}
 .page #inner-content .full-width-background.grey {
   background: #999999;
-  color: #000000;
-}
-.page #inner-content .full-width-background.grey header > svg {
-  position: absolute;
-  width: 100%;
-  height: 20px;
-  bottom: 0;
-  z-index: 5;
-}
-.page #inner-content .full-width-background.grey header > svg .triangle {
-  fill: #999999;
-}
-.page #inner-content .full-width-background.blue {
-  background: #99cc00;
-  color: #000000;
-}
-.page #inner-content .full-width-background.blue header > svg {
-  position: absolute;
-  width: 100%;
-  height: 20px;
-  bottom: 0;
-  z-index: 5;
-}
-.page #inner-content .full-width-background.blue header > svg .triangle {
-  fill: #99cc00;
+  color: #212121;
 }
 .page #inner-content .full-width-background.green {
   background: #278b27;
   color: #ffffff;
 }
-.page #inner-content .full-width-background.green header > svg {
-  position: absolute;
-  width: 100%;
-  height: 20px;
-  bottom: 0;
-  z-index: 5;
+.page #inner-content .full-width-background.blue {
+  background: #a5b2c7;
+  color: #212121;
 }
-.page #inner-content .full-width-background.green header > svg .triangle {
-  fill: #278b27;
+.page #inner-content .full-width-background.lightgreen {
+  background: #99cc00;
+  color: #212121;
 }
-.page #inner-content .full-width-background.black {
-  background: #000000;
+.page #inner-content .full-width-background.purple {
+  background: #9a97b8;
   color: #ffffff;
 }
-.page #inner-content .full-width-background.black header > svg {
-  position: absolute;
-  width: 100%;
-  height: 20px;
-  bottom: 0;
-  z-index: 5;
+.page #inner-content .full-width-background.black {
+  background: #212121;
+  color: #ffffff;
 }
-.page #inner-content .full-width-background.black header > svg .triangle {
-  fill: #000000;
+.page #inner-content .full-width-background.white {
+  background: #ffffff;
+  color: #212121;
+}
+.page #inner-content .full-width-background.orange {
+  background: #be904d;
+  color: #212121;
 }
 .page #inner-content .full-width-background > h2 {
   margin-top: 0;
@@ -2594,11 +2568,6 @@ blockquote {
   margin-top: 1.47058824em;
   margin-bottom: 1.47058824em;
 }
-/* Sanitation */
-hr {
-  border: 1px solid;
-  margin: -1px 0;
-}
 ul ul,
 ol ol,
 ul ol,
@@ -2625,26 +2594,26 @@ sub {
 a {
   background: transparent;
   text-decoration: none;
-  color: #99cc00;
+  color: #a5b2c7;
 }
 a:focus {
   outline: thin dotted;
-  color: #99cc00;
+  color: #a5b2c7;
 }
 a:active {
   outline: 0;
 }
 a:hover {
   outline: 0;
-  color: #99cc00;
+  color: #a5b2c7;
 }
 a:visited {
-  color: #99cc00;
+  color: #a5b2c7;
 }
 a:hover,
 a:visited:hover,
 a:visited:focus {
-  color: #bfff00;
+  color: #c4cddb;
 }
 a:link,
 a:visited:link {
@@ -3005,7 +2974,6 @@ a[href^="mailto:"] {
 .row,
 .cf_columns,
 .cf-columns {
-  overflow: hidden;
   position: relative;
   width: 100%;
 }
@@ -3167,7 +3135,6 @@ nav[role="navigation"] .nav {
   text-align: right;
   padding: 0;
   font-family: 'Gill Sans W01';
-  font-weight: bold;
 }
 @media screen and (max-width: 60em) {
   nav[role="navigation"] .nav {
@@ -3208,11 +3175,11 @@ nav[role="navigation"] .nav li {
   color: #ffffff;
 }
 nav[role="navigation"] .nav li.current-menu-item a {
-  color: #ffffff;
+  color: #212121;
   background: rgba(255, 255, 255, 0.1);
 }
 nav[role="navigation"] .nav li:hover {
-  background: #4bcd4b;
+  background: rgba(255, 255, 255, 0.2);
 }
 nav[role="navigation"] .nav li:hover a {
   color: #ffffff;
@@ -3228,7 +3195,7 @@ nav[role="navigation"] .nav li .sub-menu,
 nav[role="navigation"] .nav li .children {
   visibility: hidden;
   position: absolute;
-  background: #595959;
+  background: #7a7a7a;
   color: #ffffff;
   overflow: hidden;
   margin: 0;
@@ -3240,8 +3207,8 @@ nav[role="navigation"] .nav li .children > li {
 }
 nav[role="navigation"] .nav li .sub-menu > li:hover,
 nav[role="navigation"] .nav li .children > li:hover {
-  background: #b3b3b3;
-  color: #ffffff;
+  background: rgba(153, 153, 153, 0.1);
+  color: #212121;
 }
 nav[role="navigation"] .nav li .sub-menu > li:hover a,
 nav[role="navigation"] .nav li .children > li:hover a {
@@ -3379,7 +3346,7 @@ nav[role="navigation"] .nav li .sub-menu:hover li a {
     background: transparent;
   }
   body.navigation-menu-open #popup-menu-container #popup-menu li:nth-of-type(n+2) {
-    border-top: 1px solid #4bcd4b;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
   }
   body.navigation-menu-open #popup-menu-container #popup-menu li .sub-menu,
   body.navigation-menu-open #popup-menu-container #popup-menu li .children {
@@ -3399,7 +3366,7 @@ nav[role="navigation"] .nav li .sub-menu:hover li a {
   }
   body.navigation-menu-open #popup-menu-container #popup-menu li .sub-menu:hover:nth-of-type(n+2),
   body.navigation-menu-open #popup-menu-container #popup-menu li .children:hover:nth-of-type(n+2) {
-    border-top: 1px solid #4bcd4b;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
   }
   body.navigation-menu-open #popup-menu-container #popup-menu li .sub-menu > li,
   body.navigation-menu-open #popup-menu-container #popup-menu li .children > li {
@@ -3933,7 +3900,7 @@ footer.article-footer {
 a[rel="category tag"] {
   padding: 0.2em 0.4em;
   background: #e6e6e6;
-  color: #99cc00;
+  color: #a5b2c7;
   margin: 0.2em;
   border-bottom: 2px solid rgba(0, 0, 0, 0.25);
   display: inline-block;
@@ -3942,13 +3909,13 @@ a[rel="category tag"] {
 }
 a[rel="category tag"]:hover {
   background: #f2f2f2;
-  color: #bfff00;
+  color: #c4cddb;
 }
 .tags a[rel="tag"] {
   text-transform: capitalize;
   display: inline-block;
   padding: 0.2em  0.4em;
-  background: #99cc00;
+  background: #a5b2c7;
   color: #e6e6e6;
   margin: 0.2em;
   border-bottom: 2px solid rgba(0, 0, 0, 0.4);
@@ -3956,7 +3923,7 @@ a[rel="category tag"]:hover {
 }
 .tags a[rel="tag"]:hover {
   color: #f2f2f2;
-  background: #bfff00;
+  background: #c4cddb;
 }
 .blog h1.entry-title,
 .single-post h1.entry-title,
@@ -4404,7 +4371,7 @@ li.basic.capacities:before:before {
   padding-bottom: 1em;
   margin: 0 0 2.2em 0;
   background: rgba(221, 221, 221, 0.2);
-  color: #000000;
+  color: #212121;
   border-bottom: 2px solid rgba(196, 196, 196, 0.2);
   border-radius: 4px;
 }
@@ -4458,7 +4425,7 @@ li.basic.capacities:before:before {
 .widget_categories .cat-item a {
   display: block;
   padding: 0.3em;
-  color: #99cc00;
+  color: #a5b2c7;
   position: relative;
 }
 .widget_categories .cat-item a:after {
@@ -6411,7 +6378,7 @@ div.wpcf7 form.wpcf7-form textarea {
   -webkit-transition: background .4s ease;
           transition: background .4s ease;
   margin: 0;
-  color: #000000;
+  color: #212121;
   font-weight: bold;
   height: 40px;
   border-bottom: solid 2px rgba(39, 139, 39, 0.7);
@@ -6633,7 +6600,7 @@ div.wpcf7 form.wpcf7-form .wpcf7-mail-sent-ok {
   box-sizing: border-box;
   margin: auto;
   font-size: 2em;
-  color: #000000;
+  color: #212121;
   /* &:after {
 				content: "dismiss";
 				position: absolute;
@@ -6926,8 +6893,8 @@ input[type="text"][disabled]:focus, input[type="text"][disabled]:active, input[t
 }
 .visual-menu li > a:hover {
   opacity: 1 !important;
-  background: rgba(153, 204, 0, 0.2) !important;
-  border-left: 3px solid #99cc00 !important;
+  background: rgba(165, 178, 199, 0.2) !important;
+  border-left: 3px solid #a5b2c7 !important;
 }
 .visual-menu li.past > a {
   opacity: 0.4;
@@ -6942,7 +6909,7 @@ input[type="text"][disabled]:focus, input[type="text"][disabled]:active, input[t
   opacity: 1;
   background: rgba(39, 139, 39, 0.35);
   border-left: 3px solid #278b27;
-  color: #000000;
+  color: #212121;
 }
 .article-div {
   position: relative;
@@ -6981,12 +6948,12 @@ input[type="text"][disabled]:focus, input[type="text"][disabled]:active, input[t
 #wiki-content article .post-edit-link {
   font-size: .5em;
   color: #fff;
-  background: #99cc00;
+  background: #a5b2c7;
   padding: .1em .2em;
   border-radius: 3px;
 }
 #wiki-content article .post-edit-link:hover {
-  background: #bfff00;
+  background: #c4cddb;
 }
 @media screen and (min-width: 60em) {
   #wiki-content article {
@@ -7304,7 +7271,7 @@ html {
     top: 20px;
     height: 40px;
     width: 40px;
-    background: #99cc00;
+    background: #a5b2c7;
     border: none;
     display: block;
     color: #ffffff;
@@ -7391,12 +7358,12 @@ html {
   top: 0;
   right: 0;
   left: 0;
-  bottom: -35%;
+  bottom: -11px;
   box-shadow: 1px 1px 1px 0px rgba(0, 0, 0, 0.5);
   background: #fff;
-  -webkit-transform: skewY(-15deg);
-      -ms-transform: skewY(-15deg);
-          transform: skewY(-15deg);
+  -webkit-transform: skewY(-12deg);
+      -ms-transform: skewY(-12deg);
+          transform: skewY(-12deg);
   -webkit-transform-origin: top;
       -ms-transform-origin: top;
           transform-origin: top;
@@ -7422,13 +7389,14 @@ html {
   width: 80%;
   height: auto;
   margin: auto;
+  top: 5%;
 }
 .page-template-default .page-title {
   text-align: center;
 }
 .page #inner-content .full-width-background.yellow {
   margin-top: 2em;
-  background: #99cc00;
+  background: #a5b2c7;
 }
 
 /*# sourceMappingURL=maps/main.css.map */

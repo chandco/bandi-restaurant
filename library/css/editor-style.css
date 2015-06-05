@@ -1908,7 +1908,6 @@
 .row,
 .cf_columns,
 .cf-columns {
-  overflow: hidden;
   position: relative;
   width: 100%;
 }
@@ -2501,7 +2500,7 @@ body#tinymce.wp-editor a.cta-inline {
 }
 body#tinymce.wp-editor a.cta,
 body#tinymce.wp-editor a.cta-inline {
-  background: #99cc00;
+  background: #a5b2c7;
   color: #ffffff !important;
   max-width: 97%;
   font-family: 'Gill Sans W01';
@@ -2511,7 +2510,7 @@ body#tinymce.wp-editor a.cta-inline {
   text-align: center;
   margin: 1em auto;
   z-index: 1;
-  border-bottom: 2px solid #f2ffcc;
+  border-bottom: 2px solid #ffffff;
 }
 body#tinymce.wp-editor a.cta:visited,
 body#tinymce.wp-editor a.cta-inline:visited {
@@ -2524,7 +2523,7 @@ body#tinymce.wp-editor a.cta-inline * {
 body#tinymce.wp-editor a.cta:hover,
 body#tinymce.wp-editor a.cta-inline:hover {
   color: #0086ac;
-  background: #bfff00;
+  background: #c4cddb;
 }
 body#tinymce.wp-editor a.cta:hover *,
 body#tinymce.wp-editor a.cta-inline:hover * {
@@ -2550,7 +2549,8 @@ body#tinymce.wp-editor div.feature {
   position: relative;
   width: 100%;
   background: #278b27;
-  color: #ffffff;
+  color: #212121;
+  box-shadow: 1px 1px 1px 0px rgba(0, 0, 0, 0.7);
   border-radius: 2px;
   -webkit-transition: background 0.4s ease;
           transition: background 0.4s ease;
@@ -2574,105 +2574,133 @@ body#tinymce.wp-editor div.feature * {
     max-width: 100%;
   }
 }
-body#tinymce.wp-editor div.feature header > svg {
-  position: absolute;
-  width: 100%;
-  height: 20px;
-  bottom: 0;
-  z-index: 5;
-}
-body#tinymce.wp-editor div.feature header > svg .triangle {
-  fill: #278b27;
-}
-body#tinymce.wp-editor div.feature.white {
-  background: #ffffff;
-  color: #000000;
-}
-body#tinymce.wp-editor div.feature.white header > svg {
-  position: absolute;
-  width: 100%;
-  height: 20px;
-  bottom: 0;
-  z-index: 5;
-}
-body#tinymce.wp-editor div.feature.white header > svg .triangle {
-  fill: #ffffff;
-}
-body#tinymce.wp-editor div.feature.purple {
-  background: #9a97b8;
-  color: #000000;
-}
-body#tinymce.wp-editor div.feature.purple header > svg {
-  position: absolute;
-  width: 100%;
-  height: 20px;
-  bottom: 0;
-  z-index: 5;
-}
-body#tinymce.wp-editor div.feature.purple header > svg .triangle {
-  fill: #9a97b8;
-}
 body#tinymce.wp-editor div.feature.grey {
   background: #999999;
-  color: #000000;
-}
-body#tinymce.wp-editor div.feature.grey header > svg {
-  position: absolute;
-  width: 100%;
-  height: 20px;
-  bottom: 0;
-  z-index: 5;
-}
-body#tinymce.wp-editor div.feature.grey header > svg .triangle {
-  fill: #999999;
-}
-body#tinymce.wp-editor div.feature.blue {
-  background: #99cc00;
-  color: #000000;
-}
-body#tinymce.wp-editor div.feature.blue header > svg {
-  position: absolute;
-  width: 100%;
-  height: 20px;
-  bottom: 0;
-  z-index: 5;
-}
-body#tinymce.wp-editor div.feature.blue header > svg .triangle {
-  fill: #99cc00;
+  color: #212121;
 }
 body#tinymce.wp-editor div.feature.green {
   background: #278b27;
   color: #ffffff;
 }
-body#tinymce.wp-editor div.feature.green header > svg {
-  position: absolute;
-  width: 100%;
-  height: 20px;
-  bottom: 0;
-  z-index: 5;
+body#tinymce.wp-editor div.feature.blue {
+  background: #a5b2c7;
+  color: #212121;
 }
-body#tinymce.wp-editor div.feature.green header > svg .triangle {
-  fill: #278b27;
+body#tinymce.wp-editor div.feature.lightgreen {
+  background: #99cc00;
+  color: #212121;
 }
-body#tinymce.wp-editor div.feature.black {
-  background: #000000;
+body#tinymce.wp-editor div.feature.purple {
+  background: #9a97b8;
   color: #ffffff;
 }
-body#tinymce.wp-editor div.feature.black header > svg {
+body#tinymce.wp-editor div.feature.black {
+  background: #212121;
+  color: #ffffff;
+}
+body#tinymce.wp-editor div.feature.white {
+  background: #ffffff;
+  color: #212121;
+}
+body#tinymce.wp-editor div.feature.orange {
+  background: #be904d;
+  color: #212121;
+}
+body#tinymce.wp-editor div.feature svg {
   position: absolute;
   width: 100%;
   height: 20px;
   bottom: 0;
   z-index: 5;
 }
-body#tinymce.wp-editor div.feature.black header > svg .triangle {
-  fill: #000000;
+body#tinymce.wp-editor div.feature svg .triangle {
+  fill: #278b27;
+}
+body#tinymce.wp-editor div.feature.grey svg {
+  position: absolute;
+  width: 100%;
+  height: 20px;
+  bottom: 0;
+  z-index: 5;
+}
+body#tinymce.wp-editor div.feature.grey svg .triangle {
+  fill: #999999;
+}
+body#tinymce.wp-editor div.feature.green svg {
+  position: absolute;
+  width: 100%;
+  height: 20px;
+  bottom: 0;
+  z-index: 5;
+}
+body#tinymce.wp-editor div.feature.green svg .triangle {
+  fill: #278b27;
+}
+body#tinymce.wp-editor div.feature.blue svg {
+  position: absolute;
+  width: 100%;
+  height: 20px;
+  bottom: 0;
+  z-index: 5;
+}
+body#tinymce.wp-editor div.feature.blue svg .triangle {
+  fill: #a5b2c7;
+}
+body#tinymce.wp-editor div.feature.lightgreen svg {
+  position: absolute;
+  width: 100%;
+  height: 20px;
+  bottom: 0;
+  z-index: 5;
+}
+body#tinymce.wp-editor div.feature.lightgreen svg .triangle {
+  fill: #99cc00;
+}
+body#tinymce.wp-editor div.feature.purple svg {
+  position: absolute;
+  width: 100%;
+  height: 20px;
+  bottom: 0;
+  z-index: 5;
+}
+body#tinymce.wp-editor div.feature.purple svg .triangle {
+  fill: #9a97b8;
+}
+body#tinymce.wp-editor div.feature.black svg {
+  position: absolute;
+  width: 100%;
+  height: 20px;
+  bottom: 0;
+  z-index: 5;
+}
+body#tinymce.wp-editor div.feature.black svg .triangle {
+  fill: #212121;
+}
+body#tinymce.wp-editor div.feature.white svg {
+  position: absolute;
+  width: 100%;
+  height: 20px;
+  bottom: 0;
+  z-index: 5;
+}
+body#tinymce.wp-editor div.feature.white svg .triangle {
+  fill: #ffffff;
+}
+body#tinymce.wp-editor div.feature.orange svg {
+  position: absolute;
+  width: 100%;
+  height: 20px;
+  bottom: 0;
+  z-index: 5;
+}
+body#tinymce.wp-editor div.feature.orange svg .triangle {
+  fill: #be904d;
 }
 body#tinymce.wp-editor div.feature header {
   width: 100%;
   display: block;
   height: 0;
-  padding-bottom: 75%;
+  padding-bottom: 55%;
   position: relative;
   overflow: hidden;
   border-bottom: none;
@@ -2687,7 +2715,7 @@ body#tinymce.wp-editor div.feature header img {
   height: 100%;
   width: auto;
   max-width: 9999px;
-  min-width: 100%;
+  min-width: 101%;
   min-height: 100%;
   top: 0;
   left: 50%;
@@ -2794,7 +2822,6 @@ body#tinymce.wp-editor .row {
   -webkit-flex-direction: row;
       -ms-flex-direction: row;
           flex-direction: row;
-  overflow: hidden;
   position: relative;
   width: 100%;
 }

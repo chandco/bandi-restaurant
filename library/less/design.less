@@ -7,6 +7,7 @@
 .body-style() {
 	color: @default-text;
 	background: @body-background; // may want image.
+  background-image: url('/wp-content/themes/bandi-restaurant/library/images/textured-background.gif');
 }
 
 
@@ -14,7 +15,11 @@
 
 
 
-
+hr {
+  border: none;
+  border-top: 1px solid fade(@green, 20%);
+  margin-bottom: -.8em;
+}
 
 
 
@@ -183,6 +188,7 @@ body {
       background: @light;
 
       .colours-bg();
+      background-image: url('/wp-content/themes/bandi-restaurant/library/images/textured-background.png') !important;
 
       & > h2 {
         margin-top: 0;
