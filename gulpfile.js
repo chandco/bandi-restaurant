@@ -21,12 +21,12 @@ var run = require('gulp-run');
 
 gulp.task('default', function () {
 
-    console.log( process.cwd() );
-    if (process.cwd() == '/home/nathan/bandi-restaurant') {
-        var devProxy = "113.dev.chand.co";
-    } else {
-        var devProxy = "bandi.dev.chand.co";
-    }
+    // console.log( process.cwd() );
+    // if (process.cwd() == '/home/nathan/bandi-restaurant') {
+         var devProxy = "113.dev.chand.co";
+    // } else {
+    //     var devProxy = "bandi.dev.chand.co";
+    // }
 
 
 	browserSync({
