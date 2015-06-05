@@ -1,4 +1,4 @@
-<li class='post-preview'>
+<li <?php post_class('post-preview'); ?>>
 	<a href='<?php the_permalink(); ?>'>
 		<div class='image-container'>
 			<?php

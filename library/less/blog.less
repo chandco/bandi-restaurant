@@ -111,6 +111,10 @@
 
 	.post-preview {
 		width: 24%; // assumes 4, might have to fix this for other parents
+		margin-top: 0;
+		&:last-of-type {
+			border-bottom: 2px solid @black;
+		}
 	}
 
 }
@@ -122,6 +126,7 @@
 .archive, .blog {
 
 	.grid-feed {
+
 
 
 
@@ -181,6 +186,7 @@
 .post-preview {
 	display: block;
 	background: @widget-background;
+	margin-top: 0;
 
 	.image-container {
 		width: 100%;
