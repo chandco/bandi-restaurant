@@ -144,6 +144,7 @@ div.feature {
 
   * {
     
+    color: inherit;
     
 
   }
@@ -156,9 +157,16 @@ div.feature {
   }
 
   background: @light;
+  
+  .colours-bg();
+
+  
+
   // border-bottom: 2px solid darken(@light, 10%);
   border-radius: 2px;
   transition:background 0.4s ease;
+
+
 
   
   
@@ -205,7 +213,7 @@ div.feature {
 
       width: 100%;
       left: 0;
-      color: @dark;
+      
       z-index: 2;
       margin: 0 0 1em 0;
       font-size: 1.2em;
@@ -221,7 +229,8 @@ div.feature {
     padding: 1em;
     line-height: 1.2;
     font-size: 0.9em;
-    color: @white;
+    color: inherit;
+
 
   }
 }

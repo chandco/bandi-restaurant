@@ -46,7 +46,7 @@
 													
 								<div id="carousel" class='page-featured-image'>
 							
-									<?php echo responsive_image_thumbnail(null, 'featured-image'); ?>
+									<?php echo responsive_image_thumbnail(null, 'panorama'); ?>
 
 								</div>
 							<?php } ?>

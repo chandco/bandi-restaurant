@@ -1,9 +1,9 @@
 
 @grey : #999999;
-@green : #9A97B8;// #C0D62C;
+@green : #278B27;// #C0D62C;
 @red: #d22529;
 @blue : #99cc00; //#0086ac;
-
+@purple : #9A97B8;// #C0D62C;
 @black : RGB(0,0,0);
 @white : RGB(255,255,255);
 @mid-grey: RGB(128,128,128);
@@ -35,11 +35,10 @@
 @header-logo-width: 10%; // smaller for this site - longer logos may need more.
 
 // COLOURS
-
 @this-website: ~'http://ornc.local'; // this will have to change 
 
 // We use generic colour names to imply something so set them here.  
-@body-font : "Gill Sans W02 Light", Calibri, Candara, Segoe, 'Segoe UI', Optima, Arial, sans-serif;
+@body-font : 'Gill Sans W01';//FG Jasmine W00 Regular', Calibri, Candara, Segoe, 'Segoe UI', Optima, Arial, sans-serif;
 
 
 @h-font : @body-font;//'Source Sans Pro', sans-serif;
@@ -81,7 +80,7 @@
 @formbg : @lightblue;
 
 // Header Styles and sizes
-@header-background: @green;
+@header-background: @darkgreen;
 
 // sidebars
 @widget-background: fade( @lightgrey, 20% );
@@ -91,10 +90,10 @@
 @nav-link-color: @white;
 @nav-link-background: transparent;
 
-@nav-link-current-text: @black;
-@nav-link-current-background: transparent;
+@nav-link-current-text: @white;
+@nav-link-current-background: fade(@white, 10%);
 
-@nav-highlight : lighten(@black, 10%);
+@nav-highlight : lighten(@darkgreen, 20%);
 @nav-highlight-text : @white;
 
 @nav-secondary-highlight : lighten(@black, 15%);
@@ -119,8 +118,8 @@
 @slide-background: @darkgrey;
 
 
-@carousel-max-height: 600px;
-@carousel-height: 600px; 
+@carousel-max-height: 500px;
+@carousel-height: 500px; 
 
 
 
@@ -137,7 +136,7 @@
 @cta-sidebar-width : 15%;
 @mobile-cta-height : 100px;
 
-@max-central-width: 1400px;
+@max-central-width: 1000px;
 @tablet-break : 60em;
 
 @mobile-break: 30em;
@@ -169,3 +168,45 @@
 
 @wiki-menu-highlight: @darkgreen;
 @wiki-menu-hover: @blue;
+
+
+.color-bg-mixin(@color, @bg, @lighten) {
+	 background: lighten(@bg, @lighten); 
+  	 color: @color; 
+  	 header > svg  {
+  	 	position: absolute;
+  	 	width: 100%;
+  	 	height: 20px;
+  	 	bottom: 0;
+  	 	z-index: 5;
+  	 	.triangle {
+  	 		fill: lighten(@bg, @lighten); 
+  	 	}
+  	 }
+}
+
+.colours-bg( @lighten : 0% ) {
+
+  .color-bg-mixin(@white, @green, @lighten);
+
+
+
+  &.white {
+  	.color-bg-mixin(@black, @white, @lighten);
+  }
+  &.purple { 
+  	.color-bg-mixin(@black, @purple, @lighten);
+  }
+  &.grey {
+  	.color-bg-mixin(@black, @grey, @lighten);
+  }
+  &.blue {
+  	.color-bg-mixin(@black, @blue, @lighten);
+  }
+  &.green {
+  	.color-bg-mixin(@white, @green, @lighten);
+  }
+  &.black {
+  	 .color-bg-mixin(@white, @black, @lighten); 	
+  }
+}

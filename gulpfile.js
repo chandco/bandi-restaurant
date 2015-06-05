@@ -40,7 +40,6 @@ gulp.task('default', function () {
 
 	gulp.watch(['./library/js/*.js', '!./library/js/main-built.js'], ['javascript']);
 
-
 });
 
 

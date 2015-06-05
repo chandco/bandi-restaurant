@@ -68,7 +68,7 @@
   a {
     padding: 5px 1.3em;
 
-    text-transform: lowercase;
+    text-transform: capitalize;
   }
 
   .sub-menu, .children {
@@ -164,7 +164,7 @@ body {
 
     .full-width-background {
 
-      margin-top: 1em;
+      margin: 2em auto;
       padding: 2em 0;
       max-width: 100%;
 
@@ -181,17 +181,21 @@ body {
       }
       
       background: @light;
-      
 
-      &.blue {
-      	&:before {
-      		//background: @blue;
-      	}
-      }
+      .colours-bg();
 
       & > h2 {
         margin-top: 0;
       }
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+
+
+    .full-width-background + .full-width-background {
+      margin-top: -2em;
     }
 
 }

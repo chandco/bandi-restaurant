@@ -17,7 +17,7 @@
  // you'll want to sync this with your LESS variables.
 
 
-$max = 735;
+$max = 1400;
 
 
 

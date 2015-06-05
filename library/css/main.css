@@ -2050,24 +2050,24 @@ POSTS & CONTENT STYLES
 /* LESS Document */
 .central-column {
   width: 100%;
-  max-width: 1400px;
+  max-width: 1000px;
   margin-left: auto;
   margin-right: auto;
   position: relative;
 }
-@media screen and (max-width: 1400px) {
+@media screen and (max-width: 1000px) {
   .central-column {
     width: 96%;
   }
 }
 .max-central {
   width: 100%;
-  max-width: 1400px;
+  max-width: 1000px;
   margin-left: auto;
   margin-right: auto;
   position: relative;
 }
-@media screen and (max-width: 1400px) {
+@media screen and (max-width: 1000px) {
   .max-central {
     width: 96%;
   }
@@ -2114,7 +2114,7 @@ a.cta-inline {
   background: #99cc00;
   color: #ffffff !important;
   max-width: 97%;
-  font-family: "Gill Sans W02 Light", Calibri, Candara, Segoe, 'Segoe UI', Optima, Arial, sans-serif;
+  font-family: 'Gill Sans W01';
   font-weight: normal;
   position: relative;
   padding: 0.5em 1em;
@@ -2159,7 +2159,8 @@ div.feature {
   text-decoration: none;
   position: relative;
   width: 100%;
-  background: #9a97b8;
+  background: #278b27;
+  color: #ffffff;
   border-radius: 2px;
   -webkit-transition: background 0.4s ease;
           transition: background 0.4s ease;
@@ -2175,10 +2176,107 @@ div.feature p {
   display: inline-block;
   padding: 0;
 }
+div.feature * {
+  color: inherit;
+}
 @media screen and (max-width: 900px) {
   div.feature {
     max-width: 100%;
   }
+}
+div.feature header > svg {
+  position: absolute;
+  width: 100%;
+  height: 20px;
+  bottom: 0;
+  z-index: 5;
+}
+div.feature header > svg .triangle {
+  fill: #278b27;
+}
+div.feature.white {
+  background: #ffffff;
+  color: #000000;
+}
+div.feature.white header > svg {
+  position: absolute;
+  width: 100%;
+  height: 20px;
+  bottom: 0;
+  z-index: 5;
+}
+div.feature.white header > svg .triangle {
+  fill: #ffffff;
+}
+div.feature.purple {
+  background: #9a97b8;
+  color: #000000;
+}
+div.feature.purple header > svg {
+  position: absolute;
+  width: 100%;
+  height: 20px;
+  bottom: 0;
+  z-index: 5;
+}
+div.feature.purple header > svg .triangle {
+  fill: #9a97b8;
+}
+div.feature.grey {
+  background: #999999;
+  color: #000000;
+}
+div.feature.grey header > svg {
+  position: absolute;
+  width: 100%;
+  height: 20px;
+  bottom: 0;
+  z-index: 5;
+}
+div.feature.grey header > svg .triangle {
+  fill: #999999;
+}
+div.feature.blue {
+  background: #99cc00;
+  color: #000000;
+}
+div.feature.blue header > svg {
+  position: absolute;
+  width: 100%;
+  height: 20px;
+  bottom: 0;
+  z-index: 5;
+}
+div.feature.blue header > svg .triangle {
+  fill: #99cc00;
+}
+div.feature.green {
+  background: #278b27;
+  color: #ffffff;
+}
+div.feature.green header > svg {
+  position: absolute;
+  width: 100%;
+  height: 20px;
+  bottom: 0;
+  z-index: 5;
+}
+div.feature.green header > svg .triangle {
+  fill: #278b27;
+}
+div.feature.black {
+  background: #000000;
+  color: #ffffff;
+}
+div.feature.black header > svg {
+  position: absolute;
+  width: 100%;
+  height: 20px;
+  bottom: 0;
+  z-index: 5;
+}
+div.feature.black header > svg .triangle {
+  fill: #000000;
 }
 div.feature header {
   width: 100%;
@@ -2215,7 +2313,6 @@ div.feature h2 {
   bottom: 0;
   width: 100%;
   left: 0;
-  color: #333333;
   z-index: 2;
   margin: 0 0 1em 0;
   font-size: 1.2em;
@@ -2229,7 +2326,7 @@ div.feature div.content {
   padding: 1em;
   line-height: 1.2;
   font-size: 0.9em;
-  color: #ffffff;
+  color: inherit;
 }
 a div.feature:hover {
   background: #ffffff;
@@ -2300,36 +2397,37 @@ body {
 .page #inner-content .entry-content > *,
 .page #inner-content .article-header > * {
   width: 100%;
-  max-width: 1400px;
+  max-width: 1000px;
   margin-left: auto;
   margin-right: auto;
   position: relative;
 }
-@media screen and (max-width: 1400px) {
+@media screen and (max-width: 1000px) {
   .page #inner-content .entry-content > *,
   .page #inner-content .article-header > * {
     width: 96%;
   }
 }
 .page #inner-content .full-width-background {
-  margin-top: 1em;
+  margin: 2em auto;
   padding: 2em 0;
   max-width: 100%;
-  background: #9a97b8;
+  background: #278b27;
+  color: #ffffff;
 }
 .page #inner-content .full-width-background > * {
   width: 100%;
-  max-width: 1400px;
+  max-width: 1000px;
   margin-left: auto;
   margin-right: auto;
   position: relative;
 }
-@media screen and (max-width: 1400px) {
+@media screen and (max-width: 1000px) {
   .page #inner-content .full-width-background > * {
     width: 96%;
   }
 }
-@media screen and (max-width: 1400px) {
+@media screen and (max-width: 1000px) {
   .page #inner-content .full-width-background {
     width: 100%;
   }
@@ -2340,23 +2438,123 @@ body {
 .page #inner-content .full-width-background > h4 {
   margin-top: 0;
 }
+.page #inner-content .full-width-background header > svg {
+  position: absolute;
+  width: 100%;
+  height: 20px;
+  bottom: 0;
+  z-index: 5;
+}
+.page #inner-content .full-width-background header > svg .triangle {
+  fill: #278b27;
+}
+.page #inner-content .full-width-background.white {
+  background: #ffffff;
+  color: #000000;
+}
+.page #inner-content .full-width-background.white header > svg {
+  position: absolute;
+  width: 100%;
+  height: 20px;
+  bottom: 0;
+  z-index: 5;
+}
+.page #inner-content .full-width-background.white header > svg .triangle {
+  fill: #ffffff;
+}
+.page #inner-content .full-width-background.purple {
+  background: #9a97b8;
+  color: #000000;
+}
+.page #inner-content .full-width-background.purple header > svg {
+  position: absolute;
+  width: 100%;
+  height: 20px;
+  bottom: 0;
+  z-index: 5;
+}
+.page #inner-content .full-width-background.purple header > svg .triangle {
+  fill: #9a97b8;
+}
+.page #inner-content .full-width-background.grey {
+  background: #999999;
+  color: #000000;
+}
+.page #inner-content .full-width-background.grey header > svg {
+  position: absolute;
+  width: 100%;
+  height: 20px;
+  bottom: 0;
+  z-index: 5;
+}
+.page #inner-content .full-width-background.grey header > svg .triangle {
+  fill: #999999;
+}
+.page #inner-content .full-width-background.blue {
+  background: #99cc00;
+  color: #000000;
+}
+.page #inner-content .full-width-background.blue header > svg {
+  position: absolute;
+  width: 100%;
+  height: 20px;
+  bottom: 0;
+  z-index: 5;
+}
+.page #inner-content .full-width-background.blue header > svg .triangle {
+  fill: #99cc00;
+}
+.page #inner-content .full-width-background.green {
+  background: #278b27;
+  color: #ffffff;
+}
+.page #inner-content .full-width-background.green header > svg {
+  position: absolute;
+  width: 100%;
+  height: 20px;
+  bottom: 0;
+  z-index: 5;
+}
+.page #inner-content .full-width-background.green header > svg .triangle {
+  fill: #278b27;
+}
+.page #inner-content .full-width-background.black {
+  background: #000000;
+  color: #ffffff;
+}
+.page #inner-content .full-width-background.black header > svg {
+  position: absolute;
+  width: 100%;
+  height: 20px;
+  bottom: 0;
+  z-index: 5;
+}
+.page #inner-content .full-width-background.black header > svg .triangle {
+  fill: #000000;
+}
 .page #inner-content .full-width-background > h2 {
   margin-top: 0;
 }
+.page #inner-content .full-width-background:last-child {
+  margin-bottom: 0;
+}
+.page #inner-content .full-width-background + .full-width-background {
+  margin-top: -2em;
+}
 body {
-  font-family: "Gill Sans W02 Light", Calibri, Candara, Segoe, 'Segoe UI', Optima, Arial, sans-serif;
+  font-family: 'Gill Sans W01';
 }
 h1,
 h2,
 h3,
 h4 {
-  font-family: "Gill Sans W02 Light", Calibri, Candara, Segoe, 'Segoe UI', Optima, Arial, sans-serif;
-  font-weight: bold;
+  font-family: 'Gill Sans W01';
+  font-weight: normal;
 }
 h5,
 h6 {
   font-weight: bold;
-  font-family: "Gill Sans W02 Light", Calibri, Candara, Segoe, 'Segoe UI', Optima, Arial, sans-serif;
+  font-family: 'Gill Sans W01';
   font-size: 1.2em;
 }
 body {
@@ -2495,7 +2693,7 @@ a[href^="mailto:"] {
   padding: 2% 0;
   margin: auto;
   width: 100%;
-  max-width: 1400px;
+  max-width: 1000px;
   margin-left: auto;
   margin-right: auto;
   position: relative;
@@ -2507,7 +2705,7 @@ a[href^="mailto:"] {
       -ms-flex-flow: row wrap;
           flex-flow: row wrap;
 }
-@media screen and (max-width: 1400px) {
+@media screen and (max-width: 1000px) {
   .latest-blogs-feed {
     width: 96%;
   }
@@ -2542,7 +2740,7 @@ a[href^="mailto:"] {
   position: absolute;
   box-sizing: border-box;
   bottom: 0;
-  background: rgba(154, 151, 184, 0.7);
+  background: rgba(39, 139, 39, 0.7);
   color: #ffffff;
   padding: 2%;
   width: 100%;
@@ -2574,7 +2772,7 @@ a[href^="mailto:"] {
           transform: scale(1.1, 1.1);
 }
 .blog-grid-item:hover h2 {
-  background: rgba(154, 151, 184, 0.9);
+  background: rgba(39, 139, 39, 0.9);
 }
 .blog-grid-item .excerpt {
   width: 100%;
@@ -2618,6 +2816,9 @@ a[href^="mailto:"] {
           flex-grow: 1;
   height: auto;
   max-width: 100%;
+  -webkit-flex-basis: 0;
+      -ms-flex-preferred-size: 0;
+          flex-basis: 0;
 }
 .row .col-smart.wider,
 .cf_columns .col-smart.wider,
@@ -2906,7 +3107,7 @@ a[href^="mailto:"] {
   -webkit-backface-visibility: hidden;
           backface-visibility: hidden;
   width: 100%;
-  background: #9a97b8;
+  background: #278b27;
   height: 60px;
   padding: 0;
   position: fixed;
@@ -2965,7 +3166,7 @@ nav[role="navigation"] .nav {
   z-index: 10;
   text-align: right;
   padding: 0;
-  font-family: "Gill Sans W02 Light", Calibri, Candara, Segoe, 'Segoe UI', Optima, Arial, sans-serif;
+  font-family: 'Gill Sans W01';
   font-weight: bold;
 }
 @media screen and (max-width: 60em) {
@@ -2987,7 +3188,7 @@ nav[role="navigation"] .nav > li {
 }
 nav[role="navigation"] .nav > li a {
   padding: 5px 1.3em;
-  text-transform: lowercase;
+  text-transform: capitalize;
 }
 nav[role="navigation"] .nav > li .sub-menu,
 nav[role="navigation"] .nav > li .children {
@@ -3007,11 +3208,11 @@ nav[role="navigation"] .nav li {
   color: #ffffff;
 }
 nav[role="navigation"] .nav li.current-menu-item a {
-  color: #000000;
-  background: transparent;
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.1);
 }
 nav[role="navigation"] .nav li:hover {
-  background: #1a1a1a;
+  background: #4bcd4b;
 }
 nav[role="navigation"] .nav li:hover a {
   color: #ffffff;
@@ -3158,7 +3359,7 @@ nav[role="navigation"] .nav li .sub-menu:hover li a {
     width: 96%;
   }
   body.navigation-menu-open #popup-menu-container #popup-menu > li {
-    border-bottom: 1px solid rgba(154, 151, 184, 0.8);
+    border-bottom: 1px solid rgba(39, 139, 39, 0.8);
     padding: 5px;
     color: #333333;
   }
@@ -3178,7 +3379,7 @@ nav[role="navigation"] .nav li .sub-menu:hover li a {
     background: transparent;
   }
   body.navigation-menu-open #popup-menu-container #popup-menu li:nth-of-type(n+2) {
-    border-top: 1px solid #1a1a1a;
+    border-top: 1px solid #4bcd4b;
   }
   body.navigation-menu-open #popup-menu-container #popup-menu li .sub-menu,
   body.navigation-menu-open #popup-menu-container #popup-menu li .children {
@@ -3198,7 +3399,7 @@ nav[role="navigation"] .nav li .sub-menu:hover li a {
   }
   body.navigation-menu-open #popup-menu-container #popup-menu li .sub-menu:hover:nth-of-type(n+2),
   body.navigation-menu-open #popup-menu-container #popup-menu li .children:hover:nth-of-type(n+2) {
-    border-top: 1px solid #1a1a1a;
+    border-top: 1px solid #4bcd4b;
   }
   body.navigation-menu-open #popup-menu-container #popup-menu li .sub-menu > li,
   body.navigation-menu-open #popup-menu-container #popup-menu li .children > li {
@@ -4193,9 +4394,9 @@ li.basic.capacities:before:before {
 }
 .widgettitle {
   padding-bottom: 1em;
-  border-bottom: 2px solid #9a97b8;
+  border-bottom: 2px solid #278b27;
   margin-bottom: 1em;
-  color: #9a97b8;
+  color: #278b27;
   text-align: center;
 }
 .widget {
@@ -4237,7 +4438,7 @@ li.basic.capacities:before:before {
   padding-bottom: 0.5em;
 }
 .footer .widgettitle {
-  color: #9a97b8;
+  color: #278b27;
 }
 .widget_categories .widgettitle {
   margin-bottom: 0;
@@ -4438,7 +4639,7 @@ li.basic.capacities:before:before {
 #footer-sidebar .widget h2 {
   font-size: 1.4rem;
   padding-bottom: .5em;
-  border-bottom: 2px solid #9a97b8;
+  border-bottom: 2px solid #278b27;
 }
 .no-flexbox #footer-sidebar,
 .no-js #footer-sidebar {
@@ -4591,7 +4792,7 @@ li.basic.capacities:before:before {
   width: 100%;
 }
 .latest-blogs {
-  background: #9a97b8;
+  background: #278b27;
   width: 100%;
 }
 @media screen and (max-width: 1000px) {
@@ -4607,7 +4808,7 @@ li.basic.capacities:before:before {
   overflow: hidden;
   position: relative;
   opacity: 1;
-  height: 480px;
+  height: 400px;
   margin-bottom: -40px;
 }
 .page-featured-image img {
@@ -4889,13 +5090,14 @@ li.basic.capacities:before:before {
 .cycle-slideshow.fill-width .slick-list .slick-track .slick-slide.panorama-tablet img,
 .cycle-slideshow.fill-width .slick-list .slick-track .slick-slide.panorama-mobile img,
 .cycle-slideshow.fill-width .slick-list .slick-track .slick-slide.panorama img {
-  width: auto;
-  height: 100%;
-  top: 0;
-  -webkit-transform: translateX(-50%);
-      -ms-transform: translateX(-50%);
-          transform: translateX(-50%);
-  left: 50%;
+  left: 0;
+  width: 100%;
+  height: auto;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+      -ms-transform: translateY(-50%);
+          transform: translateY(-50%);
+  min-height: 100%;
 }
 .cycle-slideshow {
   background: #333333;
@@ -4904,8 +5106,8 @@ li.basic.capacities:before:before {
           transition: opacity .5s ease;
   position: relative;
   width: 100%;
-  height: 600px;
-  max-height: 600px;
+  height: 500px;
+  max-height: 500px;
 }
 .cycle-slideshow .tooltip {
   position: absolute;
@@ -4921,8 +5123,8 @@ li.basic.capacities:before:before {
 }
 @media screen and (max-width: 930px) {
   .cycle-slideshow {
-    height: 300px;
-    max-height: 300px;
+    height: 250px;
+    max-height: 250px;
   }
 }
 .cycle-slideshow .slick-list {
@@ -5727,7 +5929,7 @@ img.mfp-img {
   display: block;
   top: 0;
   padding: 0 0 0 1em;
-  color: #9a97b8;
+  color: #278b27;
 }
 .footer nav[role="navigation"] .nav li .sub-menu:hover,
 .footer nav[role="navigation"] .nav li .children:hover {
@@ -5780,10 +5982,10 @@ img.mfp-img {
   background: #808080;
 }
 .footer a {
-  color: #9a97b8;
+  color: #278b27;
 }
 .footer a:hover {
-  color: #d5d4e1;
+  color: #4bcd4b;
 }
 .footer .copyright {
   color: #333333;
@@ -5797,7 +5999,7 @@ input[type='submit'] {
   border: none;
   background: #4d4d4d;
   padding: .3em .6em;
-  color: #9a97b8;
+  color: #278b27;
   border-radius: 2px;
 }
 span.wpcf7-list-item {
@@ -5998,7 +6200,7 @@ label input[type='checkbox']:checked + span:hover {
   left: 2%;
   top: 1px;
   z-index: 1;
-  color: #9a97b8;
+  color: #278b27;
   -webkit-transform: scale(1.5, 1.5);
       -ms-transform: scale(1.5, 1.5);
           transform: scale(1.5, 1.5);
@@ -6212,7 +6414,7 @@ div.wpcf7 form.wpcf7-form textarea {
   color: #000000;
   font-weight: bold;
   height: 40px;
-  border-bottom: solid 2px rgba(154, 151, 184, 0.7);
+  border-bottom: solid 2px rgba(39, 139, 39, 0.7);
 }
 div.wpcf7 form.wpcf7-form input:focus,
 div.wpcf7 form.wpcf7-form textarea:focus {
@@ -6220,7 +6422,7 @@ div.wpcf7 form.wpcf7-form textarea:focus {
 }
 div.wpcf7 form.wpcf7-form input:selection,
 div.wpcf7 form.wpcf7-form textarea:selection {
-  background: 151;
+  background: 139;
 }
 div.wpcf7 form.wpcf7-form .wpcf7-list-item {
   line-height: 1;
@@ -6421,7 +6623,7 @@ div.wpcf7 form.wpcf7-form .wpcf7-response-output {
   white-space: normal;
 }
 div.wpcf7 form.wpcf7-form .wpcf7-mail-sent-ok {
-  background: #9a97b8;
+  background: #278b27;
   position: absolute;
   top: 2%;
   left: 2%;
