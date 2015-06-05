@@ -171,18 +171,44 @@
 
 
 .color-bg-mixin(@color, @bg, @lighten) {
-	 background: lighten(@bg, @lighten); 
+	   background: lighten(@bg, @lighten); 
   	 color: @color; 
-  	 header > svg  {
-  	 	position: absolute;
-  	 	width: 100%;
-  	 	height: 20px;
-  	 	bottom: 0;
-  	 	z-index: 5;
-  	 	.triangle {
-  	 		fill: lighten(@bg, @lighten); 
-  	 	}
-  	 }
+  	
+}
+
+
+.svg-bg-mixin(@bg, @lighten) {
+   svg  {
+      position: absolute;
+      width: 100%;
+      height: 20px;
+      bottom: 0;
+      z-index: 5;
+      .triangle {
+        fill: lighten(@bg, @lighten); 
+      }
+     }
+}
+
+.svg-colours(@bg, @lighten) {
+  &.white {
+    .svg-bg-mixin(@black, @white, @lighten);
+  }
+  &.purple { 
+    .svg-bg-mixin(@black, @purple, @lighten);
+  }
+  &.grey {
+    .svg-bg-mixin(@black, @grey, @lighten);
+  }
+  &.blue {
+    .svg-bg-mixin(@black, @blue, @lighten);
+  }
+  &.green {
+    .svg-bg-mixin(@white, @green, @lighten);
+  }
+  &.black {
+     .svg-bg-mixin(@white, @black, @lighten);   
+  }
 }
 
 .colours-bg( @lighten : 0% ) {
