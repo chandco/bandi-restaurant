@@ -2283,6 +2283,11 @@ div.cf.newline:before {
   margin-top: -60px;
   margin-bottom: 60px;
 }
+@media screen and (max-width: 30em) {
+  #carousel {
+    margin-bottom: 20px;
+  }
+}
 .admin-bar .header {
   top: 32px !important;
 }
@@ -4614,6 +4619,12 @@ li.basic.capacities:before:before {
   opacity: 1;
   height: 480px;
   margin-bottom: -40px;
+}
+@media screen and (max-width: 30em) {
+  .page-featured-image {
+    height: 250px;
+    margin-bottom: -80px;
+  }
 }
 .page-featured-image img {
   position: absolute;
