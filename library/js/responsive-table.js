@@ -1,9 +1,11 @@
 define(['jquery', 'components/arrayForEach'], function($) {
 
     // stop executing for <IE10
-   
+    console.log("check...");   
 
     if (!('visibilityState' in document)) return;
+
+    console.log("Table");
 
 
 	$(document).ready(function() {
@@ -33,6 +35,8 @@ define(['jquery', 'components/arrayForEach'], function($) {
 		var today = d.getDay();
 		var today_cell_index;
 
+        
+
         $(tds).each( function( index, td ) {
 
            
@@ -61,17 +65,15 @@ define(['jquery', 'components/arrayForEach'], function($) {
 
         });
 
+
+     //   console.log(today, days[today_cell_index]);
+
         $(table).find('tr').find('td:eq(' + today_cell_index + ')').addClass('today');
 
 
 
         window.newTDs = [];
         if (tds.length === 6) {
-
-            
-        	
-        	
-
 
 
         	var $labelColumn = $('<div class="label-column"></div>');
@@ -163,7 +165,9 @@ define(['jquery', 'components/arrayForEach'], function($) {
 		// finally, scroll to today
 
 		Animating = false;
-        checkTablePosition($($wrapper).find('.table-viewport'), 20 * today_cell_index);
+
+
+        checkTablePosition($($wrapper).find('.table-viewport'), 20 * (today_cell_index-1));
 
     });
 

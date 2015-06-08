@@ -61,6 +61,9 @@ require_once( 'library/bones.php' );
 require_once("library/theme-options.php");
 
 
+// HTML in the excerpt, used for the widgets and blog feeds etc
+require_once("library/html_excerpt.php");
+
 require_once("library/restrictions.php");
 
 /*********************

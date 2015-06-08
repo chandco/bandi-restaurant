@@ -2,7 +2,7 @@
 
 class ita_recent_posts extends WP_Widget {
 	function ita_recent_posts() {
-		parent::WP_Widget(false, 'ITA recent Posts');
+		parent::WP_Widget(false, 'Recent Posts By Category');
 	}
  
  
