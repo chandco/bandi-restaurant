@@ -87,7 +87,7 @@
 @emphasis : @darkblue;
 @emphasis-text: @white; // if @emphasis was a background etc.
 
-@link-color : @blue;
+@link-color : @lightgreen;
 
 // general colour as a default - this just sets the body tag
 @default-text : @darkgrey;
@@ -171,7 +171,8 @@
 
 // footer stuff
 
-@footer-background : @mid-grey;
+@footer-background : @black;
+@footer-widgettitle: @white;
 
 // menus
 @day-row: @dark; // M T W T F etc
@@ -200,11 +201,7 @@
 
 .svg-bg-mixin(@bg, @lighten: 0) {
    svg  {
-      position: absolute;
-      width: 100%;
-      height: 20px;
-      bottom: 0;
-      z-index: 5;
+      
       .triangle {
         fill: lighten(@bg, @lighten); 
       }
@@ -237,7 +234,7 @@
         
 .colours-bg() {
 
-  .color-bg-mixin(@black, @green, 0);
+  .color-bg-mixin(@white, @green, 0);
 
   .for(@colors); .-each(@name) {
     &.@{name} {

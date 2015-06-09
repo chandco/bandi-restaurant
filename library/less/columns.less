@@ -9,6 +9,9 @@
 			height: auto;
 			max-width: 100%;
 			flex-basis: 0;
+			@media screen and (max-width: 600px) {
+				float: none;
+			}
 		}
 
 		.col-smart.wider {
@@ -189,8 +192,8 @@
 		position: relative;
 		vertical-align: top;
 		box-sizing: border-box;
-		float: left;
-		
+	
+	
 		padding-left: @padding;
 		width: 100%;
 

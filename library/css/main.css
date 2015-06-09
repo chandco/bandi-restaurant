@@ -2111,21 +2111,32 @@ a.cta-inline {
 }
 a.cta,
 a.cta-inline {
-  background: #a5b2c7;
+  background: #99cc00;
   color: #ffffff !important;
   max-width: 97%;
   font-family: 'Gill Sans W01';
   font-weight: normal;
   position: relative;
-  padding: 0.5em 1em;
+  padding: 0.5em 1em 0.5em 4em;
   text-align: center;
   margin: 1em auto;
   z-index: 1;
-  border-bottom: 2px solid #ffffff;
+  border-bottom: 2px solid #f2ffcc;
 }
-a.cta:visited,
-a.cta-inline:visited {
-  color: #ffffff;
+a.cta:after,
+a.cta-inline:after {
+  position: absolute;
+  background: inherit;
+  -webkit-transform: skew(-10deg);
+      -ms-transform: skew(-10deg);
+          transform: skew(-10deg);
+  width: 22px;
+  width: 20px;
+  right: -10px;
+  top: 0;
+  bottom: -2px;
+  content: "";
+  border-bottom: inherit;
 }
 a.cta *,
 a.cta-inline * {
@@ -2133,21 +2144,21 @@ a.cta-inline * {
 }
 a.cta:hover,
 a.cta-inline:hover {
-  color: #0086ac;
-  background: #c4cddb;
+  background: #739900;
 }
-a.cta:hover *,
-a.cta-inline:hover * {
-  color: #0086ac;
+a.cta:hover i.fa:after,
+a.cta-inline:hover i.fa:after {
+  color: #ffffff;
 }
 a.cta i.fa,
 a.cta-inline i.fa {
   display: block;
-  float: left;
-  margin-bottom: 20px;
-  margin-right: 20px;
-  top: 4px;
-  position: relative;
+  left: 1em;
+  top: 51%;
+  -webkit-transform: translateY(-50%);
+      -ms-transform: translateY(-50%);
+          transform: translateY(-50%);
+  position: absolute;
   font-size: 1.5em;
 }
 a div.feature,
@@ -2160,8 +2171,7 @@ div.feature {
   position: relative;
   width: 100%;
   background: #278b27;
-  color: #212121;
-  box-shadow: 1px 1px 1px 0px rgba(0, 0, 0, 0.7);
+  color: #ffffff;
   border-radius: 2px;
   -webkit-transition: background 0.4s ease;
           transition: background 0.4s ease;
@@ -2217,95 +2227,46 @@ div.feature.orange {
   background: #be904d;
   color: #212121;
 }
-div.feature svg {
-  position: absolute;
-  width: 100%;
-  height: 20px;
-  bottom: 0;
-  z-index: 5;
-}
 div.feature svg .triangle {
   fill: #278b27;
-}
-div.feature.grey svg {
-  position: absolute;
-  width: 100%;
-  height: 20px;
-  bottom: 0;
-  z-index: 5;
 }
 div.feature.grey svg .triangle {
   fill: #999999;
 }
-div.feature.green svg {
-  position: absolute;
-  width: 100%;
-  height: 20px;
-  bottom: 0;
-  z-index: 5;
-}
 div.feature.green svg .triangle {
   fill: #278b27;
-}
-div.feature.blue svg {
-  position: absolute;
-  width: 100%;
-  height: 20px;
-  bottom: 0;
-  z-index: 5;
 }
 div.feature.blue svg .triangle {
   fill: #a5b2c7;
 }
-div.feature.lightgreen svg {
-  position: absolute;
-  width: 100%;
-  height: 20px;
-  bottom: 0;
-  z-index: 5;
-}
 div.feature.lightgreen svg .triangle {
   fill: #99cc00;
-}
-div.feature.purple svg {
-  position: absolute;
-  width: 100%;
-  height: 20px;
-  bottom: 0;
-  z-index: 5;
 }
 div.feature.purple svg .triangle {
   fill: #9a97b8;
 }
-div.feature.black svg {
-  position: absolute;
-  width: 100%;
-  height: 20px;
-  bottom: 0;
-  z-index: 5;
-}
 div.feature.black svg .triangle {
   fill: #212121;
-}
-div.feature.white svg {
-  position: absolute;
-  width: 100%;
-  height: 20px;
-  bottom: 0;
-  z-index: 5;
 }
 div.feature.white svg .triangle {
   fill: #ffffff;
 }
-div.feature.orange svg {
+div.feature.orange svg .triangle {
+  fill: #be904d;
+}
+div.feature header svg {
   position: absolute;
   width: 100%;
   height: 20px;
   bottom: 0;
   z-index: 5;
 }
-div.feature.orange svg .triangle {
-  fill: #be904d;
+div.feature .footer-svg {
+  position: absolute;
+  width: 100%;
+  height: 20px;
+  bottom: -20px;
+  z-index: 5;
 }
 div.feature header {
   width: 100%;
@@ -2395,8 +2356,11 @@ div.cf.newline:before {
 }
 hr {
   border: none;
-  border-top: 1px solid rgba(39, 139, 39, 0.2);
+  border-top: 1px solid rgba(39, 139, 39, 0.5);
   margin-bottom: -0.8em;
+}
+.green hr {
+  border-top: 1px solid rgba(33, 33, 33, 0.5);
 }
 #container {
   top: 60px;
@@ -2448,7 +2412,7 @@ body {
   padding: 2em 0;
   max-width: 100%;
   background: #278b27;
-  color: #212121;
+  color: #ffffff;
   background-image: url('/wp-content/themes/bandi-restaurant/library/images/textured-background.png') !important;
 }
 .page #inner-content .full-width-background > * {
@@ -2594,26 +2558,26 @@ sub {
 a {
   background: transparent;
   text-decoration: none;
-  color: #a5b2c7;
+  color: #99cc00;
 }
 a:focus {
   outline: thin dotted;
-  color: #a5b2c7;
+  color: #99cc00;
 }
 a:active {
   outline: 0;
 }
 a:hover {
   outline: 0;
-  color: #a5b2c7;
+  color: #99cc00;
 }
 a:visited {
-  color: #a5b2c7;
+  color: #99cc00;
 }
 a:hover,
 a:visited:hover,
 a:visited:focus {
-  color: #c4cddb;
+  color: #bfff00;
 }
 a:link,
 a:visited:link {
@@ -2788,6 +2752,13 @@ a[href^="mailto:"] {
   -webkit-flex-basis: 0;
       -ms-flex-preferred-size: 0;
           flex-basis: 0;
+}
+@media screen and (max-width: 600px) {
+  .row .col-smart,
+  .cf_columns .col-smart,
+  .cf-columns .col-smart {
+    float: none;
+  }
 }
 .row .col-smart.wider,
 .cf_columns .col-smart.wider,
@@ -2989,7 +2960,6 @@ a[href^="mailto:"] {
   position: relative;
   vertical-align: top;
   box-sizing: border-box;
-  float: left;
   padding-left: 4%;
   width: 100%;
 }
@@ -4405,7 +4375,7 @@ li.basic.capacities:before:before {
   padding-bottom: 0.5em;
 }
 .footer .widgettitle {
-  color: #278b27;
+  color: #ffffff;
 }
 .widget_categories .widgettitle {
   margin-bottom: 0;
@@ -4425,7 +4395,7 @@ li.basic.capacities:before:before {
 .widget_categories .cat-item a {
   display: block;
   padding: 0.3em;
-  color: #a5b2c7;
+  color: #99cc00;
   position: relative;
 }
 .widget_categories .cat-item a:after {
@@ -5946,7 +5916,7 @@ img.mfp-img {
   padding-top: 2em;
   position: relative;
   z-index: 500;
-  background: #808080;
+  background: #212121;
 }
 .footer a {
   color: #278b27;
@@ -6948,12 +6918,12 @@ input[type="text"][disabled]:focus, input[type="text"][disabled]:active, input[t
 #wiki-content article .post-edit-link {
   font-size: .5em;
   color: #fff;
-  background: #a5b2c7;
+  background: #99cc00;
   padding: .1em .2em;
   border-radius: 3px;
 }
 #wiki-content article .post-edit-link:hover {
-  background: #c4cddb;
+  background: #bfff00;
 }
 @media screen and (min-width: 60em) {
   #wiki-content article {
@@ -7391,12 +7361,78 @@ html {
   margin: auto;
   top: 5%;
 }
+@media screen and (max-width: 524px) {
+  .header #inner-header #logo {
+    height: 100%;
+    width: 15%;
+  }
+  .header #inner-header #logo img {
+    width: 69%;
+  }
+  .header #inner-header #logo:before {
+    bottom: -8px;
+    -webkit-transform: skewY(-9deg);
+        -ms-transform: skewY(-9deg);
+            transform: skewY(-9deg);
+  }
+}
 .page-template-default .page-title {
   text-align: center;
 }
 .page #inner-content .full-width-background.yellow {
   margin-top: 2em;
   background: #a5b2c7;
+}
+.column {
+  display: block;
+  float: left;
+  margin: 10px 0;
+}
+.column.col-2 h2 {
+  color: #99cc00;
+}
+.column.col-2 {
+  width: 45%;
+  padding: 2%;
+  /*
+
+		((width + padding left + padding right) x 2 columns) + margin between the two
+
+		means (2 x (45 + 2 + 2)) + 2 = 100% - hence the full width of its container
+
+		*/
+}
+.column.col-2:nth-child(2n) {
+  margin-left: 2%;
+  /* make add a space to the left of every second column */
+}
+.column.col-2:nth-child(2n+1) {
+  clear: left;
+  /* make sure this wraps properly after two columsn, for 3rd forth etc */
+}
+@media screen and (max-width: 600px) {
+  .column.col-2 {
+    width: 96%;
+  }
+  .column.col-2:nth-child(2n) {
+    margin-left: 0;
+    /* make add a space to the left of every second column */
+  }
+}
+.prices {
+  /* adjust widths of columns to make sure everything fits */
+  width: 100%;
+  padding: 0;
+  margin: 10px 0;
+}
+.prices .drink {
+  width: 50%;
+}
+.prices .abv {
+  width: 20%;
+}
+.prices .price {
+  text-align: right;
 }
 
 /*# sourceMappingURL=maps/main.css.map */

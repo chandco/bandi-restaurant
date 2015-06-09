@@ -71,28 +71,50 @@ a.cta, a.cta-inline {
   
   background: @link-color;
   color: @white !important;
-  max-width: 97%;
-  &:visited {
-    color: @white;
+
+  &:after {
+    position: absolute;
+    background: inherit;
+    transform: skew(-10deg);
+    width: 22px;
+    right: -10px;
+    width: 20px;
+    right: -10px;
+    top: 0;
+    bottom: -2px;
+    content: "";
+    border-bottom: inherit;
   }
+  max-width: 97%;
+  
+  
+  
 
   * { 
     color: @white;
 
   }
 
+
+
   &:hover {
-    color: @highlight;
-    background: lighten(@link-color, 10%);
+    
+    background: darken(@link-color, 10%);
+    
+
     * {
-      color: @highlight;
+      
+    }
+
+    i.fa:after {
+      color: @white;
     }
   }
 
   font-family: @h-font;
   font-weight: normal;
   position: relative;
-  padding: 0.5em 1em;
+  padding: 0.5em 1em 0.5em 4em;
   text-align: center;
   margin: 1em auto;
   z-index: 1;
@@ -105,12 +127,13 @@ a.cta, a.cta-inline {
 
   i.fa {
   	display: block;
-	float: left;
-	margin-bottom: 20px;
-	margin-right: 20px;
-	top: 4px;
-	position: relative;
-	font-size: 1.5em;
+	 left: 1em;
+	 top: 51%;
+   transform:translateY(-50%);
+	 position: absolute;
+	 font-size: 1.5em;
+
+   
   }
 }
   
@@ -160,7 +183,23 @@ div.feature {
   
   .colours-bg();
   .svg-colours();
-  box-shadow: 1px 1px 1px 0px rgba(0, 0, 0, 0.7);
+  header svg {
+      position: absolute;
+      width: 100%;
+      height: 20px;
+      bottom: 0;
+      z-index: 5;
+  }
+
+  .footer-svg {
+    position: absolute;
+     width: 100%;
+    height: 20px;
+    bottom: -20px;
+    z-index: 5; 
+  }
+ 
+ // box-shadow: 1px 1px 1px 0px rgba(0, 0, 0, 0.7);
 
 
   

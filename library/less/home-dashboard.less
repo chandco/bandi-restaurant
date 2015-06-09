@@ -355,6 +355,8 @@
   transform:none;
   //box-shadow: 1px 1px 1px 0px RGBA(0,0,0,0.5);
 
+
+
   &:before {
   	content: "";
   	position: absolute;
@@ -391,6 +393,22 @@
   	top: 5%;
   }
 
+  @media screen and (max-width: 524px) {
+  	height:100%;
+  	width: 15%;
+
+
+
+  	img {
+  		width: 69%;
+  	}
+
+  	&:before { 
+  		bottom: -8px;
+  		  transform: skewY(-9deg);
+  	}
+  }
+
   
 }
 
@@ -401,4 +419,61 @@
 .page #inner-content .full-width-background.yellow {
 	margin-top: 2em;
 	background: @blue;
+}
+
+
+
+
+.column {
+  display: block;
+  float: left;
+  margin: 10px 0;
+}
+
+.column.col-2 h2 {
+color: #99cc00;
+}
+.column.col-2 {
+  width: 45%;
+  padding: 2%;
+  /*
+
+		((width + padding left + padding right) x 2 columns) + margin between the two
+
+		means (2 x (45 + 2 + 2)) + 2 = 100% - hence the full width of its container
+
+		*/
+}
+.column.col-2:nth-child(2n) {
+  margin-left: 2%;
+  /* make add a space to the left of every second column */
+}
+.column.col-2:nth-child(2n+1) {
+  clear: left;
+  /* make sure this wraps properly after two columsn, for 3rd forth etc */
+}
+@media screen and (max-width: 600px) {
+  .column.col-2 {
+    width: 96%;
+  }
+  .column.col-2:nth-child(2n) {
+    margin-left: 0;
+    /* make add a space to the left of every second column */
+  }
+}
+
+.prices {
+  /* adjust widths of columns to make sure everything fits */
+  width: 100%;
+  padding: 0;
+  margin: 10px 0;
+}
+.prices .drink {
+  width: 50%;
+}
+.prices .abv {
+  width: 20%;
+}
+.prices .price {
+  text-align: right;
 }
