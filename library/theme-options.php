@@ -15,6 +15,7 @@ function register_my_setting() {
 	register_setting( 'services_config', 'cf_option_email');
 	register_setting( 'services_config', 'cf_option_phone');	
 	register_setting( 'services_config', 'cf_footerinfo');	
+	register_setting( 'services_config', 'cf_ga');	
 
 	register_setting( 'services_config', 'cf_inlineCSS');	
 
@@ -83,7 +84,8 @@ function add_update_services_blurb_output()
     <P><label for='cf_footerinfo'>Footer Info (eg copyright info)</label>
     <textarea name="cf_footerinfo" id="cf_footerinfo"><?php echo get_option('cf_footerinfo'); ?></textarea></P>
 
-
+    <P><label for='cf_ga'>Analytics Tracking Code - DON'T CHANGE THIS!</label>
+    <input type="text" name="cf_ga" id="cf_ga" value="<?php echo get_option('cf_ga'); ?>" /></P>
 
     <P><label for='cf_inlineCSS'>Custom CSS.  Don't edit this if you don't know what you're doing.</label>
     <textarea name="cf_inlineCSS" id="cf_inlineCSS"><?php echo get_option('cf_inlineCSS'); ?></textarea></P>

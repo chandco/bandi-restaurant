@@ -71,16 +71,20 @@
 
 <script type="text/javascript" src="http://fast.fonts.net/jsapi/e4baf517-7128-4749-bbe6-cfc5fe4b4187.js" defer></script>
 <!-- Google Analytics -->
+<?php 
+
+$GA = get_option('cf_ga');
+if ($GA != ""): ?>
 <script>
 		  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 		  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
 		  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
 		  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-		  ga('create', <?php echo GAPROPERTYID; ?>, 'auto');
+		  ga('create', <?php echo $GA; ?>, 'auto');
 		  ga('send', 'pageview');
 
-</script>
+</script><?php endif; ?>
 <?php 
 
 	wp_footer();
