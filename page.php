@@ -31,13 +31,13 @@
 								$atts = 
 								array(
 									'tag' => implode(',', $term_array),
-									'fill' => true
+									'fill' => false
 								);
 
 								?>
 								<div id="carousel" class='carousel'>  
 
-								<?php echo display_attached_images_carousel($atts); ?>
+								<?php echo display_attached_images_carousel($atts, true); ?>
 
 								</div>
 

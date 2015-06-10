@@ -8,7 +8,7 @@ if (function_exists('add_meta_box')) {
 		'Carousel Tags', 'post_tags_meta_box', 'page', 'side', 'core', array( 'taxonomy' => 'media-tags' ));
 }
 
-function display_attached_images_carousel($atts) {
+function display_attached_images_carousel($atts, $blur = false) {
 	
 	$atts = shortcode_atts(
 		array(
@@ -41,6 +41,8 @@ function display_attached_images_carousel($atts) {
 		$images = get_posts($imageArgs);
 	}
 		
+		// default size
+		$newsize = 'featured-image';
 // either get attached from post.  Attached from another post OR a certain media tag depending on ATTs
 		
 	//	$output .= "<div class='cycle-container'>";
@@ -67,10 +69,25 @@ function display_attached_images_carousel($atts) {
 		
 		$big_output = wp_get_attachment_image_src( $attachment->ID, $newsize );
 		$big_output = current($big_output);
+
+		if ($blur) {
+			$blur_output = wp_get_attachment_image_src( $attachment->ID, 'panorama' );
+			$blur_output = current($blur_output);
+		}
 		// <span class='tooltip'>" . $newsize . "</span>
 
 		$domid = ($atts["id"]) ? "id='" . $atts["id"] . "'" : '';
-		$output .= "<div class='carousel-slide " . $newsize . "' " . $domid . "><img data-lazy='" . $big_output . "' title='" . $attachment->post_excerpt . "' alt='" . $attachment->post_title . "' /></div>";
+		$output .= "<div class='carousel-slide " . $newsize . "' " . $domid . ">";
+		$output .= "	<img data-lazy='" . $big_output . "' title='" . $attachment->post_excerpt . "' alt='" . $attachment->post_title . "' />";
+		if ($blur) {
+			$output .= '<svg viewBox="0 0 500 250" preserveAspectRatio="none" class="blur" version="1.1" xmlns="http://www.w3.org/2000/svg" width="400" height="500">
+ 						<filter id="blur">
+						 <fegaussianblur id="blur" stddeviation="5" data-filterid="1"></fegaussianblur>
+						 </filter>
+						 <image xlink:href="' . $blur_output . '" y="0" x="0" height="250" width="500" filter="url(#blur)"/>
+						</svg>';
+		}
+		$output .= "</div>";
 	
 	}
 

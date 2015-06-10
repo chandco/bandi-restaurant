@@ -13,8 +13,6 @@
 
 
 
-
-
 hr {
   border: none;
   border-top: 1px solid fade(@green, 50%);
@@ -40,8 +38,8 @@ hr {
 
 #carousel {
   position: relative;
-  margin-top: -@header-height-px;
-  margin-bottom: @header-height-px;
+  margin-top: -34px;
+  // margin-bottom: @header-height-px;
 }
 
 .admin-bar {
@@ -157,7 +155,17 @@ body {
 
 .page #content {
 	width: 100%;
-  max-width: 100%;
+  
+
+
+  margin-top: -@header-height-px;
+  padding-top: @header-height-px / 2;
+
+  box-shadow: 0 1px 3px fade(black, 50%);
+
+  background: #fff;
+
+  max-width: 1300px;
   
 }
 
@@ -198,6 +206,7 @@ body {
 
       &:last-child {
         margin-bottom: 0;
+        padding-bottom: 4em;
       }
     }
 
