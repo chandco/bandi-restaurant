@@ -1,6 +1,5 @@
 <?php
 /*
- Template Name: Attached Images Carousel
  *
  * This is your custom page template. You can create as many of these as you need.
  * Simply name is "page-whatever.php" and in add the "Template Name" title at the
@@ -57,8 +56,8 @@
 				<div id="inner-content" class="wrap cf">
 
 						
+<?php get_template_part( 'content/page' ); ?>
 
-						<?php get_template_part( 'content/page' ); ?>
 
 						<?php // get_sidebar(); ?>
 
