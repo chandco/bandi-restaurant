@@ -21,7 +21,8 @@ function cf_wide_background($atts, $content) {
 
 	return $output;
 }
-add_shortcode("wide_background", "cf_wide_background");
+
+
 
 
 function cf_popup_content($atts, $content) {

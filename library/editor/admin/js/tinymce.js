@@ -163,6 +163,31 @@
                 ]
             });
 
+            ed.addButton('capacities', {
+            type: 'menubutton',
+            text: 'Insert Capacities List',
+            icon: false,
+            menu: [
+                   // {  icon: ' fa fa-th-list', text: 'Start List (do this first)', onclick: function() { startList( 'file-pdf-o', ed); } },
+                    {  icon: ' ca longtables', text: 'Long Tables', onclick: function() { addList( 'capacities longtables', ed); } },
+                    {  icon: ' fa roundtables', text: 'Round Tables', onclick: function() { addList( 'capacities roundtables', ed); } },
+                    {  icon: ' fa standing', text: 'Standing', onclick: function() { addList( 'capacities standing', ed); } },
+                    {  icon: ' fa theatre', text: 'Theatre', onclick: function() { addList( 'capacities theatre', ed); } },
+                    {  icon: ' fa fa-disc', text: 'Normal List', onclick: function() { addList( '', ed); } },
+                ]
+            });
+
+            function addList(icon, ed) {
+                var selected_text = ed.selection.getNode();
+                console.log(selected_text.nodeName);
+                if (selected_text.nodeName == 'LI') {
+                    ed.dom.setAttrib( selected_text, 'class', icon );
+                    
+                }
+                console.log(selected_text);
+                //ed.insertContent( return_text );
+            }
+
 
 
             function insertIcon(icon, ed) {

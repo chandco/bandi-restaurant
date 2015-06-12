@@ -4,6 +4,10 @@
 		display: flex;
 		flex-direction: row;
 
+		margin-top: 1em;
+		margin-bottom: 1em;
+
+
 		.col-smart {
 			flex-grow: 1;
 			height: auto;
@@ -257,4 +261,15 @@
 	}
 
 
+}
+
+
+// column fixes
+
+.col-smart {
+	> * {
+		&:first-child {
+			margin-top: 0; // remove margins for the first h2 of its type in a column
+		}
+	}
 }

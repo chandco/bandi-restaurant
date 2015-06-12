@@ -37,7 +37,7 @@ class CH_pageColorPicker {
 				 "grey"			=>		 	"#999999"
 				,"green"		=>			"#278B27"
 				,"blue"			=>		 	"#A5b2C7"
-				,"lightgreen"	=>			"#99cc00"
+				,"lightgreen"	=>			"#6c780f"
 				,"purple"		=>			"#9A97B8"
 				,"black"		=>			"RGB(33,33,33)"
 				,"white"		=>			"RGB(255,255,255)"

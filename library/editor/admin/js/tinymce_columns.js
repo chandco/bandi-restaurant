@@ -41,8 +41,7 @@
                 content: content
             };   
 
-            console.log("Sending preview req for", content);
-
+           
             return $.ajax(ajaxurl,{
 
                         url : ajaxurl,
@@ -103,9 +102,15 @@
         
 
 
-        var addColumn = function( content, $insertAfter ) {
+        var addColumn = function( content, $insertAfter, shortcode ) {
 
-            var $column = $('<div id="column-' + uid() + '" class="column"><div class="col-content">' + content + '</div></div>');
+            console.log(shortcode);
+            var extend = '';
+            if (shortcode && shortcode.attrs.numeric[0] == 'extend') {
+                extend = 'extend';
+            }
+
+            var $column = $('<div id="column-' + uid() + '" class="column ' + extend + '"><div class="col-content">' + content + '</div></div>');
 
             var $preview = $('<div class="preview"></div>');
 
@@ -170,7 +175,7 @@
             
             columns.forEach( function( column, index ) {
 
-                addColumn( column.shortcode.content );
+                addColumn( column.shortcode.content, false, column.shortcode );
                 
             });
 

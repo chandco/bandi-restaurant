@@ -60,7 +60,7 @@ function shortcode_ed_columns($atts, $content = false) {
 
 	$content = urldecode($content);
 	$array = array (
-	    '<p>[feature-box' => '[feature-box', 
+	    '<p>[' => '[', 
 	    ']</p>' => ']', 
 	    ']<br />' => ']'
 	);

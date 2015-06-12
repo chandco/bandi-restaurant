@@ -110,7 +110,8 @@
 	padding: 0;
 
 	.post-preview {
-		width: 24%; // assumes 4, might have to fix this for other parents
+		width: 48%; // assumes 4, might have to fix this for other parents
+		margin-bottom: 3em;
 	}
 
 }
@@ -127,11 +128,11 @@
 
 		// Each has to be in an EXCLUSIVE query to avoid having to do resets
 		@media screen and (min-width: 1400px) {
-			.flex-container(4); 	
+			.flex-container(2); 	
 		}
 
 		@media screen and (max-width: 1400px) and (min-width: @tablet-break) {
-			.flex-container(3); 	
+			.flex-container(2); 	
 		}
 		
 		@media screen and (max-width: @tablet-break) and (min-width: @mobile-break) {
@@ -141,6 +142,12 @@
 		@media screen and (max-width: @mobile-break) {
 			.flex-container(1);
 		}
+
+		> .post-preview {
+			margin-bottom: 4em;
+		}
+
+
 	}
 	// .grid-feed {
 	// 	flex-wrap: wrap;
@@ -230,7 +237,7 @@
 		width: 100%;
 		position: relative;
 		z-index: 1;
-		height: 100%;
+		//height: 100%;
 
 		
 	}
@@ -272,7 +279,7 @@
       }
 
 
-
+     margin-bottom: 2em;
     
   
 }

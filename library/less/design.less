@@ -30,7 +30,7 @@ hr {
   position: relative;
  
   margin-bottom: @header-height-px;
-  padding-top: 2em;
+  padding-top: 2.5em;
   @media screen and (max-width: @tablet-break) {
     padding-top: 0;
   }
@@ -38,7 +38,7 @@ hr {
 
 #carousel {
   position: relative;
-  margin-top: -34px;
+  margin-top: -3em;
   // margin-bottom: @header-height-px;
 }
 
@@ -217,3 +217,7 @@ body {
 }
 
 
+/// this is a bit hacky but ti'll work
+.purple, .green, .black {
+  .licapacities('white');
+}

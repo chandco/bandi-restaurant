@@ -1738,7 +1738,7 @@
   color: #212121;
 }
 .feature.lightgreen {
-  background: #99cc00;
+  background: #d0de33;
   color: #212121;
 }
 .feature.purple {
@@ -1770,7 +1770,7 @@
   fill: #a5b2c7;
 }
 .feature.lightgreen svg .triangle {
-  fill: #99cc00;
+  fill: #d0de33;
 }
 .feature.purple svg .triangle {
   fill: #9a97b8;
@@ -1788,7 +1788,7 @@
   position: absolute;
   width: 100%;
   height: 20px;
-  bottom: 0;
+  bottom: -1px;
   z-index: 5;
 }
 .feature .footer-svg {
@@ -2055,7 +2055,7 @@
   color: #212121;
 }
 .admin_page_feature-box-edit #mce-feature-box-form #colours li.lightgreen {
-  background: #99cc00;
+  background: #d0de33;
   color: #212121;
 }
 .admin_page_feature-box-edit #mce-feature-box-form #colours li.purple {
@@ -2147,7 +2147,7 @@
   color: #212121;
 }
 .admin_page_feature-box-edit #mce-feature-box-form .feature-box.lightgreen {
-  background: #99cc00;
+  background: #d0de33;
   color: #212121;
 }
 .admin_page_feature-box-edit #mce-feature-box-form .feature-box.purple {
@@ -2295,7 +2295,7 @@
   color: #212121;
 }
 .admin_page_columns-box-edit #wpcontent .feature.lightgreen {
-  background: #99cc00;
+  background: #d0de33;
   color: #212121;
 }
 .admin_page_columns-box-edit #wpcontent .feature.purple {
@@ -2327,7 +2327,7 @@
   fill: #a5b2c7;
 }
 .admin_page_columns-box-edit #wpcontent .feature.lightgreen svg .triangle {
-  fill: #99cc00;
+  fill: #d0de33;
 }
 .admin_page_columns-box-edit #wpcontent .feature.purple svg .triangle {
   fill: #9a97b8;
@@ -2345,7 +2345,7 @@
   position: absolute;
   width: 100%;
   height: 20px;
-  bottom: 0;
+  bottom: -1px;
   z-index: 5;
 }
 .admin_page_columns-box-edit #wpcontent .feature .footer-svg {
