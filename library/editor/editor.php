@@ -234,6 +234,7 @@ function cf_editor_buttons() {
 function wptuts_add_buttons( $plugin_array ) {
     $plugin_array['cf_features'] = get_stylesheet_directory_uri() . '/library/editor/admin/js/tinymce.js';
     $plugin_array['cf_infobox'] = get_stylesheet_directory_uri() . '/library/editor/admin/js/infobox.js';
+    $plugin_array['cf_columns'] = get_stylesheet_directory_uri() . '/library/editor/admin/js/tinymce_columns.js';
     return $plugin_array;
 }
 
@@ -280,7 +281,7 @@ function mce_wp_enqueue_media($hook) {
 
 require_once("mce_feature-box.php");
 require_once("mce_infobox.php");
-
+require_once("mce_columns.php");
 
 
 
@@ -314,6 +315,7 @@ function custom_before_wp_tiny_mce() {
 	// load all the views here
 	views_feature_box(); // [feature-box]
 	views_infobox(); // [feature-box]
+	views_ed_columns();
 	
 
 	#	[wide_background]

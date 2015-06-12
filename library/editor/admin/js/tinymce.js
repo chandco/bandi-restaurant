@@ -46,32 +46,24 @@
 
             
 
+            
+            ed.addButton('feature', {
+                title: 'Insert Feature Box',
+                cmd: 'feature',
+                image : url + '/../img/feature.png'
+            });
+
             ed.addButton('infobox', {
-                title: 'Insert info box Box',
+                title: 'Insert Info Box',
                 cmd: 'infobox',
+                icon: false,
                 image : url + '/../img/infobox.png'
             });
 
-            ed.on('keydown', function(e) {
-                
-                if (e.keyCode != 13 || e.shiftKey) return;
-
-                var node = ed.selection.getNode();
-
-                console.log(e);
-
-                var $el = ed.$(node);
-
-                console.log($el);
-
-                if ($el.parent('.col-smart').length) {
-
-                    console.log("In a column...", $el);
-                    e.shiftKey = true;
-                    return e;
-                }                    
-                
-                
+            ed.addButton('widebg', {
+                title: 'Add full width Background',
+                cmd: 'widebg',
+                image : url + '/../img/widebg.jpg'
             });
 
             ed.addButton('cta-link', {
@@ -112,23 +104,6 @@
                 //return_text = '[wide_background]' + selected_text + '[/wide_background]';
                 
             });
-
-        
-            ed.addButton('feature', {
-                title: 'Insert Feature Box',
-                cmd: 'feature',
-                image : url + '/../img/feature.png'
-            });
-
-            
-
-            ed.addButton('widebg', {
-                title: 'Add full width Background',
-                cmd: 'widebg',
-                image : url + '/../img/widebg.jpg'
-            });
-
-            
 
             ed.addCommand('widebg', function() {
                 var selected_text = ed.selection.getContent();
@@ -207,9 +182,7 @@
                 
 
                 var icon = arguments[0].control.settings.icon;
-                console.log(icon.split(" "));
                 
-                console.log(selected_text);
                 //console.log(selected_text.nodeName);
                 if (selected_text.nodeName == 'IMG') {
 
@@ -221,7 +194,7 @@
                     ed.dom.removeClass( selected_text, 'ci');
 
                     icon.split(" ").forEach( function( classname ) { 
-                        console.log(classname);
+                        
                         ed.dom.addClass( selected_text, classname );    
 
                     });
@@ -261,9 +234,8 @@
                     data.link = tag.href;
                 }
 
+                data.title = tag.innerHTML;
 
-
-                data.title = selected_text;
                 
 
                 var return_text = build_feature_shortcode( data );
@@ -288,233 +260,24 @@
 
             // eg "col-smart' but :first-of-type { width 66% } for wider etc"
 
-            ed.addButton('columns', {
-                title: 'Insert Columns',
-                cmd: 'columns',
-                image : url + '/../img/halves.png'
-            });
-
-            ed.addCommand('columns', function() {
-                var selected_text = ed.selection.getContent();
-
-
-
-
-
-                if (!selected_text) { selected_text = ' '}
-                
-                return_text =   '<div class="row">';
-                return_text +=  '<div class="col-smart"><p>' + selected_text + '</p></div>';
-                return_text +=  '<div class="col-smart">' + '<p></p></div>';
-                return_text +=  '</div><P>&nbsp;</p>';
-
-                ed.selection.setContent(return_text);
-                
-            });
+            
 
       
 
-            ed.on('setContent', function(o) {
-                
-                // add controls to the element for adjustments
-
-                updateColumnButtons(ed);
-
-
-           });
-
-
-            function updateColumnButtons(ed) {
-                
-                ed.$('.col-control-add, .col-control-remove, .col-control-extend, .col-control-shrink, .fixer-widget').remove(); // just get rid in case
-                
-                // add buttons to columns
-                ed.$.each( ed.$('.row > div'), function(index, element) {
-
-                        addControlButtons(ed, element);
-
-                        if (ed.$(element).hasClass('wider')) {
-                            addShrinkButton(ed, element);
-                        } else {
-                           addExtendButton(ed, element);
-                        }
-                });
-
-                protectButtons(ed);
-            }
-
-            function protectButtons(ed) {
-                ed.$('.col-control-add, .col-control-remove, .col-control-extend, .col-control-shrink').attr('contentEditable', 'false');
-            }
-
-            function addExtendButton(ed, element) {
-                 ed.$(element).append("<button class='col-control-extend'>Increase Size Of Column</button>");
-            }
-
-            function addPaddingButton(ed, element) {
-                 ed.$(element).append("<button class='col-control-padding'>Padding</button>");
-            }
-
-
-            function addShrinkButton(ed, element) {
-                ed.$(element).append("<button class='col-control-shrink'>Decrease Size Of Column</button>");
-            }
+            ed.on('Click', function(e) {
 
             
-           
-            function addControlButtons(ed, element) {
-                ed.$(element)
-                        .append("<p class='fixer-widget mceNonEditable'>&nbsp;</p>") // fix weirdness
-                        .append("<button class='col-control-add'>Add Column</button>")
-                        .append("<button class='col-control-remove'>Remove Column</button>")
-                        .append("<button class='col-control-padding'>Padding</button>");
-            }
-
-            ed.on('NodeChange', function(e) {
-                //console.log(e);
-            });
-
-
-
-
-
-            
-
-            
-            ed.on('SaveContent', function(o) {
-
-                
-                // find any columns and remove the buttons
-
-                // get content in temp element
-
-                $element = ed.$("<div>" + o.content + "</div>"); // wrap it so jquery can make something of it
-                $element.find('.col-control-add, .col-control-remove, .col-control-extend, .col-control-shrink, .col-control-padding, .fixer-widget').remove(); // just get rid in case
-               
-
-                o.content = $element.html();
-
-            });  
-
-
-            ed.onClick.add(function(ed, e) {
-
-               
-
-
-                
-                //console.debug('Editor was clicked: ', ed.$(e.target));
-
-                //console.log(ed.selection.getNode());
-
-                $element = ed.$(e.target);
-
-
-                
-
                 
                 
-
-                // add a column
-                if ($element.hasClass('col-control-add')) {
-                    $('<div class="col-smart">&nbsp;</div>')
-                            //.prepend("<button class='col-control-add'>Add Column</button>")
-                            //.prepend("<button class='col-control-extend'>Increase Size Of Column</button>")
-                            //.prepend("<button class='col-control-remove'>Remove Column</button>")
-                            .insertAfter( $element.closest('div[class^="col-"]') );
-
-
-                            updateColumnButtons(ed);
-                                        
-
-                } 
-
-                var $container;
-
-                if ($element.hasClass('col-control-padding')) {
-
-                    $contents = $element.closest('div[class^="col-"]');
-
-                    $contents.toggleClass('no-padding');
-
-                }
-
-                if ($element.hasClass('col-control-extend')) {
-
-                    $container = $element.closest('div.row');
-
-                    if ($container.find('div[class^="col-"]').length > 3) {
-                        alert("Sorry, you can't have widened columns on a row of 4 or more columns");
-                        return;
-
-                    }
-                    
-                    $container.find('div[class^="col-"]').removeClass('wider');
-                    $element.closest('div[class^="col-"]').addClass('wider');
-
-                    
-
-                    addShrinkButton(ed, $element.closest('div[class^="col-"]') );
-                    protectButtons(ed);
-
-                    //$element.closest('div[class^="col-"]').prepend("<button class='col-control-shrink mceNonEditable'>Decrease Size Of Column</button>");
-                    $container.addClass('has-wide');    
-
-                    $element.remove('.col-control-extend');
-                    
-
+                var $element = ed.$(e.target);
+                
+                if ($element.hasClass('mceNonEditable')) {
                     
                 }
 
-                if ($element.hasClass('col-control-shrink')) {
+                
+                
 
-                    $container = $element.closest('div.row');                    
-                    $container.find('div[class^="col-"]').removeClass('wider');
-                   
-                    
-                    //$element.closest('div[class^="col-"]').prepend("<button class='col-control-extend mceNonEditable'>Increase Size Of Column</button>");
-                    addExtendButton(ed, $element.closest('div[class^="col-"]') );
-                    protectButtons(ed);
-
-                    $container.removeClass('has-wide');    
-                    
-
-                    $element.remove('.col-control-shrink');
-                    
-                }
-
-                // remove a column
-                if ($element.hasClass('col-control-remove')) {
-
-                    // get column
-                    $contents = $element.closest('div[class^="col-"]');
-
-                    if ($contents.hasClass('wider')) {
-                        $element.closest('div.row').removeClass('has-wide');
-                    }
-
-                    // remove the buttons we added temporarily
-
-                    $contents.find('button[class^="col-control-"]').remove();
-
-
-
-                    // get the column row
-                    $wrapper = $contents.parent();
-
-
-                    // put the contents afterwards, outside of the container
-                    $wrapper.after( $contents.html() ); // inner HTML not the container as well
-
-                    // now get rid of this column
-                    $contents.remove(); 
-                    
-
-                    if ($wrapper.find('div[class^="col-"]').length < 1) {
-                        //console.log('Nothing Left in columns');
-                        $wrapper.remove();
-                    }
-                }
             });
  
         },
@@ -569,31 +332,21 @@
         template: wp.media.template('editor-' + shortcode_string),
 
         initialize: function() {
-            var self = this;
-
-            
-         
-            
-            
-            
+            var self = this;            
         },
 
         getContent: function() {
             var options = this.shortcode.attrs.named;
             options['innercontent'] = this.shortcode.content;
-
-
-
             
             // format the template
             var output = this.template(options);
 
             // get HTML as Jquery object
-            $content = $(output);
+            var $content = $(output);
 
            
             // add in the image from the id
-
             // get image SRC
 
             if (this.shortcode.attrs.named.imgid && this.shortcode.attrs.named.imgid != 'undefined') {
@@ -655,7 +408,7 @@
 
             var instance = wp.mce.views.getInstance( tempNode ); // this
 
-            console.log( instance );
+            
 
             var s = build_feature_shortcode( data );
             
@@ -683,8 +436,7 @@
             if(typeof onsubmit_callback != 'function'){
                 onsubmit_callback = function( e ) {
                     // not being called right now
-                    console.log(e);
-                    console.log("Submit Callback");
+                    
                 };
             }
 
@@ -710,5 +462,4 @@
 
 
 }(jQuery));
-
 

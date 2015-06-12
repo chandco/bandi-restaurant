@@ -145,7 +145,65 @@ a.cta, a.cta-inline {
     } 
 
 
-div.feature {
+
+
+a div.feature {
+  &:hover {
+    background: @lighter;
+    
+
+    header h2 {
+      .alpha-color(@dark, 0.9);
+      background: @alpha-color;
+    }
+  }
+}
+
+.no-flexbox, .no-js {
+  div.feature {
+    header {
+      img {
+        left: 0;
+        width: 100%;
+        height: auto;
+        min-height: 0;
+      }
+    }
+
+    .content {
+      min-height: 200px;
+    }
+  }
+}
+
+  a.cta-button {
+    background: RGBA(0,0,0,0.4);
+    display: inline-block;
+    padding: 2%;
+    box-sizing: border-box;
+    color: #fff;
+    text-decoration: none;
+    width: auto;
+    border-bottom: 2px solid RGBA(0,0,0,0.6);
+
+  }
+
+  div.cf.newline {
+
+    font-size: 8px;
+    color: #dddddd;
+    width: 100%;
+    &:before {
+      font-style: italic;
+      content: "new line (this text will not appear in post)";
+
+    }
+  }
+}
+
+
+
+.feature {
 
   > p {
     display: none; // Stupid wordpress
@@ -221,7 +279,7 @@ div.feature {
     padding-bottom: 55%;
     position: relative;
     overflow: hidden;
-    border-bottom: none;
+    border-bottom: none !important;
 
     p {
       padding: 0;
@@ -274,59 +332,5 @@ div.feature {
     color: inherit;
 
 
-  }
-}
-
-a div.feature {
-  &:hover {
-    background: @lighter;
-    
-
-    header h2 {
-      .alpha-color(@dark, 0.9);
-      background: @alpha-color;
-    }
-  }
-}
-
-.no-flexbox, .no-js {
-  div.feature {
-    header {
-      img {
-        left: 0;
-        width: 100%;
-        height: auto;
-        min-height: 0;
-      }
-    }
-
-    .content {
-      min-height: 200px;
-    }
-  }
-}
-
-  a.cta-button {
-    background: RGBA(0,0,0,0.4);
-    display: inline-block;
-    padding: 2%;
-    box-sizing: border-box;
-    color: #fff;
-    text-decoration: none;
-    width: auto;
-    border-bottom: 2px solid RGBA(0,0,0,0.6);
-
-  }
-
-  div.cf.newline {
-
-    font-size: 8px;
-    color: #dddddd;
-    width: 100%;
-    &:before {
-      font-style: italic;
-      content: "new line (this text will not appear in post)";
-
-    }
   }
 }

@@ -126,3 +126,61 @@ function cf_get_phone_link() {
 	$format_tel = (substr($c_tel,0,1) == "0" && substr($c_tel,1,1) != "0") ? "+44" . substr($tel, 1) : $c_tel;
 	return "<a href='tel:" . str_replace(" ", "", $format_tel) . "' class='linkphone'>" . get_option('cf_option_phone') . "</a>";
 }
+
+
+add_shortcode( 'showposts', 'cf_postsfeed' );	
+function cf_postsfeed($atts) {
+
+	$atts = shortcode_atts( array(
+		'category' => false,
+		'number' => 4,
+		'post_type' => 'post'
+		)
+
+	, $atts, 'showposts' );		
+
+
+	$args = $atts; // let people do a full wp_query, but do some overrides for security...
+
+	$args["post_status"] = 'publish'; // don't let people show private ones at this stage.
+
+	$args["post_type"] = $atts["post_type"];
+
+	if ($atts["category"]) {
+		$args["category_name"] = $atts["category"];
+	}
+
+	$args["posts_per_page"] = $atts["number"];
+
+
+
+	$the_query = new WP_Query( $args );
+	// The Loop
+	$output = "";
+	if ($the_query->have_posts()) {
+	
+	
+		ob_start();
+		echo "<ul class='post-list shortcode-post-list'>";
+			while ($the_query->have_posts()) {
+					$the_query->the_post();
+			
+					global $more;    // Declare global $more (before the loop).
+					$more = 0;       // Set (inside the loop) to display content above the more tag.
+					
+					//add_filter('the_content','my_strip_tags');
+				 get_template_part( 'content/post-preview' );
+				//	echo "<li>WHUT?</li>"
+			
+			} // end of related tags
+			wp_reset_postdata();
+		echo "</ul>";
+
+		$output = ob_get_contents();
+
+		ob_end_clean();
+
+	}
+
+	return $output;
+}
