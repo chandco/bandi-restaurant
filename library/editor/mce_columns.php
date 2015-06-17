@@ -52,12 +52,10 @@ function views_ed_columns() {
 }
 
 
-// the shortcode for the front end
-// stop tinymce screwing everything up as per usual
-
 
 function shortcode_ed_columns($atts, $content = false) {
 
+	echo "<textarea>" . $content . "</textarea>";
 	$content = urldecode($content);
 	$array = array (
 	    '<p>[' => '[', 
