@@ -53,10 +53,17 @@ function views_ed_columns() {
 
 
 
+
 function shortcode_ed_columns($atts, $content = false) {
 
-	echo "<textarea>" . $content . "</textarea>";
+
+	$wrong_X = '&#215;';
+	$right_X = 'x';
+
+	$content = str_replace($wrong_X, $right_X, $content);
+
 	$content = urldecode($content);
+
 	$array = array (
 	    '<p>[' => '[', 
 	    ']</p>' => ']', 
@@ -72,6 +79,8 @@ function shortcode_ed_columns($atts, $content = false) {
 	
 	return $output; 
 }
+
+
 
 function shortcode_ed_column($atts, $content) {
 
