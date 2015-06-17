@@ -1727,7 +1727,7 @@
 }
 .feature.grey {
   background: #999999;
-  color: #212121;
+  color: #ffffff;
 }
 .feature.green {
   background: #278b27;
@@ -2044,7 +2044,7 @@
 }
 .admin_page_feature-box-edit #mce-feature-box-form #colours li.grey {
   background: #999999;
-  color: #212121;
+  color: #ffffff;
 }
 .admin_page_feature-box-edit #mce-feature-box-form #colours li.green {
   background: #278b27;
@@ -2136,7 +2136,7 @@
 }
 .admin_page_feature-box-edit #mce-feature-box-form .feature-box.grey {
   background: #999999;
-  color: #212121;
+  color: #ffffff;
 }
 .admin_page_feature-box-edit #mce-feature-box-form .feature-box.green {
   background: #278b27;
@@ -2284,7 +2284,7 @@
 }
 .admin_page_columns-box-edit #wpcontent .feature.grey {
   background: #999999;
-  color: #212121;
+  color: #ffffff;
 }
 .admin_page_columns-box-edit #wpcontent .feature.green {
   background: #278b27;
