@@ -105,8 +105,9 @@ nav[role="navigation"] {
 
       margin: 0;
 
-      @media screen and (max-width: @tablet-break)  {
+      @media screen and (max-width: 900px)  {
         margin: auto;
+        flex-direction:column;
       }
       z-index: 10;
 
@@ -141,6 +142,19 @@ nav[role="navigation"] {
         &.current-menu-item a {
           color: @nav-link-current-text;
           background: @nav-link-current-background;
+
+        }
+
+
+        &.font-awesome {
+          width: auto;
+          padding: 0;
+          a {
+            width: auto;
+            padding-left: 0;
+            padding-right: 0;
+            font-size: 0.8em;
+          }
         }
         &:hover {
           background: @nav-highlight;
@@ -423,7 +437,7 @@ nav[role="navigation"] {
 }
 .nav-113 {
   position: relative;
-  padding-left: 1em;
+  
 
   > a:before {
     content: "";
@@ -434,8 +448,9 @@ nav[role="navigation"] {
     background-repeat: no-repeat;
     background-position: center center;
     position: relative;
-    margin-right: 1em;
+    margin-right: 0.6em;
     vertical-align: middle;
+    top: -2px;
   }
 }
 

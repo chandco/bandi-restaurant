@@ -64,3 +64,20 @@ require(['components/resize-fix']);
 
 
 require(['responsive-table']);
+
+
+require(['jquery'], function($) {
+  $(document).ready(function() {
+
+    $('.changeiframe').click(function(e) {
+      e.preventDefault();
+
+      var newlocation = $(this).data('location');
+
+      var iframe = $('#carousel iframe')[0];
+      iframe.src = newlocation;
+    });
+
+
+  });
+})

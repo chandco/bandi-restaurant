@@ -258,6 +258,8 @@ function mce_wp_enqueue_media($hook) {
 	
 	wp_enqueue_style( 'admin-helper-css', get_stylesheet_directory_uri() . '/library/css/admin.css' );
 	
+	wp_enqueue_style( 'webfonts-css', 'http://fast.fonts.net/cssapi/aa206c52-0bd7-4c23-bef2-d7fc3da68194.css' );
+	
 	wp_enqueue_style( 'admin-fa-css', '//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css' );
 	
 

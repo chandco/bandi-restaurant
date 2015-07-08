@@ -258,6 +258,10 @@
 }
 
 
+.single-post #main {
+	background: rgba(255, 255, 255, 0.49);
+}
+
 .shortcode-post-list {
 	width: 100%;
 
@@ -266,16 +270,29 @@
          
 
       @media screen and (min-width: @tablet-break) {
-        .flex-container(4);   
+        .flex-container(4);  
+
+
       }
 
        @media screen and (max-width: @tablet-break) and (min-width: @mobile-break) {
         .flex-container(2);   
+
+        // Law Soc Specific:
+        .post-preview {
+        	margin-bottom: 4em;
+        } 
       }
 
 
       @media screen and (max-width: @mobile-break) {
-        .flex-container(1);   
+        .flex-container(1);  
+
+        .post-preview {
+        	margin-bottom: 4em;
+        }
+
+
       }
 
 

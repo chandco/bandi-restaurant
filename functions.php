@@ -61,6 +61,7 @@ require_once( 'library/bones.php' );
 require_once("library/theme-options.php");
 
 require_once("library/content/header-colour.php");
+require_once("library/content/custom-content.php");
 
 require_once("library/restrictions.php");
 

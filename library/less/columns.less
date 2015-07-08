@@ -273,3 +273,22 @@
 		}
 	}
 }
+
+// wordpress blog styles to help the column behaviour.  This is content editing stuff that only happens when something is inside a column
+@media screen and (max-width: @tablet-break) {
+	
+	.col-smart img {
+		width: 100%;
+		height: auto;
+		float: none;
+
+		&.alignright, &.alignleft {
+			float: none;
+			margin: auto;
+		}
+	}
+
+	.col-smart {
+		width: 100% !important;
+	}
+}
