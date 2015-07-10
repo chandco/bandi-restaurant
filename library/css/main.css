@@ -6054,6 +6054,13 @@ img.mfp-img {
     padding: 0 2%;
   }
 }
+input[type='submit'] {
+  border: none;
+  background: #4d4d4d;
+  padding: .3em .6em;
+  color: #c0d62c;
+  border-radius: 2px;
+}
 span.wpcf7-list-item {
   display: block;
   margin-top: -5px;
@@ -6996,12 +7003,162 @@ input[type="text"][disabled]:focus, input[type="text"][disabled]:active, input[t
 }
 input[type='submit'] {
   border: none;
-  background: #333333;
+  background: #0086ac;
   padding: .3em .6em;
   color: #fff;
   border-radius: 2px;
   min-width: 20%;
   font-size: 1.4em;
+}
+input[type='submit']:hover {
+  background: #13cbff;
+}
+.gfield_radio,
+.gfield_checkbox {
+  padding: 0;
+  list-style-type: none;
+}
+.gfield_radio input[type='radio'],
+.gfield_checkbox input[type='radio'],
+.gfield_radio input[type='checkbox'],
+.gfield_checkbox input[type='checkbox'] {
+  display: none;
+}
+.gfield_radio input[type='radio'] + label,
+.gfield_checkbox input[type='radio'] + label,
+.gfield_radio input[type='checkbox'] + label,
+.gfield_checkbox input[type='checkbox'] + label {
+  position: relative;
+  display: block;
+  cursor: pointer;
+  width: 100%;
+  box-sizing: border-box;
+  padding: .5em 1% .5em 6%;
+  border-bottom: 2px solid transparent;
+  -webkit-transition: border 0.4s ease, background 0.6s ease;
+          transition: border 0.4s ease, background 0.6s ease;
+  border-radius: 2px;
+}
+.gfield_radio input[type='radio'] + label:hover,
+.gfield_checkbox input[type='radio'] + label:hover,
+.gfield_radio input[type='checkbox'] + label:hover,
+.gfield_checkbox input[type='checkbox'] + label:hover {
+  background: rgba(192, 214, 44, 0.2);
+}
+.gfield_radio input[type='radio'] + label:before,
+.gfield_checkbox input[type='radio'] + label:before,
+.gfield_radio input[type='checkbox'] + label:before,
+.gfield_checkbox input[type='checkbox'] + label:before {
+  color: #999999;
+  -webkit-transition: color 0.4s ease;
+          transition: color 0.4s ease;
+  z-index: 2;
+}
+.gfield_radio input[type='radio'] + label:after,
+.gfield_checkbox input[type='radio'] + label:after,
+.gfield_radio input[type='checkbox'] + label:after,
+.gfield_checkbox input[type='checkbox'] + label:after {
+  content: "";
+  -webkit-transition: text-shadow 0.4s ease, color 0.4s ease;
+          transition: text-shadow 0.4s ease, color 0.4s ease;
+  color: #ffffff;
+  z-index: 1;
+  text-shadow: 0px 0px 0 #333333, 0px 0px 0 #333333, 0px 0px 0 #333333, 0px 0px 0 #333333;
+}
+.gfield_radio input[type='radio'] + label:after,
+.gfield_checkbox input[type='radio'] + label:after,
+.gfield_radio input[type='checkbox'] + label:after,
+.gfield_checkbox input[type='checkbox'] + label:after,
+.gfield_radio input[type='radio'] + label:before,
+.gfield_checkbox input[type='radio'] + label:before,
+.gfield_radio input[type='checkbox'] + label:before,
+.gfield_checkbox input[type='checkbox'] + label:before {
+  display: inline-block;
+  font: normal normal normal 14px/1 FontAwesome;
+  font-size: inherit;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: 1.4em;
+  position: absolute;
+  width: 2%;
+  left: 2%;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+      -ms-transform: translateY(-50%);
+          transform: translateY(-50%);
+}
+.gfield_radio input[type='radio'] + label:after.pull-left,
+.gfield_checkbox input[type='radio'] + label:after.pull-left,
+.gfield_radio input[type='checkbox'] + label:after.pull-left,
+.gfield_checkbox input[type='checkbox'] + label:after.pull-left,
+.gfield_radio input[type='radio'] + label:before.pull-left,
+.gfield_checkbox input[type='radio'] + label:before.pull-left,
+.gfield_radio input[type='checkbox'] + label:before.pull-left,
+.gfield_checkbox input[type='checkbox'] + label:before.pull-left {
+  margin-right: .3em;
+}
+.gfield_radio input[type='radio'] + label:after.pull-right,
+.gfield_checkbox input[type='radio'] + label:after.pull-right,
+.gfield_radio input[type='checkbox'] + label:after.pull-right,
+.gfield_checkbox input[type='checkbox'] + label:after.pull-right,
+.gfield_radio input[type='radio'] + label:before.pull-right,
+.gfield_checkbox input[type='radio'] + label:before.pull-right,
+.gfield_radio input[type='checkbox'] + label:before.pull-right,
+.gfield_checkbox input[type='checkbox'] + label:before.pull-right {
+  margin-left: .3em;
+}
+.gfield_radio input[type='radio'] + label:after:before,
+.gfield_checkbox input[type='radio'] + label:after:before,
+.gfield_radio input[type='checkbox'] + label:after:before,
+.gfield_checkbox input[type='checkbox'] + label:after:before,
+.gfield_radio input[type='radio'] + label:before:before,
+.gfield_checkbox input[type='radio'] + label:before:before,
+.gfield_radio input[type='checkbox'] + label:before:before,
+.gfield_checkbox input[type='checkbox'] + label:before:before {
+  display: inline-block;
+  font-family: FontAwesome;
+  font-style: normal;
+  font-weight: normal;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.gfield_radio input[type='checkbox']:checked + label,
+.gfield_checkbox input[type='checkbox']:checked + label,
+.gfield_radio input[type='radio']:checked + label,
+.gfield_checkbox input[type='radio']:checked + label {
+  background: rgba(192, 214, 44, 0.5);
+}
+.gfield_radio input[type='checkbox']:checked + label:hover,
+.gfield_checkbox input[type='checkbox']:checked + label:hover,
+.gfield_radio input[type='radio']:checked + label:hover,
+.gfield_checkbox input[type='radio']:checked + label:hover {
+  background: rgba(192, 214, 44, 0.3);
+}
+.gfield_radio input[type='checkbox'] + label:before,
+.gfield_checkbox input[type='checkbox'] + label:before {
+  content: "\f096";
+}
+.gfield_radio input[type='checkbox'] + label:hover:before,
+.gfield_checkbox input[type='checkbox'] + label:hover:before {
+  content: "\f14a";
+}
+.gfield_radio input[type='checkbox']:checked + label:before,
+.gfield_checkbox input[type='checkbox']:checked + label:before {
+  content: "\f14a";
+}
+.gfield_radio input[type='radio'] + label:before,
+.gfield_checkbox input[type='radio'] + label:before {
+  content: "\f10c";
+}
+.gfield_radio input[type='radio'] + label:hover:before,
+.gfield_checkbox input[type='radio'] + label:hover:before {
+  content: "\f192";
+}
+.gfield_radio input[type='radio']:checked + label:before,
+.gfield_checkbox input[type='radio']:checked + label:before {
+  content: "\f192";
 }
 #wiki-menu .visual-menu {
   border-bottom: 2px solid rgba(0, 0, 0, 0.2);
