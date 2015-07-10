@@ -1,4 +1,28 @@
 
+
+
+
+        @grey           : #999999;
+        @green          : #278B27;
+        @blue           : #979DE0;
+        @lightgreen     : #d0de33;
+        @purple         : #9A97B8;
+        @black          : RGB(33,33,33);
+        @white          : RGB(255,255,255);
+        @orange         : #BE904D;
+     
+
+        @grey-text           : @white;
+        @green-text          : @white;
+        @blue-text           : @black;
+        @lightgreen-text     : @black;
+        @purple-text         : @white;
+        @black-text          : @white;
+        @white-text          : @black;
+        @orange-text         : @black;
+     
+
+
 @grey : #999999;
 @green : #C0D62C;
 @red: #d22529;
@@ -169,3 +193,73 @@
 
 @wiki-menu-highlight: @darkgreen;
 @wiki-menu-hover: @blue;
+
+
+.color-bg-mixin(@color, @bg, @lighten) {
+	   background: lighten(@bg, @lighten); 
+  	 color: @color; 
+  	
+}
+
+
+.svg-bg-mixin(@bg, @lighten: 0) {
+   svg  {
+      
+      .triangle {
+        fill: lighten(@bg, @lighten); 
+      }
+     }
+}
+
+
+
+
+
+    
+// ............................................................
+// .for
+
+.for(@i, @n) {.-each(@i)}
+.for(@n)     when (isnumber(@n)) {.for(1, @n)}
+.for(@i, @n) when not (@i = @n)  {
+    .for((@i + (@n - @i) / abs(@n - @i)), @n);
+}
+
+// ............................................................
+// .for-each
+
+.for(@array)   when (default()) {.for-impl_(length(@array))}
+.for-impl_(@i) when (@i > 1)    {.for-impl_((@i - 1))}
+.for-impl_(@i) when (@i > 0)    {.-each(extract(@array, @i))}
+
+
+@colors: grey,green,blue,lightgreen,purple,black,white,orange;
+        
+.colours-bg() {
+
+  .color-bg-mixin(@white, @green, 0);
+
+  .for(@colors); .-each(@name) {
+    &.@{name} {
+      
+      @text: "@{name}-text";
+      
+      .color-bg-mixin(@@text, @@name, 0);
+    }
+  }
+
+
+}
+
+
+.svg-colours(@lighten: 0) {
+
+  // default
+  .svg-bg-mixin( @green, @lighten);
+
+   .for(@colors); .-each(@name) {
+    &.@{name} {
+      .svg-bg-mixin(@@name, 0);
+    }
+  }
+}

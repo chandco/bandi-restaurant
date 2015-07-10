@@ -3,19 +3,9 @@
 @import "font-awesome/less/font-awesome";
 @import "variables";
 @import "mixins";
+@import "editor-style-mixins";
 
 
-.colours-bg( @lighten : 0% ) {
-  &.yellow { background: lighten(@red, @lighten); }
-  &.white { background: lighten(@white, @lighten); }
-
-  &.purple { background: lighten(@darkgreen, @lighten); color: @white; }
-  &.grey { background: lighten(@grey, @lighten); }
-  &.blue { background: lighten(@blue, @lighten); }
-  &.green { background: lighten(@green, @lighten); }
-  &.black { background: lighten(@black, @lighten); color: @white }
-
-}
 
 
 
@@ -24,6 +14,43 @@
 }
 
 
+#ch_page_color_picker {
+	.theme-colour-picker li {
+
+		display: inline-block;
+		width: 60px;
+		height: 60px;
+
+		label {
+			display: block;
+			position: relative;
+			width: 100%;
+			height: 100%;
+			span {
+				position: absolute;
+				bottom: 0;
+				font-size: 0.8em;
+				text-align: center;
+				background: inherit;
+				display: block;
+				width: 100%;
+				height:100%;
+				box-sizing: border-box;
+				padding-top: 30px;
+				line-height: 1;
+				background: RGBA(255,255,255,0.8);
+				border: 2px solid transparent;
+			}
+
+			input:checked + span {
+				border: 2px solid #fff;
+				box-shadow: 0 0 2px 0 #000;
+				background: inherit;
+			}
+		}
+		
+	}
+}
 
 #venue-gallery-select-page {
 	width: 100%;
@@ -414,3 +441,207 @@
 }
 	
 }
+
+
+
+.admin_page_columns-box-edit #wpcontent {
+	margin-left: 0px;
+	padding: 5px;
+
+	.feature {
+		.feature();
+	}
+}
+
+
+
+	.row {
+			width: 100%;
+			display: flex;
+			min-height: 400px;
+			justify-content: space-between;
+			margin-bottom: 10px;
+		}
+
+
+
+		.column {
+			margin: 10px;
+			position: relative;
+			border: 1px solid #eee;
+			cursor: pointer;
+			flex-grow: 1;
+			background: #fff;
+			flex-basis: 50%;
+			padding: 10px;
+
+			&.extend {
+				flex-grow: 2;
+				flex-basis: 100%;
+			}
+
+			button[class^='col-control-'] {
+		        position: absolute;
+		        margin: 0;
+		        display: none;
+		        z-index: 50;
+		        border: none;
+		        font-size: 0;
+		        
+		        background: none;
+		        overflow: hidden;
+		        height: 35px;
+		        box-sizing: border-box;
+		        color: transparent;
+		        border: none;
+		        cursor: pointer;
+		       	border-radius: 10px;
+
+		        //border-radius: 66px;
+		        //box-shadow: 1px 1px 0px rgba(0, 0, 0, 0.3);
+		        &:before {
+		          display: inline-block;
+		          -webkit-font-smoothing: antialiased;
+		          font: normal 30px/1 'dashicons';
+		          vertical-align: top;
+		          text-shadow: 0 0 #fff, 0 2px #fff, 2px 2px #fff, 2px 0 #fff, 0 0 #fff, 0 -2px #fff, -2px -2px #fff, -2px 0 #fff;
+		        }
+
+		        &:hover {
+		        	
+		        		background: #00a0d2;
+		        	
+		        }
+
+		      }
+
+		      &:hover button[class^='col-control-'] { 
+		      	display: block;
+		      }
+
+		            .col-control-add {
+			          top: 50%;
+			          right: 0;
+			          transform: translateX(50%) translateY(-70%);
+			        
+
+			        &:before {
+			          color: #5e7;
+			          content: "\f502";
+			        }
+			        
+
+
+			      }
+
+			      .col-control-remove {
+			        top: 0;
+			        left: 50%;
+			        transform:translateY(-50%) translateX(-50%);
+			        
+			        &:before {
+			          color: #900;
+			          content: "\f153";
+			        }
+			      }
+
+			      .col-control-extend {
+			        bottom: 0;
+			        left: 50%;
+			        transform:translateY(50%) translateX(-50%);
+			        min-width: 69px;
+			        cursor: pointer;
+
+			        &:before {
+			          content: "\f340 \f344";
+			          color: #000;
+			          min-width: 60px;
+			        }
+
+			      }
+			      
+			      .col-control-shrink {
+			        bottom: -28px;
+			        left: 43%;
+			        transform:translateY(-50%);
+			        min-width: 69px;
+
+
+			        &:before {
+			          content: "\f344 \f340";
+			          color: #000;
+			          min-width: 60px;
+			        }
+
+			      }
+		}
+
+		.column > .col-content {
+			display: none;
+		}
+
+		.column .preview {
+			float: none;
+		}
+
+		.column:hover .preview {
+			opacity: 0.4;
+		}
+
+		.column button.col-control-edit {
+
+
+			&:after {
+				content: "\f464";
+				color: fade(#00a0d2, 40%);
+  				font-size: 80px;
+  				
+  				border-radius: 10px;
+  				padding: 5px;
+			}
+
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			right: auto;
+			bottom: 20%;
+			font-weight: bold;
+			box-sizing: border-box;
+			padding: 0;
+			line-height: 1;
+			font-family: dashicons;
+			text-decoration: inherit;
+			font-weight: 400;
+			font-style: normal;
+			vertical-align: top;
+			text-align: center;
+			margin: auto;
+			height: auto;
+			width: auto;
+			z-index: 30;
+			transform: translate(-50%, -50%);
+
+			  &:hover {
+		        	
+		        	background: rgba(255, 255, 255, 0.6);
+
+		        	&:after {
+		        		background: fade(#00a0d2, 60%);
+		        		color: #fff;
+		        	}
+		        	
+		        }
+
+		}
+
+		#wp-popup-editor-wrap-wrap {
+			position: fixed;
+			left: 0;
+			right: 0;
+			top: 0;
+			bottom: 0;
+			display: none;
+			background: #FFF;
+			z-index: 100;
+			padding: 20px;
+		}

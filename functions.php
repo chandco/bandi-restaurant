@@ -59,7 +59,7 @@ require_once( 'library/bones.php' );
 
 // ADD THEME SETTINGS STUFF
 require_once("library/theme-options.php");
-
+require_once("library/content/header-colour.php");
 
 require_once("library/restrictions.php");
 

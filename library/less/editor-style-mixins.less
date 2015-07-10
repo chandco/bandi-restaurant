@@ -117,12 +117,12 @@ a.cta, a.cta-inline {
 
   a, a:visited, a:active {
 
-    div.feature { color: @white; }
+    div.feature { color: inherit; }
 
     } 
 
 
-div.feature {
+.feature {
 
   > p {
     display: none; // Stupid wordpress
@@ -160,7 +160,8 @@ div.feature {
   border-radius: 2px;
   transition:background 0.4s ease;
 
-  
+  .colours-bg();
+
   
 
 
@@ -205,7 +206,7 @@ div.feature {
 
       width: 100%;
       left: 0;
-      color: @dark;
+      color: inherit;
       z-index: 2;
       margin: 0 0 1em 0;
       font-size: 1.2em;
@@ -221,20 +222,17 @@ div.feature {
     padding: 1em;
     line-height: 1.2;
     font-size: 0.9em;
-    color: @white;
+    color: inherit;
 
   }
 }
 
 a div.feature {
   &:hover {
-    background: @lighter;
+    opacity: 0.8;
     
 
-    header h2 {
-      .alpha-color(@dark, 0.9);
-      background: @alpha-color;
-    }
+    
   }
 }
 
@@ -277,5 +275,110 @@ a div.feature {
       content: "new line (this text will not appear in post)";
 
     }
+  }
+}
+
+
+.feature {
+
+  > p {
+    display: none; // Stupid wordpress
+  }
+
+  text-decoration: none;
+  
+  
+
+  br {
+    display: none;
+  }
+
+  p {
+    margin: 0;
+    display: inline-block;
+    padding: 0;
+  }
+
+  * {
+    
+    
+
+  }
+  position: relative;
+  width: 100%;
+  // max-width: 350px; // means we can't have a 2 col one unless we define it
+
+  @media screen and (max-width: 900px) {
+    max-width: 100%;
+  }
+
+  background: @light;
+  // border-bottom: 2px solid darken(@light, 10%);
+  border-radius: 2px;
+  transition:background 0.4s ease;
+
+  
+  .colours-bg();
+
+
+  header {
+    width: 100%;
+    display: block;
+    height: 0;
+    padding-bottom: 75%;
+    position: relative;
+    overflow: hidden;
+    border-bottom: none;
+
+    p {
+      padding: 0;
+      margin: 0;
+    }
+   
+
+    img {
+      position: absolute;
+      z-index: 1;
+      height: 100%;
+      width: auto;
+      max-width: 9999px;
+      min-width: 100%;
+      min-height: 100%;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%) scale(1,1) translateZ(0);
+
+      transition:transform 0.4s ease-out;
+      background-color: rgba(255,255,255,.01);
+      backface-visibility: hidden;
+    }
+  }
+
+   h2 {
+      
+      bottom: 0;
+      
+      
+
+      width: 100%;
+      left: 0;
+      color: inherit;
+      z-index: 2;
+      margin: 0 0 1em 0;
+      font-size: 1.2em;
+      text-align: left;
+      transition:background 0.2s ease;
+    }
+
+  
+
+  div.content {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 1em;
+    line-height: 1.2;
+    font-size: 0.9em;
+    color: inherit;
+
   }
 }

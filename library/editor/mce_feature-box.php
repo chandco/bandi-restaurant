@@ -70,6 +70,7 @@ function shortcode_feature_box($atts, $content = false) {
 		$img = wp_get_attachment_image_src($atts["imgid"], responsive_conditional_size('medium'));
 		$output .= 	'<header>';
 		$output .= 		'<img src="' . $img[0] . '" />';	
+		$output .= '<svg viewBox="0 0 20 10" preserveAspectRatio="none"><polygon class="triangle" stroke-width=0 points="0,8 0,10 20,10 20,0" /></svg>';
 		$output .= 	'</header>';
 	}
 
@@ -101,8 +102,8 @@ function shortcode_feature_box($atts, $content = false) {
 	 $output .= '</div>';
 
 
-
-	 
+	
+	
 
 
 	$output .= '</div>';
@@ -329,14 +330,17 @@ function mcea_feature_box_init() {
 			<div class='choose-colours'>
 			<h4>Choose Background:</h4>
 			<ul id='colours'>
-				<li data-color='yellow' class='yellow'><span>Yellow</span></li>
-				<li data-color='purple' class='purple'><span>Purple</span></li>
-				<li data-color='white' class='white'><span>White</span></li>
-				<li data-color='black' class='black'><span>Black</span></li>
-				<li data-color='blue' class='blue'><span>Blue</span></li>
-				<li data-color='green' class='green'><span>Green</span></li>
-				<li data-color='grey' class='grey'><span>Grey</span></li>
 
+			<?php
+
+			
+		 	foreach (CH_pageColorPicker::colours() as $name => $color) {
+				
+				echo "<li data-color='" . $name . "' class='" . $name . "'><span>" . $name . "</span></li>";
+
+			}
+
+			?>
 			</ul>
 
 			</div>
