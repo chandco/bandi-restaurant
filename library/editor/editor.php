@@ -233,7 +233,7 @@ function cf_editor_buttons() {
 
 function wptuts_add_buttons( $plugin_array ) {
     $plugin_array['cf_features'] = get_stylesheet_directory_uri() . '/library/editor/admin/js/tinymce.js';
-    $plugin_array['cf_infobox'] = get_stylesheet_directory_uri() . '/library/editor/admin/js/infobox.js';
+    //$plugin_array['cf_infobox'] = get_stylesheet_directory_uri() . '/library/editor/admin/js/infobox.js';
     $plugin_array['cf_columns'] = get_stylesheet_directory_uri() . '/library/editor/admin/js/tinymce_columns.js';
     return $plugin_array;
 }
@@ -241,7 +241,8 @@ function wptuts_add_buttons( $plugin_array ) {
 function wptuts_register_buttons( $buttons ) {
 
 	// update this after the javascript is done
-    array_push( $buttons, 'feature', 'infobox', 'columns', 'widebg', 'cta-link', 'cta-link-wide', 'addIcons', 'capacities', 'imageStyler', 'venue-gallery' ); //'thirds', 'twothirds-third', 'third-twothirds', 'quarters' ); // dropcap', 'recentposts
+    //array_push( $buttons, 'feature', 'infobox', 'columns', 'widebg', 'cta-link', 'cta-link-wide', 'addIcons', 'capacities', 'imageStyler', 'venue-gallery' ); //'thirds', 'twothirds-third', 'third-twothirds', 'quarters' ); // dropcap', 'recentposts
+	array_push( $buttons, 'feature', 'columns', 'widebg', 'cta-link', 'cta-link-wide', 'addIcons', 'capacities' ); //'thirds', 'twothirds-third', 'third-twothirds', 'quarters' ); // dropcap', 'recentposts
     return $buttons;
 }
 

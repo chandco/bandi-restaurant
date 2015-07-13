@@ -259,7 +259,9 @@
                     data.link = tag.href;
                 }
 
-                data.title = tag.innerHTML;
+                data.title = (tag.innerHTML === '<br data-mce-bogus="1">') ? 'Click me to edit' : tag.innerHTML;
+
+                console.log(data.title);
 
                 
 

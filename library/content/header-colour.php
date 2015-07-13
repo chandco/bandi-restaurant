@@ -36,7 +36,7 @@ class CH_pageColorPicker {
 		return array(
 				 "grey"			=>		 	"#999999"
 				,"green"		=>			"#278B27"
-				,"blue"			=>		 	"#A5b2C7"
+				,"blue"			=>		 	"#979DE0"
 				,"lightgreen"	=>			"#6c780f"
 				,"purple"		=>			"#9A97B8"
 				,"black"		=>			"RGB(33,33,33)"

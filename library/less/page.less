@@ -40,9 +40,16 @@
 
 .page-template-template-embed {
 	#carousel {
+
+  		padding-top: 8px;
+  		@media screen and (max-width: @tablet-break) {
+  			padding-top: 33px;
+  		}
+
 		iframe {
 			width: 100%;
 			height: 400px;
+			min-height: 60vh;
 		}
 	}
 

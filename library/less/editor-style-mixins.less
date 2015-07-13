@@ -99,7 +99,7 @@ a.cta, a.cta-inline {
 
   &:hover {
     
-    background: darken(@link-color, 10%);
+    opacity: 0.7;
     
 
     * {
@@ -114,23 +114,23 @@ a.cta, a.cta-inline {
   font-family: @h-font;
   font-weight: normal;
   position: relative;
-  padding: 0.5em 1em 0.5em 4em;
+  padding: 0.5em 1em 0.5em 1em;
   text-align: center;
   margin: 1em auto;
   z-index: 1;
   
-  border-bottom: 2px solid lighten(@link-color, 50%);
+  border-bottom: 2px solid rgba(0, 0, 0, 0.5);
     
   
 
  
 
   i.fa {
-  	display: block;
-	 left: 1em;
-	 top: 51%;
-   transform:translateY(-50%);
-	 position: absolute;
+  	display: inline-block;
+    color: inherit !important;
+	 margin-right: 1em;
+	 
+	 position: relative;
 	 font-size: 1.5em;
 
    

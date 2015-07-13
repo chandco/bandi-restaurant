@@ -246,6 +246,11 @@
       @text: "@{name}-text";
       
       .color-bg-mixin(@@text, @@name, 0);
+
+      .cta-inline, .cta {
+        background: @@text;
+        color: @@name !important;
+      }
     }
   }
 
