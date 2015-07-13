@@ -57,6 +57,7 @@ img.alignfull-width {
   .size-auto, .size-full, .size-large, .size-medium, .size-thumbnail {
     max-width:100%;
     height:auto;
+    box-shadow: 0px 5px 7px -4px rgba(0, 0, 0, 0.57);
   }
   p {
     margin:0 0 1.5em;
@@ -66,11 +67,12 @@ img.alignfull-width {
   }
 
   @tborder: RGBA(0,0,0,0.1);
-  @tshade: RGBA(255,255,255,0.1);
+  @tshade: RGBA(255,255,255,0.2);
+
 
   table {
     width:100%;
-    //border:1px solid @tborder;
+    border:1px solid @tborder;
     margin-bottom:1.5em;
     caption {
       margin:0 0 7px;
