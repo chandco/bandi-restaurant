@@ -65,13 +65,19 @@ img.alignfull-width {
     }
   }
 
+  @tshade: RGBA(0,0,0,0.05);
   @tborder: RGBA(0,0,0,0.1);
-  @tshade: RGBA(255,255,255,0.1);
 
   table {
     width:100%;
-    //border:1px solid @tborder;
+    border:1px solid @tborder;
     margin-bottom:1.5em;
+
+    &.alignleft {
+      float: none;
+      margin: auto;
+      display: table;
+    }
     caption {
       margin:0 0 7px;
       font-size:0.75em;
@@ -90,7 +96,7 @@ img.alignfull-width {
   }
   td {
     padding:7px;
-    //border-right:1px solid @tborder;
+    border-right:1px solid #fff;
   }
   td:last-child {
     border-right:0;

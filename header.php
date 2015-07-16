@@ -31,7 +31,7 @@
 		<meta name="msapplication-TileImage" content="<?php echo get_template_directory_uri(); ?>/library/images/win8-tile-icon.png">
 
 		<link rel="pingback" href="<?php bloginfo('pingback_url'); ?>">
-	
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 		
 		
 
@@ -41,6 +41,8 @@
 
 		<?php // drop Google Analytics Here ?>
 		<?php // end analytics ?>
+
+		
 		<script>
 		// Picture element HTML5 shiv.  We're not putting this in require since it's a fairly fundamental HTML thing and it can handle the Async on its own.
 		document.createElement( "picture" );

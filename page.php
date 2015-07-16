@@ -52,6 +52,10 @@
 							<?php } ?>
 
 
+			<?php 
+			if (get_the_id() == 526) {
+				echo do_shortcode( '[gravityform id="1" title="true" description="false" ajax="true"]' );
+			} ?>
 			<div id="content" class='max-central'>
 
 				<div id="inner-content" class="wrap cf">

@@ -9,7 +9,7 @@
 
 
 					<div class='col-smart'>
-						
+						<div class='widget'>
 						<h4 class='widgettitle'>Site Menu</h4>
 							<nav role="navigation">
 								<?php wp_nav_menu(array(
@@ -26,6 +26,7 @@
 		    					'fallback_cb' => 'bones_footer_links_fallback'  // fallback function
 								)); ?>
 							</nav>
+						</div>
 						
 					</div>
 
@@ -65,7 +66,7 @@
 		var rjs_baseURL = "<?php echo get_stylesheet_directory_uri(); ?>/library/dist/js/libs/";
 		var rjs_pluginURL = "<?php echo plugins_url(); ?>";
 </script>		
-<?php // <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js" defer></script> ?>
+
 
 <script data-main="<?php echo get_stylesheet_directory_uri(); ?>/library/js/main-built.js" src="<?php echo get_stylesheet_directory_uri(); ?>/library/js/vendor/require.js" defer></script>		
 <script type="text/javascript" src="http://fast.fonts.net/jsapi/e4baf517-7128-4749-bbe6-cfc5fe4b4187.js" defer></script>
@@ -76,7 +77,7 @@
 		  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
 		  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-		  ga('create', <?php echo GAPROPERTYID; ?>, 'auto');
+		  ga('create', '<?php echo GAPROPERTYID; ?>', 'auto');
 		  ga('send', 'pageview');
 
 </script>
