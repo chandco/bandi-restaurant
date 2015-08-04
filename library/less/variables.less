@@ -4,36 +4,13 @@
 @darkgrey : RGB(51,51,51);
 
 
+@import "colours";
 
-
-
-
-
-        @grey           : #999999;
-        @green          : #278B27;
-        @blue           : #A5b2C7;
-        @lightgreen     : #d0de33;
-        @purple         : #9A97B8;
-        @black          : RGB(33,33,33);
-        @white          : RGB(255,255,255);
-        @orange         : #BE904D;
-     
-
-        @grey-text           : @white;
-        @green-text          : @white;
-        @blue-text           : @black;
-        @lightgreen-text     : @black;
-        @purple-text         : @white;
-        @black-text          : @white;
-        @white-text          : @black;
-        @orange-text         : @black;
-     
 
 @darkgreen: @green;
 @lightgrey : #DDDDDD;
 @lighter-grey : #E6E6E6;
 @off-white: #F0f0f0;
-
 
 
 @darkblue : #fff;
@@ -82,7 +59,7 @@
 @highlight : #0086ac;
 @highlight-text : @black;
 
-@main-colour: @green;
+@main-colour: @purple;
 
 @emphasis : @darkblue;
 @emphasis-text: @white; // if @emphasis was a background etc.
@@ -99,7 +76,7 @@
 @formbg : @lightblue;
 
 // Header Styles and sizes
-@header-background: @green;
+@header-background: @purple;
 
 // sidebars
 @widget-background: fade( @lightgrey, 20% );
@@ -213,7 +190,7 @@
 }
 
 
-
+@colors: grey,green,blue,lightgreen,purple,black,white;     
 
 
     
@@ -234,7 +211,7 @@
 .for-impl_(@i) when (@i > 0)    {.-each(extract(@array, @i))}
 
 
-@colors: grey,green,blue,lightgreen,purple,black,white,orange;
+
         
 .colours-bg() {
 

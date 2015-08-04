@@ -336,7 +336,7 @@ function mcea_feature_box_init() {
 			
 		 	foreach (CH_pageColorPicker::colours() as $name => $color) {
 				
-				echo "<li data-color='" . $name . "' class='" . $name . "'><span>" . $name . "</span></li>";
+				echo "<li data-color='" . $name . "' class='" . $name . "'><span>aaa" . $name . "</span></li>";
 
 			}
 
@@ -351,7 +351,7 @@ function mcea_feature_box_init() {
 	<script>
 		var imgSuffix = "<?php echo $suffix; ?>";
 	</script>
-	<script src="<?php echo get_stylesheet_directory_uri(); ?>/library/editor/admin/js/views_feature-box.js"></script>
+	<script src="<?php echo get_template_directory_uri(); ?>/library/editor/admin/js/views_feature-box.js"></script>
 <?php
 		 
 		   

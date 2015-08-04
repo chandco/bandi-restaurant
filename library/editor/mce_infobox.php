@@ -213,7 +213,7 @@ function mcea_infobox_init() {
 	<script>
 		var imgSuffix = "<?php echo $suffix; ?>";
 	</script>
-	<script src="<?php echo get_stylesheet_directory_uri(); ?>/library/editor/admin/js/views_infobox.js"></script>
+	<script src="<?php echo get_template_directory_uri(); ?>/library/editor/admin/js/views_infobox.js"></script>
 <?php
 		 
 		   

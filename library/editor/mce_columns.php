@@ -15,6 +15,7 @@ function prefix_ajax_add_foobar() {
 	
 }
 
+
 function views_ed_columns() {
 
 	// manual localisation before I find a better way.
@@ -62,7 +63,7 @@ function shortcode_ed_columns($atts, $content = false) {
 
 	$content = str_replace($wrong_X, $right_X, $content);
 
-	$content = urldecode($content);
+	$content = ($content);
 
 	$array = array (
 	    '<p>[' => '[', 

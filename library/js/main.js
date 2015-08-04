@@ -81,3 +81,8 @@ require(['jquery'], function($) {
 
   });
 })
+
+
+if (window.child_script) {
+  require([child_script]);
+}

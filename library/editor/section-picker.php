@@ -18,20 +18,19 @@
 		#colours li span {
 			display: block;
 			width: 100%;
-			background: #fff;
 			text-align: center;
 			padding: 2% 2%;
 		}
 	</style>
 	<ul id='colours'>
+
+		<?php require_once( get_stylesheet_directory() . "/library/get_colours.php" ); 
+
+		foreach (get_colours() as $key => $value) {
+				echo "<li data-color='" . $key . "' class='" . $key . "' style='background:" . $value["background"] . ";color:" . $value["text"] . "'><span>" . ucfirst($key) . "</span></li>";
+		}
 		
-		<li data-color='purple' class='purple' style='background:#9A97B8;'><span>Purple</span></li>
-		<li data-color='white' class='white' style='background:#FEFEFE;'><span>White</span></li>
-		<li data-color='black' class='black' style='background:#131313;'><span>Black</span></li>
-		<li data-color='blue' class='blue' style='#99cc00;'><span>Blue</span></li>
-		<li data-color='green' class='green' style='#278B27'><span>Green</span></li>
-		<li data-color='darkgreen' class='darkgreen' style='#278B27'><span>Dark Green</span></li>
-		<li data-color='grey' class='grey' style='background:#999999'><span>Grey</span></li>
+		?>
 
 	</ul>
 

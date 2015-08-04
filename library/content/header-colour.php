@@ -33,16 +33,17 @@ class CH_pageColorPicker {
 	 */
 
 	public function colours() {
-		return array(
-				 "grey"			=>		 	"#999999"
-				,"green"		=>			"#278B27"
-				,"blue"			=>		 	"#979DE0"
-				,"lightgreen"	=>			"#6c780f"
-				,"purple"		=>			"#9A97B8"
-				,"black"		=>			"RGB(33,33,33)"
-				,"white"		=>			"RGB(255,255,255)"
-				,"orange"		=>			"#BE904D"
-			);
+		require_once( get_stylesheet_directory() . "/library/get_colours.php");
+
+		$return = array();
+
+		foreach (get_colours() as $key => $value) {
+			$return[$key] = $value["background"];
+		}
+
+		return $return;
+		
+	
 	}
 	public function add_meta_box( $post_type ) {
             $post_types = array('post', 'page');     //limit meta box to certain post types

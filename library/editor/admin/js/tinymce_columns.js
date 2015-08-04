@@ -261,7 +261,7 @@ var urlencode = rawurlencode;
 
         var atts = parent.tinymce.activeEditor.windowManager.getParams();
         
-        var columns = findShortcodes( urldecode(atts.data), 'column' );
+        var columns = findShortcodes( (atts.data), 'column' );
 
         
 
@@ -383,8 +383,8 @@ var urlencode = rawurlencode;
             ed.addCommand('columns', function() {
                 var selected_text = ed.selection.getContent();
 
-                if (!selected_text) { selected_text = '&nbsp;'}
-                return_text =   '[columns-box]' + urlencode( '[column][/column][column][/column]') + '[/columns-box]';
+                if (!selected_text) { selected_text = ''}
+                return_text =   '[columns-box]' + ( '[column][/column][column][/column]') + '[/columns-box]';
                 ed.selection.setContent(return_text);
                 
             });
@@ -427,7 +427,7 @@ var urlencode = rawurlencode;
             });      
 
 
-            s += urlencode(inner);
+            s += (inner);
 
 
 
@@ -464,7 +464,7 @@ var urlencode = rawurlencode;
                         
             
             
-            var columns = findShortcodes( urldecode( this.shortcode.content ), 'column' );
+            var columns = findShortcodes( ( this.shortcode.content ), 'column' );
 
             // so we're going to say if you put stuff "outside" the columns then you broke it, so we can ditch the content...
 
@@ -487,7 +487,7 @@ var urlencode = rawurlencode;
             
             
             // if (xhr) xhr.abort();
-            contentPreview( urldecode(this.shortcode.content), function(response) {
+            contentPreview( (this.shortcode.content), function(response) {
                 
                 
                 $content = $( tinyMCE.activeEditor.dom.get( current.uid ) );

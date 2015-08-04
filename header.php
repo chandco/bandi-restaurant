@@ -17,7 +17,17 @@
 		<meta name="HandheldFriendly" content="True">
 		<meta name="MobileOptimized" content="320">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-		<link type="text/css" rel="stylesheet" href="http://fast.fonts.net/cssapi/aa206c52-0bd7-4c23-bef2-d7fc3da68194.css"/>
+		<?php 
+			if (file_exists( get_stylesheet_directory() . "/extra-header.php" )) {
+				include( get_stylesheet_directory() . "/extra-header.php" );
+			} else {
+				?>
+
+				<link type="text/css" rel="stylesheet" href="http://fast.fonts.net/cssapi/aa206c52-0bd7-4c23-bef2-d7fc3da68194.css"/>
+
+				<?php
+			}
+		?>
 
 		<?php // icons & favicons (for more: http://www.jonathantneal.com/blog/understand-the-favicon/) ?>
 		<link rel="apple-touch-icon" href="<?php echo get_template_directory_uri(); ?>/library/images/apple-icon-touch.png">
@@ -46,7 +56,7 @@
 		// Picture element HTML5 shiv.  We're not putting this in require since it's a fairly fundamental HTML thing and it can handle the Async on its own.
 		document.createElement( "picture" );
 		</script>
-		<script src="<?php echo get_stylesheet_directory_uri(); ?>/library/js/vendor/picturefill.js" async></script>
+		<script src="<?php echo get_template_directory_uri(); ?>/library/js/vendor/picturefill.js" async></script>
 		<style>
 		<?php echo get_option('cf_inlineCSS'); ?>
 		</style>
@@ -55,11 +65,8 @@
 	$bodyclass = "";
 	if (ISMOBILE) $bodyclass .= " is-mobile ";
 	if (ISTABLET) $bodyclass .= " is-tablet ";
-	?>
-	<body <?php body_class($bodyclass); ?>>
-	
 
-		<?php
+	
 
 		 $value = get_post_meta( $post->ID, 'page_color', true ); 
 		 
@@ -67,14 +74,19 @@
 		 if ($value) {
 		 	$colours = CH_pageColorPicker::colours();
 		 	$style = "style='background:" . $colours[$value] . ";'";
-
+		 	$bodyclass .= " " . $value;
 		 } else {
 		 	$style = "";
 		 }
 
 
-		?>
-		<header class="header" role="banner" <?php echo $style; ?>>
+	?>
+	
+	<body <?php body_class($bodyclass); ?>>
+	
+
+		
+		<header class="header" role="banner">
 
 				<div id="inner-header" class='max-central' >
 
@@ -83,7 +95,7 @@
 
 					<?php // to use a image just replace the bloginfo('name') with your img src and remove the surrounding <p> ?>
 					<a href="<?php echo home_url(); ?>" rel="nofollow">
-						<img src="<?php header_image(); ?>" height="<?php echo get_custom_header()->height; ?>" width="<?php echo get_custom_header()->width; ?>" alt="" />
+						<?php include( get_stylesheet_directory() . "/library/logo.php" ); ?>
 					</a>
 
 					</div>
