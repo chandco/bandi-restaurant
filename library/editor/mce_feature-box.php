@@ -67,7 +67,7 @@ function shortcode_feature_box($atts, $content = false) {
 
 	if ($atts["imgid"] != "" && $atts["imgid"] != 'undefined') {
 
-		$img = wp_get_attachment_image_src($atts["imgid"], responsive_conditional_size('medium'));
+		$img = wp_get_attachment_image_src($atts["imgid"], responsive_conditional_size('large'));
 		$output .= 	'<header>';
 		$output .= 		'<img src="' . $img[0] . '" />';	
 		$output .= '<svg viewBox="0 0 20 10" preserveAspectRatio="none"><polygon class="triangle" stroke-width=0 points="0,8 0,10 20,10 20,0" /></svg>';

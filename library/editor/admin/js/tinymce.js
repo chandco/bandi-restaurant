@@ -180,12 +180,12 @@
 
             function addList(icon, ed) {
                 var selected_text = ed.selection.getNode();
-                console.log(selected_text.nodeName);
+                
                 if (selected_text.nodeName == 'LI') {
                     ed.dom.setAttrib( selected_text, 'class', icon );
                     
                 }
-                console.log(selected_text);
+                
                 //ed.insertContent( return_text );
             }
 

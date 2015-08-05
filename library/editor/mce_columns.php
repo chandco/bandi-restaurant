@@ -1,5 +1,64 @@
 <?php
 
+// function shortcode_empty_paragraph_fix( $content ) {
+
+//     // define your shortcodes to filter, '' filters all shortcodes
+//     $shortcodes = array( 'columns', 'feature-box', 'gallery' );
+    
+//     foreach ( $shortcodes as $shortcode ) {
+        
+//         $array = array (
+        	
+//           	 '<p>[' . $shortcode 		=> '[' .$shortcode
+//            , '<p>[/' . $shortcode 		=> '[/' .$shortcode
+//            , $shortcode . ']</p>' 		=> $shortcode . ']'
+//            , $shortcode . ']<br />' 		=> $shortcode . ']'
+			
+            
+//         );
+
+//         $content = strtr( $content, $array );
+//     }
+
+    
+
+//     return $content;
+// }
+
+// add_filter( 'the_content', 'shortcode_empty_paragraph_fix' );
+
+
+// add_filter( 'the_content', 'cf_fix_broken_columns', 0 );
+
+// function cf_fix_broken_columns($content) {
+
+// 	$array = array (
+        	
+//           	 '<div class="row"></p>'				=> '<div class="row>'
+//            , '<p><div class="col-smart"></p>' 		=> '<div class="col-smart">'
+//            , '<p></div>'							=> '</div>'
+
+			
+            
+//         );
+// 	echo "<textarea style='position:absolute;top:0;left:0;z-index:999999999'>" . $content . "</textarea>";
+
+//     $content = strtr( $content, $array );
+
+//     echo "<textarea style='position:absolute;top:200px;left:0;z-index:999999999'>" . $content . "</textarea>";
+
+//     return $content;
+
+// }
+
+
+remove_filter( 'the_content', 'wpautop' );
+add_filter( 'the_content', 'wpautop' , 99);
+
+
+
+// add_filter( 'the_content', 'shortcode_unautop',100 );
+
 
 // View for featuer box
 // View for featuer box
@@ -71,11 +130,13 @@ function shortcode_ed_columns($atts, $content = false) {
 	    ']<br />' => ']'
 	);
 
+	if (strstr($content, '[columns-box]'))
+
 
 
  	$content = strtr($content, $array);
 
-	$output .= '<div class="row">' . do_shortcode( $content) . '</div>';
+	$output .= '<div class="row">' . do_shortcode( $content ) . '</div>';
 
 	
 	return $output; 
@@ -101,7 +162,7 @@ function shortcode_ed_column($atts, $content) {
 	}
 
 	
-	$output = '<div class="col-smart' . $wider . '">' . do_shortcode( $content ) . '</div>';
+	$output = '<div class="col-smart' . $wider . '">' . wpautop( do_shortcode( $content ) ) . '</div>';
 	return $output; 
 }
 

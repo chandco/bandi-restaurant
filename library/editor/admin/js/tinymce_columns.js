@@ -115,6 +115,13 @@ var urlencode = rawurlencode;
             
 
             if (result) {
+                // wordpress is adding P tags around closing and opening shortcodes
+                // Hopefully the below cleaning replaces it all, but it shouldn't be clearing anything it shouldn't 
+
+                result.content = result.content.replace( '[column]</p>', '[column]');
+                result.content = result.content.replace( '<p>[/column]', '[column]');
+                result.content = result.content.replace( '[/column]\n', '[column]');
+                result.content = result.content.replace( '\n[/column]', '[column]')
                 elements.push( result );
                 nextColumn(result);
             } else {
@@ -145,7 +152,7 @@ var urlencode = rawurlencode;
 
                     }).done( function( response ) {
 
-                        console.log(response);
+                        
                         callback(response);
 
                     });
@@ -197,13 +204,17 @@ var urlencode = rawurlencode;
 
         var addColumn = function( content, $insertAfter, shortcode ) {
 
-            console.log(shortcode);
+            
             var extend = '';
             if (shortcode && shortcode.attrs.numeric[0] == 'extend') {
                 extend = 'extend';
             }
 
-            var $column = $('<div id="column-' + uid() + '" class="column ' + extend + '"><div class="col-content">' + content + '</div></div>');
+            var $column = $('<div id="column-' + uid() + '" class="column ' + extend + '"></div>');
+            var $data = $('<div class="col-content"></div>');
+            
+            $data.data('content', content);
+            $data.appendTo($column);
 
             var $preview = $('<div class="preview"></div>');
 
@@ -252,7 +263,7 @@ var urlencode = rawurlencode;
             .on('click', '.col-control-edit', function(e) {
      
                 e.preventDefault();
-                ed.setContent( $(this).parent('.column').find('.col-content').html() );
+                ed.setContent( $(this).parent('.column').find('.col-content').data('content') );
                 activeTextarea = $(this).parent('.column').attr('id');
                 $ed.css('display', 'block');
 
@@ -267,6 +278,8 @@ var urlencode = rawurlencode;
 
             
             columns.forEach( function( column, index ) {
+
+                
 
                 addColumn( column.shortcode.content, false, column.shortcode );
                 
@@ -291,8 +304,7 @@ var urlencode = rawurlencode;
                     var content = ed.getContent();
 
                     
-
-                    $('#' + activeTextarea + ' .col-content').html( content );
+                    $('#' + activeTextarea + ' .col-content').data('content', content );
                     var $preview = $('#' + activeTextarea + ' .preview').html( '<i class="fa fa-refresh fa-spin"></i>&nbsp;Loading New Content...' );
 
                     contentPreview( content, function(response) {
@@ -315,9 +327,12 @@ var urlencode = rawurlencode;
                     var extend = false;
                     if ( $(column).hasClass('extend') ) extend = true;
 
-                    data.columns.push( { content: $(column).find('.col-content').html(), extend : extend } );
+                    data.columns.push( { content: $(column).find('.col-content').data('content'), extend : extend } );
 
                 });
+
+                parent.columndata = data;
+                
 
                 parent.tempNode.do_update( data );
 
@@ -408,6 +423,7 @@ var urlencode = rawurlencode;
 
     function build_column_shortcode( data ) {
 
+
         
         
         var s = '[' + shortcode_string + ']';
@@ -415,13 +431,16 @@ var urlencode = rawurlencode;
         var inner = '';
             data.columns.forEach( function( column, index ) {
 
+
                 
-                console.log(column);
+                
                 if (column.extend) {
                     inner += '[column extend]';
                 } else {
                     inner += '[column]';
                 }
+
+            
 
                 inner += column.content + '[/column]';
             });      
@@ -433,7 +452,7 @@ var urlencode = rawurlencode;
 
             s += '[/' + shortcode_string + ']';
 
-
+        console.log(s);
         return s;
     }
 
@@ -513,7 +532,6 @@ var urlencode = rawurlencode;
             var instance = wp.mce.views.getInstance( tempNode ); // this
 
             
-
             var s = build_column_shortcode( data );
             
 

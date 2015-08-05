@@ -32,7 +32,7 @@
 
 */
 
-add_filter("the_content", "WrapStuff", 0);
+//add_filter("the_content", "WrapStuff", 0);
 
 
 

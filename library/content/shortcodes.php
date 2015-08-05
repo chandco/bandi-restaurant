@@ -154,26 +154,50 @@ function cf_postsfeed($atts) {
 	$args["posts_per_page"] = $atts["number"];
 
 
+	$posts_array = get_posts( $args );
 
-	$the_query = new WP_Query( $args );
+
+	
 	// The Loop
 	$output = "";
-	if ($the_query->have_posts()) {
+
 	
+	if (count($posts_array)) {
 	
 		ob_start();
 		echo "<ul class='post-list shortcode-post-list'>";
-			while ($the_query->have_posts()) {
-					$the_query->the_post();
+			foreach ( $posts_array as $post ) : setup_postdata( $post );
 			
-					global $more;    // Declare global $more (before the loop).
-					$more = 0;       // Set (inside the loop) to display content above the more tag.
+			
+				global $more;    // Declare global $more (before the loop).
+				$more = 0;       // Set (inside the loop) to display content above the more tag.
 					
 					//add_filter('the_content','my_strip_tags');
-				 get_template_part( 'content/post-preview' );
-				//	echo "<li>WHUT?</li>"
+
+				
+				?>
+
+
+				<li class='post-preview'>
+					<a href='<?php echo get_permalink( $post->ID ); ?>'>
+						<div class='image-container'>
+							<?php
+							if (has_post_thumbnail($post->ID)) {
+								echo responsive_image_thumbnail($post->ID, 'thumbnail');
+							}
+							?>
+						</div>	
+
+						<h4><?php echo $post->post_title; ?></h4>
+					</a>
+					
+					<div class='excerpt'>
+						<?php the_excerpt(); ?>
+					</div>
+				</li>
+		<?php
 			
-			} // end of related tags
+			endforeach;
 			wp_reset_postdata();
 		echo "</ul>";
 
