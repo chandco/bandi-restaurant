@@ -131,7 +131,8 @@ function print_filters_for( $hook = '' ) {
         return;
 
     print '<pre>';
-    print_r( $wp_filter[$hook] );
+    ksort($wp_filter[$hook]);
+    print_r( ($wp_filter[$hook]) );
     print '</pre>';
 }
 // not really a shortcode but it is for the editor

@@ -1,67 +1,77 @@
 <?php
 
-// function shortcode_empty_paragraph_fix( $content ) {
+function shortcode_empty_paragraph_fix( $content ) {
 
-//     // define your shortcodes to filter, '' filters all shortcodes
-//     $shortcodes = array( 'columns', 'feature-box', 'gallery' );
+    // define your shortcodes to filter, '' filters all shortcodes
+    $shortcodes = array( 'feature-box' );
     
-//     foreach ( $shortcodes as $shortcode ) {
+    foreach ( $shortcodes as $shortcode ) {
         
-//         $array = array (
+        $array = array (
         	
-//           	 '<p>[' . $shortcode 		=> '[' .$shortcode
-//            , '<p>[/' . $shortcode 		=> '[/' .$shortcode
-//            , $shortcode . ']</p>' 		=> $shortcode . ']'
-//            , $shortcode . ']<br />' 		=> $shortcode . ']'
+          	 '<p>[' . $shortcode 		=> '[' .$shortcode
+           , '<p>[/' . $shortcode 		=> '[/' .$shortcode
+           , $shortcode . ']</p>' 		=> $shortcode . ']'
+           , $shortcode . ']<br />' 		=> $shortcode . ']'
 			
             
-//         );
+        );
 
-//         $content = strtr( $content, $array );
-//     }
+        $content = strtr( $content, $array );
+    }
 
     
 
-//     return $content;
-// }
-
-// add_filter( 'the_content', 'shortcode_empty_paragraph_fix' );
+    return $content;
+}
 
 
-// add_filter( 'the_content', 'cf_fix_broken_columns', 0 );
 
-// function cf_fix_broken_columns($content) {
+add_filter( 'the_content', 'cf_fix_broken_columns' , 8);
+function cf_fix_broken_columns($content) {
+	$result = preg_replace(
+    '/\]\s+\[/', 
+    '][', $content);
 
-// 	$array = array (
+    return $result;
+
+}
+
+
+
+
+remove_filter( 'the_content', 'do_shortcode', 11 );
+remove_filter('the_content', 'wpautop');
+
+
+
+add_filter( 'the_content', 'cf_fix_broken_columns' , 1);
+add_filter('the_content', 'wpautop', 99);
+add_filter( 'the_content', 'cf_cleanup', 99 );
+
+
+add_filter( 'the_content', 'do_shortcode', 100 );
+
+add_filter( 'the_content', 'cf_cleanup', 100 );
+
+
+function cf_cleanup($content) {
+	
+
+	$array = array (
         	
-//           	 '<div class="row"></p>'				=> '<div class="row>'
-//            , '<p><div class="col-smart"></p>' 		=> '<div class="col-smart">'
-//            , '<p></div>'							=> '</div>'
-
+          	 '<p></a></p>'		=> '</a>'
 			
             
-//         );
-// 	echo "<textarea style='position:absolute;top:0;left:0;z-index:999999999'>" . $content . "</textarea>";
+        );
 
-//     $content = strtr( $content, $array );
+     $content = strtr( $content, $array );
 
-//     echo "<textarea style='position:absolute;top:200px;left:0;z-index:999999999'>" . $content . "</textarea>";
-
-//     return $content;
-
-// }
+     return $content;
+	
+}
 
 
-remove_filter( 'the_content', 'wpautop' );
-add_filter( 'the_content', 'wpautop' , 99);
-
-
-
-// add_filter( 'the_content', 'shortcode_unautop',100 );
-
-
-// View for featuer box
-// View for featuer box
 
 add_action( 'wp_ajax_get_shortcode_preview', 'prefix_ajax_add_foobar' );
 add_action( 'wp_ajax_nopriv_shortcode_preview', 'prefix_ajax_add_foobar' );
@@ -130,7 +140,7 @@ function shortcode_ed_columns($atts, $content = false) {
 	    ']<br />' => ']'
 	);
 
-	if (strstr($content, '[columns-box]'))
+	
 
 
 
@@ -161,8 +171,23 @@ function shortcode_ed_column($atts, $content) {
 		}
 	}
 
-	
-	$output = '<div class="col-smart' . $wider . '">' . wpautop( do_shortcode( $content ) ) . '</div>';
+	$shortcodes = array( 'feature-box' );
+    
+    foreach ( $shortcodes as $shortcode ) {
+        
+        $array = array (
+        	
+          	 '<p>[' . $shortcode 		=> '[' .$shortcode
+           , '<p>[/' . $shortcode 		=> '[/' .$shortcode
+           , $shortcode . ']</p>' 		=> $shortcode . ']'
+           , $shortcode . ']<br />' 		=> $shortcode . ']'
+			
+            
+        );
+
+        $content = strtr( $content, $array );
+    }
+	$output = '<div class="col-smart' . $wider . '">' . ( wpautop( do_shortcode( $content ) ) ) . '</div>';
 	return $output; 
 }
 

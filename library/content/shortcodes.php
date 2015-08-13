@@ -192,7 +192,7 @@ function cf_postsfeed($atts) {
 					</a>
 					
 					<div class='excerpt'>
-						<?php the_excerpt(); ?>
+						<?php echo string_limit_words( $post->post_excerpt, 40 ); ?>
 					</div>
 				</li>
 		<?php

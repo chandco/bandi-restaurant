@@ -17,7 +17,7 @@
 										// the content (pretty self explanatory huh)
 										//echo wpautop( do_shortcode( get_the_content() ) );
 
-										//echo print_filters_for('the_content');
+										
 										the_content();
 
 										/*
