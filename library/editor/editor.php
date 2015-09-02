@@ -39,6 +39,13 @@
 
 function WrapStuff( $post ) {
 
+	$array = array (
+      "{gallery" => "[gallery",
+      "{feature-box" => "[feature-box"
+	);
+
+	$post = strtr($post, $array);
+
 	$pattern = "/{{section:(\#?.+)}}/";
 	
 
@@ -283,10 +290,11 @@ function mce_wp_enqueue_media($hook) {
     wp_enqueue_media();
 }
 
+require_once("mce_columns.php");
 
 require_once("mce_feature-box.php");
 require_once("mce_infobox.php");
-require_once("mce_columns.php");
+
 
 
 
@@ -317,11 +325,11 @@ function custom_before_wp_tiny_mce() {
 
 	<?php
 
-
+	views_ed_columns();
 	// load all the views here
 	views_feature_box(); // [feature-box]
 	views_infobox(); // [feature-box]
-	views_ed_columns();
+	
 	
 
 	#	[wide_background]

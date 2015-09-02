@@ -79,8 +79,14 @@ add_action( 'wp_ajax_nopriv_shortcode_preview', 'prefix_ajax_add_foobar' );
 function prefix_ajax_add_foobar() {
     // Handle request then generate response using WP_Ajax_Response
 
+  $array = array (
+      "{gallery" => "[gallery",
+      "{feature-box" => "[feature-box"
+  );
+
+  $post = strtr( $_REQUEST['content'], $array);
   
-	die( json_encode( do_shortcode( stripslashes(  $_REQUEST['content']  ) ) ) );
+	die( json_encode( do_shortcode( stripslashes(  $post  ) ) ) );
 	
 }
 
@@ -141,6 +147,8 @@ function shortcode_ed_columns($atts, $content = false) {
 	);
 
 	
+  
+
 
 
 
@@ -187,6 +195,10 @@ function shortcode_ed_column($atts, $content) {
 
         $content = strtr( $content, $array );
     }
+
+   
+
+    
 	$output = '<div class="col-smart' . $wider . '">' . ( wpautop( do_shortcode( $content ) ) ) . '</div>';
 	return $output; 
 }

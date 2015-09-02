@@ -95,6 +95,8 @@
 
 					<?php // to use a image just replace the bloginfo('name') with your img src and remove the surrounding <p> ?>
 					<a href="<?php echo home_url(); ?>" rel="nofollow">
+
+					
 						<?php include( get_stylesheet_directory() . "/library/logo.php" ); ?>
 					</a>
 

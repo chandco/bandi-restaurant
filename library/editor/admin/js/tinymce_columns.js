@@ -213,6 +213,9 @@ var urlencode = rawurlencode;
             var $column = $('<div id="column-' + uid() + '" class="column ' + extend + '"></div>');
             var $data = $('<div class="col-content"></div>');
             
+            content = content.replace('{gallery','[gallery');
+            content = content.replace('{feature-box','[feature-box');
+
             $data.data('content', content);
             $data.appendTo($column);
 
@@ -538,7 +541,8 @@ var urlencode = rawurlencode;
             // tinyMCE.activeEditor.insertContent( s ); 
             //editor.insertContent( s );
             
-            
+            var s = s.replace('[gallery','{gallery');
+            var s = s.replace('[feature-box','{feature-box');
 
             wp.media.editor.insert(s);
 
