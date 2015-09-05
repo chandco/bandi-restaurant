@@ -1,6 +1,19 @@
 (function($) {
 
 
+String.prototype.replaceAll = function(search, replace)
+{
+    //if replace is not sent, return original string otherwise it will
+    //replace search string with 'undefined'.
+    if (replace === undefined) {
+        return this.toString();
+    }
+
+    return this.replace(new RegExp('[' + search + ']', 'g'), replace);
+};
+
+
+
 function rawurldecode(str) {
   //       discuss at: http://phpjs.org/functions/rawurldecode/
   //      original by: Brett Zamir (http://brett-zamir.me)
@@ -213,8 +226,9 @@ var urlencode = rawurlencode;
             var $column = $('<div id="column-' + uid() + '" class="column ' + extend + '"></div>');
             var $data = $('<div class="col-content"></div>');
             
-            content = content.replace('{gallery','[gallery');
-            content = content.replace('{feature-box','[feature-box');
+
+            content = content.replace(/\{gallery' + ']/, '[gallery');
+            content = content.replace(/\{feature-box/, '[feature-box');
 
             $data.data('content', content);
             $data.appendTo($column);
@@ -537,12 +551,10 @@ var urlencode = rawurlencode;
             
             var s = build_column_shortcode( data );
             
+         
 
-            // tinyMCE.activeEditor.insertContent( s ); 
-            //editor.insertContent( s );
-            
-            var s = s.replace('[gallery','{gallery');
-            var s = s.replace('[feature-box','{feature-box');
+            var s = s.replace(/\[gallery/,'{gallery');
+            var s = s.replace(/\[feature-box/,'{feature-box');
 
             wp.media.editor.insert(s);
 
