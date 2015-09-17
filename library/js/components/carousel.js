@@ -10,6 +10,7 @@ define(['jquery', 'vendor/slick'], function($) {
 	  	//	prevArrow: '.cycle-prev',
 	  	//	nextArrow: '.cycle-next',
 	  		lazyLoad: 'ondemand',
+	  		fade: true,
 	  		dots: true,
 	  });  
 

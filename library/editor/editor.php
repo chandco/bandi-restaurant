@@ -32,12 +32,19 @@
 
 */
 
-add_filter("the_content", "WrapStuff", 0);
+//add_filter("the_content", "WrapStuff", 0);
 
 
 
 
 function WrapStuff( $post ) {
+
+	$array = array (
+      "{gallery" => "[gallery",
+      "{feature-box" => "[feature-box"
+	);
+
+	$post = strtr($post, $array);
 
 	$pattern = "/{{section:(\#?.+)}}/";
 	
@@ -131,7 +138,8 @@ function print_filters_for( $hook = '' ) {
         return;
 
     print '<pre>';
-    print_r( $wp_filter[$hook] );
+    ksort($wp_filter[$hook]);
+    print_r( ($wp_filter[$hook]) );
     print '</pre>';
 }
 // not really a shortcode but it is for the editor
@@ -224,7 +232,7 @@ function change_mce_options($init){
 
 add_action( 'init', 'cf_editor_buttons' );
 function cf_editor_buttons() {
-    add_filter( "mce_external_plugins", "wptuts_add_buttons" );
+    add_filter( "mce_external_plugins", "wptuts_add_buttons", -20 );
     add_filter( 'mce_buttons', 'wptuts_register_buttons' );
 }
 
@@ -232,9 +240,10 @@ function cf_editor_buttons() {
 
 
 function wptuts_add_buttons( $plugin_array ) {
-    $plugin_array['cf_features'] = get_stylesheet_directory_uri() . '/library/editor/admin/js/tinymce.js';
+    
     //$plugin_array['cf_infobox'] = get_stylesheet_directory_uri() . '/library/editor/admin/js/infobox.js';
-    $plugin_array['cf_columns'] = get_stylesheet_directory_uri() . '/library/editor/admin/js/tinymce_columns.js';
+    $plugin_array['cf_columns'] = get_template_directory_uri() . '/library/editor/admin/js/tinymce_columns.js';
+    $plugin_array['cf_features'] = get_template_directory_uri() . '/library/editor/admin/js/tinymce.js';
     return $plugin_array;
 }
 
@@ -243,7 +252,6 @@ function wptuts_register_buttons( $buttons ) {
 	// update this after the javascript is done
     //array_push( $buttons, 'feature', 'infobox', 'columns', 'widebg', 'cta-link', 'cta-link-wide', 'addIcons', 'capacities', 'imageStyler', 'venue-gallery' ); //'thirds', 'twothirds-third', 'third-twothirds', 'quarters' ); // dropcap', 'recentposts
 	array_push( $buttons, 'feature', 'columns', 'widebg', 'cta-link', 'cta-link-wide', 'addIcons', 'capacities' ); //'thirds', 'twothirds-third', 'third-twothirds', 'quarters' ); // dropcap', 'recentposts
-
     return $buttons;
 }
 
@@ -259,6 +267,8 @@ function mce_wp_enqueue_media($hook) {
 
 	
 	wp_enqueue_style( 'admin-helper-css', get_stylesheet_directory_uri() . '/library/css/admin.css' );
+	
+	wp_enqueue_style( 'webfonts-css', 'http://fast.fonts.net/cssapi/aa206c52-0bd7-4c23-bef2-d7fc3da68194.css' );
 	
 	wp_enqueue_style( 'admin-fa-css', '//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css' );
 	
@@ -280,10 +290,11 @@ function mce_wp_enqueue_media($hook) {
     wp_enqueue_media();
 }
 
+require_once("mce_columns.php");
 
 require_once("mce_feature-box.php");
 require_once("mce_infobox.php");
-require_once("mce_columns.php");
+
 
 
 
@@ -301,7 +312,8 @@ function custom_before_wp_tiny_mce() {
     
 
     window.mcedata = { 
-    	editorURL: '<?php echo get_stylesheet_directory_uri(); ?>/library/editor/',
+    	editorURL: '<?php echo get_template_directory_uri(); ?>/library/editor/',
+    	stylesheetURL: '<?php echo get_stylesheet_directory_uri(); ?>/library/',
     	adminurl : '<?php echo get_admin_url(); ?>',
     	siteurl : '<?php echo get_site_url(); ?>',
     	apiURL : '<?php echo get_site_url("wp-json"); ?>/wp-json/',
@@ -313,11 +325,11 @@ function custom_before_wp_tiny_mce() {
 
 	<?php
 
-
+	views_ed_columns();
 	// load all the views here
 	views_feature_box(); // [feature-box]
 	views_infobox(); // [feature-box]
-	views_ed_columns();
+	
 	
 
 	#	[wide_background]

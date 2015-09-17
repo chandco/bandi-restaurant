@@ -1,8 +1,7 @@
 
 
 #inner-footer .textwidget {
-	font-size: 1em;
-  color: #eee;
+	font-size: 0.8em;
 }
 .footer #mc_embed_signup{
 
@@ -87,17 +86,6 @@
 
 
 
-.footer {
-
-  .col-smart {
-
-  }
-  .widget {
-    height: 100%;
-    background:none;
-    border:none;
-  }
-}
 
 .footer nav[role="navigation"] {
 
@@ -108,118 +96,125 @@
   
   .nav {
 
-    a {
-      color: #eee;
-    }
+    display: block; // header is flex so this should reset it
+
     > li {
         .alpha-color(@dark, 0.8);
         
         // &:hover > a:hover {
         //       background: @white;
         //     }
-        }
+    }
 
 
         
 
-        li {
-          display: block;
-          float: none;
-          
+    li {
+      display: block;
+      float: none;
+      
 
-          box-sizing: content-box;
-          margin-left: 0;
-          line-height: @mobile-line-height;
-          min-height: @mobile-line-height;
+      box-sizing: content-box;
+      margin-left: 0;
+      line-height: @mobile-line-height;
+      min-height: @mobile-line-height;
 
-          text-align: left;
-          background: transparent;
-          border: none !important;
-          &:nth-of-type(n+2) {
-            .darken(@dark, 0, 0.4);
-            border-top: 1px solid @darker;
+      text-align: left;
+      background: transparent;
+      border: none !important;
+
+      &.current-menu-item a {
+        color: @footer-nav-current-text;
+        background-color: @footer-nav-current-background;
+      }
+
+
+
+
+      &:nth-of-type(n+2) {
+        .darken(@dark, 0, 0.4);
+        border-top: 1px solid @darker;
+      }
+
+
+      
+
+      
+
+      .sub-menu,.children {
+        margin-top: 1em;
+        box-shadow: none;
+        background: none;
+        visibility: visible;
+        position: relative;
+        display: block;
+        top: 0;
+
+        padding: 0 0 0 1em;
+
+        color: @light;
+
+       
+
+
+
+
+        &:hover {
+          top: 0;
+          border-right: none;
+          border-bottom: none;
+          padding: 0 0 0 1em;
+
+          li {
+          	white-space: normal;
           }
 
 
-          
-
-          
-
-          .sub-menu,.children {
-            margin-top: 1em;
-            box-shadow: none;
-            background: none;
-            visibility: visible;
-            position: relative;
-            display: block;
-            top: 0;
-
-            padding: 0 0 0 1em;
-
-            color: @light;
-
-           
+        }
 
 
+       
 
-
-
-            &:hover {
-              top: 0;
-              border-right: none;
-              border-bottom: none;
-              padding: 0 0 0 1em;
-
-              li {
-              	white-space: normal;
-              }
-
-
-            }
-
-
-           
-
-            > li {
-                
-            	white-space: normal !important;
-               border-top: none;
-               position: relative;
-               border-right: none;
-               border-bottom: none;
-              a:before {
-                content:"";
-                display: inline-block;
-                
-                width: @mobile-line-height / 4;
-                height: @mobile-line-height / 2;
-                margin-right: 10px;
-                border-left: 1px solid @white;
-                border-bottom: 1px solid @white;
-                vertical-align: top;
-                background: none;
-              }
-            }
-          }
-          
-          &:hover {
-
-              background: @footer-menu-hover;
-              border-right: none;
-              border-bottom: none;
-              .sub-menu, .children {
-
-                
-                border-right: none;
-                border-bottom: none;
-                padding: 0 0 0 1em;
-              }
-         }
-          .sub-menu {
+        > li {
             
+        	white-space: normal !important;
+           border-top: none;
+           position: relative;
+           border-right: none;
+           border-bottom: none;
+          a:before {
+            content:"";
+            display: inline-block;
+            
+            width: @mobile-line-height / 4;
+            height: @mobile-line-height / 2;
+            margin-right: 10px;
+            border-left: 1px solid @white;
+            border-bottom: 1px solid @white;
+            vertical-align: top;
+            background: none;
           }
         }
       }
+      
+      &:hover {
+
+          background: @footer-menu-hover;
+          border-right: none;
+          border-bottom: none;
+          .sub-menu, .children {
+
+            
+            border-right: none;
+            border-bottom: none;
+            padding: 0 0 0 1em;
+          }
+     }
+      .sub-menu {
+        
+      }
+    }
+  }
 
   
 }

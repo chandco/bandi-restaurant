@@ -57,6 +57,7 @@ img.alignfull-width {
   .size-auto, .size-full, .size-large, .size-medium, .size-thumbnail {
     max-width:100%;
     height:auto;
+    box-shadow: 0px 5px 7px -4px rgba(0, 0, 0, 0.57);
   }
   p {
     margin:0 0 1.5em;
@@ -65,19 +66,14 @@ img.alignfull-width {
     }
   }
 
-  @tshade: RGBA(0,0,0,0.05);
   @tborder: RGBA(0,0,0,0.1);
+  @tshade: RGBA(255,255,255,0.2);
+
 
   table {
     width:100%;
     border:1px solid @tborder;
     margin-bottom:1.5em;
-
-    &.alignleft {
-      float: none;
-      margin: auto;
-      display: table;
-    }
     caption {
       margin:0 0 7px;
       font-size:0.75em;
@@ -96,7 +92,7 @@ img.alignfull-width {
   }
   td {
     padding:7px;
-    border-right:1px solid #fff;
+    //border-right:1px solid @tborder;
   }
   td:last-child {
     border-right:0;
@@ -126,11 +122,10 @@ img.alignfull-width {
     margin:0 0 1.5em 0;
     max-width:100%;
     height:auto;
-    
   }
   pre {
-    background:RGBA(0,0,0,0.2);
-    color:@tshade;
+    background:RGBA(0,0,0,0.1);
+    
     font-size:0.9em;
     padding:1.5em;
     margin:0 0 1.5em;

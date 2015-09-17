@@ -1,8 +1,77 @@
 <?php
 
+function shortcode_empty_paragraph_fix( $content ) {
 
-// View for featuer box
-// View for featuer box
+    // define your shortcodes to filter, '' filters all shortcodes
+    $shortcodes = array( 'feature-box' );
+    
+    foreach ( $shortcodes as $shortcode ) {
+        
+        $array = array (
+        	
+          	 '<p>[' . $shortcode 		=> '[' .$shortcode
+           , '<p>[/' . $shortcode 		=> '[/' .$shortcode
+           , $shortcode . ']</p>' 		=> $shortcode . ']'
+           , $shortcode . ']<br />' 		=> $shortcode . ']'
+			
+            
+        );
+
+        $content = strtr( $content, $array );
+    }
+
+    
+
+    return $content;
+}
+
+
+
+add_filter( 'the_content', 'cf_fix_broken_columns' , 8);
+function cf_fix_broken_columns($content) {
+	$result = preg_replace(
+    '/\]\s+\[/', 
+    '][', $content);
+
+    return $result;
+
+}
+
+
+
+
+remove_filter( 'the_content', 'do_shortcode', 11 );
+remove_filter('the_content', 'wpautop');
+
+
+
+add_filter( 'the_content', 'cf_fix_broken_columns' , 1);
+add_filter('the_content', 'wpautop', 99);
+add_filter( 'the_content', 'cf_cleanup', 99 );
+
+
+add_filter( 'the_content', 'do_shortcode', 100 );
+
+add_filter( 'the_content', 'cf_cleanup', 100 );
+
+
+function cf_cleanup($content) {
+	
+
+	$array = array (
+        	
+          	 '<p></a></p>'		=> '</a>'
+			
+            
+        );
+
+     $content = strtr( $content, $array );
+
+     return $content;
+	
+}
+
+
 
 add_action( 'wp_ajax_get_shortcode_preview', 'prefix_ajax_add_foobar' );
 add_action( 'wp_ajax_nopriv_shortcode_preview', 'prefix_ajax_add_foobar' );
@@ -10,10 +79,17 @@ add_action( 'wp_ajax_nopriv_shortcode_preview', 'prefix_ajax_add_foobar' );
 function prefix_ajax_add_foobar() {
     // Handle request then generate response using WP_Ajax_Response
 
+  $array = array (
+      "{gallery" => "[gallery",
+      "{feature-box" => "[feature-box"
+  );
+
+  $post = strtr( $_REQUEST['content'], $array);
   
-	die( json_encode( do_shortcode( stripslashes(  $_REQUEST['content']  ) ) ) );
+	die( json_encode( do_shortcode( stripslashes(  $post  ) ) ) );
 	
 }
+
 
 function views_ed_columns() {
 
@@ -62,7 +138,7 @@ function shortcode_ed_columns($atts, $content = false) {
 
 	$content = str_replace($wrong_X, $right_X, $content);
 
-	$content = urldecode($content);
+	$content = ($content);
 
 	$array = array (
 	    '<p>[' => '[', 
@@ -70,11 +146,15 @@ function shortcode_ed_columns($atts, $content = false) {
 	    ']<br />' => ']'
 	);
 
+	
+  
+
+
 
 
  	$content = strtr($content, $array);
 
-	$output .= '<div class="row">' . do_shortcode( $content) . '</div>';
+	$output .= '<div class="row">' . do_shortcode( $content ) . '</div>';
 
 	
 	return $output; 
@@ -99,8 +179,27 @@ function shortcode_ed_column($atts, $content) {
 		}
 	}
 
-	
-	$output = '<div class="col-smart' . $wider . '">' . do_shortcode( $content ) . '</div>';
+	$shortcodes = array( 'feature-box' );
+    
+    foreach ( $shortcodes as $shortcode ) {
+        
+        $array = array (
+        	
+          	 '<p>[' . $shortcode 		=> '[' .$shortcode
+           , '<p>[/' . $shortcode 		=> '[/' .$shortcode
+           , $shortcode . ']</p>' 		=> $shortcode . ']'
+           , $shortcode . ']<br />' 		=> $shortcode . ']'
+			
+            
+        );
+
+        $content = strtr( $content, $array );
+    }
+
+   
+
+    
+	$output = '<div class="col-smart' . $wider . '">' . ( wpautop( do_shortcode( $content ) ) ) . '</div>';
 	return $output; 
 }
 

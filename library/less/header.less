@@ -58,13 +58,15 @@
         right: 0;
         .vertical-center();
         z-index: 1;
+
+
       }
 
 
     #logo {
       
       height: 100%;
-      width: @header-logo-width * 1.2;
+      width: @header-logo-width;
       
       left: 0;
 
@@ -73,10 +75,6 @@
 
       padding: 0 0;
       z-index: 5;
-
-      overflow: hidden;
-
-
       .vertical-center();
 
         @media screen and (max-width: 900px) {
@@ -85,10 +83,7 @@
 
       img {
         width: auto;
-        height: 140%;
-        top: 50%;
-        transform:translateY(-50%);
-        position: absolute;
+        height: 100%;
       }
     }     
 
@@ -102,13 +97,17 @@ nav[role="navigation"] {
 
   .nav {  
 
+      display: flex;
+  justify-content: space-between;
+
       width: 100%;
       font-size: 1em;
 
       margin: 0;
 
-      @media screen and (max-width: @tablet-break)  {
+      @media screen and (max-width: 900px)  {
         margin: auto;
+        flex-direction:column;
       }
       z-index: 10;
 
@@ -118,7 +117,7 @@ nav[role="navigation"] {
 
       .h-font();
       //text-transform: uppercase;
-      font-weight: bold;
+      
 
       a {
         display: block;
@@ -143,6 +142,19 @@ nav[role="navigation"] {
         &.current-menu-item a {
           color: @nav-link-current-text;
           background: @nav-link-current-background;
+
+        }
+
+
+        &.font-awesome {
+          width: auto;
+          padding: 0;
+          a {
+            width: auto;
+            padding-left: 0;
+            padding-right: 0;
+            font-size: 0.8em;
+          }
         }
         &:hover {
           background: @nav-highlight;
@@ -419,3 +431,53 @@ nav[role="navigation"] {
   }
 } // end @media max-width 900
 
+
+#popup-menu {
+  padding-top: 2em;
+}
+.nav-113 {
+  position: relative;
+  
+
+  > a:before {
+    content: "";
+    display: inline-block;
+    width: 2em;
+    height: 2em;
+    background: url('../images/113-white.svg');
+    background-repeat: no-repeat;
+    background-position: center center;
+    position: relative;
+    margin-right: 0.6em;
+    vertical-align: middle;
+    top: -2px;
+  }
+}
+
+#popup-menu .nav-113 {
+  > a:before {
+    
+    background: url('../images/113.svg');
+    
+  }
+}
+
+.h1-svg {
+
+  text-align: center;
+  
+  svg {
+    height: 150px;
+    width: auto;
+    display: inline-block;
+    margin-right: 0.5em;
+    vertical-align: middle;
+  }
+
+  &:after {
+    clear: both;
+    display: table;
+    width: 100%;
+    content: "";
+  }
+}

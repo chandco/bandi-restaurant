@@ -15,6 +15,9 @@
 								<section class="entry-content cf" itemprop="articleBody">
 									<?php
 										// the content (pretty self explanatory huh)
+										//echo wpautop( do_shortcode( get_the_content() ) );
+
+										
 										the_content();
 
 										/*

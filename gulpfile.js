@@ -21,12 +21,12 @@ var run = require('gulp-run');
 
 gulp.task('default', function () {
 
-    console.log( process.cwd() );
-    if (process.cwd() == '/home/nathan/bandi-restaurant') {
-        var devProxy = "nathan-bandi.dev.chand.co";
-    } else {
-        var devProxy = "bandi.dev.chand.co";
-    }
+    // console.log( process.cwd() );
+    // if (process.cwd() == '/home/nathan/bandi-restaurant') {
+         var devProxy = "113.dev.chand.co";
+    // } else {
+    //     var devProxy = "bandi.dev.chand.co";
+    // }
 
 
 	browserSync({
@@ -39,7 +39,6 @@ gulp.task('default', function () {
     gulp.watch('./library/less/**/*.less', ['compile-css']);
 
 	gulp.watch(['./library/js/*.js', '!./library/js/main-built.js'], ['javascript']);
-
 
 });
 

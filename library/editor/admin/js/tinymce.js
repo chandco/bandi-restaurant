@@ -115,7 +115,7 @@
 
                 wm.open({
                     title: "Insert colour divider",
-                    url: mcedata.editorURL + '/section-picker.html',
+                    url: mcedata.stylesheetURL + 'section-picker.php',
                     inline: 1,
                     width: 800,
                     height: 500,
@@ -142,6 +142,7 @@
                     {  icon: ' fa fa-file-pdf-o', text: 'PDF Icon', onclick: function() { insertIcon( 'file-pdf-o', ed); } },
                     {  icon: ' fa fa-download', text: 'Download', onclick: function() { insertIcon( 'download', ed); } },
                     {  icon: ' fa fa-envelope', text: 'Envelope', onclick: function() { insertIcon( 'envelope', ed); } },
+                    {  icon: ' fa fa-phone', text: 'Phone', onclick: function() { insertIcon( 'phone', ed); } },
                     {  icon: ' fa fa-facebook-square', text: 'Facebook', onclick: function() { insertIcon( 'facebook-square', ed); } },
                     {  icon: ' fa fa-twitter', text: 'Twitter', onclick: function() { insertIcon( 'twitter', ed); } },
                     {  icon: ' fa fa-pinterest', text: 'Pinterest', onclick: function() { insertIcon( 'pinterest', ed); } },
@@ -179,12 +180,12 @@
 
             function addList(icon, ed) {
                 var selected_text = ed.selection.getNode();
-                console.log(selected_text.nodeName);
+                
                 if (selected_text.nodeName == 'LI') {
                     ed.dom.setAttrib( selected_text, 'class', icon );
                     
                 }
-                console.log(selected_text);
+                
                 //ed.insertContent( return_text );
             }
 

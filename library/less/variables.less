@@ -1,44 +1,16 @@
 
-
-
-
-        @grey           : #999999;
-        @green          : #278B27;
-        @blue           : #979DE0;
-        @lightgreen     : #d0de33;
-        @purple         : #9A97B8;
-        @black          : RGB(33,33,33);
-        @white          : RGB(255,255,255);
-        @orange         : #BE904D;
-     
-
-        @grey-text           : @white;
-        @green-text          : @white;
-        @blue-text           : @black;
-        @lightgreen-text     : @black;
-        @purple-text         : @white;
-        @black-text          : @white;
-        @white-text          : @black;
-        @orange-text         : @black;
-     
-
-
-@grey : #999999;
-@green : #C0D62C;
 @red: #d22529;
-@blue : #0086ac;
-
-@black : RGB(0,0,0);
-@white : RGB(255,255,255);
 @mid-grey: RGB(128,128,128);
 @darkgrey : RGB(51,51,51);
 
-@darkgreen: darken(@green, 15%);
 
+@import "colours";
+
+
+@darkgreen: @green;
 @lightgrey : #DDDDDD;
 @lighter-grey : #E6E6E6;
 @off-white: #F0f0f0;
-
 
 
 @darkblue : #fff;
@@ -59,11 +31,10 @@
 @header-logo-width: 10%; // smaller for this site - longer logos may need more.
 
 // COLOURS
-
 @this-website: ~'http://ornc.local'; // this will have to change 
 
 // We use generic colour names to imply something so set them here.  
-@body-font : Calibri, Candara, Segoe, 'Segoe UI', Optima, Arial, sans-serif;
+@body-font : 'Gill Sans W01';//FG Jasmine W00 Regular', Calibri, Candara, Segoe, 'Segoe UI', Optima, Arial, sans-serif;
 
 
 @h-font : @body-font;//'Source Sans Pro', sans-serif;
@@ -88,12 +59,12 @@
 @highlight : #0086ac;
 @highlight-text : @black;
 
-@main-colour: @green;
+@main-colour: @purple;
 
 @emphasis : @darkblue;
 @emphasis-text: @white; // if @emphasis was a background etc.
 
-@link-color : @blue;
+@link-color : @green;
 
 // general colour as a default - this just sets the body tag
 @default-text : @darkgrey;
@@ -105,7 +76,7 @@
 @formbg : @lightblue;
 
 // Header Styles and sizes
-@header-background: @green;
+@header-background: @purple;
 
 // sidebars
 @widget-background: fade( @lightgrey, 20% );
@@ -116,22 +87,27 @@
 @nav-link-background: transparent;
 
 @nav-link-current-text: @black;
-@nav-link-current-background: transparent;
+@nav-link-current-background: fade(@white, 10%);
 
-@nav-highlight : lighten(@black, 10%);
+@nav-highlight : fade(@white, 20%);
 @nav-highlight-text : @white;
+
+
 
 @nav-secondary-highlight : lighten(@black, 15%);
 @nav-secondary-highlight-text : @white;
 
 @nav-submenu-background : lighten(@black, 35%);
 @nav-submenu-text: @white;
-@nav-submenu-text-hover : @white;
+@nav-submenu-text-hover : @black;
 
-@nav-submenu-background-hover : lighten(@grey, 10%);
+@nav-submenu-background-hover : fade(@grey, 10%);
 
 @footer-menu-hover: fade(@lightgrey, 10%);
 @footer-link-color: @green;
+
+@footer-nav-current-text: @green;
+@footer-nav-current-background: rgba(0,0,0,0.05);
 
 // carousel styles
 @cycle-carousel-width : 100%;
@@ -143,8 +119,8 @@
 @slide-background: @darkgrey;
 
 
-@carousel-max-height: 600px;
-@carousel-height: 600px; 
+@carousel-max-height: 500px;
+@carousel-height: 500px; 
 
 
 
@@ -161,7 +137,8 @@
 @cta-sidebar-width : 15%;
 @mobile-cta-height : 100px;
 
-@max-central-width: 1400px;
+@max-central-width: 1100px;
+@max-central-outer-width: 1200px;
 @tablet-break : 60em;
 
 @mobile-break: 30em;
@@ -175,14 +152,15 @@
 
 // footer stuff
 
-@footer-background : @mid-grey;
+@footer-background : @black;
+@footer-widgettitle: @white;
 
 // menus
 @day-row: @dark; // M T W T F etc
 @day-row-text: @white;
-@label-row-text: @darkgreen;
+@label-row-text: @green;
 
-@today-day-row: @darkgreen;
+@today-day-row: @green;
 @today-day-text: @white;
 
 @table-buttons-text: @white;
@@ -191,7 +169,7 @@
 
 // wiki stuff 
 
-@wiki-menu-highlight: @darkgreen;
+@wiki-menu-highlight: @green;
 @wiki-menu-hover: @blue;
 
 
@@ -212,7 +190,7 @@
 }
 
 
-
+@colors: grey,green,blue,lightgreen,purple,black,white;     
 
 
     
@@ -233,7 +211,7 @@
 .for-impl_(@i) when (@i > 0)    {.-each(extract(@array, @i))}
 
 
-@colors: grey,green,blue,lightgreen,purple,black,white,orange;
+
         
 .colours-bg() {
 
@@ -245,6 +223,11 @@
       @text: "@{name}-text";
       
       .color-bg-mixin(@@text, @@name, 0);
+
+      .cta-inline, .cta {
+        background: @@text;
+        color: @@name !important;
+      }
     }
   }
 

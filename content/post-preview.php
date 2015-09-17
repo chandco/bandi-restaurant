@@ -12,6 +12,6 @@
 	</a>
 	
 	<div class='excerpt'>
-		<?php the_excerpt(); ?>
+		<?php echo string_limit_words( get_the_excerpt(), 40 ); ?>
 	</div>
 </li>

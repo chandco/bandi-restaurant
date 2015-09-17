@@ -1,5 +1,42 @@
 <?php
 
+
+
+if (file_exists( get_stylesheet_directory() . "/library/image-defs.php" )) {
+		
+	include( get_stylesheet_directory() . "/library/image-defs.php" );
+	
+} else {
+
+	
+	$max = 1400;
+
+
+
+	$max_tablet = 600;
+	$max_mobile = 320;
+
+
+	$tablet_ratio = $max_tablet / $max;
+	$mobile_ratio = $max_mobile / $max;
+
+	$keepAbove = 150; // don't make thumbnails smaller than this
+
+
+	$ratio = (9 / 16); // could be 16:9 but this can be restrictive. Photographers often things as 6:4 landscape
+
+	// we're hard coding the 900 value here.  however, this is based on our 'max width' blog which has a max width of 900px
+
+	$featured = array( 735, floor(735 * $ratio), true); // this can be our gallery image
+	$panorama = array($max, 600, true); // hard crop. 600px in the CSS.  Generally this is just overf half the screen (1080) so it's okay.
+
+	// a thumbnail is generally going to be in a trio, a 3 column layout.  so if maxwidth is 1000px it's ~ 333px wide, and less with margins thus .33 of 900px
+	$thumbnail = array( floor($featured[0] * 0.33), floor($featured[1] * 0.33), true);
+	$medium = array( floor($featured[0] * 0.50), floor($featured[1] * 0.50), true);
+	$large = array( $featured[0], $featured[1], false); // soft crop featured image
+
+
+}
 /************* THUMBNAIL SIZE OPTIONS *************/
 
 /* sizes needed 
@@ -17,39 +54,27 @@
  // you'll want to sync this with your LESS variables.
 
 
-$max = 735;
-
-
-
-$max_tablet = 600;
-$max_mobile = 320;
-
-
-$tablet_ratio = $max_tablet / $max;
-$mobile_ratio = $max_mobile / $max;
-
-
-
-
-$ratio = (9 / 16); // could be 16:9 but this can be restrictive. Photographers often things as 6:4 landscape
-
-// we're hard coding the 900 value here.  however, this is based on our 'max width' blog which has a max width of 900px
-
-$featured = array( 735, floor(735 * $ratio), true); // this can be our gallery image
-$panorama = array($max, 600, true); // hard crop. 600px in the CSS.  Generally this is just overf half the screen (1080) so it's okay.
-
-// a thumbnail is generally going to be in a trio, a 3 column layout.  so if maxwidth is 1000px it's ~ 333px wide, and less with margins thus .33 of 900px
-$thumbnail = array( floor($featured[0] * 0.33), floor($featured[1] * 0.33), true);
-$medium = array( floor($featured[0] * 0.50), floor($featured[1] * 0.50), true);
-$large = array( $featured[0], $featured[1], false); // soft crop featured image
 
 
 
 
 function scale_down_sizes($original_sizes, $ratio) {
+	global $keepAbove;
+	
 	$newArray[0] = floor( $original_sizes[0] * $ratio );
 	$newArray[1] = floor($original_sizes[1] * $ratio);
-	$newArray[2] = floor($original_sizes[2]);
+	$newArray[2] = $original_sizes[2];
+
+
+	$aspect = $newArray[0] / $newArray[1];
+
+	if ($newArray[0] < $keepAbove) {
+		
+		$newArray[0] = $keepAbove;
+		$newArray[1] = $keepAbove / $aspect;
+
+	}
+	
 
 	return $newArray;
 }
@@ -139,9 +164,10 @@ $imagesizes = array(
 	'medium-tablet' => scale_down_sizes($medium, $tablet_ratio),
 	'medium-mobile' => scale_down_sizes($medium, $mobile_ratio),
 	
+	// keep thumbnails a reasonable size for mobiles.
 	'thumbnail' => $thumbnail,
-	'thumbnail-tablet' => scale_down_sizes($thumbnail, $tablet_ratio),
-	'thumbnail-mobile' => scale_down_sizes($thumbnail, $mobile_ratio),
+	'thumbnail-tablet' => $thumbnail, //scale_down_sizes($thumbnail, $tablet_ratio),
+	'thumbnail-mobile' => $thumbnail,
 	
 
 
@@ -209,6 +235,8 @@ This is flawed in that it may encourage content editors to not use it, which is 
 function create_picture_element($id, $images, $caption, $title, $align = 'center', $html) {
 
 
+
+
 	    $html = '<picture class="align-' . $align . ' responsive-picture">';
 		$html .= '<!--[if IE 9]><video style="display: none;"><![endif]-->';
 
@@ -218,6 +246,10 @@ function create_picture_element($id, $images, $caption, $title, $align = 'center
 		$img_full = wp_get_attachment_image_src($id, $images["large"]["name"]);
 		$img_tablet = wp_get_attachment_image_src($id, $images["medium"]["name"]);
 		$img_mobile = wp_get_attachment_image_src($id, $images["small"]["name"]);
+
+
+
+
 
 		$srcset = "";
 		
@@ -232,6 +264,8 @@ function create_picture_element($id, $images, $caption, $title, $align = 'center
 		$html .= $srcset;
 		$html .= '<img src="' . $img_mobile[0] . '" alt="' . $caption . '" title="' . $title . '">';
 		$html .= '</picture>';
+
+
 
 		return $html;
 
@@ -255,31 +289,13 @@ function create_img_srcset($id, $images = "", $caption = "", $title = "", $align
 		$images["small"] = ($images["small"]["size"] <= $minwidth) ? $images["large"]  : $images["small"];
 		
 
-		$img_full = wp_get_attachment_image_src($id, $images["large"]["name"]);
+	
+		$html = create_picture_element($id, $images, $caption, $title, 'nada', $html);
+
 
 		
 		
-		
-
-		
-		
-
-		$img_tablet = wp_get_attachment_image_src($id, $images["medium"]["name"]);
-		$img_mobile = wp_get_attachment_image_src($id, $images["small"]["name"]);
-
-
-		$html .= 	'<picture >
-						<!--[if IE 9]><video style="display: none;"><![endif]-->'
-		    	. '<source  srcset="'	. $img_full[0] . ' " media="(min-width: 960px)">'
-				. '<source  srcset="'	. $img_tablet[0] . '" media="(min-width: 768px)">'
-		    	. '<!--[if IE 9]></video><![endif]-->
-		    <img srcset="'	. $img_mobile[0] . '" class="responsive-picture align-' . $align . ' ' . $classes . '" alt="' . $caption . '" title="' . $title . '">
-		    <noscript><img src="' . $img_tablet[0] . '" class="nolazy"></noscript>
-		</picture>';
-
-
 		return $html;
-
 		/*
 
 		// old srcset version that appaz Google doesn't like.

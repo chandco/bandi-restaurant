@@ -17,8 +17,8 @@ function cf_register_sidebars() {
 
 		register_sidebar(array(
 		'id' => 'home-sidebar',
-		'name' => __( 'Homepage Sidebar', 'cf-theme' ),
-		'description' => __( 'This sidebar appears on the homepage at the left, ideal for important first-visit info like opening hours and a welcome message.', 'cf-theme' ),
+		'name' => __( 'home-sidebar', 'cf-theme' ),
+		'description' => __( 'This sidebar appears for the home page', 'cf-theme' ),
 		'before_widget' => '<div id="%1$s" class="widget %2$s">',
 		'after_widget' => '</div>',
 		'before_title' => '<h4 class="widgettitle">',
@@ -27,64 +27,64 @@ function cf_register_sidebars() {
 
 		register_sidebar(array(
 		'id' => 'home-footer-sidebar',
-		'name' => __( 'Home Footer Area', 'cf-theme' ),
-		'description' => __( 'This sidebar above the site footer, but only on the homepage, ideal for "latest posts" widgets', 'cf-theme' ),
+		'name' => __( 'home-footer-sidebar', 'cf-theme' ),
+		'description' => __( 'This sidebar appears for the footer on the homepage', 'cf-theme' ),
 		'before_widget' => '<div id="%1$s" class="widget %2$s">',
 		'after_widget' => '</div>',
 		'before_title' => '<h4 class="widgettitle">',
 		'after_title' => '</h4>',
 	));
 
-	// 	register_sidebar(array(
-	// 	'id' => 'home-footer-sidebar-2',
-	// 	'name' => __( 'home-footer-sidebar-2', 'cf-theme' ),
-	// 	'description' => __( 'This sidebar 2 appears for the footer on the homepage', 'cf-theme' ),
-	// 	'before_widget' => '<div id="%1$s" class="widget %2$s">',
-	// 	'after_widget' => '</div>',
-	// 	'before_title' => '<h4 class="widgettitle">',
-	// 	'after_title' => '</h4>',
-	// ));
+		register_sidebar(array(
+		'id' => 'home-footer-sidebar-2',
+		'name' => __( 'home-footer-sidebar-2', 'cf-theme' ),
+		'description' => __( 'This sidebar 2 appears for the footer on the homepage', 'cf-theme' ),
+		'before_widget' => '<div id="%1$s" class="widget %2$s">',
+		'after_widget' => '</div>',
+		'before_title' => '<h4 class="widgettitle">',
+		'after_title' => '</h4>',
+	));
 
-	// 	register_sidebar(array(
-	// 	'id' => 'home-footer-sidebar-3',
-	// 	'name' => __( 'home-footer-sidebar-3', 'cf-theme' ),
-	// 	'description' => __( 'This sidebar 3 appears for the footer on the homepage', 'cf-theme' ),
-	// 	'before_widget' => '<div id="%1$s" class="widget %2$s">',
-	// 	'after_widget' => '</div>',
-	// 	'before_title' => '<h4 class="widgettitle">',
-	// 	'after_title' => '</h4>',
-	// ));
+		register_sidebar(array(
+		'id' => 'home-footer-sidebar-3',
+		'name' => __( 'home-footer-sidebar-3', 'cf-theme' ),
+		'description' => __( 'This sidebar 3 appears for the footer on the homepage', 'cf-theme' ),
+		'before_widget' => '<div id="%1$s" class="widget %2$s">',
+		'after_widget' => '</div>',
+		'before_title' => '<h4 class="widgettitle">',
+		'after_title' => '</h4>',
+	));
 
 
-	// 	register_sidebar(array(
-	// 	'id' => 'home-footer-sidebar-4',
-	// 	'name' => __( 'home-footer-sidebar-4', 'cf-theme' ),
-	// 	'description' => __( 'This sidebar 4 appears for the footer on the homepage', 'cf-theme' ),
-	// 	'before_widget' => '<div id="%1$s" class="widget %2$s">',
-	// 	'after_widget' => '</div>',
-	// 	'before_title' => '<h4 class="widgettitle">',
-	// 	'after_title' => '</h4>',
-	// ));
+		register_sidebar(array(
+		'id' => 'home-footer-sidebar-4',
+		'name' => __( 'home-footer-sidebar-4', 'cf-theme' ),
+		'description' => __( 'This sidebar 4 appears for the footer on the homepage', 'cf-theme' ),
+		'before_widget' => '<div id="%1$s" class="widget %2$s">',
+		'after_widget' => '</div>',
+		'before_title' => '<h4 class="widgettitle">',
+		'after_title' => '</h4>',
+	));
 
-	// register_sidebar(array(
-	// 	'id' => 'cta-sidebar',
-	// 	'name' => __( 'CTA Sidebar', 'cf-theme' ),
-	// 	'description' => __( 'Floats top and right - reserved for a CTA etc', 'cf-theme' ),
-	// 	'before_widget' => '<div id="%1$s" class="widget %2$s">',
-	// 	'after_widget' => '</div>',
-	// 	'before_title' => '<h4 class="widgettitle">',
-	// 	'after_title' => '</h4>',
-	// ));
+	register_sidebar(array(
+		'id' => 'cta-sidebar',
+		'name' => __( 'CTA Sidebar', 'cf-theme' ),
+		'description' => __( 'Floats top and right - reserved for a CTA etc', 'cf-theme' ),
+		'before_widget' => '<div id="%1$s" class="widget %2$s">',
+		'after_widget' => '</div>',
+		'before_title' => '<h4 class="widgettitle">',
+		'after_title' => '</h4>',
+	));
 
-	// register_sidebar(array(
-	// 	'id' => 'secondary-links',
-	// 	'name' => __( 'Secondary links', 'cf-theme' ),
-	// 	'description' => __( 'Secondary Link area - appears beneath most pages (but not blogs)', 'cf-theme' ),
-	// 	'before_widget' => '<div id="%1$s" class="col-smart">',
-	// 	'after_widget' => '</div>',
-	// 	'before_title' => '<h4 class="widgettitle">',
-	// 	'after_title' => '</h4>',
-	// ));
+	register_sidebar(array(
+		'id' => 'secondary-links',
+		'name' => __( 'Secondary links', 'cf-theme' ),
+		'description' => __( 'Secondary Link area - appears beneath most pages (but not blogs)', 'cf-theme' ),
+		'before_widget' => '<div id="%1$s" class="col-smart">',
+		'after_widget' => '</div>',
+		'before_title' => '<h4 class="widgettitle">',
+		'after_title' => '</h4>',
+	));
 
 	register_sidebar(array(
 		'id' => 'footer-middle',

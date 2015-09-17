@@ -32,6 +32,14 @@ We may want this for other features, so let's load it BEFORE ANYTHING ELSE so th
 
 **/
 
+function string_limit_words($string, $word_limit)
+{
+  $words = explode(' ', $string, ($word_limit + 1));
+  if(count($words) > $word_limit)
+  array_pop($words);
+  return implode(' ', $words);
+}
+
 if (!strstr($_SERVER["HTTP_HOST"], "dev.chand.co")) {
   require_once("library/minify-html.php");  
 }
@@ -59,7 +67,9 @@ require_once( 'library/bones.php' );
 
 // ADD THEME SETTINGS STUFF
 require_once("library/theme-options.php");
+
 require_once("library/content/header-colour.php");
+require_once("library/content/custom-content.php");
 
 require_once("library/restrictions.php");
 

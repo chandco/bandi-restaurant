@@ -4,10 +4,18 @@
 		display: flex;
 		flex-direction: row;
 
+		margin-top: 1em;
+		margin-bottom: 1em;
+
+
 		.col-smart {
 			flex-grow: 1;
 			height: auto;
 			max-width: 100%;
+			flex-basis: 0;
+			@media screen and (max-width: 600px) {
+				float: none;
+			}
 		}
 
 		.col-smart.wider {
@@ -163,7 +171,7 @@
 
 .row, .cf_columns, .cf-columns {
 
-	overflow: hidden;
+	
 	
 	position: relative;
 	width: 100%;
@@ -188,8 +196,8 @@
 		position: relative;
 		vertical-align: top;
 		box-sizing: border-box;
-		float: left;
-		
+	
+	
 		padding-left: @padding;
 		width: 100%;
 
@@ -253,4 +261,34 @@
 	}
 
 
+}
+
+
+// column fixes
+
+.col-smart {
+	> * {
+		&:first-child {
+			margin-top: 0; // remove margins for the first h2 of its type in a column
+		}
+	}
+}
+
+// wordpress blog styles to help the column behaviour.  This is content editing stuff that only happens when something is inside a column
+@media screen and (max-width: @tablet-break) {
+	
+	.col-smart img {
+		width: 100%;
+		height: auto;
+		float: none;
+
+		&.alignright, &.alignleft {
+			float: none;
+			margin: auto;
+		}
+	}
+
+	.col-smart {
+		width: 100% !important;
+	}
 }

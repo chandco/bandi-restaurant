@@ -9,7 +9,7 @@
 
 
 					<div class='col-smart'>
-						<div class='widget'>
+						
 						<h4 class='widgettitle'>Site Menu</h4>
 							<nav role="navigation">
 								<?php wp_nav_menu(array(
@@ -26,7 +26,6 @@
 		    					'fallback_cb' => 'bones_footer_links_fallback'  // fallback function
 								)); ?>
 							</nav>
-						</div>
 						
 					</div>
 
@@ -63,13 +62,25 @@
 		<?php // put whatever you want here as a pop up window, maybe footer info etc ?>
 		</div>
 <script>
-		var rjs_baseURL = "<?php echo get_stylesheet_directory_uri(); ?>/library/dist/js/libs/";
+		var rjs_baseURL = "<?php echo get_template_directory_uri(); ?>/library/dist/js/libs/";
 		var rjs_pluginURL = "<?php echo plugins_url(); ?>";
 </script>		
+<?php 
+// BIG DISTINCTION HERE - this is loading from the PARENT THEME and not the child theme, hence template_directory.  Generally the Javascript should be across all themes and not specific.
+// Remembering that we're developing in such a way that we know we might be touching all themes together, our child themes are locked down to development of the parents
+// so it's okay in the JS of the parent to maybe do some conditional loading or something
+// And if you want to override it just use a new footer.
+// <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js" defer></script> ?>
+<?php 
+	if (file_exists( get_stylesheet_directory() . "/extra-footer.php" )) {
+		include( get_stylesheet_directory() . "/extra-footer.php" );
+	}
+?>
 
 
-<script data-main="<?php echo get_stylesheet_directory_uri(); ?>/library/js/main-built.js" src="<?php echo get_stylesheet_directory_uri(); ?>/library/js/vendor/require.js" defer></script>		
+<script data-main="<?php echo get_template_directory_uri(); ?>/library/js/main.js" src="<?php echo get_template_directory_uri(); ?>/library/js/vendor/require.js" defer></script>		
 <script type="text/javascript" src="http://fast.fonts.net/jsapi/e4baf517-7128-4749-bbe6-cfc5fe4b4187.js" defer></script>
+
 <!-- Google Analytics -->
 <script>
 		  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -77,7 +88,7 @@
 		  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
 		  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-		  ga('create', '<?php echo GAPROPERTYID; ?>', 'auto');
+		  ga('create', <?php echo GAPROPERTYID; ?>, 'auto');
 		  ga('send', 'pageview');
 
 </script>

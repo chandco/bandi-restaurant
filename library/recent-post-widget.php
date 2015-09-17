@@ -158,9 +158,6 @@ class ita_recent_posts extends WP_Widget {
 				wp_reset_postdata();
 			echo "</ul>";
 		echo "</div>";
-
-		return "meep";
-
         
 		 
 		  

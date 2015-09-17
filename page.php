@@ -1,6 +1,5 @@
 <?php
 /*
- Template Name: Attached Images Carousel
  *
  * This is your custom page template. You can create as many of these as you need.
  * Simply name is "page-whatever.php" and in add the "Template Name" title at the
@@ -31,13 +30,13 @@
 								$atts = 
 								array(
 									'tag' => implode(',', $term_array),
-									'fill' => true
+									'fill' => false
 								);
 
 								?>
 								<div id="carousel" class='carousel'>  
 
-								<?php echo display_attached_images_carousel($atts); ?>
+								<?php echo display_attached_images_carousel($atts, true); ?>
 
 								</div>
 
@@ -46,23 +45,19 @@
 													
 								<div id="carousel" class='page-featured-image'>
 							
-									<?php echo responsive_image_thumbnail(null, 'featured-image'); ?>
+									<?php echo responsive_image_thumbnail(null, 'panorama'); ?>
 
 								</div>
 							<?php } ?>
 
 
-			<?php 
-			if (get_the_id() == 526) {
-				echo do_shortcode( '[gravityform id="1" title="true" description="false" ajax="true"]' );
-			} ?>
 			<div id="content" class='max-central'>
 
 				<div id="inner-content" class="wrap cf">
 
 						
+<?php get_template_part( 'content/page' ); ?>
 
-						<?php get_template_part( 'content/page' ); ?>
 
 						<?php // get_sidebar(); ?>
 
