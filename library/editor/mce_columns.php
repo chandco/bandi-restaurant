@@ -40,19 +40,19 @@ function cf_fix_broken_columns($content) {
 
 
 
-remove_filter( 'the_content', 'do_shortcode', 11 );
-remove_filter('the_content', 'wpautop');
+//remove_filter( 'the_content', 'do_shortcode', 11 );
+//remove_filter('the_content', 'wpautop');
 
 
 
-add_filter( 'the_content', 'cf_fix_broken_columns' , 1);
-add_filter('the_content', 'wpautop', 99);
-add_filter( 'the_content', 'cf_cleanup', 99 );
+//add_filter( 'the_content', 'cf_fix_broken_columns' , 1);
+// add_filter('the_content', 'wpautop', 99);
+//add_filter( 'the_content', 'cf_cleanup', 99 );
 
 
-add_filter( 'the_content', 'do_shortcode', 100 );
+//add_filter( 'the_content', 'do_shortcode', 100 );
 
-add_filter( 'the_content', 'cf_cleanup', 100 );
+//add_filter( 'the_content', 'cf_cleanup', 100 );
 
 
 function cf_cleanup($content) {
@@ -138,7 +138,7 @@ function shortcode_ed_columns($atts, $content = false) {
 
 	$content = str_replace($wrong_X, $right_X, $content);
 
-	$content = ($content);
+//	$content = ($content);
 
 	$array = array (
 	    '<p>[' => '[', 
@@ -152,7 +152,7 @@ function shortcode_ed_columns($atts, $content = false) {
 
 
 
- 	$content = strtr($content, $array);
+// 	$content = strtr($content, $array);
 
 	$output .= '<div class="row">' . do_shortcode( $content ) . '</div>';
 
@@ -199,7 +199,7 @@ function shortcode_ed_column($atts, $content) {
    
 
     
-	$output = '<div class="col-smart' . $wider . '">' . ( wpautop( do_shortcode( $content ) ) ) . '</div>';
+	$output = '<div class="col-smart' . $wider . '">' . ( ( do_shortcode( $content ) ) ) . '</div>';
 	return $output; 
 }
 

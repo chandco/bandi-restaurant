@@ -16,7 +16,7 @@ Based on Bones theme.  I'm modifying it to my own standards
 /*** SITE SETUP ***/
 # Update these things with whatever you need.  the GA is most important
 
-define('GAPROPERTYID','UA-XXXX-Y');
+//define('GAPROPERTYID','UA-XXXX-Y');
 
 
 // BEFORE LOAD CORE 
