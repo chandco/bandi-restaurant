@@ -43,9 +43,9 @@ function string_limit_words($string, $word_limit)
   return implode(' ', $words);
 }
 
-if (!strstr($_SERVER["HTTP_HOST"], "dev.chand.co")) {
-  require_once("library/minify-html.php");  
-}
+//if (!strstr($_SERVER["HTTP_HOST"], "dev.chand.co")) {
+  //require_once("library/minify-html.php");  
+//}
 
 
 require_once("library/mobile-detect/Mobile_Detect.php");
